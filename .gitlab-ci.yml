@@ -1,0 +1,28 @@
+stages:
+  - build
+  - deploy
+
+build_app:
+  stage: build
+  image: node:20-alpine
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+
+deploy_app:
+  stage: deploy
+  image: node:20-alpine
+  dependencies:
+    - build_app
+  only:
+    - main
+    - master
+  script:
+    - npx firebase-tools deploy --only hosting --token "$FIREBASE_TOKEN"
