@@ -19,3 +19,10 @@
         ├── Clients Component -> Set SEO Title, Description, and Keywords
         ├── Portfolio Component -> Set SEO Title, Description, and Keywords
         └── Contact Component -> Set SEO Title, Description, and Keywords
+
+[2026-06-02T14:09:00+05:30] Add frontend UI/UX, responsive design, and SEO guidelines to CLAUDE.md
+└── File: CLAUDE.md
+    ├── Choice: Structured developer guidelines for UI/UX excellence, mobile-first responsiveness, and SEO-UX cross-checks
+    └── Changes:
+        └── Developer Guide -> Add UI/UX, responsiveness, and SEO conventions in CLAUDE.md
+
