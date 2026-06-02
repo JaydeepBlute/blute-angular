@@ -1,0 +1,9 @@
+[2026-06-02T10:48:00+05:30] Configure hosting, GitLab CI/CD, and push to remote
+└── File: angular.json, Dockerfile, nginx.conf, firebase.json, .firebaserc, .gitlab-ci.yml
+    ├── Choice: GitLab CI/CD with Docker containerization and Firebase Hosting
+    └── Changes:
+        ├── Angular -> Increased bundle budget limits to allow production compilation
+        ├── Docker/Nginx -> Created multi-stage Docker build and Nginx SPA routing fallback
+        ├── Firebase -> Created configuration mapping static assets to dist/blute-app/browser
+        ├── GitLab CI/CD -> Added pipeline for building and deploying to Firebase Hosting
+        └── Remote Push -> Configured GitLab remote using token and pushed main branch
