@@ -65,3 +65,12 @@ Each route maps to a standalone component in its own directory under `src/app/`.
 - **Heading Hierarchy**: Maintain a clean outline hierarchy: exactly one `<h1>` per page, followed by sequential `<h2>`, `<h3>` tags.
 - **UX & Accessibility**: Verify that text contrast meets WCAG standards. Add descriptive `aria-label` tags for interactive elements and search engine indexability. Ensure buttons/links have interactive focus outlines.
 
+## Observability & Logging Requirements
+
+Every agent interaction or repository change must maintain standard project log files in the `logs/` directory:
+
+- **Change Log (`logs/change.log`)**: Whenever decisions are made or files are changed, update the ASCII decision tree in this file with a timestamp and file path.
+- **Memory Log (`logs/memory.log`)**: Store critical patterns, page/route listings, configurations, and long-term references. Update this whenever new components are added or architectural paradigms are updated.
+- **Audit Log (`logs/audit.log`)**: Record all terminal/bash commands executed during the task with a timestamp for structural audit trails.
+
+
