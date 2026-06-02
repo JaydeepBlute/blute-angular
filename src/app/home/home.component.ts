@@ -3,6 +3,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
+import { Meta, Title } from '@angular/platform-browser';
+
 interface Content {
   title: string;
   subtitle: string;
@@ -73,13 +75,17 @@ export class Home implements OnInit, OnDestroy {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private titleService: Title, private metaService: Meta) {}
 
   get currentContent(): Content {
     return this.content[this.currentIndex];
   }
 
   ngOnInit() {
+    this.titleService.setTitle('Blute Technologies - Digital Transformation & IT Solutions');
+    this.metaService.updateTag({ name: 'description', content: 'Blute Technologies accelerates digital transformation for enterprises. We build custom software, mobile apps, web solutions, IoT systems, and Agentic AI integrations.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'IT Solutions, Software Development, Digital Transformation, Mobile Apps, IoT Solutions, Agentic AI, Blute Technologies' });
+
     this.contentInterval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.content.length;
     }, 5000);

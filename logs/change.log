@@ -7,3 +7,15 @@
         ├── Firebase -> Created configuration mapping static assets to dist/blute-app/browser
         ├── GitLab CI/CD -> Added pipeline for building and deploying to Firebase Hosting
         └── Remote Push -> Configured GitLab remote using token and pushed main branch
+
+[2026-06-02T10:56:00+05:30] Add SEO Title and Meta tags to core pages
+└── File: home.component.ts, about.component.ts, team.component.ts, careers.component.ts, clients.component.ts, portfolio.component.ts, contact.component.ts
+    ├── Choice: Angular Title and Meta services for robust client-side SEO
+    └── Changes:
+        ├── Home Component -> Set SEO Title, Description, and Keywords
+        ├── About Component -> Set SEO Title, Description, and Keywords
+        ├── Team Component -> Set SEO Title, Description, and Keywords
+        ├── Careers Component -> Set SEO Title, Description, and Keywords
+        ├── Clients Component -> Set SEO Title, Description, and Keywords
+        ├── Portfolio Component -> Set SEO Title, Description, and Keywords
+        └── Contact Component -> Set SEO Title, Description, and Keywords

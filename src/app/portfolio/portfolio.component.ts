@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+import { Meta, Title } from '@angular/platform-browser';
 
 export interface PortfolioImage {
   src: string;
@@ -62,6 +63,8 @@ export interface HeroParticle {
   ],
 })
 export class PortfolioComponent implements OnInit, OnDestroy {
+  constructor(private titleService: Title, private metaService: Meta) {}
+
   // Fallback: if .jpeg fails, try .jpg
   onImgError(event: Event): void {
     const img = event.target as HTMLImageElement;
@@ -187,6 +190,10 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit(): void {
+    this.titleService.setTitle('Our Portfolio - Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Browse our portfolio of completed projects. We deliver scalable, high-performance technology solutions across various industries.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies Portfolio, IT Case Studies, Custom Software Projects, Enterprise Portfolios' });
+
     this.images = Array.from({ length: 22 }, (_, i) => ({
       src: `assets/images/clients/image%20${i + 1}.${this.imgExts[i]}`,
       alt: `Portfolio Image ${i + 1}`,

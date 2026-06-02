@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, OnInit, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface Job {
   title: string;
@@ -22,7 +23,14 @@ interface Job {
   templateUrl: './careers.component.html',
   styleUrls: ['./careers.component.scss'],
 })
-export class CareersComponent {
+export class CareersComponent implements OnInit {
+  constructor(private titleService: Title, private metaService: Meta) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Careers - Join Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Explore career opportunities at Blute Technologies. Join our team and help build transformative web, mobile, cloud, and AI solutions.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Careers at Blute Technologies, Job Openings Bangalore, Angular Jobs, DevOps Jobs' });
+  }
   activeFilter = 'All';
 
   heroStats = [

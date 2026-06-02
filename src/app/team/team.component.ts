@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface TeamMember {
   name: string;
@@ -20,7 +21,14 @@ interface TeamMember {
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss'],
 })
-export class TeamComponent {
+export class TeamComponent implements OnInit {
+  constructor(private titleService: Title, private metaService: Meta) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Our Team - Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Meet the talented and passionate team at Blute Technologies behind our innovative IT and enterprise-class solutions.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies Founders, Engineering Team, IT Professionals Bangalore' });
+  }
   // Floating particles data
   particles = Array.from({ length: 18 }, (_, i) => ({
     x: Math.random() * 100 + '%',

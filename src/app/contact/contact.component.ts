@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +10,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   submitted = false;
   successMessage = '';
@@ -43,7 +44,7 @@ export class ContactComponent {
     { name: 'Instagram', url: 'https://instagram.com/blutetechnologies', icon: 'instagram' },
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private titleService: Title, private metaService: Meta) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -51,6 +52,12 @@ export class ContactComponent {
       subject: ['', Validators.required],
       message: ['', [Validators.required, Validators.minLength(10)]],
     });
+  }
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Contact Us - Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Get in touch with Blute Technologies. Contact our offices to discuss your next software, mobile app, or digital transformation project.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Contact Blute Technologies, Office Location Bangalore, IT Consulting Inquiry' });
   }
 
   get f() {

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface Client {
   name: string;
@@ -16,7 +17,14 @@ interface Client {
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss'],
 })
-export class ClientsComponent {
+export class ClientsComponent implements OnInit {
+  constructor(private titleService: Title, private metaService: Meta) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Our Clients - Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Discover the companies that trust Blute Technologies for their digital transformation, software engineering, and consulting needs.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies Clients, Software Client Testimonials, Tech Partners Bangalore' });
+  }
   activeIndustry = 'All';
 
   stats = [

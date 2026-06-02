@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 interface Stat {
   value: string;
@@ -35,9 +36,13 @@ interface Benefit {
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private titleService: Title, private metaService: Meta) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle('About Us - Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Learn about Blute Technologies, our mission, vision, approach, and how we help enterprises accelerate the adoption of latest technologies.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'About Blute Technologies, Tech Mission, Digital Transformation Team, IT Consulting Partner' });
+
     this.initScrollAnimations();
     this.initHeroCanvas();
   }
