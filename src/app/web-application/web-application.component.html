@@ -1,0 +1,309 @@
+<div class="min-h-screen bg-white text-gray-800 font-sans overflow-x-hidden">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="wa-hero">
+    <div class="absolute inset-0"
+      style="background: linear-gradient(160deg,#ffffff 0%,#e8f8f8 40%,#d0f0f0 75%,#c2eaea 100%);"></div>
+    <div class="absolute inset-0"
+      style="background: radial-gradient(ellipse 550px 450px at 85% 20%,rgba(0,200,200,0.08),transparent), radial-gradient(ellipse 350px 350px at 10% 85%,rgba(0,180,180,0.06),transparent); pointer-events:none;">
+    </div>
+
+    <div class="wa-hero__wrap">
+      <!-- Left -->
+      <div @fadeInLeft>
+        <div class="wa-badge"><span class="wa-badge__dot"></span> Web Application Development</div>
+        <h1 class="wa-hero__h1">
+          Build Powerful<br>
+          <span class="wa-hl">Web Experiences.</span>
+        </h1>
+        <p class="wa-hero__p">
+          From pixel-perfect UIs to robust backends — we craft modern, scalable web applications using Angular, React,
+          and cloud-native stacks that delight users and drive business growth.
+        </p>
+        <!-- Tech pills -->
+        <div class="wa-pills">
+          <span class="wa-pill" *ngFor="let t of techPills">{{ t }}</span>
+        </div>
+   
+      </div>
+
+      <!-- Right Visual -->
+      <div @fadeInRight class="wa-hero__visual-wrap">
+        <div class="wa-visual">
+
+          <!-- Glow blobs behind everything -->
+          <div class="wa-blob wa-blob--teal"></div>
+          <div class="wa-blob wa-blob--indigo"></div>
+
+          <!-- ── Main card: Browser window ── -->
+          <div class="wa-main-card">
+            <!-- Browser chrome -->
+            <div class="wa-browser-bar">
+              <div class="wa-browser-dots">
+                <span class="wa-dot wa-dot--r"></span>
+                <span class="wa-dot wa-dot--a"></span>
+                <span class="wa-dot wa-dot--g"></span>
+              </div>
+              <div class="wa-browser-url">
+                <span class="wa-lock-icon">🔒</span>
+                <span class="wa-url-text">app.blute.io/dashboard</span>
+              </div>
+              <div class="wa-browser-actions">
+                <span></span><span></span>
+              </div>
+            </div>
+
+            <!-- Split screen: left = code, right = preview -->
+            <div class="wa-split">
+
+              <!-- Left: Live code editor -->
+              <div class="wa-editor">
+                
+                <div class="wa-editor__body">
+                  <div class="wa-line-nums">
+                    <span *ngFor="let n of lineNums">{{ n }}</span>
+                  </div>
+                  <div class="wa-code-area">
+                    <div class="wa-typed-line"><span class="wc-gray">1 </span><span
+                        class="wc-purple">@Component</span><span class="wc-white">(&#123;</span></div>
+                    <div class="wa-typed-line wa-typed-line--d1"><span class="wc-gray">2 </span>&nbsp;&nbsp;<span
+                        class="wc-teal">selector</span><span class="wc-white">:</span> <span
+                        class="wc-green">'app-root'</span><span class="wc-white">,</span></div>
+                    <div class="wa-typed-line wa-typed-line--d2"><span class="wc-gray">3 </span>&nbsp;&nbsp;<span
+                        class="wc-teal">standalone</span><span class="wc-white">:</span> <span
+                        class="wc-amber">true</span><span class="wc-white">,</span></div>
+                    <div class="wa-typed-line wa-typed-line--d3"><span class="wc-gray">4 </span>&nbsp;&nbsp;<span
+                        class="wc-teal">template</span><span class="wc-white">:</span> <span class="wc-green">`</span>
+                    </div>
+                    <div class="wa-typed-line wa-typed-line--d4"><span class="wc-gray">5
+                      </span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wc-white">&lt;</span><span class="wc-red">div</span>
+                      <span class="wc-teal">class</span><span class="wc-white">=</span><span
+                        class="wc-green">"app"</span><span class="wc-white">&gt;</span></div>
+                    <div class="wa-typed-line wa-typed-line--d5"><span class="wc-gray">6
+                      </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wc-white">&lt;</span><span
+                        class="wc-red">h1</span><span class="wc-white">&gt;</span><span class="wc-white">Hello
+                        World</span><span class="wc-white">&lt;/</span><span class="wc-red">h1</span><span
+                        class="wc-white">&gt;</span></div>
+                    <div class="wa-typed-line wa-typed-line--d6"><span class="wc-gray">7
+                      </span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="wc-white">&lt;/</span><span
+                        class="wc-red">div</span><span class="wc-white">&gt;</span></div>
+                    <div class="wa-typed-line wa-typed-line--d7"><span class="wc-gray">8 </span>&nbsp;&nbsp;<span
+                        class="wc-green">`</span></div>
+                    <div class="wa-typed-line wa-typed-line--d8"><span class="wc-gray">9 </span><span
+                        class="wc-white">&#125;)</span></div>
+                    <div class="wa-cursor-line">
+                      <span class="wc-gray">10 </span><span class="wc-purple">export</span> <span
+                        class="wc-cyan">class</span> <span class="wc-amber">AppComponent</span> <span
+                        class="wc-white">&#123;</span><span class="wa-blink-cursor"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Live preview -->
+              <div class="wa-preview">
+                <div class="wa-preview__header">
+                  <span class="wa-preview__label">🔴 Live Preview</span>
+                  <span class="wa-preview__ping"></span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=85" alt="App preview"
+                  class="wa-preview__img" />
+                <div class="wa-preview__overlay"></div>
+                <!-- Floating UI on preview -->
+                <div class="wa-preview__ui">
+                  <div class="wa-ui-bar"></div>
+                  <div class="wa-ui-bar wa-ui-bar--sm"></div>
+                  <div class="wa-ui-cards">
+                    <div class="wa-ui-card wa-ui-card--teal"></div>
+                    <div class="wa-ui-card wa-ui-card--indigo"></div>
+                  </div>
+                </div>
+                <div class="wa-preview__scan"></div>
+              </div>
+
+            </div>
+
+            <!-- Bottom status bar -->
+            <div class="wa-statusbar">
+              <span class="wa-statusbar__dot"></span>
+              <span class="wa-statusbar__text">✓ Compiled successfully &nbsp;·&nbsp; Angular 17 &nbsp;·&nbsp; TypeScript
+                5.2</span>
+              <span class="wa-statusbar__branch">⎇ main</span>
+            </div>
+          </div>
+
+          <!-- ── Floating metric chips ── -->
+          <div class="wa-chip wa-chip--perf">
+            <div class="wa-chip__icon">⚡</div>
+            <div>
+              <p class="wa-chip__title">98 Perf Score</p>
+              <p class="wa-chip__sub">Lighthouse audit</p>
+            </div>
+          </div>
+
+          <div class="wa-chip wa-chip--deploy">
+            <div class="wa-chip__icon">🚀</div>
+            <div>
+              <p class="wa-chip__title">Deployed to k8s</p>
+              <p class="wa-chip__sub">v2.4.1 · 99.9% uptime</p>
+            </div>
+          </div>
+
+          <div class="wa-chip wa-chip--users">
+            <div class="wa-chip__icon">👥</div>
+            <div>
+              <p class="wa-chip__title">1.2M+ Users</p>
+              <p class="wa-chip__sub">Across 40 countries</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════ SERVICES ═══════════ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" @fadeInUp>
+        <h2 class="text-4xl font-bold mb-4 text-gray-900">
+          What We <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">Build For
+            You</span>
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">End-to-end web application development — from design systems to cloud
+          deployment.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" @staggerList>
+        <div *ngFor="let svc of services"
+          class="stagger-item group bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer
+                 hover:border-teal-400/60 hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-200/50 transition-all duration-300">
+          <div class="h-44 overflow-hidden relative">
+            <img [src]="svc.img" [alt]="svc.title"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-3 left-4 text-3xl">{{ svc.icon }}</div>
+          </div>
+          <div class="p-5">
+            <h3
+              class="text-base font-semibold mb-2 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
+              {{ svc.title }}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ svc.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHY US ═══════════ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div @fadeInLeft class="relative">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=85" alt="Web team"
+          class="w-full h-[420px] object-cover rounded-2xl shadow-xl" />
+      
+      </div>
+      <div @fadeInRight>
+        <h2 class="text-4xl font-bold mb-6 text-gray-900">
+          Why Choose <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">Blute for
+            Web Apps?</span>
+        </h2>
+        <div class="space-y-4">
+          <div *ngFor="let w of whyItems" class="flex gap-4 items-start group p-4 rounded-xl border border-gray-100
+                   hover:border-teal-300 hover:bg-teal-50/40 hover:translate-x-1 transition-all duration-300">
+            <div class="w-11 h-11 flex-shrink-0 rounded-xl flex items-center justify-center text-xl"
+              [style.background]="w.bg">{{ w.icon }}</div>
+            <div>
+              <h4 class="font-semibold mb-1 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">{{
+                w.title }}</h4>
+              <p class="text-gray-500 text-sm">{{ w.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TECH STACK ═══════════ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" @fadeInUp>
+        <h2 class="text-4xl font-bold mb-4 text-gray-900">
+          Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">Tech Stack</span>
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Battle-tested technologies chosen for performance, scalability, and
+          developer experience.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6" @staggerList>
+        <div *ngFor="let tech of techStack"
+          class="stagger-item flex flex-col items-center gap-3 p-6 bg-white border border-gray-200 rounded-2xl
+                 hover:border-teal-400/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+          <span class="text-4xl">{{ tech.icon }}</span>
+          <span class="font-semibold text-gray-800 group-hover:text-teal-600 transition-colors text-sm">{{ tech.name
+            }}</span>
+          <span class="text-xs text-gray-400 text-center">{{ tech.desc }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DASHBOARD MOCKUP ═══════════ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div @fadeInLeft>
+        <h2 class="text-4xl font-bold mb-4 text-gray-900">
+          Real-Time <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">App
+            Performance</span>
+        </h2>
+        <p class="text-gray-500 mb-8 leading-relaxed">
+          Every app we build ships with live monitoring, performance analytics, and error tracking baked in from day
+          one.
+        </p>
+        <ul class="space-y-3">
+          <li *ngFor="let f of features" class="flex items-center gap-3 text-gray-600 text-sm">
+            <span
+              class="w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 text-xs font-bold flex-shrink-0">✓</span>
+            {{ f }}
+          </li>
+        </ul>
+      </div>
+      <div @fadeInRight>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-xl shadow-teal-100/50">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-sm font-semibold text-gray-700">App Analytics Dashboard</span>
+            <span class="flex items-center gap-1.5 text-xs text-green-500 font-medium">
+              <span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span> Live
+            </span>
+          </div>
+          <div class="space-y-4 mb-5">
+            <div *ngFor="let bar of dashBars">
+              <div class="flex justify-between text-xs text-gray-500 mb-1">
+                <span class="flex items-center gap-1.5"><span>{{ bar.icon }}</span> {{ bar.label }}</span>
+                <span class="font-semibold" [style.color]="bar.labelColor">{{ bar.val }}</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full rounded-full transition-all duration-1000" [style.width.%]="bar.pct"
+                  [style.background]="bar.color"></div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 bg-teal-50 border border-teal-200 rounded-lg px-3 py-2 text-xs">
+              <span>🚀</span><span class="text-gray-600">New build deployed — v3.1.0</span>
+              <span class="ml-auto text-gray-400">2s ago</span>
+            </div>
+            <div class="flex items-center gap-3 bg-green-50 border border-green-200 rounded-lg px-3 py-2 text-xs">
+              <span>✅</span><span class="text-gray-600">All health checks passed</span>
+              <span class="ml-auto text-gray-400">1m ago</span>
+            </div>
+            <div class="flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2 text-xs">
+              <span>📈</span><span class="text-gray-600">Traffic spike handled — auto-scaled</span>
+              <span class="ml-auto text-gray-400">4m ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

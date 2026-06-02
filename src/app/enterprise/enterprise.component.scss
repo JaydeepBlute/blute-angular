@@ -1,0 +1,288 @@
+// Required for Tailwind v4 in component scss files
+
+// ── Hero background (matches your dark navy theme)
+.hero-bg {
+  background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+}
+
+// ── Dot grid overlay (like in your screenshots)
+.dot-grid-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+// ── Gradient text (teal → cyan, matching your brand)
+.text-gradient-teal {
+  background: linear-gradient(135deg, #2dd4bf, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ── Buttons
+.btn-primary {
+  @apply flex items-center bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-white font-bold px-7 py-3.5 rounded-xl transition-all duration-200 hover:-translate-y-1 shadow-lg;
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.35);
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(20, 184, 166, 0.5);
+  }
+}
+
+.btn-secondary {
+  @apply border border-white/25 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/8 transition-all duration-200 hover:-translate-y-1;
+}
+
+// ── Tech card (hero floating cards)
+.tech-card {
+  @apply bg-slate-800/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl min-w-[140px];
+}
+
+// ── Tech badge variants
+.tech-badge {
+  @apply text-xs px-2.5 py-1 bg-teal-500/20 text-teal-300 rounded-full font-medium;
+}
+
+.tech-badge-blue {
+  @apply text-xs px-2.5 py-1 bg-blue-500/20 text-blue-300 rounded-full font-medium;
+}
+
+.tech-badge-purple {
+  @apply text-xs px-2.5 py-1 bg-indigo-500/20 text-indigo-300 rounded-full font-medium;
+}
+
+.tech-badge-cyan {
+  @apply text-xs px-2.5 py-1 bg-cyan-500/20 text-cyan-300 rounded-full font-medium;
+}
+
+// ── Scroll reveal
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── Animations
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+
+  to {
+    transform: translateY(-28px) scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+@keyframes cardFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ringSpinCW {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ringSpinCCW {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulseSlow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulseSlow2 {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroTextEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroCardsEnter {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ── Animation utility classes
+.animate-pulse-slow {
+  animation: pulseSlow 5s ease-in-out infinite;
+}
+
+.animate-pulse-slow2 {
+  animation: pulseSlow2 7s ease-in-out infinite;
+}
+
+.card-float {
+  animation: cardFloat 4s ease-in-out infinite;
+}
+
+.ring-spin {
+  animation: ringSpinCW 22s linear infinite;
+}
+
+.ring-spin-reverse {
+  animation: ringSpinCCW 16s linear infinite;
+}
+
+.hero-text-enter {
+  animation: heroTextEnter 0.8s ease forwards;
+}
+
+.hero-cards-enter {
+  animation: heroCardsEnter 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+ @keyframes badgePop {
+   from {
+     opacity: 0;
+     transform: scale(0.7) translateY(-10px);
+   }
+
+   to {
+     opacity: 1;
+     transform: scale(1) translateY(0);
+   }
+ }
+
+ @keyframes lineGrow {
+   from {
+     width: 0;
+   }
+
+   to {
+     width: 100%;
+   }
+ }
+
+ @keyframes fadeSlideUp {
+   from {
+     opacity: 0;
+     transform: translateY(20px);
+   }
+
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+
+ @keyframes panelFloat {
+
+   0%,
+   100% {
+     transform: translateY(0);
+   }
+
+   50% {
+     transform: translateY(-10px);
+   }
+ }
+
+ @keyframes hubPulse {
+   0% {
+     transform: scale(1);
+     opacity: 0.8;
+   }
+
+   100% {
+     transform: scale(2.2);
+     opacity: 0;
+   }
+ }
+
+ @keyframes statusBlink {
+
+   0%,
+   100% {
+     opacity: 1;
+   }
+
+   50% {
+     opacity: 0.3;
+   }
+ }
+
+ @keyframes floatBadge {
+
+   0%,
+   100% {
+     transform: translateY(0);
+   }
+
+   50% {
+     transform: translateY(-8px);
+   }
+ }
+
+ @keyframes scrollBounce {
+
+   0%,
+   100% {
+     transform: translateX(-50%) translateY(0);
+   }
+
+   50% {
+     transform: translateX(-50%) translateY(6px);
+   }
+ }

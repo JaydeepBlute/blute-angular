@@ -1,0 +1,138 @@
+
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-wrap">
+    <!-- LEFT -->
+    <div class="hero-left" [@fadeUp]>
+      <div class="badge">
+        <span class="badge-dot"></span> IT Consulting
+      </div>
+
+      <h1 class="hero-h1">
+        Smart IT.<br />
+        <span class="hl">Real Results.</span>
+      </h1>
+
+      <p class="hero-p">
+        We align technology with your business goals —
+        reducing risk, cutting costs, and driving growth.
+      </p>
+
+    
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right" [@slideRight]>
+      <div class="hero-card-main">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=720&q=85" alt="IT Consulting"
+          class="hero-img" />
+        <div class="hero-img-grad"></div>
+
+        <div class="chip chip-tl" [@popIn]>
+          <span class="chip-ico">📈</span>
+          <div>
+            <b>3.2× ROI</b>
+            <p>Avg. client return</p>
+          </div>
+        </div>
+
+        <div class="chip chip-br" [@popIn]>
+          <span class="chip-ico">⭐</span>
+          <div>
+            <b>4.9 / 5.0</b>
+            <p>Client satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section class="services-sec" #servicesRef>
+  <div class="container">
+    <div class="sec-head" [@fadeUp2]="vis ? 'in' : 'out'">
+      <span class="pill-tag">What We Do</span>
+      <h2>Our Consulting <span class="hl">Services</span></h2>
+      <p>End-to-end technology advisory for every business challenge.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-card" *ngFor="let s of services; let i = index" [@cardUp]="vis ? 'in' : 'out'"
+        [style.transition-delay]="i * 0.09 + 's'" (mouseenter)="s.hov = true" (mouseleave)="s.hov = false"
+        [class.active]="s.hov">
+        <div class="svc-top" [style.background]="s.bg">
+          <img [src]="s.img" [alt]="s.title" class="svc-img" />
+          <div class="svc-icon-pill" [style.background]="s.iconBg">{{ s.icon }}</div>
+        </div>
+        <div class="svc-body">
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.desc }}</p>
+          <a class="svc-cta" [style.color]="s.color">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY US ═══════════ -->
+<section class="why-sec">
+  <div class="container why-grid">
+    <div class="why-img-col" [@slideLeft]="vis ? 'in' : 'out'">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=85" alt="Strategy"
+        class="why-img" />
+      <div class="why-float-card" [@popIn2]="vis ? 'in' : 'out'">
+        <span class="why-fc-ico">💡</span>
+        <div>
+          <b>Expert-Led Strategy</b>
+          <p>15+ yrs avg. experience</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-content" [@slideRight2]="vis ? 'in' : 'out'">
+      <span class="pill-tag">Why Choose Us</span>
+      <h2>Your Trusted <span class="hl">Tech Partner</span></h2>
+      <p class="why-sub">We don't just advise — we partner with you from strategy to execution.</p>
+
+      <div class="why-list">
+        <div class="why-row" *ngFor="let w of whyItems; let i = index" [@staggerUp]="vis ? 'in' : 'out'"
+          [style.transition-delay]="i * 0.1 + 's'">
+          <div class="why-ico" [style.background]="w.bg">{{ w.icon }}</div>
+          <div>
+            <b>{{ w.title }}</b>
+            <p>{{ w.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section class="process-sec">
+  <div class="container">
+    <div class="sec-head" [@fadeUp2]="vis ? 'in' : 'out'">
+      <span class="pill-tag">How We Work</span>
+      <h2>Our <span class="hl">Process</span></h2>
+    </div>
+
+    <div class="process-track">
+      <div class="process-line"></div>
+      <div class="process-node" *ngFor="let step of steps; let i = index" [@stepPop]="vis ? 'in' : 'out'"
+        [style.transition-delay]="i * 0.13 + 's'">
+        <div class="pn-circle" [style.background]="step.color">{{ step.num }}</div>
+        <div class="pn-img-wrap">
+          <img [src]="step.img" [alt]="step.title" class="pn-img" />
+        </div>
+        <h4>{{ step.title }}</h4>
+        <p>{{ step.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+

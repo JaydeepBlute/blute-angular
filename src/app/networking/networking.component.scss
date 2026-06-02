@@ -1,0 +1,598 @@
+// ═══════════════════════════════════════════
+// NETWORKING PAGE — SCSS
+// ═══════════════════════════════════════════
+
+$teal: #14b8a6;
+$cyan: #0ea5e9;
+$amber: #f59e0b;
+$green: #4ade80;
+$dark: #0f172a;
+$muted: #94a3b8;
+
+// ── Keyframes ──────────────────────────────
+
+// Stacked cards float at different offsets
+@keyframes stackFloat1 {
+
+  0%,
+  100% {
+    transform: translate(-28px, -12px) rotate(-5deg);
+  }
+
+  50% {
+    transform: translate(-28px, -22px) rotate(-5deg);
+  }
+}
+
+@keyframes stackFloat2 {
+
+  0%,
+  100% {
+    transform: translate(-10px, -4px) rotate(-2deg);
+  }
+
+  50% {
+    transform: translate(-10px, -14px) rotate(-2deg);
+  }
+}
+
+@keyframes stackFloat3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(0, -12px) rotate(1deg);
+  }
+}
+
+// Node pulse expand
+@keyframes nodeRingExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+// Scan line sweep
+@keyframes scanSweep {
+  0% {
+    top: 0%;
+    opacity: 0.9;
+  }
+
+  48% {
+    opacity: 0.6;
+  }
+
+  50% {
+    top: 100%;
+    opacity: 0;
+  }
+
+  51% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  55% {
+    opacity: 0.9;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+// Travelling dot along SVG path
+@keyframes travelLine1 {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes travelLine2 {
+  0% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+}
+
+// Status bar
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    background: rgba(10, 20, 40, 0.82);
+  }
+
+  50% {
+    background: rgba(10, 20, 40, 0.95);
+  }
+}
+
+@keyframes dotBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 6px $green;
+  }
+
+  50% {
+    opacity: 0.3;
+    box-shadow: none;
+  }
+}
+
+@keyframes pingRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+// Chips
+@keyframes chipInRight {
+  from {
+    opacity: 0;
+    transform: translateX(28px) scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes chipInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-28px) scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes chipFloatA {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-11px);
+  }
+}
+
+@keyframes chipFloatB {
+  from {
+    transform: translateY(-7px);
+  }
+
+  to {
+    transform: translateY(9px);
+  }
+}
+
+// Why-us float card
+@keyframes whyCardFloat {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+// ── Hero Visual Wrapper ─────────────────────
+.net-hero-visual {
+  position: relative;
+  width: 440px;
+  height: 440px;
+
+  // ── Stacked image cards ──
+  .net-img-stack {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .net-img-card {
+    position: absolute;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg,
+          rgba(10, 20, 40, 0.5) 0%,
+          rgba(10, 20, 40, 0.05) 50%,
+          rgba($teal, 0.18) 100%);
+    }
+
+    &--back {
+      width: 220px;
+      height: 160px;
+      z-index: 1;
+      opacity: 0.55;
+      filter: blur(1px);
+      animation: stackFloat1 5s ease-in-out infinite;
+    }
+
+    &--mid {
+      width: 240px;
+      height: 180px;
+      z-index: 2;
+      opacity: 0.75;
+      animation: stackFloat2 5s ease-in-out infinite;
+    }
+
+    &--front {
+      width: 260px;
+      height: 200px;
+      z-index: 3;
+      animation: stackFloat3 5s ease-in-out infinite;
+    }
+  }
+
+  // Scan line (on front card only)
+  .net-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba($teal, 0.75), transparent);
+    animation: scanSweep 2.8s linear infinite;
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  // Status bar
+  .net-card-status {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+    animation: statusPulse 3s ease-in-out infinite;
+    z-index: 5;
+
+    .net-status-dot {
+      width: 7px;
+      height: 7px;
+      background: $green;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: dotBlink 2s ease-in-out infinite;
+    }
+
+    .net-status-label {
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      flex: 1;
+    }
+
+    .net-status-ping {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid rgba($teal, 0.7);
+      animation: pingRipple 1.8s ease-out infinite;
+    }
+  }
+
+  // ── Connection nodes (corners) ──
+  .net-node {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+
+    &--tl {
+      top: 48px;
+      left: 38px;
+    }
+
+    &--tr {
+      top: 60px;
+      right: 34px;
+    }
+
+    &--bl {
+      bottom: 55px;
+      left: 42px;
+    }
+
+    &--br {
+      bottom: 62px;
+      right: 38px;
+    }
+
+    &__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: $teal;
+      box-shadow: 0 0 8px rgba($teal, 0.7);
+      position: relative;
+      z-index: 2;
+
+      &--cyan {
+        background: $cyan;
+        box-shadow: 0 0 8px rgba($cyan, 0.7);
+      }
+
+      &--amber {
+        background: $amber;
+        box-shadow: 0 0 8px rgba($amber, 0.7);
+      }
+    }
+
+    &__ring {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid rgba($teal, 0.6);
+      animation: nodeRingExpand 2s ease-out infinite;
+
+      &--delay {
+        animation-delay: 1s;
+      }
+
+      &--cyan {
+        border-color: rgba($cyan, 0.6);
+      }
+
+      &--amber {
+        border-color: rgba($amber, 0.6);
+      }
+    }
+  }
+
+  // ── SVG connection lines ──
+  .net-svg-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+  }
+
+  .net-line {
+    stroke-width: 1;
+    stroke-dasharray: 4 6;
+
+    &--1 {
+      stroke: rgba($teal, 0.35);
+      animation: none;
+    }
+
+    &--2 {
+      stroke: rgba($cyan, 0.30);
+    }
+
+    &--3 {
+      stroke: rgba($amber, 0.28);
+    }
+
+    &--4 {
+      stroke: rgba($teal, 0.25);
+    }
+  }
+
+  // Travelling dots via offset-path
+  .net-travel-dot {
+    fill: $teal;
+    filter: drop-shadow(0 0 4px $teal);
+
+    &--1 {
+      offset-path: path("M50,60 L210,170");
+      animation: travelLine1 2.5s ease-in-out infinite;
+    }
+
+    &--2 {
+      fill: $cyan;
+      filter: drop-shadow(0 0 4px $cyan);
+      offset-path: path("M370,80 L210,170");
+      animation: travelLine2 3s ease-in-out infinite 0.8s;
+    }
+
+    &--3 {
+      fill: $amber;
+      filter: drop-shadow(0 0 4px $amber);
+      offset-path: path("M60,360 L210,250");
+      animation: travelLine1 2.8s ease-in-out infinite 1.5s;
+    }
+  }
+
+  // ── Chips ──
+  .net-chip {
+    position: absolute;
+    background: $dark;
+    border-radius: 14px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 162px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+    z-index: 7;
+
+    &__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+
+    &__title {
+      font-size: 11px;
+      font-weight: 700;
+      margin: 0 0 2px;
+    }
+
+    &__sub {
+      color: $muted;
+      font-size: 10px;
+      margin: 0;
+    }
+
+    &--uptime {
+      top: 18px;
+      right: -14px;
+      border: 1px solid rgba($teal, 0.4);
+      animation: chipInRight 0.7s ease-out 0.3s both,
+        chipFloatA 3.5s ease-in-out infinite alternate;
+
+      .net-chip__icon {
+        background: rgba($teal, 0.14);
+      }
+
+      .net-chip__title {
+        color: $teal;
+      }
+    }
+
+    &--speed {
+      top: 50%;
+      right: -22px;
+      transform: translateY(-50%);
+      border: 1px solid rgba($cyan, 0.4);
+      animation: chipInRight 0.7s ease-out 0.55s both,
+        chipFloatB 4s ease-in-out infinite alternate;
+
+      .net-chip__icon {
+        background: rgba($cyan, 0.14);
+      }
+
+      .net-chip__title {
+        color: $cyan;
+      }
+    }
+
+    &--nodes {
+      bottom: 18px;
+      left: -14px;
+      border: 1px solid rgba($amber, 0.4);
+      animation: chipInLeft 0.7s ease-out 0.8s both,
+        chipFloatA 4.5s ease-in-out infinite alternate;
+
+      .net-chip__icon {
+        background: rgba($amber, 0.14);
+      }
+
+      .net-chip__title {
+        color: $amber;
+      }
+    }
+  }
+}
+
+// ── Why-us floating badge ───────────────────
+.why-float-badge {
+  animation: whyCardFloat 4s ease-in-out infinite alternate;
+}
+
+// ── Service card hover ──────────────────────
+.svc-card-net {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s, border-color 0.3s;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 52px rgba($teal, 0.13);
+    border-color: rgba($teal, 0.45);
+  }
+}
+
+// ── Why-us row hover ────────────────────────
+.why-row-net {
+  transition: all 0.3s;
+
+  &:hover {
+    border-color: rgba($teal, 0.45);
+    box-shadow: 0 6px 20px rgba($teal, 0.1);
+    transform: translateX(5px);
+  }
+}
+
+// ── FAQ ─────────────────────────────────────
+.faq-net {
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:hover,
+  &.open {
+    border-color: rgba($teal, 0.45);
+    box-shadow: 0 4px 16px rgba($teal, 0.08);
+  }
+}

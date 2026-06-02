@@ -1,0 +1,228 @@
+
+
+<!-- ══ HERO ══ -->
+<section
+  class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-24 min-h-screen flex items-center">
+  <div class="absolute inset-0 opacity-[0.05]"
+    style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px); background-size: 40px 40px;">
+  </div>
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-rose-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center w-full">
+
+    <!-- Left — 3-D magnetic slide -->
+    <div *ngIf="isVisible" @magnetLeft>
+      <div class="inline-flex items-center gap-2 bg-red-400/10 border border-red-400/20 rounded-full px-4 py-1.5 mb-6">
+        <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+        <span class="text-red-300 text-xs font-semibold tracking-widest uppercase">Healthcare & Pharma — IT
+          Solutions</span>
+      </div>
+
+      <!-- Clip-reveal headline -->
+      <h1 *ngIf="isVisible" @heroTitle class="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        Transforming Healthcare
+        <span class="bg-gradient-to-r from-red-400 to-rose-400 bg-clip-text text-transparent">
+          Through Technology
+        </span>
+      </h1>
+
+      <p *ngIf="isVisible" @neonWipe class="text-white/50 text-lg leading-relaxed mb-8 max-w-lg">
+        Blute Technologies builds secure, compliant, and scalable IT solutions for hospitals, clinics, and pharma
+        companies — from EHR systems and telemedicine platforms to AI-driven clinical decision support.
+      </p>
+
+    </div>
+
+    <!-- Right — 3-D magnetic slide (opposite direction) -->
+    <div *ngIf="isVisible" @magnetRight class="hidden lg:flex justify-center">
+      <div class="relative w-96 h-80">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-56 h-56 rounded-3xl rotate-6 opacity-40 animate-pulse"
+            style="background: linear-gradient(135deg, #ef4444, #f43f5e)"></div>
+        </div>
+        <!-- Card 1 -->
+        <div class="absolute top-0 left-0 rounded-2xl px-4 py-3 animate-bounce shadow-2xl border border-red-400/30"
+          style="animation-duration:3s; background: linear-gradient(135deg,rgba(239,68,68,.85),rgba(244,63,94,.75)); backdrop-filter:blur(12px);">
+          <div class="text-xs font-bold text-red-100 uppercase tracking-wide mb-1.5">Compliance</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">HIPAA</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">HL7</span>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div
+          class="absolute bottom-4 right-0 rounded-2xl px-4 py-3 animate-bounce shadow-2xl border border-indigo-400/30"
+          style="animation-duration:4s; animation-delay:1s; background: linear-gradient(135deg,rgba(99,102,241,.85),rgba(139,92,246,.75)); backdrop-filter:blur(12px);">
+          <div class="text-xs font-bold text-indigo-100 uppercase tracking-wide mb-1.5">Integrations</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">Epic EHR</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">FHIR</span>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div
+          class="absolute top-1/2 right-2 -translate-y-1/2 rounded-2xl px-4 py-3 animate-bounce shadow-2xl border border-blue-400/30"
+          style="animation-duration:3.5s; animation-delay:.5s; background: linear-gradient(135deg,rgba(37,99,235,.85),rgba(14,165,233,.75)); backdrop-filter:blur(12px);">
+          <div class="text-xs font-bold text-blue-100 uppercase tracking-wide mb-1.5">AI Powered</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">ML</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">NLP</span>
+          </div>
+        </div>
+        <!-- Centre icon -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-20 h-20 rounded-2xl shadow-2xl flex items-center justify-center border border-red-400/40"
+            style="background: linear-gradient(135deg,rgba(239,68,68,.9),rgba(244,63,94,.8)); backdrop-filter:blur(12px);">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 animate-bounce">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</section>
+
+<!-- ══ CHALLENGES ══ -->
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @neonWipe class="text-center mb-14">
+      <span class="text-red-500 font-semibold text-sm uppercase tracking-widest">Industry Challenges</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">What Healthcare Businesses Face Today</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">From compliance to clinical data management — Blute Technologies solves
+        the hardest IT challenges in healthcare.</p>
+    </div>
+    <!-- staggerCards = flip-up 3-D cascade -->
+    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let ch of challenges"
+        class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-red-300 hover:-translate-y-1 transition-all duration-300">
+        <div class="text-3xl mb-4">{{ ch.icon }}</div>
+        <h3 class="font-bold text-gray-800 mb-2 group-hover:text-red-500 transition-colors">{{ ch.title }}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">{{ ch.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IT SOLUTIONS ══ -->
+<section class="bg-gray-50 py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @flipUp class="text-center mb-16">
+      <span class="text-red-500 font-semibold text-sm uppercase tracking-widest">Our IT Solutions</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">Technology We Build for Healthcare</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">From EHR systems to AI diagnostics — we engineer secure, compliant
+        technology that transforms patient care.</p>
+    </div>
+    <!-- staggerCards on solution grid -->
+    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let sol of solutions"
+        class="stagger-item group relative rounded-2xl overflow-hidden bg-white border border-gray-200 hover:border-red-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+        <div class="relative h-48 overflow-hidden">
+          <img [src]="sol.image" [alt]="sol.title"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute bottom-0 left-0 right-0 h-10"
+            style="background:linear-gradient(to bottom,transparent,#ffffff);"></div>
+          <div
+            class="absolute top-3 right-3 w-10 h-10 rounded-xl flex items-center justify-center bg-white shadow-lg border border-gray-100">
+            <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="sol.svg" />
+            </svg>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-base font-bold text-gray-900 mb-2 group-hover:text-red-500 transition-colors duration-300">{{
+            sol.title }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">{{ sol.desc }}</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span *ngFor="let tag of sol.tags"
+              class="text-xs px-2.5 py-0.5 rounded-full font-medium bg-red-50 text-red-600 border border-red-200">{{ tag
+              }}</span>
+          </div>
+          <div
+            class="mt-4 flex items-center gap-1 text-red-500 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Explore Solution →
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW WE WORK ══ -->
+<section class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Process steps — horizontal sweep stagger -->
+    <div *ngIf="isVisible" @magnetLeft>
+      <span class="text-red-500 font-semibold text-sm uppercase tracking-widest">Our Approach</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6">How Blute Delivers Healthcare IT Projects</h2>
+      <p class="text-gray-500 mb-8 leading-relaxed">We follow a compliance-first, agile delivery model ensuring your
+        healthcare technology meets clinical, regulatory, and operational needs.</p>
+      <div @staggerSteps class="space-y-6">
+        <div *ngFor="let step of process; let i = index" class="stagger-item flex gap-4 group">
+          <div
+            class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0
+            bg-gradient-to-br from-red-500 to-rose-500 text-white group-hover:shadow-lg group-hover:shadow-red-500/30 transition-all duration-300">
+            {{ i + 1 }}
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 mb-1 group-hover:text-red-500 transition-colors">{{ step.title }}</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ step.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech stack — particle burst -->
+    <div *ngIf="isVisible" @particleBurst>
+      <div class="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-sm">
+        <h3 class="text-gray-900 font-bold text-lg mb-6 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          Technologies We Use
+        </h3>
+        <div @staggerCards class="grid grid-cols-2 gap-3">
+          <div *ngFor="let tech of techStack"
+            class="stagger-item bg-white hover:bg-red-50 border border-gray-200 hover:border-red-300 transition-all duration-300 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm">
+            <span class="text-xl">{{ tech.icon }}</span>
+            <div>
+              <div class="text-gray-800 text-sm font-semibold">{{ tech.name }}</div>
+              <div class="text-gray-400 text-xs">{{ tech.role }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══ WHY BLUTE ══ -->
+<section class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @flipUp class="text-center mb-16">
+      <span class="text-red-500 font-semibold text-sm uppercase tracking-widest">Why Blute Technologies</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">Your Trusted Healthcare Technology Partner</h2>
+    </div>
+    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let reason of whyBlute"
+        class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-red-300 hover:-translate-y-1 transition-all duration-300 text-center">
+        <div class="text-4xl mb-4">{{ reason.icon }}</div>
+        <h3 class="text-gray-800 font-bold mb-2 group-hover:text-red-500 transition-colors">{{ reason.title }}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">{{ reason.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+

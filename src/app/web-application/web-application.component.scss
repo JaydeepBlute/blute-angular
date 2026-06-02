@@ -1,0 +1,872 @@
+// ═══════════════════════════════════════════
+// WEB APPLICATION — SCSS
+// ═══════════════════════════════════════════
+
+$teal: #14b8a6;
+$cyan: #0ea5e9;
+$indigo: #6366f1;
+$green: #4ade80;
+$amber: #f59e0b;
+$purple: #c084fc;
+$red: #f87171;
+$dark: #0f172a;
+$dark2: #1e293b;
+$muted: #94a3b8;
+
+// ══ Keyframes ════════════════════════════════
+
+// Main card float
+@keyframes cardFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba($teal, 0.15);
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(-1deg);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba($teal, 0.3);
+  }
+}
+
+// Glow blobs pulse
+@keyframes blobPulse1 {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.15) translate(10px, -10px);
+    opacity: 0.75;
+  }
+}
+
+@keyframes blobPulse2 {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1.2) translate(-8px, 12px);
+    opacity: 0.65;
+  }
+}
+
+// Code lines type in
+@keyframes typeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Blinking cursor
+@keyframes cursorBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+// Preview scan line
+@keyframes scanLine {
+  0% {
+    top: 0%;
+    opacity: 0.7;
+  }
+
+  48% {
+    opacity: 0.35;
+  }
+
+  50% {
+    top: 100%;
+    opacity: 0;
+  }
+
+  51% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  55% {
+    opacity: 0.7;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+// Status bar ping
+@keyframes pingExpand {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+// UI bar shimmer
+@keyframes uiShimmer {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+// Chip slide in
+@keyframes chipRight {
+  from {
+    opacity: 0;
+    transform: translateX(26px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes chipLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-26px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes floatA {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-11px);
+  }
+}
+
+@keyframes floatB {
+  from {
+    transform: translateY(-7px);
+  }
+
+  to {
+    transform: translateY(9px);
+  }
+}
+
+// Badge dot
+@keyframes waBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+// Why card float
+@keyframes waFloatCard {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+// ══ Hero Layout ══════════════════════════════
+.wa-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &__wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__h1 {
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #0f172a;
+    margin-bottom: 1.2rem;
+  }
+
+  &__p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 440px;
+    margin-bottom: 1.4rem;
+  }
+
+  &__btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+  }
+
+  &__visual-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.wa-hl {
+  background: linear-gradient(135deg, $teal, $cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba($teal, 0.1);
+  border: 1px solid rgba($teal, 0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  color: #0d9488;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+
+  &__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $teal;
+    animation: waBlink 2s infinite;
+  }
+}
+
+.wa-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.2rem;
+}
+
+.wa-pill {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 4px 12px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba($teal, 0.1);
+    border-color: rgba($teal, 0.4);
+    color: $teal;
+  }
+}
+
+.wa-btn {
+  border-radius: 12px;
+  padding: 13px 28px;
+  font-weight: 700;
+  font-size: 0.97rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &--solid {
+    background: linear-gradient(135deg, $teal, $cyan);
+    border: none;
+    color: #fff;
+    box-shadow: 0 6px 22px rgba($teal, 0.35);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba($teal, 0.45);
+    }
+  }
+
+  &--ghost {
+    background: #fff;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+
+    &:hover {
+      border-color: $teal;
+      color: $teal;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ══ Hero Visual ════════════════════════════════
+.wa-visual {
+  position: relative;
+  width: 480px;
+  height: 500px;
+}
+
+// ── Glow blobs ──
+.wa-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 0;
+
+  &--teal {
+    width: 240px;
+    height: 240px;
+    background: rgba($teal, 0.28);
+    top: -20px;
+    right: 20px;
+    animation: blobPulse1 5s ease-in-out infinite;
+  }
+
+  &--indigo {
+    width: 200px;
+    height: 200px;
+    background: rgba($indigo, 0.22);
+    bottom: 20px;
+    left: 10px;
+    animation: blobPulse2 6s ease-in-out infinite;
+  }
+}
+
+// ── Main browser card ──
+.wa-main-card {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  right: 0;
+  background: $dark2;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  animation: cardFloat 5s ease-in-out infinite;
+  z-index: 3;
+}
+
+// Browser top bar
+.wa-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: $dark;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wa-browser-dots {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.wa-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &--r {
+    background: #ff5f57;
+  }
+
+  &--a {
+    background: #febc2e;
+  }
+
+  &--g {
+    background: #28c840;
+  }
+}
+
+.wa-browser-url {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: monospace;
+}
+
+.wa-lock-icon {
+  font-size: 0.7rem;
+}
+
+.wa-url-text {
+  letter-spacing: 0.01em;
+}
+
+.wa-browser-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+
+  span {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+// ── Split pane ──
+.wa-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 280px;
+}
+
+// ── Code editor pane ──
+.wa-editor {
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+  }
+
+  &__tab {
+    padding: 6px 12px;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.35);
+    font-family: monospace;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    cursor: default;
+
+    &--active {
+      color: $teal;
+      background: rgba($teal, 0.08);
+      border-bottom: 1.5px solid $teal;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    padding: 8px 0;
+  }
+}
+
+.wa-line-nums {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+  gap: 3px;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 9px;
+  font-family: monospace;
+  line-height: 1.6;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.wa-code-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+  padding-right: 8px;
+}
+
+// Code lines with stagger type-in
+.wa-typed-line {
+  font-size: 9.5px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  line-height: 1.6;
+  white-space: nowrap;
+  opacity: 0;
+  animation: typeIn 0.4s ease-out forwards;
+
+  &--d1 {
+    animation-delay: 0.15s;
+  }
+
+  &--d2 {
+    animation-delay: 0.3s;
+  }
+
+  &--d3 {
+    animation-delay: 0.45s;
+  }
+
+  &--d4 {
+    animation-delay: 0.6s;
+  }
+
+  &--d5 {
+    animation-delay: 0.75s;
+  }
+
+  &--d6 {
+    animation-delay: 0.9s;
+  }
+
+  &--d7 {
+    animation-delay: 1.05s;
+  }
+
+  &--d8 {
+    animation-delay: 1.2s;
+  }
+}
+
+.wa-cursor-line {
+  font-size: 9.5px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  line-height: 1.6;
+  white-space: nowrap;
+  opacity: 0;
+  animation: typeIn 0.4s ease-out 1.35s forwards;
+}
+
+// Syntax colours
+.wc-purple {
+  color: $purple;
+}
+
+.wc-teal {
+  color: $teal;
+}
+
+.wc-green {
+  color: $green;
+}
+
+.wc-amber {
+  color: $amber;
+}
+
+.wc-cyan {
+  color: $cyan;
+}
+
+.wc-red {
+  color: $red;
+}
+
+.wc-white {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.wc-gray {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.wa-blink-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background: $teal;
+  border-radius: 1px;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: cursorBlink 1s step-end infinite 1.5s;
+}
+
+// ── Live preview pane ──
+.wa-preview {
+  position: relative;
+  overflow: hidden;
+
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: rgba(10, 20, 40, 0.75);
+    backdrop-filter: blur(4px);
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+  }
+
+  &__ping {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $red;
+    box-shadow: 0 0 6px $red;
+    animation: pingExpand 1.8s ease-out infinite;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(155deg,
+        rgba(10, 20, 40, 0.4) 0%,
+        transparent 50%,
+        rgba($teal, 0.12) 100%);
+  }
+
+  &__scan {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba($teal, 0.7), transparent);
+    animation: scanLine 3s linear infinite;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  &__ui {
+    position: absolute;
+    bottom: 10px;
+    left: 8px;
+    right: 8px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+.wa-ui-bar {
+  height: 4px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba($teal, 0.6), rgba($cyan, 0.4), rgba($teal, 0.2));
+  background-size: 200px 100%;
+  animation: uiShimmer 2s linear infinite;
+
+  &--sm {
+    width: 60%;
+  }
+}
+
+.wa-ui-cards {
+  display: flex;
+  gap: 5px;
+}
+
+.wa-ui-card {
+  flex: 1;
+  height: 18px;
+  border-radius: 4px;
+
+  &--teal {
+    background: rgba($teal, 0.3);
+    border: 1px solid rgba($teal, 0.5);
+  }
+
+  &--indigo {
+    background: rgba($indigo, 0.3);
+    border: 1px solid rgba($indigo, 0.5);
+  }
+}
+
+// Bottom status bar
+.wa-statusbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: rgba($teal, 0.15);
+  border-top: 1px solid rgba($teal, 0.25);
+  font-size: 9px;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.6);
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $green;
+    box-shadow: 0 0 5px $green;
+    flex-shrink: 0;
+    animation: waBlink 2s ease-in-out infinite;
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &__branch {
+    color: $teal;
+    font-weight: 600;
+    font-size: 9px;
+  }
+}
+
+// ── Chips ──
+.wa-chip {
+  position: absolute;
+  background: $dark;
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 165px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.3);
+  z-index: 8;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: 11px;
+    font-weight: 700;
+    margin: 0 0 2px;
+  }
+
+  &__sub {
+    color: $muted;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  &--perf {
+    top: 0;
+    right: -18px;
+    border: 1px solid rgba($amber, 0.42);
+    animation: chipRight 0.7s ease-out 1.6s both,
+      floatA 3.5s ease-in-out infinite alternate;
+
+    .wa-chip__icon {
+      background: rgba($amber, 0.14);
+    }
+
+    .wa-chip__title {
+      color: $amber;
+    }
+  }
+
+  &--deploy {
+    bottom: 130px;
+    right: -22px;
+    border: 1px solid rgba($cyan, 0.42);
+    animation: chipRight 0.7s ease-out 1.85s both,
+      floatB 4s ease-in-out infinite alternate;
+
+    .wa-chip__icon {
+      background: rgba($cyan, 0.14);
+    }
+
+    .wa-chip__title {
+      color: $cyan;
+    }
+  }
+
+  &--users {
+    bottom: 55px;
+    left: -18px;
+    border: 1px solid rgba($teal, 0.42);
+    animation: chipLeft 0.7s ease-out 2.1s both,
+      floatA 4.5s ease-in-out infinite alternate;
+
+    .wa-chip__icon {
+      background: rgba($teal, 0.14);
+    }
+
+    .wa-chip__title {
+      color: $teal;
+    }
+  }
+}
+
+// ══ Responsive ═══════════════════════════════
+@media (max-width: 1024px) {
+  .wa-hero__wrap {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .wa-visual {
+    width: 360px;
+    height: 420px;
+  }
+
+  .wa-main-card {
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .wa-visual {
+    display: none;
+  }
+
+  .wa-hero__wrap {
+    padding: 3rem 1.5rem;
+  }
+}

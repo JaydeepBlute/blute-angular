@@ -1,0 +1,355 @@
+<div class="cog-page">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="cog-hero">
+    <div class="cog-hero__bg-overlay"></div>
+
+    <!-- Floating particles -->
+    <div class="cog-particles">
+      <span *ngFor="let p of particles" class="cog-particle" [style.left.%]="p.x" [style.top.%]="p.y"
+        [style.width.px]="p.size" [style.height.px]="p.size" [style.animationDelay]="p.delay + 's'"
+        [style.animationDuration]="p.duration + 's'">
+      </span>
+    </div>
+
+    <div class="cog-hero__wrap">
+      <!-- Left -->
+      <div @slideInLeft class="cog-hero__left">
+        <div class="cog-hero__badge">
+          <span class="cog-hero__badge-dot"></span>COGNITIVE COMPUTING
+        </div>
+        <h1 class="cog-hero__h1">
+          INTELLIGENT<br>
+          DECISION-MAKING<br>
+          <span class="cog-hero__h1-accent">SYSTEMS</span>
+        </h1>
+        <p class="cog-hero__p">
+          Blute Technologies harnesses the power of Cognitive Computing to build intelligent systems that
+          simulate human thought processes. We combine NLP, Deep Learning, and AI to create solutions that
+          learn, reason, and evolve — enabling your business to make smarter decisions at scale.
+        </p>
+      
+      </div>
+
+      <!-- Right: Brain/Neural network visual -->
+      <div @slideInRight class="cog-hero__right">
+        <div class="cog-brain">
+          <!-- Outer pulse rings -->
+          <div class="cog-brain__ring cog-brain__ring--1"></div>
+          <div class="cog-brain__ring cog-brain__ring--2"></div>
+          <div class="cog-brain__ring cog-brain__ring--3"></div>
+
+          <!-- Neural SVG -->
+          <div class="cog-brain__svg-wrap">
+            <svg viewBox="0 0 320 300" fill="none" class="cog-neural-svg">
+              <!-- Connections -->
+              <line x1="160" y1="150" x2="80" y2="80" stroke="#8b5cf6" stroke-width="1.5" class="neural-line nl-1" />
+              <line x1="160" y1="150" x2="240" y2="80" stroke="#8b5cf6" stroke-width="1.5" class="neural-line nl-2" />
+              <line x1="160" y1="150" x2="60" y2="170" stroke="#6366f1" stroke-width="1.5" class="neural-line nl-3" />
+              <line x1="160" y1="150" x2="260" y2="170" stroke="#6366f1" stroke-width="1.5" class="neural-line nl-4" />
+              <line x1="160" y1="150" x2="100" y2="240" stroke="#8b5cf6" stroke-width="1.5" class="neural-line nl-5" />
+              <line x1="160" y1="150" x2="220" y2="240" stroke="#8b5cf6" stroke-width="1.5" class="neural-line nl-6" />
+              <line x1="160" y1="150" x2="160" y2="40" stroke="#a855f7" stroke-width="1.5" class="neural-line nl-7" />
+              <line x1="160" y1="150" x2="160" y2="265" stroke="#a855f7" stroke-width="1.5" class="neural-line nl-8" />
+              <!-- Sub connections -->
+              <line x1="80" y1="80" x2="160" y2="40" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+              <line x1="240" y1="80" x2="160" y2="40" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+              <line x1="80" y1="80" x2="60" y2="170" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+              <line x1="240" y1="80" x2="260" y2="170" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+              <line x1="60" y1="170" x2="100" y2="240" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+              <line x1="260" y1="170" x2="220" y2="240" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+              <line x1="100" y1="240" x2="160" y2="265" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+              <line x1="220" y1="240" x2="160" y2="265" stroke="#6366f1" stroke-width="1" opacity="0.6" />
+
+              <!-- Glow halos -->
+              <circle cx="160" cy="150" r="22" fill="rgba(139,92,246,0.15)" />
+              <circle cx="80" cy="80" r="14" fill="rgba(99,102,241,0.12)" />
+              <circle cx="240" cy="80" r="14" fill="rgba(99,102,241,0.12)" />
+              <circle cx="60" cy="170" r="14" fill="rgba(99,102,241,0.12)" />
+              <circle cx="260" cy="170" r="14" fill="rgba(99,102,241,0.12)" />
+              <circle cx="100" cy="240" r="14" fill="rgba(99,102,241,0.12)" />
+              <circle cx="220" cy="240" r="14" fill="rgba(99,102,241,0.12)" />
+              <circle cx="160" cy="40" r="12" fill="rgba(168,85,247,0.12)" />
+              <circle cx="160" cy="265" r="12" fill="rgba(168,85,247,0.12)" />
+
+              <!-- Main central node -->
+              <circle cx="160" cy="150" r="18" fill="#7c3aed" class="cog-node cog-node--center" />
+              <circle cx="160" cy="150" r="8" fill="#fff" opacity="0.9" />
+
+              <!-- Layer 1 nodes -->
+              <circle cx="80" cy="80" r="11" fill="#6366f1" class="cog-node cog-node--l1 nd-1" />
+              <circle cx="240" cy="80" r="11" fill="#6366f1" class="cog-node cog-node--l1 nd-2" />
+              <circle cx="60" cy="170" r="11" fill="#6366f1" class="cog-node cog-node--l1 nd-3" />
+              <circle cx="260" cy="170" r="11" fill="#6366f1" class="cog-node cog-node--l1 nd-4" />
+              <circle cx="100" cy="240" r="11" fill="#6366f1" class="cog-node cog-node--l1 nd-5" />
+              <circle cx="220" cy="240" r="11" fill="#6366f1" class="cog-node cog-node--l1 nd-6" />
+
+              <!-- Layer 1 inner dots -->
+              <circle cx="80" cy="80" r="4" fill="#fff" opacity="0.85" />
+              <circle cx="240" cy="80" r="4" fill="#fff" opacity="0.85" />
+              <circle cx="60" cy="170" r="4" fill="#fff" opacity="0.85" />
+              <circle cx="260" cy="170" r="4" fill="#fff" opacity="0.85" />
+              <circle cx="100" cy="240" r="4" fill="#fff" opacity="0.85" />
+              <circle cx="220" cy="240" r="4" fill="#fff" opacity="0.85" />
+
+              <!-- Top/bottom nodes -->
+              <circle cx="160" cy="40" r="9" fill="#a855f7" class="cog-node nd-7" />
+              <circle cx="160" cy="265" r="9" fill="#a855f7" class="cog-node nd-8" />
+              <circle cx="160" cy="40" r="3.5" fill="#fff" opacity="0.85" />
+              <circle cx="160" cy="265" r="3.5" fill="#fff" opacity="0.85" />
+
+              <!-- Signal pulses travelling along lines -->
+              <circle r="4" fill="#e879f9" class="signal-pulse sp-1">
+                <animateMotion dur="2s" repeatCount="indefinite" path="M160,150 L80,80" />
+              </circle>
+              <circle r="4" fill="#a78bfa" class="signal-pulse sp-2">
+                <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.5s" path="M160,150 L260,170" />
+              </circle>
+              <circle r="4" fill="#e879f9" class="signal-pulse sp-3">
+                <animateMotion dur="1.8s" repeatCount="indefinite" begin="1s" path="M160,150 L160,40" />
+              </circle>
+              <circle r="4" fill="#a78bfa" class="signal-pulse sp-4">
+                <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.3s" path="M160,150 L100,240" />
+              </circle>
+            </svg>
+          </div>
+
+          <!-- Floating tech badges -->
+          <div class="cog-badge-float cog-badge-float--nlp">NLP</div>
+          <div class="cog-badge-float cog-badge-float--ml">ML</div>
+          <div class="cog-badge-float cog-badge-float--dl">Deep Learning</div>
+          <div class="cog-badge-float cog-badge-float--ai">AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════ WHAT IS COGNITIVE ═══════════ -->
+  <section class="cog-intro">
+    <div class="cog-intro__wrap">
+      <div @slideInLeft class="cog-intro__text-col">
+        <span class="cog-section-tag">OVERVIEW</span>
+        <h2 class="cog-intro__h2">What is Cognitive Computing?</h2>
+        <p class="cog-intro__p">
+          Cognitive computing refers to technology platforms that, broadly speaking, are based on the
+          scientific disciplines of artificial intelligence and signal processing. These platforms encompass
+          machine learning, reasoning, natural language processing, speech recognition and vision, human–computer
+          interaction, dialog and narrative generation and more.
+        </p>
+        <p class="cog-intro__p">
+          At Blute Technologies, we build cognitive systems that continuously learn and adapt to provide
+          contextual, personalized experiences. Our solutions enable computers to comprehend complex data,
+          recognize patterns, and generate insights that augment human decision-making.
+        </p>
+      </div>
+      <div @slideInRight class="cog-intro__visual">
+        <div class="cog-img-card">
+          <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="AI Brain"
+            class="cog-img-card__img" />
+          <div class="cog-img-card__overlay">
+            <div class="cog-img-card__tag">AI-Powered Intelligence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CORE CAPABILITIES ═══════════ -->
+  <section class="cog-caps">
+    <div class="cog-caps__wrap">
+      <span @fadeInUp class="cog-section-tag cog-section-tag--center">CAPABILITIES</span>
+      <h2 @fadeInUp class="cog-caps__h2">Core Cognitive Capabilities</h2>
+      <div @staggerCards class="cog-caps__grid">
+        <div class="cog-cap-card card-item" *ngFor="let c of capabilities">
+          <div class="cog-cap-card__icon-wrap" [style.background]="c.bg">
+            <span class="cog-cap-card__icon">{{ c.icon }}</span>
+          </div>
+          <h4 class="cog-cap-card__title">{{ c.title }}</h4>
+          <p class="cog-cap-card__desc">{{ c.desc }}</p>
+          <div class="cog-cap-card__tags">
+            <span class="cog-tag" *ngFor="let t of c.tags">{{ t }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ NLP SECTION ═══════════ -->
+  <section class="cog-feature cog-feature--dark">
+    <div class="cog-feature__wrap">
+      <div @slideInLeft class="cog-feature__visual">
+        <div class="cog-nlp-visual">
+          <div class="cog-nlp-screen">
+            <div class="cog-nlp-header">
+              <span class="cog-nlp-dot cog-nlp-dot--r"></span>
+              <span class="cog-nlp-dot cog-nlp-dot--y"></span>
+              <span class="cog-nlp-dot cog-nlp-dot--g"></span>
+              <span class="cog-nlp-title">NLP Engine</span>
+            </div>
+            <div class="cog-nlp-body">
+              <div class="cog-nlp-line" *ngFor="let l of nlpLines; let i = index"
+                [style.animationDelay]="i * 0.4 + 's'">
+                <span class="cog-nlp-prompt">&gt;</span>
+                <span class="cog-nlp-text">{{ l }}</span>
+              </div>
+              <div class="cog-nlp-cursor"></div>
+            </div>
+          </div>
+          <!-- Floating tokens -->
+          <div class="cog-token cog-token--1">sentiment</div>
+          <div class="cog-token cog-token--2">entity</div>
+          <div class="cog-token cog-token--3">intent</div>
+          <div class="cog-token cog-token--4">context</div>
+        </div>
+      </div>
+      <div @slideInRight class="cog-feature__content">
+        <span class="cog-section-tag">NATURAL LANGUAGE PROCESSING</span>
+        <h3 class="cog-feature__title">Understanding Human Language at Scale</h3>
+        <p class="cog-feature__desc">
+          Our NLP solutions enable machines to understand, interpret, and generate human language with
+          remarkable accuracy. From chatbots to sentiment analysis, document intelligence to language
+          translation — we build NLP pipelines that power real-world business outcomes.
+        </p>
+        <div class="cog-feature__list">
+          <div class="cog-feature__item" *ngFor="let item of nlpFeatures">
+            <span class="cog-feature__bullet">▸</span>{{ item }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DEEP LEARNING SECTION ═══════════ -->
+  <section class="cog-feature">
+    <div class="cog-feature__wrap cog-feature__wrap--rev">
+      <div @slideInRight class="cog-feature__content">
+        <span class="cog-section-tag">DEEP LEARNING</span>
+        <h3 class="cog-feature__title">Neural Networks That Think Deeper</h3>
+        <p class="cog-feature__desc">
+          We architect and train deep neural networks for complex pattern recognition, image analysis,
+          predictive modeling and anomaly detection. Our deep learning solutions continuously improve
+          with more data, delivering ever-increasing accuracy and insight.
+        </p>
+        <div class="cog-feature__list">
+          <div class="cog-feature__item" *ngFor="let item of dlFeatures">
+            <span class="cog-feature__bullet">▸</span>{{ item }}
+          </div>
+        </div>
+      </div>
+      <div @slideInLeft class="cog-feature__visual">
+        <div class="cog-nn-visual">
+          <svg viewBox="0 0 300 220" fill="none" class="cog-nn-svg">
+            <!-- Layer labels -->
+            <text x="30" y="15" fill="#8b5cf6" font-size="8" font-family="monospace" text-anchor="middle">INPUT</text>
+            <text x="110" y="15" fill="#6366f1" font-size="8" font-family="monospace" text-anchor="middle">HIDDEN
+              1</text>
+            <text x="190" y="15" fill="#6366f1" font-size="8" font-family="monospace" text-anchor="middle">HIDDEN
+              2</text>
+            <text x="270" y="15" fill="#8b5cf6" font-size="8" font-family="monospace" text-anchor="middle">OUTPUT</text>
+
+            <!-- Connections INPUT→H1 -->
+            <line x1="30" y1="50" x2="110" y2="50" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="50" x2="110" y2="90" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="50" x2="110" y2="130" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="90" x2="110" y2="50" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="90" x2="110" y2="90" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="90" x2="110" y2="130" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="130" x2="110" y2="50" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="130" x2="110" y2="90" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="130" x2="110" y2="130" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="170" x2="110" y2="50" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="170" x2="110" y2="90" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="170" x2="110" y2="130" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+            <line x1="30" y1="170" x2="110" y2="170" stroke="#6366f1" stroke-width="0.8" opacity="0.5" />
+
+            <!-- Connections H1→H2 -->
+            <line x1="110" y1="50" x2="190" y2="70" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="50" x2="190" y2="110" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="50" x2="190" y2="150" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="90" x2="190" y2="70" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="90" x2="190" y2="110" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="90" x2="190" y2="150" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="130" x2="190" y2="70" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="130" x2="190" y2="110" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="130" x2="190" y2="150" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="170" x2="190" y2="70" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="170" x2="190" y2="110" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+            <line x1="110" y1="170" x2="190" y2="150" stroke="#8b5cf6" stroke-width="0.8" opacity="0.5" />
+
+            <!-- Connections H2→OUTPUT -->
+            <line x1="190" y1="70" x2="270" y2="90" stroke="#a855f7" stroke-width="1" opacity="0.7" />
+            <line x1="190" y1="70" x2="270" y2="130" stroke="#a855f7" stroke-width="1" opacity="0.7" />
+            <line x1="190" y1="110" x2="270" y2="90" stroke="#a855f7" stroke-width="1" opacity="0.7" />
+            <line x1="190" y1="110" x2="270" y2="130" stroke="#a855f7" stroke-width="1" opacity="0.7" />
+            <line x1="190" y1="150" x2="270" y2="90" stroke="#a855f7" stroke-width="1" opacity="0.7" />
+            <line x1="190" y1="150" x2="270" y2="130" stroke="#a855f7" stroke-width="1" opacity="0.7" />
+
+            <!-- Input nodes -->
+            <circle cx="30" cy="50" r="8" fill="#7c3aed" class="nn-node nn-i1" />
+            <circle cx="30" cy="90" r="8" fill="#7c3aed" class="nn-node nn-i2" />
+            <circle cx="30" cy="130" r="8" fill="#7c3aed" class="nn-node nn-i3" />
+            <circle cx="30" cy="170" r="8" fill="#7c3aed" class="nn-node nn-i4" />
+            <!-- H1 nodes -->
+            <circle cx="110" cy="50" r="8" fill="#6366f1" class="nn-node nn-h1a" />
+            <circle cx="110" cy="90" r="8" fill="#6366f1" class="nn-node nn-h1b" />
+            <circle cx="110" cy="130" r="8" fill="#6366f1" class="nn-node nn-h1c" />
+            <circle cx="110" cy="170" r="8" fill="#6366f1" class="nn-node nn-h1d" />
+            <!-- H2 nodes -->
+            <circle cx="190" cy="70" r="8" fill="#6366f1" class="nn-node nn-h2a" />
+            <circle cx="190" cy="110" r="8" fill="#6366f1" class="nn-node nn-h2b" />
+            <circle cx="190" cy="150" r="8" fill="#6366f1" class="nn-node nn-h2c" />
+            <!-- Output nodes -->
+            <circle cx="270" cy="90" r="10" fill="#a855f7" class="nn-node nn-o1" />
+            <circle cx="270" cy="130" r="10" fill="#a855f7" class="nn-node nn-o2" />
+
+            <!-- Inner white dots -->
+            <circle cx="30" cy="50" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="30" cy="90" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="30" cy="130" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="30" cy="170" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="110" cy="50" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="110" cy="90" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="110" cy="130" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="110" cy="170" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="190" cy="70" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="190" cy="110" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="190" cy="150" r="3" fill="#fff" opacity="0.8" />
+            <circle cx="270" cy="90" r="4" fill="#fff" opacity="0.8" />
+            <circle cx="270" cy="130" r="4" fill="#fff" opacity="0.8" />
+
+            <!-- Animated signal pulses -->
+            <circle r="3.5" fill="#e879f9" opacity="0.9">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M30,90 L110,50 L190,110 L270,90" />
+            </circle>
+            <circle r="3.5" fill="#a78bfa" opacity="0.9">
+              <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.6s"
+                path="M30,130 L110,170 L190,70 L270,130" />
+            </circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ PROCESS ═══════════ -->
+  <section class="cog-process">
+    <div class="cog-process__wrap">
+      <span @fadeInUp class="cog-section-tag cog-section-tag--center">HOW WE WORK</span>
+      <h2 @fadeInUp class="cog-process__h2">Our Cognitive AI Process</h2>
+      <div @staggerCards class="cog-process__steps">
+        <div class="cog-step card-item" *ngFor="let s of processSteps; let i = index">
+          <div class="cog-step__num">{{ (i + 1).toString().padStart(2,'0') }}</div>
+          <div class="cog-step__icon">{{ s.icon }}</div>
+          <h4 class="cog-step__title">{{ s.title }}</h4>
+          <p class="cog-step__desc">{{ s.desc }}</p>
+          <div class="cog-step__connector" *ngIf="i < processSteps.length - 1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>

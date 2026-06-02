@@ -1,0 +1,92 @@
+
+
+<!-- ── HERO ── -->
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-16">
+  <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
+           linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
+           background-size: 40px 40px;"></div>
+  <div class="absolute top-0 right-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+      <div class="animate-fade-in-up">
+        <div
+          class="inline-flex items-center gap-2 bg-green-400/10 border border-green-400/20 rounded-full px-4 py-1.5 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+          <span class="text-green-300 text-xs font-semibold tracking-widest uppercase">We're Hiring</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3">
+          Build the Future<br>
+          <span class="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
+            With Blute Technologies
+          </span>
+        </h1>
+        <p class="text-sm text-white/50 max-w-md leading-relaxed">
+          Join a team of passionate engineers, designers, and innovators shaping tomorrow's digital experiences.
+        </p>
+      <a href="https://www.linkedin.com/company/blute-technologies-pvt-ltd/posts/?feedView=all" target="_blank"
+        rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full bg-gradient-to-r from-teal-500 to-blue-500
+                text-white text-sm font-semibold shadow-lg shadow-teal-500/20 hover:shadow-teal-500/40
+                hover:-translate-y-0.5 transition-all duration-200">
+        View Open Roles
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      </div>
+
+      <!-- Hero stats -->
+      <div class="grid grid-cols-2 gap-4 animate-fade-in-up shrink-0" style="animation-delay:0.2s">
+        <div *ngFor="let s of heroStats"
+          class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
+          <div class="text-2xl font-black bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
+            {{ s.value }}
+          </div>
+          <div class="text-xs text-white/40 mt-1 font-medium">{{ s.label }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ── CULTURE STRIP ── -->
+<section class="bg-white py-16">
+  <div class="max-w-5xl mx-auto px-6">
+    <div
+      class="rounded-3xl bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 p-8 md:p-12 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
+               linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
+               background-size: 32px 32px;"></div>
+      <div class="absolute right-0 top-0 w-64 h-64 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative flex flex-col md:flex-row md:items-center gap-8">
+        <div class="flex-1">
+          <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-3 leading-tight">
+            Send Us Your<br>Resume Anyway
+          </h3>
+          <p class="text-white/50 text-sm leading-relaxed max-w-sm">
+            We're always on the lookout for exceptional talent. Drop us your profile and we'll reach out when the right
+            opportunity arises.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 shrink-0">
+          <a href="mailto:careers@bluetechnologies.in" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl
+                   bg-gradient-to-r from-teal-500 to-blue-500 text-white text-sm font-bold
+                   shadow-lg shadow-teal-500/25 hover:shadow-teal-500/50
+                   hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            info&#64;blute.co.in
+          </a>
+          <p class="text-xs text-white/30 text-center">We respond within 48 hours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

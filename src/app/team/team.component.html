@@ -1,0 +1,186 @@
+
+
+<!-- ── HERO SECTION ── -->
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-28">
+  <!-- Animated grid -->
+  <div class="absolute inset-0 opacity-[0.07]" style="background-image: linear-gradient(rgba(99,179,237,0.6) 1px, transparent 1px),
+           linear-gradient(90deg, rgba(99,179,237,0.6) 1px, transparent 1px);
+           background-size: 48px 48px;">
+  </div>
+
+  <!-- Glowing orbs -->
+  <div
+    class="absolute -top-20 left-1/4 w-96 h-96 bg-blue-600/25 rounded-full blur-3xl pointer-events-none animate-pulse-slow">
+  </div>
+  <div
+    class="absolute -bottom-20 right-1/4 w-96 h-96 bg-teal-500/25 rounded-full blur-3xl pointer-events-none animate-pulse-slow"
+    style="animation-delay:1.5s"></div>
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none">
+  </div>
+
+  <!-- Floating particles -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <span *ngFor="let p of particles" class="absolute w-1 h-1 rounded-full bg-teal-400/60 animate-float"
+      [style.left]="p.x" [style.top]="p.y" [style.animation-delay]="p.delay" [style.animation-duration]="p.duration">
+    </span>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 text-center">
+    <!-- Badge -->
+    <div
+      class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8 animate-fade-in-down">
+      <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+      <span class="text-teal-300 text-sm font-semibold tracking-widest uppercase">Our Leadership</span>
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-[1.1] animate-fade-in-up"
+      style="animation-delay:0.15s">
+      The Minds Behind<br>
+      <span class="relative inline-block mt-2">
+        <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          Blute Technologies
+        </span>
+        <!-- underline decoration -->
+        <span
+          class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-teal-400/60 via-cyan-400/60 to-blue-400/60 rounded-full blur-sm"></span>
+      </span>
+    </h1>
+
+    <p class="text-lg md:text-xl text-white/55 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+      style="animation-delay:0.3s">
+      Passionate innovators and technology leaders committed to building world-class digital solutions
+      that drive real business impact.
+    </p>
+
+    <!-- Scroll cue -->
+    <div class="mt-14 flex justify-center animate-bounce-slow animate-fade-in-up" style="animation-delay:0.6s">
+      <div class="w-8 h-12 rounded-full border-2 border-white/20 flex items-start justify-center pt-2">
+        <div class="w-1.5 h-3 rounded-full bg-teal-400 animate-scroll-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS BAR ── -->
+<section class="bg-white border-b border-gray-100 shadow-sm relative overflow-hidden">
+  <!-- Subtle gradient line at top -->
+  <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 via-blue-400 to-teal-400"></div>
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div *ngFor="let stat of stats; let i = index"
+        class="group relative p-4 rounded-2xl hover:bg-gradient-to-br hover:from-teal-50 hover:to-blue-50 transition-all duration-300 cursor-default">
+        <!-- subtle separator -->
+        <div class="absolute right-0 top-1/4 bottom-1/4 w-px bg-gray-100 hidden md:block last:hidden"></div>
+
+        <div class="text-4xl font-black bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent
+                    group-hover:scale-110 transition-transform duration-300 inline-block">
+          {{ stat.value }}
+        </div>
+        <div class="text-sm text-gray-500 mt-1.5 font-semibold tracking-wide uppercase">{{ stat.label }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM CARDS ── -->
+<section class="bg-gray-50 py-24 relative overflow-hidden">
+  <!-- Background decor -->
+  <div class="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
+  <div class="absolute -left-32 top-1/4 w-96 h-96 rounded-full bg-teal-100/40 blur-3xl pointer-events-none"></div>
+  <div class="absolute -right-32 bottom-1/4 w-96 h-96 rounded-full bg-blue-100/40 blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative">
+
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <span
+        class="inline-block text-xs font-bold tracking-widest text-teal-600 uppercase mb-3 bg-teal-50 px-4 py-1.5 rounded-full border border-teal-100">
+        The Team
+      </span>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Meet Our Founders</h2>
+      <p class="text-gray-400 max-w-xl mx-auto text-lg leading-relaxed">
+        A small but mighty team united by a shared passion for technology and excellence.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      <div *ngFor="let member of team; let i = index" class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl
+               transition-all duration-500 hover:-translate-y-2 border border-gray-100/80
+               animate-fade-in-up" [style.animation-delay]="(i * 0.15) + 's'">
+
+        <!-- Card top accent bar -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400
+                    scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10"></div>
+
+        <!-- Photo area -->
+        <div class="relative overflow-hidden h-72 bg-gradient-to-br from-slate-100 to-blue-50">
+          <img [src]="member.image" [alt]="member.name"
+            class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
+
+          <!-- Overlay gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent
+                      opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+
+          <!-- Member name on photo (visible always) -->
+          <div
+            class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <h3 class="text-xl font-bold text-white drop-shadow-lg">{{ member.name }}</h3>
+            <span class="inline-block mt-1 text-xs font-semibold px-3 py-1 rounded-full
+                         bg-white/20 backdrop-blur-sm text-white/90 border border-white/20">
+              {{ member.role }}
+            </span>
+          </div>
+
+          <!-- Social icons -->
+          <div class="absolute top-4 right-4 flex flex-col gap-2
+                      opacity-0 group-hover:opacity-100 transition-all duration-400
+                      -translate-x-2 group-hover:translate-x-0">
+            <a [href]="member.linkedin" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center
+                     shadow-lg hover:bg-blue-600 hover:text-white text-gray-700 transition-all duration-200
+                     hover:scale-110">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+            <a *ngIf="member.email" [href]="'mailto:' + member.email" class="w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center
+                     shadow-lg hover:bg-teal-600 hover:text-white text-gray-700 transition-all duration-200
+                     hover:scale-110">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6">
+          <p class="text-sm text-gray-500 leading-relaxed mb-5">{{ member.bio }}</p>
+
+          <!-- Expertise Tags -->
+          <div *ngIf="member.expertise && member.expertise.length" class="flex flex-wrap gap-2">
+            <span *ngFor="let skill of member.expertise" class="text-xs px-3 py-1 rounded-lg bg-gradient-to-r from-teal-50 to-blue-50
+                     text-teal-700 font-semibold border border-teal-100/80 hover:border-teal-300
+                     transition-colors duration-200 cursor-default">
+              {{ skill }}
+            </span>
+          </div>
+
+          <!-- LinkedIn CTA -->
+          <a [href]="member.linkedin" target="_blank" rel="noopener noreferrer" class="mt-5 flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700
+                   group/link w-fit transition-colors duration-200">
+            <span>View Profile</span>
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

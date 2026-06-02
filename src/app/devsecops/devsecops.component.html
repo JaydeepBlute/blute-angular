@@ -1,0 +1,294 @@
+<div class="min-h-screen bg-white text-gray-800 font-sans overflow-x-hidden">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="dso-hero">
+    <div class="absolute inset-0"
+      style="background: linear-gradient(160deg, #ffffff 0%, #e8f8f8 40%, #d0f0f0 75%, #c2eaea 100%);"></div>
+    <div class="absolute inset-0"
+      style="background: radial-gradient(ellipse 550px 450px at 85% 20%, rgba(0,200,200,0.08), transparent), radial-gradient(ellipse 350px 350px at 10% 85%, rgba(0,180,180,0.06), transparent); pointer-events:none;">
+    </div>
+
+    <div class="dso-hero__wrap">
+      <!-- Left -->
+      <div @fadeInLeft>
+        <div class="dso-badge">
+          <span class="dso-badge__dot"></span> DevSecOps Solutions
+        </div>
+        <h1 class="dso-hero__h1">
+          Secure. Fast.<br>
+          <span class="dso-hl">Ship with Confidence.</span>
+        </h1>
+        <p class="dso-hero__p">
+          Embed security into every stage of your CI/CD pipeline — automate compliance, detect vulnerabilities early,
+          and deliver faster without compromise.
+        </p>
+        <div class="dso-hero__btns">
+          <button class="dso-btn dso-btn--solid">Get Started</button>
+          <button class="dso-btn dso-btn--ghost">View Pipeline Demo</button>
+        </div>
+      </div>
+
+      <!-- Right — Hero Visual -->
+      <div @fadeInRight class="dso-hero__visual-wrap">
+        <div class="dso-visual">
+
+          <!-- ── Layered image cards ── -->
+          <div class="dso-img-stack">
+            <!-- Back card (peeking) -->
+            <div class="dso-img-back">
+              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80" alt="Code security" />
+            </div>
+            <!-- Front main card -->
+            <div class="dso-img-main">
+              <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=700&q=85" alt="CI/CD Pipeline" />
+              <div class="dso-img-main__overlay"></div>
+              <div class="dso-img-main__scan"></div>
+              <div class="dso-img-main__bar">
+                <span>🚀 Pipeline Running — v2.4.1</span>
+                <div class="dso-bar-track">
+                  <div class="dso-bar-fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── SVG arcs + packets ── -->
+          <svg class="dso-svg" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+            <path class="dso-arc dso-arc--1" d="M55,105 Q180,45 280,118" fill="none" />
+            <path class="dso-arc dso-arc--2" d="M355,115 Q420,230 355,345" fill="none" />
+            <path class="dso-arc dso-arc--3" d="M280,362 Q180,430 70,355" fill="none" />
+            <path class="dso-arc dso-arc--4" d="M55,105 Q30,240 70,355" fill="none" />
+            <circle class="dso-packet dso-packet--1" r="5" />
+            <circle class="dso-packet dso-packet--2" r="5" />
+            <circle class="dso-packet dso-packet--3" r="5" />
+            <circle class="dso-packet dso-packet--4" r="4" />
+          </svg>
+
+          <!-- ── Stage nodes ── -->
+          <div class="dso-stage dso-stage--code">
+            <div class="dso-stage__icon">💻</div>
+            <div class="dso-stage__pulse"></div>
+            <span class="dso-stage__label">Code</span>
+          </div>
+          <div class="dso-stage dso-stage--build">
+            <div class="dso-stage__icon">🔨</div>
+            <div class="dso-stage__pulse"></div>
+            <span class="dso-stage__label">Build</span>
+          </div>
+          <div class="dso-stage dso-stage--test">
+            <div class="dso-stage__icon">🧪</div>
+            <div class="dso-stage__pulse"></div>
+            <span class="dso-stage__label">Test</span>
+          </div>
+          <div class="dso-stage dso-stage--deploy">
+            <div class="dso-stage__icon">☁️</div>
+            <div class="dso-stage__pulse"></div>
+            <span class="dso-stage__label">Deploy</span>
+          </div>
+
+          <!-- ── Chips ── -->
+          <div class="dso-chip dso-chip--secure">
+            <div class="dso-chip__icon">🔒</div>
+            <div>
+              <p class="dso-chip__title">0 Vulnerabilities</p>
+              <p class="dso-chip__sub">Last scan • 3s ago</p>
+            </div>
+          </div>
+          <div class="dso-chip dso-chip--deploy">
+            <div class="dso-chip__icon">⚡</div>
+            <div>
+              <p class="dso-chip__title">12 min Deploy</p>
+              <p class="dso-chip__sub">Avg. pipeline time</p>
+            </div>
+          </div>
+          <div class="dso-chip dso-chip--comply">
+            <div class="dso-chip__icon">✅</div>
+            <div>
+              <p class="dso-chip__title">SOC2 Compliant</p>
+              <p class="dso-chip__sub">Auto-audit passed</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ STATS ═══════════ -->
+  <section class="bg-white border-y border-gray-200 py-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center" @staggerList>
+      <div *ngFor="let s of stats" class="stagger-item">
+        <div class="text-4xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">{{
+          s.value }}</div>
+        <div class="text-gray-500 text-sm">{{ s.label }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SERVICES ═══════════ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" @fadeInUp>
+        <h2 class="text-4xl font-bold mb-4 text-gray-900">
+          Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">DevSecOps
+            Services</span>
+        </h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Security-first automation across your entire software delivery
+          lifecycle.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" @staggerList>
+        <div *ngFor="let svc of services" class="stagger-item group bg-white border border-gray-200 rounded-2xl p-6 cursor-pointer
+                 hover:border-teal-400/60 hover:bg-teal-50/40 hover:-translate-y-2
+                 hover:shadow-xl hover:shadow-teal-200/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" [style.background]="svc.bg">
+            {{ svc.icon }}</div>
+          <h3 class="text-lg font-semibold mb-2 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
+            {{ svc.title }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{ svc.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WHY US ═══════════ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div @fadeInLeft class="relative">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=700&q=85" alt="DevSecOps team"
+          class="w-full h-[400px] object-cover rounded-2xl shadow-xl" />
+        <div
+          class="absolute -bottom-5 -right-5 bg-white border border-gray-200 rounded-xl p-4 shadow-xl flex items-center gap-3"
+          style="animation: dsoFloatCard 4s ease-in-out infinite alternate;">
+          <span class="text-2xl">🏅</span>
+          <div>
+            <p class="font-bold text-gray-800 text-sm">Top Rated</p>
+            <p class="text-gray-400 text-xs">G2 DevSecOps Leader 2024</p>
+          </div>
+        </div>
+      </div>
+      <div @fadeInRight>
+        <h2 class="text-4xl font-bold mb-6 text-gray-900">
+          Why Choose <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">Blute
+            DevSecOps?</span>
+        </h2>
+        <div class="space-y-4">
+          <div *ngFor="let w of whyItems" class="flex gap-4 items-start group p-4 rounded-xl border border-gray-100
+                   hover:border-teal-300 hover:bg-teal-50/40 hover:translate-x-1 transition-all duration-300">
+            <div class="w-11 h-11 flex-shrink-0 rounded-xl flex items-center justify-center text-xl"
+              [style.background]="w.bg">{{ w.icon }}</div>
+            <div>
+              <h4 class="font-semibold mb-1 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">{{
+                w.title }}</h4>
+              <p class="text-gray-500 text-sm">{{ w.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PIPELINE DASHBOARD ═══════════ -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div @fadeInLeft>
+        <h2 class="text-4xl font-bold mb-4 text-gray-900">
+          Live <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">Pipeline
+            Insights</span>
+        </h2>
+        <p class="text-gray-500 mb-8 leading-relaxed">Full visibility into every build, test, scan, and deployment —
+          with automated security gates at each stage.</p>
+        <ul class="space-y-3">
+          <li *ngFor="let f of features" class="flex items-center gap-3 text-gray-600 text-sm">
+            <span
+              class="w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 text-xs font-bold flex-shrink-0">✓</span>
+            {{ f }}
+          </li>
+        </ul>
+      </div>
+      <!-- Dashboard mockup -->
+      <div @fadeInRight>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-xl shadow-teal-100/50">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-sm font-semibold text-gray-700">Pipeline Dashboard</span>
+            <span class="flex items-center gap-1.5 text-xs text-green-500 font-medium">
+              <span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span> Live
+            </span>
+          </div>
+          <!-- Stage progress -->
+          <div class="space-y-4 mb-5">
+            <div *ngFor="let bar of dashBars">
+              <div class="flex justify-between text-xs text-gray-500 mb-1">
+                <span class="flex items-center gap-1.5">
+                  <span>{{ bar.icon }}</span> {{ bar.label }}
+                </span>
+                <span class="font-medium" [style.color]="bar.labelColor">{{ bar.status }}</span>
+              </div>
+              <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div class="h-full rounded-full transition-all duration-1000" [style.width.%]="bar.pct"
+                  [style.background]="bar.color"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Events -->
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 bg-green-50 border border-green-200 rounded-lg px-3 py-2 text-xs">
+              <span>✅</span>
+              <span class="text-gray-600">SAST scan passed — 0 critical issues</span>
+              <span class="ml-auto text-gray-400">4s ago</span>
+            </div>
+            <div class="flex items-center gap-3 bg-teal-50 border border-teal-200 rounded-lg px-3 py-2 text-xs">
+              <span>🚀</span>
+              <span class="text-gray-600">Deployed to production — v2.4.1</span>
+              <span class="ml-auto text-gray-400">1m ago</span>
+            </div>
+            <div class="flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2 text-xs">
+              <span>🔒</span>
+              <span class="text-gray-600">Secrets scan completed — clean</span>
+              <span class="ml-auto text-gray-400">3m ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section class="py-24 px-6 max-w-3xl mx-auto">
+    <div class="text-center mb-12" @fadeInUp>
+      <h2 class="text-4xl font-bold mb-4 text-gray-900">
+        Frequently Asked <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">Questions</span>
+      </h2>
+    </div>
+    <div class="space-y-4" @staggerList>
+      <div *ngFor="let faq of faqs; let i = index"
+        class="stagger-item bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-teal-400/60 transition-all duration-300 shadow-sm">
+        <button (click)="toggleFaq(i)"
+          class="w-full flex justify-between items-center px-6 py-4 text-left font-medium text-gray-800 hover:text-teal-600 transition-colors duration-300">
+          <span>{{ faq.question }}</span>
+          <span class="text-teal-500 text-xl transition-transform duration-300" [class.rotate-45]="faq.open">+</span>
+        </button>
+        <div *ngIf="faq.open" @fadeInUp
+          class="px-6 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+          {{ faq.answer }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section class="py-24 px-6 text-center relative overflow-hidden" @scaleIn>
+    <div class="absolute inset-0 bg-white"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-1 bg-gradient-to-r from-teal-400 to-cyan-400"></div>
+    <div class="relative z-10 max-w-2xl mx-auto">
+      <h2 class="text-4xl font-bold mb-4 text-gray-900">Ready to Secure Your Pipeline?</h2>
+      <p class="text-gray-500 mb-8">Talk to our DevSecOps experts and get a free pipeline security assessment.</p>
+      <button
+        class="px-10 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl font-bold text-lg
+                     hover:from-teal-600 hover:to-cyan-600 transition-all duration-300 shadow-2xl shadow-teal-300/40 hover:scale-105">
+        Schedule Free Consultation
+      </button>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,296 @@
+
+
+<!-- ══ SCROLL PROGRESS BAR ══ -->
+<div class="scroll-progress" [style.width.%]="scrollProgress"></div>
+
+<!-- ══ HERO ══ -->
+<section class="relative overflow-hidden py-24 min-h-screen flex items-center"
+  style="background: linear-gradient(135deg, #0f172a 0%, #0c1f1a 50%, #0f172a 100%);">
+
+  <!-- animated grid -->
+  <div class="hero-grid absolute inset-0"></div>
+
+  <!-- orbs -->
+  <div class="orb orb-emerald absolute top-0 right-1/4 w-96 h-96"></div>
+  <div class="orb orb-cyan absolute bottom-0 left-1/4 w-80 h-80"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center w-full">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <div
+        class="inline-flex items-center gap-2 bg-emerald-400/10 border border-emerald-400/20 rounded-full px-4 py-1.5 mb-6">
+        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+        </svg>
+        <span class="text-emerald-300 text-xs font-semibold tracking-widest uppercase">Transportation & Logistics — IT
+          Solutions</span>
+      </div>
+      <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        Smarter Mobility for
+        <span class="gradient-text">a Connected World</span>
+      </h1>
+      <p class="text-white/50 text-lg leading-relaxed mb-8 max-w-lg">
+        From real-time fleet tracking to AI-powered route optimisation — we build the digital infrastructure
+        that keeps people, goods, and cities moving efficiently and sustainably.
+      </p>
+    
+    </div>
+
+    <!-- RIGHT floating cards -->
+    <div *ngIf="isVisible" @fadeInRight class="hidden lg:flex justify-center">
+      <div class="relative w-96 h-80">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-56 h-56 rounded-3xl rotate-6 opacity-40 animate-pulse"
+            style="background: linear-gradient(135deg, #059669, #0891b2)"></div>
+        </div>
+        <div @cardDrop1
+          class="hero-card absolute top-0 left-0 rounded-2xl px-4 py-3 shadow-2xl border border-emerald-400/30"
+          style="background:linear-gradient(135deg,rgba(5,150,105,0.85),rgba(6,182,212,0.75)); animation:floatY 3s ease-in-out infinite;">
+          <div class="text-xs font-bold text-emerald-100 uppercase tracking-wide mb-1.5">Live Tracking</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">2M+ Trips/Day</span>
+          </div>
+        </div>
+        <div @cardDrop2
+          class="hero-card absolute bottom-4 right-0 rounded-2xl px-4 py-3 shadow-2xl border border-cyan-400/30"
+          style="background:linear-gradient(135deg,rgba(8,145,178,0.85),rgba(14,165,233,0.75)); animation:floatYReverse 4s ease-in-out infinite; animation-delay:1s;">
+          <div class="text-xs font-bold text-cyan-100 uppercase tracking-wide mb-1.5">Route AI</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">-35% Fuel</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">Optimised</span>
+          </div>
+        </div>
+        <div @cardDrop3
+          class="hero-card absolute top-1/2 right-2 -translate-y-1/2 rounded-2xl px-4 py-3 shadow-2xl border border-teal-400/30"
+          style="background:linear-gradient(135deg,rgba(13,148,136,0.85),rgba(20,184,166,0.75)); animation:floatRotate 3.5s ease-in-out infinite; animation-delay:0.5s;">
+          <div class="text-xs font-bold text-teal-100 uppercase tracking-wide mb-1.5">Fleet</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">500+</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">Managed</span>
+          </div>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div @centerPop
+            class="icon-ring w-20 h-20 rounded-2xl shadow-2xl flex items-center justify-center border border-emerald-400/40"
+            style="background:linear-gradient(135deg,rgba(5,150,105,0.9),rgba(8,145,178,0.8)); backdrop-filter:blur(12px); animation:transPulse 2.2s ease-in-out infinite;">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scroll arrow -->
+  <div class="scroll-arrow absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+
+  
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<section class="border-y py-5 bg-white" style="border-color:#e8edf5;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @staggerPills class="flex flex-wrap justify-center items-center gap-x-10 gap-y-3">
+      <div *ngFor="let t of trustBadges"
+        class="stagger-item trust-item flex items-center gap-2 text-gray-500 text-sm font-semibold">
+        <span class="text-lg">{{ t.icon }}</span>{{ t.label }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ ABOUT ══ -->
+<section class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <div *ngIf="isVisible" @fadeInLeft class="relative">
+      <div class="about-image-wrap relative rounded-3xl overflow-hidden shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=85&auto=format&fit=crop"
+          alt="Modern transportation fleet" class="w-full h-96 object-cover"
+          onerror="this.src='https://picsum.photos/seed/transport1/800/400'" />
+        <div class="absolute inset-0"
+          style="background:linear-gradient(to top, rgba(15,23,42,0.5) 0%, transparent 60%);"></div>
+        <div class="absolute bottom-5 left-5 right-5">
+          <div
+            class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-white text-xs font-semibold tracking-widest uppercase">Smart Mobility Platform</span>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+    <div *ngIf="isVisible" @fadeInRight>
+      <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">About Our Solution</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6 leading-tight">
+        Driving the Future of Intelligent Transportation
+      </h2>
+      <p class="text-gray-500 leading-relaxed mb-8">
+        Blute Technologies partners with logistics providers, transit authorities, and mobility companies to
+        build the digital backbone of modern transportation — connecting vehicles, drivers, passengers, and
+        operations through intelligent, real-time platforms built for scale.
+      </p>
+      <div *ngIf="isVisible" @staggerSteps class="space-y-4">
+        <div *ngFor="let pt of keyPoints" class="stagger-item flex items-start gap-3 group">
+          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+            style="background:linear-gradient(135deg,#059669,#0891b2);">
+            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed group-hover:text-gray-900 transition-colors">{{ pt }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ CHALLENGES ══ -->
+<section class="bg-gray-50 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @fadeUp class="text-center mb-14">
+      <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">Industry Challenges</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">What Transport Operators Face Today</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Rising fuel costs, customer expectations, and operational complexity
+        are
+        pushing transport companies to rethink how they manage fleets, routes, and service delivery.</p>
+    </div>
+    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let ch of challenges; let i = index"
+        class="stagger-item challenge-card group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:border-emerald-300 transition-all duration-300"
+        style="box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div
+          class="absolute top-0 left-0 right-0 h-1 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style="background:linear-gradient(90deg,#059669,#0891b2);"></div>
+        <div class="card-number">{{ i + 1 }}</div>
+        <div class="relative">
+          <div class="card-icon w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
+            style="background:linear-gradient(135deg,#ecfdf5,#cffafe); border:1.5px solid #6ee7b7;">
+            {{ ch.icon }}
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2 group-hover:text-emerald-600 transition-colors">{{ ch.title }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{ ch.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<!-- ══ STATS + IMAGE ══ -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">Proven Results</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6 leading-tight">
+        Numbers That Drive the Industry Forward
+      </h2>
+      <p class="text-gray-500 leading-relaxed mb-8">
+        Our transport platforms deliver measurable efficiency gains from day one —
+        reducing operational costs, improving service reliability, and giving operators
+        the real-time visibility they need to make faster decisions.
+      </p>
+      <div *ngIf="isVisible" @staggerCards class="grid grid-cols-2 gap-4">
+        <div *ngFor="let stat of transStats"
+          class="stagger-item stat-card bg-white rounded-2xl p-5 border-2 border-gray-100 hover:border-emerald-300 transition-all duration-300 text-center"
+          style="box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+          <div class="stat-val text-3xl font-black text-emerald-600 mb-1">{{ stat.val }}</div>
+          <div class="text-gray-500 text-xs font-semibold leading-snug">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isVisible" @fadeInRight class="relative">
+      <div class="about-image-wrap relative rounded-3xl overflow-hidden shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=800&q=85&auto=format&fit=crop"
+          alt="Smart city transport" class="w-full h-96 object-cover"
+          onerror="this.src='https://picsum.photos/seed/transport2/800/400'" />
+        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(15,23,42,0.6) 0%,transparent 60%);">
+        </div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <p class="text-white font-bold text-lg leading-snug">"Connecting fleets, drivers, and passengers through
+            intelligent real-time technology."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ HOW WE WORK ══ -->
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">Our Approach</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6">How Blute Delivers Transport IT Projects</h2>
+      <p class="text-gray-500 mb-8 leading-relaxed">We follow an operations-first delivery model — minimising
+        disruption to live services while rapidly deploying scalable transport technology that sticks.</p>
+      <div @staggerSteps class="space-y-6">
+        <div *ngFor="let step of process; let i = index" class="stagger-item process-step flex gap-4 group">
+          <div
+            class="step-num w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0 text-white"
+            style="background:linear-gradient(135deg,#059669,#0891b2);">
+            {{ i + 1 }}
+          </div>
+          <div>
+            <h4 class="step-title font-bold text-gray-800 mb-1">{{ step.title }}</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ step.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isVisible" @fadeInRight>
+      <div class="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-sm">
+        <h3 class="text-gray-900 font-bold text-lg mb-6 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Technologies We Use
+        </h3>
+        <div @staggerCards class="grid grid-cols-2 gap-3">
+          <div *ngFor="let tech of techStack"
+            class="stagger-item tech-card bg-white border border-gray-200 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm">
+            <span class="tech-icon text-xl">{{ tech.icon }}</span>
+            <div>
+              <div class="text-gray-800 text-sm font-semibold">{{ tech.name }}</div>
+              <div class="text-gray-400 text-xs">{{ tech.role }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY BLUTE ══ -->
+<section class="bg-gray-50 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @fadeUp class="text-center mb-16">
+      <span class="text-emerald-600 font-semibold text-sm uppercase tracking-widest">Why Blute Technologies</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">Your Trusted Transport Technology Partner</h2>
+    </div>
+    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let r of whyBlute"
+        class="stagger-item why-card relative group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 text-center">
+        <div class="why-icon-wrap w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"
+          style="background:linear-gradient(135deg,#ecfdf5,#cffafe); border:1.5px solid #6ee7b7;">
+          {{ r.icon }}
+        </div>
+        <h3 class="text-gray-800 font-bold mb-2 group-hover:text-emerald-600 transition-colors">{{ r.title }}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">{{ r.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,113 @@
+@reference "tailwindcss";
+
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+// ── Navbar background ─────────────────────────────────────────────────────────
+.nav-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f4c5c 100%);
+}
+
+// ── Nav button ────────────────────────────────────────────────────────────────
+.nav-btn {
+  @apply flex items-center gap-1.5 px-4 py-2 text-white/80 hover:text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all cursor-pointer;
+
+  &.nav-btn-active {
+    @apply text-white bg-white/10;
+  }
+}
+
+// ── CTA button ────────────────────────────────────────────────────────────────
+.cta-btn {
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  @apply text-white px-5 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer;
+  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.35);
+
+  &:hover {
+    background: linear-gradient(135deg, #2dd4bf, #22d3ee);
+    box-shadow: 0 6px 24px rgba(20, 184, 166, 0.5);
+    transform: translateY(-1px);
+  }
+}
+
+// ── Mega menu panel ───────────────────────────────────────────────────────────
+.mega-panel {
+  position: absolute; // ✅ FIXED: absolute so it floats over content, doesn't push page
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50;
+  animation: dropIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mega-inner {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.18);
+}
+
+// ── Dropdown header bar ───────────────────────────────────────────────────────
+.dropdown-header {
+  @apply px-8 py-3 flex items-center justify-between;
+  background: linear-gradient(90deg, #0f172a, #1e3a8a);
+}
+
+// ── Dropdown animation ────────────────────────────────────────────────────────
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── Shared icon box ───────────────────────────────────────────────────────────
+.icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+// ── Menu item hover shift ─────────────────────────────────────────────────────
+.menu-item-hover {
+  transition: all 0.15s ease;
+
+  &:hover {
+    transform: translateX(2px);
+  }
+}
+
+// ── Small badge/tag ───────────────────────────────────────────────────────────
+.badge-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+// ── Horizontal rule divider ───────────────────────────────────────────────────
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+}
+
+// ── Company featured card ─────────────────────────────────────────────────────
+.featured-card {
+  background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+  border-radius: 12px;
+  padding: 16px;
+}

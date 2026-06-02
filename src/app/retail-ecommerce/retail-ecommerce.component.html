@@ -1,0 +1,237 @@
+
+
+<!-- ══ HERO — dark theme ══ -->
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-24 min-h-screen flex items-center">
+  <div class="absolute inset-0 opacity-[0.05]"
+    style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
+           linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
+           background-size: 40px 40px;"></div>
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center w-full">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <div class="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-4 py-1.5 mb-6">
+        <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+        </svg>
+        <span class="text-teal-300 text-xs font-semibold tracking-widest uppercase">Retail & E-Commerce — IT Solutions</span>
+      </div>
+      <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        Powering the Future of
+        <span class="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
+          Retail with Technology
+        </span>
+      </h1>
+      <p class="text-white/50 text-lg leading-relaxed mb-8 max-w-lg">
+        Blute Technologies delivers end-to-end IT solutions for retail and e-commerce businesses — custom platforms, cloud infrastructure, AI-driven personalisation, and seamless system integrations.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button routerLink="/contact"
+          class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 text-white font-semibold shadow-lg shadow-teal-500/20 hover:shadow-teal-500/40 hover:-translate-y-0.5 transition-all duration-200">
+          Talk to Our Experts
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </button>
+        <button class="px-8 py-3 rounded-full border border-white/20 text-white/70 font-semibold hover:bg-white/10 hover:text-white transition-all duration-200">
+          View Case Studies →
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="isVisible" @fadeInRight class="hidden lg:flex justify-center">
+      <div class="relative w-96 h-80">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-56 h-56 rounded-3xl rotate-6 opacity-40 animate-pulse"
+            style="background: linear-gradient(135deg, #14b8a6, #3b82f6)"></div>
+        </div>
+        <!-- Tech Stack card — teal/cyan -->
+        <div class="absolute top-0 left-0 rounded-2xl px-4 py-3 animate-bounce shadow-2xl border border-teal-400/30"
+          style="animation-duration:3s; background: linear-gradient(135deg, rgba(13,148,136,0.85), rgba(6,182,212,0.75)); backdrop-filter: blur(12px);">
+          <div class="text-xs font-bold text-teal-100 uppercase tracking-wide mb-1.5">Tech Stack</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">Angular</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">AWS</span>
+          </div>
+        </div>
+
+        <!-- Integrations card — indigo/violet -->
+        <div class="absolute bottom-4 right-0 rounded-2xl px-4 py-3 animate-bounce shadow-2xl border border-indigo-400/30"
+          style="animation-duration:4s; animation-delay:1s; background: linear-gradient(135deg, rgba(99,102,241,0.85), rgba(139,92,246,0.75)); backdrop-filter: blur(12px);">
+          <div class="text-xs font-bold text-indigo-100 uppercase tracking-wide mb-1.5">Integrations</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">SAP</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">Stripe</span>
+          </div>
+        </div>
+
+        <!-- Deployment card — blue/sky -->
+        <div class="absolute top-1/2 right-2 -translate-y-1/2 rounded-2xl px-4 py-3 animate-bounce shadow-2xl border border-blue-400/30"
+          style="animation-duration:3.5s; animation-delay:0.5s; background: linear-gradient(135deg, rgba(37,99,235,0.85), rgba(14,165,233,0.75)); backdrop-filter: blur(12px);">
+          <div class="text-xs font-bold text-blue-100 uppercase tracking-wide mb-1.5">Deployment</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">CI/CD</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">Docker</span>
+          </div>
+        </div>
+
+        <!-- Center icon — vibrant teal gradient -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-20 h-20 rounded-2xl shadow-2xl flex items-center justify-center border border-teal-400/40"
+            style="background: linear-gradient(135deg, rgba(13,148,136,0.9), rgba(59,130,246,0.8)); backdrop-filter: blur(12px);">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 animate-bounce">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══ CHALLENGES — light bg ══ -->
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @fadeInUp class="text-center mb-14">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Industry Challenges</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">What Retail Businesses Face Today</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Modern retail demands fast, flexible, and connected technology. Blute Technologies helps you overcome these critical challenges.</p>
+    </div>
+    <div *ngIf="isVisible" @staggerList class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let ch of challenges"
+        class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300">
+        <div class="text-3xl mb-4">{{ ch.icon }}</div>
+        <h3 class="font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors">{{ ch.title }}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">{{ ch.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IT SOLUTIONS WITH IMAGES — glassmorphism cards ══ -->
+<section class="relative py-24 overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #0c1a3a 50%, #0f172a 100%);">
+  <!-- subtle grid -->
+  <div class="absolute inset-0 opacity-[0.04]"
+    style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
+           linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
+           background-size: 40px 40px;"></div>
+  <!-- blobs -->
+  <div class="absolute top-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @fadeInUp class="text-center mb-16">
+      <span class="text-teal-400 font-semibold text-sm uppercase tracking-widest">Our IT Solutions</span>
+      <h2 class="text-4xl font-extrabold text-white mt-3 mb-4">Technology We Build for Retail</h2>
+      <p class="text-white/40 max-w-xl mx-auto">From custom e-commerce platforms to AI and cloud — we engineer the technology that powers your retail operations.</p>
+    </div>
+
+    <div *ngIf="isVisible" @staggerList class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let sol of solutions"
+        class="stagger-item group relative rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+        style="background: rgba(255,255,255,0.05); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1);"
+>
+
+        <!-- Image with gradient overlay -->
+        <div class="relative h-44 overflow-hidden">
+          <img [src]="sol.image" [alt]="sol.title"
+            class="w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-500"/>
+          <!-- bottom fade into card -->
+          <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.85) 100%);">
+          </div>
+          <!-- Icon -->
+          <div class="absolute top-4 left-4 w-11 h-11 rounded-xl flex items-center justify-center border border-white/20"
+            style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px);">
+            <svg class="w-5 h-5 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="sol.svg"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-5">
+          <h3 class="text-base font-bold text-white mb-2 group-hover:text-teal-300 transition-colors duration-300">{{ sol.title }}</h3>
+          <p class="text-white/40 text-sm leading-relaxed mb-4">{{ sol.desc }}</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span *ngFor="let tag of sol.tags"
+              class="text-xs px-2.5 py-0.5 rounded-full font-medium border"
+              style="background: rgba(20,184,166,0.12); color: #5eead4; border-color: rgba(20,184,166,0.25);">{{ tag }}</span>
+          </div>
+          <div class="mt-4 flex items-center gap-1 text-teal-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Explore Solution →
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW WE WORK — white bg ══ -->
+<section class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Our Approach</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6">How Blute Delivers Retail IT Projects</h2>
+      <p class="text-gray-500 mb-8 leading-relaxed">We follow a structured, agile delivery model to ensure your retail technology is launched on time, on budget, and built to scale.</p>
+      <div class="space-y-6">
+        <div *ngFor="let step of process; let i = index" class="flex gap-4 group">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0
+            bg-gradient-to-br from-teal-500 to-blue-500 text-white group-hover:shadow-lg group-hover:shadow-teal-500/30 transition-all duration-300">
+            {{ i + 1 }}
+          </div>
+          <div>
+            <h4 class="font-bold text-gray-800 mb-1 group-hover:text-teal-600 transition-colors">{{ step.title }}</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ step.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isVisible" @fadeInRight>
+      <div class="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-sm">
+        <h3 class="text-gray-900 font-bold text-lg mb-6 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+          Technologies We Use
+        </h3>
+        <div class="grid grid-cols-2 gap-3">
+          <div *ngFor="let tech of techStack"
+            class="bg-white hover:bg-teal-50 border border-gray-200 hover:border-teal-300 transition-all duration-300 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm">
+            <span class="text-xl">{{ tech.icon }}</span>
+            <div>
+              <div class="text-gray-800 text-sm font-semibold">{{ tech.name }}</div>
+              <div class="text-gray-400 text-xs">{{ tech.role }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══ WHY BLUTE — white bg ══ -->
+<section class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @fadeInUp class="text-center mb-16">
+      <span class="text-teal-600 font-semibold text-sm uppercase tracking-widest">Why Blute Technologies</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">Your Trusted Retail Technology Partner</h2>
+    </div>
+    <div *ngIf="isVisible" @staggerList class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let reason of whyBlute"
+        class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 text-center">
+        <div class="text-4xl mb-4">{{ reason.icon }}</div>
+        <h3 class="text-gray-800 font-bold mb-2 group-hover:text-teal-600 transition-colors">{{ reason.title }}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">{{ reason.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+

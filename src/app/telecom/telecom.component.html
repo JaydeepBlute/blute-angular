@@ -1,0 +1,337 @@
+
+
+<!-- ══ SCROLL PROGRESS ══ -->
+<div class="scroll-progress" [style.width.%]="scrollProgress"></div>
+
+<!-- ══ HERO ══ -->
+<section class="relative overflow-hidden py-24 min-h-screen flex items-center"
+  style="background: linear-gradient(135deg, #0f172a 0%, #130c2e 50%, #0f172a 100%);">
+
+  <div class="hero-grid absolute inset-0"></div>
+
+  <!-- signal waves -->
+  <div class="signal-wave absolute" style="width:200px;height:200px;top:20%;right:15%;"></div>
+  <div class="signal-wave absolute" style="width:200px;height:200px;top:20%;right:15%;"></div>
+  <div class="signal-wave absolute" style="width:200px;height:200px;top:20%;right:15%;"></div>
+
+  <!-- orbs -->
+  <div class="orb orb-purple absolute top-0 right-1/4 w-96 h-96"></div>
+  <div class="orb orb-blue absolute bottom-0 left-1/4 w-80 h-80"></div>
+  <div class="orb orb-cyan absolute top-1/2 left-0 w-60 h-60"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center w-full">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <div
+        class="inline-flex items-center gap-2 bg-purple-400/10 border border-purple-400/20 rounded-full px-4 py-1.5 mb-6">
+        <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+        </svg>
+        <span class="text-purple-300 text-xs font-semibold tracking-widest uppercase">Telecom & Connectivity — IT
+          Solutions</span>
+      </div>
+      <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+        Powering the Future of
+        <span class="gradient-text">Global Connectivity</span>
+      </h1>
+      <p class="text-white/50 text-lg leading-relaxed mb-8 max-w-lg">
+        From BSS/OSS transformation to 5G network virtualisation — we build carrier-grade platforms
+        that help telecom operators modernise, monetise, and deliver exceptional subscriber experiences.
+      </p>
+    
+    </div>
+
+    <!-- RIGHT floating cards -->
+    <div *ngIf="isVisible" @fadeInRight class="hidden lg:flex justify-center">
+      <div class="relative w-96 h-80">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-56 h-56 rounded-3xl rotate-6 opacity-40 animate-pulse"
+            style="background: linear-gradient(135deg, #7c3aed, #2563eb)"></div>
+        </div>
+        <div @cardDrop1
+          class="hero-card absolute top-0 left-0 rounded-2xl px-4 py-3 shadow-2xl border border-purple-400/30"
+          style="background:linear-gradient(135deg,rgba(124,58,237,0.85),rgba(139,92,246,0.75)); animation:floatY 3s ease-in-out infinite;">
+          <div class="text-xs font-bold text-purple-100 uppercase tracking-wide mb-1.5">5G Network</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">Slicing</span>
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">NFV</span>
+          </div>
+        </div>
+        <div @cardDrop2
+          class="hero-card absolute bottom-4 right-0 rounded-2xl px-4 py-3 shadow-2xl border border-blue-400/30"
+          style="background:linear-gradient(135deg,rgba(37,99,235,0.85),rgba(99,102,241,0.75)); animation:floatYReverse 4s ease-in-out infinite; animation-delay:1s;">
+          <div class="text-xs font-bold text-blue-100 uppercase tracking-wide mb-1.5">Revenue Assurance</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">-40% Leakage</span>
+          </div>
+        </div>
+        <div @cardDrop3
+          class="hero-card absolute top-1/2 right-2 -translate-y-1/2 rounded-2xl px-4 py-3 shadow-2xl border border-cyan-400/30"
+          style="background:linear-gradient(135deg,rgba(8,145,178,0.85),rgba(6,182,212,0.75)); animation:floatRotate 3.5s ease-in-out infinite; animation-delay:0.5s;">
+          <div class="text-xs font-bold text-cyan-100 uppercase tracking-wide mb-1.5">BSS/OSS</div>
+          <div class="flex gap-1.5">
+            <span class="text-xs bg-white/20 text-white px-2.5 py-0.5 rounded-full font-semibold">150+ Ops</span>
+          </div>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div @centerPop
+            class="icon-ring w-20 h-20 rounded-2xl shadow-2xl flex items-center justify-center border border-purple-400/40"
+            style="background:linear-gradient(135deg,rgba(124,58,237,0.9),rgba(37,99,235,0.8)); backdrop-filter:blur(12px); animation:telecomPulse 2.2s ease-in-out infinite;">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-arrow absolute bottom-8 left-1/2 text-white/30">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+
+  <style>
+    @keyframes floatY {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg)
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(1deg)
+      }
+    }
+
+    @keyframes floatYReverse {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg)
+      }
+
+      50% {
+        transform: translateY(10px) rotate(-1deg)
+      }
+    }
+
+    @keyframes floatRotate {
+
+      0%,
+      100% {
+        transform: translateY(-50%) rotate(-1deg) scale(1)
+      }
+
+      50% {
+        transform: translateY(calc(-50% - 10px)) rotate(2deg) scale(1.03)
+      }
+    }
+
+    @keyframes telecomPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5)
+      }
+
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 14px rgba(124, 58, 237, 0)
+      }
+    }
+  </style>
+</section>
+
+
+
+<div class="section-divider"></div>
+
+<!-- ══ ABOUT ══ -->
+<section class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <div *ngIf="isVisible" @fadeInLeft class="relative">
+      <div class="about-image-wrap relative rounded-3xl overflow-hidden shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=85&auto=format&fit=crop"
+          alt="Telecom network infrastructure" class="w-full h-96 object-cover"
+          onerror="this.src='https://picsum.photos/seed/telecom1/800/400'" />
+        <div class="absolute inset-0"
+          style="background:linear-gradient(to top, rgba(15,23,42,0.5) 0%, transparent 60%);"></div>
+        <div class="absolute bottom-5 left-5 right-5">
+          <div
+            class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+            <span class="text-white text-xs font-semibold tracking-widest uppercase">Carrier-Grade Platform</span>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+
+    <div *ngIf="isVisible" @fadeInRight>
+      <span class="text-purple-600 font-semibold text-sm uppercase tracking-widest">About Our Solution</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6 leading-tight">
+        Modernising Telecom Infrastructure for the 5G Era
+      </h2>
+      <p class="text-gray-500 leading-relaxed mb-8">
+        Blute Technologies works with telecom operators, MVNOs, and connectivity providers to transform
+        legacy BSS/OSS stacks, virtualise network functions, and build the digital platforms that power
+        next-generation subscriber experiences — at carrier-grade scale and reliability.
+      </p>
+      <div *ngIf="isVisible" @staggerSteps class="space-y-4">
+        <div *ngFor="let pt of keyPoints" class="stagger-item flex items-start gap-3 group">
+          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+            style="background:linear-gradient(135deg,#7c3aed,#2563eb);">
+            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed group-hover:text-gray-900 transition-colors">{{ pt }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ CHALLENGES ══ -->
+<section class="bg-gray-50 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @fadeUp class="text-center mb-14">
+      <span class="text-purple-600 font-semibold text-sm uppercase tracking-widest">Industry Challenges</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">What Telecom Operators Face Today</h2>
+      <p class="text-gray-500 max-w-2xl mx-auto">Network complexity, revenue pressure, and rising customer expectations
+        are forcing operators to accelerate digital transformation across every layer of their business.</p>
+    </div>
+    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let ch of challenges; let i = index"
+        class="stagger-item challenge-card group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:border-purple-300 transition-all duration-300"
+        style="box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+        <div
+          class="absolute top-0 left-0 right-0 h-1 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          style="background:linear-gradient(90deg,#7c3aed,#2563eb,#06b6d4);"></div>
+        <div class="card-number">{{ i + 1 }}</div>
+        <div class="relative">
+          <div class="card-icon w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4"
+            style="background:linear-gradient(135deg,#f5f3ff,#ede9fe); border:1.5px solid #c4b5fd;">
+            {{ ch.icon }}
+          </div>
+          <h3 class="font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">{{ ch.title }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{ ch.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="section-divider"></div>
+
+<!-- ══ STATS + IMAGE ══ -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <span class="text-purple-600 font-semibold text-sm uppercase tracking-widest">Proven Results</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6 leading-tight">
+        Numbers That Define Carrier Excellence
+      </h2>
+      <p class="text-gray-500 leading-relaxed mb-8">
+        Our telecom platforms deliver measurable business impact — protecting revenue, accelerating
+        service launches, and giving operators the operational intelligence to outperform competitors.
+      </p>
+      <div *ngIf="isVisible" @staggerCards class="grid grid-cols-2 gap-4">
+        <div *ngFor="let stat of telecomStats"
+          class="stagger-item stat-card bg-white rounded-2xl p-5 border-2 border-gray-100 hover:border-purple-300 transition-all duration-300 text-center"
+          style="box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+          <div class="stat-val text-3xl font-black text-purple-600 mb-1">{{ stat.val }}</div>
+          <div class="text-gray-500 text-xs font-semibold leading-snug">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isVisible" @fadeInRight class="relative">
+      <div class="about-image-wrap relative rounded-3xl overflow-hidden shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=85&auto=format&fit=crop"
+          alt="Telecom operations centre" class="w-full h-96 object-cover"
+          onerror="this.src='https://picsum.photos/seed/telecom2/800/400'" />
+        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(15,23,42,0.6) 0%,transparent 60%);">
+        </div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <p class="text-white font-bold text-lg leading-snug">"Connecting the world — one intelligent, carrier-grade
+            platform at a time."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ HOW WE WORK ══ -->
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div *ngIf="isVisible" @fadeInLeft>
+      <span class="text-purple-600 font-semibold text-sm uppercase tracking-widest">Our Approach</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6">How Blute Delivers Telecom IT Projects</h2>
+      <p class="text-gray-500 mb-8 leading-relaxed">We follow a carrier-grade delivery model — integrating deep into
+        live network environments while maintaining zero-disruption standards throughout the project lifecycle.</p>
+      <div @staggerSteps class="space-y-6">
+        <div *ngFor="let step of process; let i = index" class="stagger-item process-step flex gap-4 group">
+          <div
+            class="step-num w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0 text-white"
+            style="background:linear-gradient(135deg,#7c3aed,#2563eb);">
+            {{ i + 1 }}
+          </div>
+          <div>
+            <h4 class="step-title font-bold text-gray-800 mb-1">{{ step.title }}</h4>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ step.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isVisible" @fadeInRight>
+      <div class="rounded-3xl border border-gray-200 bg-gray-50 p-8 shadow-sm">
+        <h3 class="text-gray-900 font-bold text-lg mb-6 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
+          Technologies We Use
+        </h3>
+        <div @staggerCards class="grid grid-cols-2 gap-3">
+          <div *ngFor="let tech of techStack"
+            class="stagger-item tech-card bg-white border border-gray-200 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm">
+            <span class="tech-icon text-xl">{{ tech.icon }}</span>
+            <div>
+              <div class="text-gray-800 text-sm font-semibold">{{ tech.name }}</div>
+              <div class="text-gray-400 text-xs">{{ tech.role }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY BLUTE ══ -->
+<section class="bg-gray-50 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div *ngIf="isVisible" @fadeUp class="text-center mb-16">
+      <span class="text-purple-600 font-semibold text-sm uppercase tracking-widest">Why Blute Technologies</span>
+      <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">Your Trusted Telecom Technology Partner</h2>
+    </div>
+    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div *ngFor="let r of whyBlute"
+        class="stagger-item why-card group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 text-center">
+        <div class="why-icon-wrap w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4"
+          style="background:linear-gradient(135deg,#f5f3ff,#ede9fe); border:1.5px solid #c4b5fd;">
+          {{ r.icon }}
+        </div>
+        <h3 class="text-gray-800 font-bold mb-2 group-hover:text-purple-600 transition-colors">{{ r.title }}</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">{{ r.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>

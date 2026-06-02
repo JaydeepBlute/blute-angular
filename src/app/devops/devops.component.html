@@ -1,0 +1,212 @@
+
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero-section">
+  <div class="hero-bg-shape shape-1"></div>
+  <div class="hero-bg-shape shape-2"></div>
+
+  <div class="hero-container">
+    <!-- LEFT -->
+    <div class="hero-left" [@slideInLeft]>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        DevOps Excellence · CI/CD · Cloud
+      </div>
+      <h1 class="hero-title">
+        Accelerate Delivery<br />
+        with <span class="gradient-text">Enterprise DevOps</span>
+      </h1>
+      <p class="hero-desc">
+        Transform your software delivery pipeline with automated CI/CD,
+        cloud-native infrastructure, and intelligent monitoring. Ship faster,
+        scale smarter, and operate with confidence.
+      </p>
+      <div class="hero-pills">
+        <span class="pill" *ngFor="let p of heroPills">{{ p }}</span>
+      </div>
+     
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right" [@slideInRight]>
+      <div class="hero-img-stack">
+        <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=700&q=85" alt="DevOps Dashboard"
+          class="hero-main-img" />
+        <div class="hero-img-overlay">
+          <h3>Automate · Deploy · Scale</h3>
+          <p>Building the future of software delivery</p>
+        </div>
+        <!-- Floating badges -->
+        <div class="float-badge fb-left" [@floatBadge]>
+          <div class="fb-icon-wrap green"><span>✅</span></div>
+          <div>
+            <div class="fb-title">Build Passed</div>
+            <div class="fb-sub">247 tests · 0 failures</div>
+          </div>
+        </div>
+        <div class="float-badge fb-right" [@floatBadge]>
+          <div class="fb-icon-wrap blue"><span>🚀</span></div>
+          <div>
+            <div class="fb-title">Deployed to k8s</div>
+            <div class="fb-sub">v2.4.1 · 99.9% uptime</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" [@fadeIn]>
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section class="services-section" #servicesRef>
+  <div class="section-container">
+    <div class="section-header" [@sectionFade]="servicesVisible ? 'visible' : 'hidden'">
+      <span class="section-tag">What We Offer</span>
+      <h2 class="section-title">DevOps <span class="gradient-text">Services</span></h2>
+      <p class="section-desc">End-to-end DevOps solutions that accelerate your software delivery lifecycle.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let svc of services; let i = index"
+        [@cardSlide]="servicesVisible ? 'visible' : 'hidden'" [style.transition-delay]="i * 0.1 + 's'"
+        (mouseenter)="svc.hovered = true" (mouseleave)="svc.hovered = false" [class.hovered]="svc.hovered">
+        <!-- Background image -->
+        <div class="svc-bg-img" [style.background-image]="'url(' + svc.img + ')'"></div>
+        <div class="svc-content">
+          <div class="svc-icon-wrap" [style.background]="svc.iconBg">
+            <span>{{ svc.icon }}</span>
+          </div>
+          <h3 class="svc-title">{{ svc.title }}</h3>
+          <p class="svc-desc">{{ svc.desc }}</p>
+          <span class="svc-link" [style.color]="svc.color">Learn more →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PIPELINE VISUAL ═══════════════════ -->
+<section class="pipeline-section">
+  <div class="section-container">
+    <div class="section-header" [@sectionFade]="servicesVisible ? 'visible' : 'hidden'">
+      <span class="section-tag">How It Works</span>
+      <h2 class="section-title">Live <span class="gradient-text">CI/CD Pipeline</span></h2>
+      <p class="section-desc">Watch your code travel from commit to production in seconds.</p>
+    </div>
+
+    <div class="pipeline-track" [@sectionFade]="servicesVisible ? 'visible' : 'hidden'">
+      <div class="pipeline-progress-bar">
+        <div class="pipeline-progress-fill"></div>
+      </div>
+
+      <div class="pipeline-nodes">
+        <div class="pipeline-node" *ngFor="let stage of pipelineStages; let i = index; let last = last"
+          [class.node-done]="stage.status==='done'" [class.node-running]="stage.status==='running'"
+          [class.node-pending]="stage.status==='pending'" [style.transition-delay]="i * 0.12 + 's'">
+          <div class="node-card">
+            <div class="node-emoji">{{ stage.emoji }}</div>
+            <div class="node-name">{{ stage.name }}</div>
+            <div class="node-label">{{ stage.label }}</div>
+            <div class="node-status" [ngStyle]="{'background': stageColor(stage.status)}">
+              <span [class.spin-icon]="stage.status==='running'">{{ stageIcon(stage.status) }}</span>
+            </div>
+          </div>
+          <div class="node-connector" *ngIf="!last">
+            <div class="connector-line" [class.line-active]="stage.status==='done'"></div>
+            <span class="connector-arrow" [class.arrow-active]="stage.status==='done'">›</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipeline-footer-bar">
+        <span>🚀 Deployment #247</span>
+        <span>⏱ 2m 34s avg</span>
+        <span>✅ 99.9% success rate</span>
+        <span>🐳 Kubernetes v1.28</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════ PROCESS ═══════════════════ -->
+<section class="process-section">
+  <div class="section-container">
+    <div class="section-header" [@sectionFade]="servicesVisible ? 'visible' : 'hidden'">
+      <span class="section-tag">How We Work</span>
+      <h2 class="section-title">Our <span class="gradient-text">Process</span></h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card" *ngFor="let step of processSteps; let i = index"
+        [@stepFade]="servicesVisible ? 'visible' : 'hidden'" [style.transition-delay]="i * 0.12 + 's'">
+        <div class="process-img-wrap">
+          <img [src]="step.img" [alt]="step.title" class="process-img" />
+          <div class="process-num-badge" [style.background]="step.color">{{ step.num }}</div>
+        </div>
+        <div class="process-body">
+          <h4 class="step-title">{{ step.title }}</h4>
+          <p class="step-desc">{{ step.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ IMAGE SHOWCASE ═══════════════════ -->
+<section class="showcase-section">
+  <div class="section-container">
+    <div class="section-header" [@sectionFade]="servicesVisible ? 'visible' : 'hidden'">
+      <span class="section-tag">Inside DevOps</span>
+      <h2 class="section-title">Where <span class="gradient-text">Engineering Meets Ops</span></h2>
+    </div>
+
+    <div class="showcase-grid">
+      <!-- Large featured card -->
+      <div class="showcase-card showcase-large" [@cardSlide]="servicesVisible ? 'visible' : 'hidden'">
+        <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&q=85" alt="CI/CD"
+          class="showcase-img" />
+        <div class="showcase-overlay">
+          <span class="showcase-tag-pill">CI/CD</span>
+          <h3>Automated Pipelines</h3>
+          <p>From code commit to production in minutes</p>
+        </div>
+      </div>
+
+      <!-- Right column stacked -->
+      <div class="showcase-col">
+        <div class="showcase-card showcase-sm" [@cardSlide]="servicesVisible ? 'visible' : 'hidden'"
+          [style.transition-delay]="'0.1s'">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=85" alt="Cloud"
+            class="showcase-img" />
+          <div class="showcase-overlay">
+            <span class="showcase-tag-pill">Cloud</span>
+            <h3>Cloud Infrastructure</h3>
+            <p>Scalable, resilient, cost-optimised</p>
+          </div>
+        </div>
+
+        <div class="showcase-card showcase-sm" [@cardSlide]="servicesVisible ? 'visible' : 'hidden'"
+          [style.transition-delay]="'0.2s'">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=85" alt="Monitoring"
+            class="showcase-img" />
+          <div class="showcase-overlay">
+            <span class="showcase-tag-pill">Monitoring</span>
+            <h3>Real-time Observability</h3>
+            <p>Prometheus · Grafana · ELK Stack</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

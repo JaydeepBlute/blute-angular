@@ -1,0 +1,287 @@
+<!-- navbar.component.html -->
+
+<nav class="nav-gradient shadow-2xl" (mouseleave)="closeMenu()">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a routerLink="/" class="flex items-center gap-3 cursor-pointer">
+        <div
+          class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center shadow-lg">
+          <img src="assets/images/clients/blutelogo.jpeg" alt="Blute Technologies"
+            class="w-full h-full object-contain rounded-xl">
+        </div>
+        <div>
+          <div class="text-white font-bold text-base leading-tight">Blute Technologies</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-1">
+
+        <!-- TECHNOLOGIES -->
+        <div (mouseenter)="openMenu('tech')">
+          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'tech'">
+            Technologies
+            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'tech'"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- SERVICES -->
+        <div (mouseenter)="openMenu('services')">
+          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'services'">
+            Services
+            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'services'"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- INDUSTRIES -->
+        <div (mouseenter)="openMenu('industries')">
+          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'industries'">
+            Industries
+            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'industries'"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- COMPANY -->
+        <div (mouseenter)="openMenu('company')">
+          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'company'">
+            Company
+            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'company'"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- CTA Button -->
+      <button class="ml-3 cta-btn"  routerLink="/contact">Get in Touch</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MEGA MENU PANELS ── -->
+
+<!-- TECHNOLOGIES PANEL — replace the entire technologies grid section -->
+<div *ngIf="activeMenu === 'tech'" class="mega-panel">
+  <div class="mega-inner">
+    <div class="dropdown-header">
+      <span class="text-white font-semibold text-sm tracking-wide">Our Technology Stack</span>
+      <span class="text-white/50 text-xs">6 Domains · 18+ Technologies</span>
+    </div>
+    <div class="p-6 grid grid-cols-3 gap-3 max-w-5xl mx-auto">
+      <ng-container *ngFor="let tech of technologies">
+
+        <!-- routerLink items (Web Application, etc.) -->
+        <a *ngIf="tech.routerLink" [routerLink]="tech.routerLink" (click)="closeMenu()" routerLinkActive="bg-teal-50"
+          class="group flex items-start gap-3 p-4 rounded-xl border border-transparent transition-all cursor-pointer"
+          [ngClass]="[tech.hoverBg, tech.hoverBorder]">
+          <div class="icon-box flex-shrink-0" [ngClass]="tech.iconBg">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="tech.svgPath" />
+            </svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <h4 class="font-semibold text-gray-900 text-sm transition-colors" [ngClass]="tech.hoverText">
+                {{ tech.label }}
+              </h4>
+              <span *ngIf="tech.badge" class="badge-tag" [ngClass]="[tech.tagBg2, tech.tagText2]">
+                {{ tech.badge }}
+              </span>
+            </div>
+            <p class="text-xs text-gray-400 mb-2">{{ tech.description }}</p>
+            <div class="flex flex-wrap gap-1">
+              <span *ngFor="let tag of tech.tags" class="text-xs px-2 py-0.5 rounded-full"
+                [ngClass]="[tech.tagBg, tech.tagText]">{{ tag }}</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- href items (Cloud, Cognitive, IoT, Agentic AI, etc.) -->
+        <a *ngIf="!tech.routerLink && tech.href" [href]="tech.href"
+          class="group flex items-start gap-3 p-4 rounded-xl border border-transparent transition-all cursor-pointer"
+          [ngClass]="[tech.hoverBg, tech.hoverBorder]">
+          <div class="icon-box flex-shrink-0" [ngClass]="tech.iconBg">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="tech.svgPath" />
+            </svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <h4 class="font-semibold text-gray-900 text-sm transition-colors" [ngClass]="tech.hoverText">
+                {{ tech.label }}
+              </h4>
+              <span *ngIf="tech.badge" class="badge-tag" [ngClass]="[tech.tagBg2, tech.tagText2]">
+                {{ tech.badge }}
+              </span>
+            </div>
+            <p class="text-xs text-gray-400 mb-2">{{ tech.description }}</p>
+            <div class="flex flex-wrap gap-1">
+              <span *ngFor="let tag of tech.tags" class="text-xs px-2 py-0.5 rounded-full"
+                [ngClass]="[tech.tagBg, tech.tagText]">{{ tag }}</span>
+            </div>
+          </div>
+        </a>
+
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES PANEL — replace your existing one with this -->
+<div *ngIf="activeMenu === 'services'" class="mega-panel">
+  <div class="mega-inner">
+    <div class="dropdown-header">
+      <span class="text-white font-semibold text-sm tracking-wide">Our Services</span>
+      <span class="text-white/50 text-xs">End-to-end delivery</span>
+    </div>
+    <div class="p-6 grid grid-cols-4 gap-3 max-w-5xl mx-auto">
+      <ng-container *ngFor="let svc of services">
+
+        <!-- routerLink items (e.g. Enterprise) -->
+        <a *ngIf="svc.routerLink" [routerLink]="svc.routerLink" (click)="closeMenu()" routerLinkActive="bg-blue-50"
+          class="group menu-item-hover flex items-center gap-3 p-3 rounded-xl border border-transparent transition-all"
+          [ngClass]="[svc.hoverBg, svc.hoverBorder]">
+          <div class="icon-box flex-shrink-0 transition-colors" [ngClass]="[svc.iconBg, svc.iconHover]">
+            <svg class="w-4 h-4" [ngClass]="svc.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="svc.svgPath" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold text-gray-900 text-sm transition-colors" [ngClass]="svc.hoverText">
+              {{ svc.label }}
+            </div>
+            <div class="text-xs text-gray-400">{{ svc.description }}</div>
+          </div>
+        </a>
+
+        <!-- href items (fallback) -->
+        <a *ngIf="!svc.routerLink && svc.href" [href]="svc.href"
+          class="group menu-item-hover flex items-center gap-3 p-3 rounded-xl border border-transparent transition-all"
+          [ngClass]="[svc.hoverBg, svc.hoverBorder]">
+          <div class="icon-box flex-shrink-0 transition-colors" [ngClass]="[svc.iconBg, svc.iconHover]">
+            <svg class="w-4 h-4" [ngClass]="svc.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="svc.svgPath" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold text-gray-900 text-sm transition-colors" [ngClass]="svc.hoverText">
+              {{ svc.label }}
+            </div>
+            <div class="text-xs text-gray-400">{{ svc.description }}</div>
+          </div>
+        </a>
+
+      </ng-container>
+    </div>
+  </div>
+</div>
+<!-- INDUSTRIES PANEL -->
+<div *ngIf="activeMenu === 'industries'" class="mega-panel">
+  <div class="mega-inner">
+    <div class="dropdown-header">
+      <span class="text-white font-semibold text-sm tracking-wide">Industries We Serve</span>
+      <span class="text-white/50 text-xs">12 Verticals</span>
+    </div>
+    <div class="p-6 grid grid-cols-4 gap-2 max-w-5xl mx-auto">
+      <ng-container *ngFor="let ind of industries">
+
+        <!-- href items (Healthcare, BFSI, Government, etc.) -->
+        <a *ngIf="ind.href && !ind.routerLink" [href]="ind.href"
+          class="group menu-item-hover flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm transition-all"
+          [ngClass]="ind.hoverBg">
+          <div class="icon-box w-8 h-8 rounded-lg transition-colors flex-shrink-0"
+            [ngClass]="[ind.iconBg, ind.iconHover]">
+            <svg class="w-4 h-4" [ngClass]="ind.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="ind.svgPath" />
+            </svg>
+          </div>
+          <span class="font-medium text-gray-700 transition-colors" [ngClass]="ind.hoverText">{{ ind.label }}</span>
+        </a>
+
+        <!-- routerLink items (Retail & E-Commerce, etc.) -->
+        <a *ngIf="ind.routerLink" [routerLink]="ind.routerLink" (click)="closeMenu()" routerLinkActive="bg-blue-50"
+          class="group menu-item-hover flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm transition-all"
+          [ngClass]="ind.hoverBg">
+          <div class="icon-box w-8 h-8 rounded-lg transition-colors flex-shrink-0"
+            [ngClass]="[ind.iconBg, ind.iconHover]">
+            <svg class="w-4 h-4" [ngClass]="ind.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="ind.svgPath" />
+            </svg>
+          </div>
+          <span class="font-medium text-gray-700 transition-colors" [ngClass]="ind.hoverText">{{ ind.label }}</span>
+        </a>
+
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+  <!-- COMPANY PANEL -->
+  <div *ngIf="activeMenu === 'company'" class="mega-panel">
+    <div class="mega-inner">
+      <div class="dropdown-header">
+        <span class="text-white font-semibold text-sm tracking-wide">Blute Technologies</span>
+      </div>
+
+      <div class="p-6 grid grid-cols-4 gap-2 max-w-5xl mx-auto">
+        <ng-container *ngFor="let link of companyLinks">
+
+          <!-- ✅ href links (Contact, etc.) -->
+          <a *ngIf="link.href && !link.routerLink" [href]="link.href"
+            class="group menu-item-hover flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm transition-all"
+            [ngClass]="link.hoverBg">
+            <div class="icon-box w-8 h-8 rounded-lg transition-colors flex-shrink-0"
+              [ngClass]="[link.iconBg, link.iconHover]">
+              <svg class="w-4 h-4" [ngClass]="link.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="link.svgPath" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-medium text-gray-700 transition-colors block" [ngClass]="link.hoverText">
+                {{ link.label }}
+              </span>
+              <span *ngIf="link.badge" class="badge-tag mt-0.5" [ngClass]="[link.badgeBg, link.badgeText]">
+                {{ link.badge }}
+              </span>
+            </div>
+          </a>
+
+          <!-- ✅ routerLink links (About, Team, Portfolio, Careers, Clients, etc.) -->
+          <a *ngIf="link.routerLink" [routerLink]="link.routerLink" routerLinkActive="bg-blue-50"
+            class="group menu-item-hover flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm transition-all"
+            [ngClass]="link.hoverBg">
+            <div class="icon-box w-8 h-8 rounded-lg transition-colors flex-shrink-0"
+              [ngClass]="[link.iconBg, link.iconHover]">
+              <svg class="w-4 h-4" [ngClass]="link.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="link.svgPath" />
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class="font-medium text-gray-700 transition-colors block" [ngClass]="link.hoverText">
+                {{ link.label }}
+              </span>
+              <!-- ✅ Badge support for routerLink items (e.g. Careers "Hiring" badge) -->
+              <span *ngIf="link.badge" class="badge-tag mt-0.5" [ngClass]="[link.badgeBg, link.badgeText]">
+                {{ link.badge }}
+              </span>
+            </div>
+          </a>
+
+        </ng-container>
+      </div>
+
+    </div>
+  </div>
+
+</nav>

@@ -1,0 +1,756 @@
+// ═══════════════════════════════════════════
+// DEVSECOPS — COMPONENT STYLES
+// ═══════════════════════════════════════════
+
+$teal: #14b8a6;
+$cyan: #0ea5e9;
+$indigo: #6366f1;
+$green: #4ade80;
+$amber: #f59e0b;
+$dark: #0f172a;
+$muted: #94a3b8;
+
+// ══ Keyframes ════════════════════════════════
+
+// Main card gentle float + glow breath
+@keyframes mainFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(1.5deg);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.20), 0 0 0 1.5px rgba($teal, 0.22);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(1.5deg);
+    box-shadow: 0 52px 100px rgba(0, 0, 0, 0.15), 0 0 0 1.5px rgba($teal, 0.42);
+  }
+}
+
+// Back card float offset
+@keyframes backFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+}
+
+// Scan line
+@keyframes scanLine {
+  0% {
+    top: 0%;
+    opacity: 0.9;
+  }
+
+  48% {
+    opacity: 0.55;
+  }
+
+  50% {
+    top: 100%;
+    opacity: 0;
+  }
+
+  51% {
+    top: 0%;
+    opacity: 0;
+  }
+
+  54% {
+    opacity: 0.9;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+// Pipeline fill
+@keyframes pipeFill {
+  0% {
+    width: 5%;
+  }
+
+  70% {
+    width: 100%;
+  }
+
+  71% {
+    width: 5%;
+  }
+
+  100% {
+    width: 5%;
+  }
+}
+
+// Stage node bounce-in
+@keyframes stageBounce {
+  0% {
+    transform: scale(0) rotate(-15deg);
+    opacity: 0;
+  }
+
+  65% {
+    transform: scale(1.15) rotate(4deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+// Stage pulse ring
+@keyframes stageRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+// Packet travel
+@keyframes packetFwd {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes packetRev {
+  0% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  100% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+}
+
+// Chip animations
+@keyframes chipSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.86);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes chipSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.86);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes chipSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.86);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes floatA {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatB {
+  from {
+    transform: translateY(-8px);
+  }
+
+  to {
+    transform: translateY(10px);
+  }
+}
+
+// Badge dot
+@keyframes dsoBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+// Status dot
+@keyframes statusGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 6px $green;
+    opacity: 1;
+  }
+
+  50% {
+    box-shadow: 0 0 14px $green;
+    opacity: 0.5;
+  }
+}
+
+// Why float card
+@keyframes dsoFloatCard {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+// ══ Hero Layout ══════════════════════════════
+.dso-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &__wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__h1 {
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #0f172a;
+    margin-bottom: 1.2rem;
+  }
+
+  &__p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 440px;
+    margin-bottom: 1.8rem;
+  }
+
+  &__btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__visual-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.dso-hl {
+  background: linear-gradient(135deg, $teal, $cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dso-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba($teal, 0.1);
+  border: 1px solid rgba($teal, 0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  color: darken($teal, 8%);
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+
+  &__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $teal;
+    animation: dsoBlink 2s infinite;
+  }
+}
+
+.dso-btn {
+  border-radius: 12px;
+  padding: 13px 28px;
+  font-weight: 700;
+  font-size: 0.97rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &--solid {
+    background: linear-gradient(135deg, $teal, $cyan);
+    border: none;
+    color: #fff;
+    box-shadow: 0 6px 22px rgba($teal, 0.35);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba($teal, 0.45);
+    }
+  }
+
+  &--ghost {
+    background: #fff;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+
+    &:hover {
+      border-color: $teal;
+      color: $teal;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// ══ Hero Visual ════════════════════════════════
+.dso-visual {
+  position: relative;
+  width: 460px;
+  height: 460px;
+}
+
+// ── Layered image cards ──
+.dso-img-stack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Back card (peeking behind)
+.dso-img-back {
+  position: absolute;
+  width: 240px;
+  height: 175px;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1;
+  transform: rotate(-3deg);
+  animation: backFloat 6s ease-in-out infinite;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  top: 50%;
+  left: 50%;
+  margin-top: -87px;
+  margin-left: -140px;
+  opacity: 0.7;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: blur(0.5px);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba($indigo, 0.35), rgba($dark, 0.45));
+  }
+}
+
+// Front main card
+.dso-img-main {
+  position: absolute;
+  width: 270px;
+  height: 210px;
+  border-radius: 22px;
+  overflow: hidden;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  margin-top: -105px;
+  margin-left: -100px;
+  transform: rotate(1.5deg);
+  animation: mainFloat 5s ease-in-out infinite;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  // Dark gradient overlay
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(155deg,
+        rgba(10, 20, 40, 0.5) 0%,
+        rgba(10, 20, 40, 0.05) 45%,
+        rgba($teal, 0.2) 100%);
+  }
+
+  // Horizontal scan line
+  &__scan {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba($teal, 0.8), transparent);
+    animation: scanLine 2.8s linear infinite;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  // Pipeline bar at bottom
+  &__bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 12px;
+    background: rgba(10, 20, 40, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 6;
+
+    span {
+      display: block;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      margin-bottom: 5px;
+    }
+
+    .dso-bar-track {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+
+      .dso-bar-fill {
+        height: 100%;
+        border-radius: 4px;
+        background: linear-gradient(90deg, $teal, $cyan, $indigo);
+        animation: pipeFill 3.5s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+// ── SVG arcs + travelling packets ──
+.dso-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: visible;
+}
+
+.dso-arc {
+  fill: none;
+  stroke-width: 1.2;
+  stroke-dasharray: 5 8;
+
+  &--1 {
+    stroke: rgba($teal, 0.32);
+  }
+
+  &--2 {
+    stroke: rgba($cyan, 0.27);
+  }
+
+  &--3 {
+    stroke: rgba($indigo, 0.24);
+  }
+
+  &--4 {
+    stroke: rgba($amber, 0.22);
+  }
+}
+
+.dso-packet {
+  &--1 {
+    fill: $teal;
+    filter: drop-shadow(0 0 4px $teal);
+    offset-path: path("M55,105 Q180,45 280,118");
+    animation: packetFwd 2.5s ease-in-out infinite;
+  }
+
+  &--2 {
+    fill: $cyan;
+    filter: drop-shadow(0 0 4px $cyan);
+    offset-path: path("M355,115 Q420,230 355,345");
+    animation: packetRev 3s ease-in-out infinite 0.8s;
+  }
+
+  &--3 {
+    fill: $indigo;
+    filter: drop-shadow(0 0 4px $indigo);
+    offset-path: path("M280,362 Q180,430 70,355");
+    animation: packetFwd 2.8s ease-in-out infinite 1.5s;
+  }
+
+  &--4 {
+    fill: $amber;
+    filter: drop-shadow(0 0 4px $amber);
+    offset-path: path("M55,105 Q30,240 70,355");
+    animation: packetFwd 3.2s ease-in-out infinite 0.4s;
+  }
+}
+
+// ── Stage nodes (corners) ──
+.dso-stage {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  z-index: 4;
+
+  &--code {
+    top: 62px;
+    left: 22px;
+    animation: stageBounce 0.7s ease-out 0.2s both;
+  }
+
+  &--build {
+    top: 62px;
+    right: 16px;
+    animation: stageBounce 0.7s ease-out 0.45s both;
+  }
+
+  &--test {
+    bottom: 62px;
+    left: 22px;
+    animation: stageBounce 0.7s ease-out 0.7s both;
+  }
+
+  &--deploy {
+    bottom: 62px;
+    right: 16px;
+    animation: stageBounce 0.7s ease-out 0.95s both;
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: $dark;
+    border: 1.5px solid rgba($teal, 0.38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.24);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.12) rotate(-5deg);
+    }
+  }
+
+  &__label {
+    font-size: 10px;
+    font-weight: 700;
+    color: $dark;
+    letter-spacing: 0.05em;
+  }
+
+  &__pulse {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1.5px solid rgba($teal, 0.55);
+    animation: stageRing 2.2s ease-out infinite;
+  }
+
+  &--build .dso-stage__pulse {
+    border-color: rgba($cyan, 0.55);
+    animation-delay: 0.5s;
+  }
+
+  &--test .dso-stage__pulse {
+    border-color: rgba($indigo, 0.55);
+    animation-delay: 1s;
+  }
+
+  &--deploy .dso-stage__pulse {
+    border-color: rgba($amber, 0.55);
+    animation-delay: 1.5s;
+  }
+}
+
+// ── Chips ──
+.dso-chip {
+  position: absolute;
+  background: $dark;
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 168px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+  z-index: 7;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: 11px;
+    font-weight: 700;
+    margin: 0 0 2px;
+  }
+
+  &__sub {
+    color: $muted;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  &--secure {
+    top: 14px;
+    right: -18px;
+    border: 1px solid rgba($green, 0.42);
+    animation: chipSlideRight 0.7s ease-out 0.35s both,
+      floatA 3.5s ease-in-out infinite alternate;
+
+    .dso-chip__icon {
+      background: rgba($green, 0.14);
+    }
+
+    .dso-chip__title {
+      color: $green;
+    }
+  }
+
+  &--deploy {
+    top: 50%;
+    right: -26px;
+    transform: translateY(-50%);
+    border: 1px solid rgba($cyan, 0.42);
+    animation: chipSlideRight 0.7s ease-out 0.6s both,
+      floatB 4s ease-in-out infinite alternate;
+
+    .dso-chip__icon {
+      background: rgba($cyan, 0.14);
+    }
+
+    .dso-chip__title {
+      color: $cyan;
+    }
+  }
+
+  &--comply {
+    bottom: 14px;
+    left: -18px;
+    border: 1px solid rgba($teal, 0.42);
+    animation: chipSlideLeft 0.7s ease-out 0.85s both,
+      floatA 4.5s ease-in-out infinite alternate;
+
+    .dso-chip__icon {
+      background: rgba($teal, 0.14);
+    }
+
+    .dso-chip__title {
+      color: $teal;
+    }
+  }
+}
+
+// ══ Responsive ═══════════════════════════════
+@media (max-width: 1024px) {
+  .dso-hero__wrap {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .dso-visual {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dso-visual {
+    display: none;
+  }
+
+  .dso-hero__wrap {
+    padding: 3rem 1.5rem;
+  }
+}

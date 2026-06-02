@@ -1,0 +1,140 @@
+<div class="min-h-screen bg-white">
+
+
+  <!-- Hero Section -->
+  <div class="relative pt-20 pb-16 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl animate-pulse"
+        style="animation-delay: 1s;"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content with Animations -->
+        <div class="space-y-6 animate-fade-in-up">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 animate-slide-in-left">
+            <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span class="text-gray-700 text-sm font-semibold">Innovation in Action</span>
+          </div>
+
+          <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight animate-slide-in-left"
+            style="animation-delay: 0.1s;">
+            Ecosystem for
+            <span
+              class="block text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 animate-gradient">
+              Transformation
+            </span>
+          </h1>
+
+          <p class="text-xl text-gray-600 leading-relaxed animate-slide-in-left" style="animation-delay: 0.2s;">
+            Promoting Entrepreneurship at Rural and Urban areas which stands as a vehicle to create jobs, to provide
+            core Infrastructure, to give a decent quality of life for individuals, families and communities.
+          </p>
+
+          <!-- <div class="flex flex-wrap gap-4 animate-slide-in-left" style="animation-delay: 0.3s;">
+            <button
+              class="group inline-flex items-center gap-3 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/50 transition-all transform hover:scale-105 hover:-translate-y-1">
+              Get Started
+              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
+            <button
+              class="inline-flex items-center gap-3 bg-white text-gray-700 px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-2 border-gray-200 hover:border-teal-500">
+              Learn More
+            </button>
+          </div> -->
+        </div>
+
+        <!-- Right Content with Image Animation -->
+        <div class="relative animate-fade-in-up" style="animation-delay: 0.2s;">
+          <div class="relative w-full max-w-md mx-auto">
+            <div
+              class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-teal-400/20 to-cyan-400/20 rounded-full blur-2xl animate-pulse">
+            </div>
+            <div
+              class="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-2xl animate-pulse"
+              style="animation-delay: 0.5s;">
+            </div>
+
+            <div
+              class="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 hover:rotate-1 transition-all duration-500 border border-white/20">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Ecosystem"
+                class="w-full h-auto" />
+              <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 class="text-2xl font-bold text-white mb-2">Transforming Communities</h3>
+                <p class="text-white/80">Building sustainable futures together</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Focus Areas</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Comprehensive Support System</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Building a holistic ecosystem that supports entrepreneurship and community development
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let feature of features; let i = index"
+          class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 animate-fade-in-up"
+          [style.animation-delay]="(i * 0.1) + 's'">
+          <div
+            class="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-teal-500/30">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="feature.icon" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">{{feature.title}}</h3>
+          <p class="text-gray-600">{{feature.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact Areas Section -->
+  <div class="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12 animate-fade-in-up">
+        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Making Impact</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Where We Work</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Creating opportunities and driving growth across different sectors
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div *ngFor="let area of impactAreas; let i = index"
+          class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-in-up"
+          [style.animation-delay]="(i * 0.15) + 's'">
+          <div class="relative h-64 overflow-hidden">
+            <img [src]="area.image" [alt]="area.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent"></div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-teal-600 transition-colors duration-300">
+              {{area.title}}</h3>
+            <p class="text-gray-600 leading-relaxed">{{area.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

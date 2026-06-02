@@ -1,0 +1,172 @@
+<!-- Hero Section -->
+
+<section class="bg-gradient-to-br from-[#0a1628] to-[#1a3a5c] text-white py-20 px-6 text-center">
+  <p class="inline-flex items-center gap-2 border border-teal-400 text-teal-400 text-sm px-4 py-1.5 rounded-full mb-4">
+    ⚡ Get In Touch
+  </p>
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">
+    Contact <span class="text-teal-400">Us</span>
+  </h1>
+  <p class="text-gray-300 max-w-xl mx-auto text-lg">
+    Have a project in mind or just want to say hello? We'd love to hear from you.
+  </p>
+</section>
+
+<!-- Contact Info Cards -->
+<section class="bg-gray-50 py-14 px-6">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Address -->
+    <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center text-center hover:shadow-md transition">
+      <div class="bg-blue-100 p-3 rounded-xl mb-4">
+        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </div>
+      <h3 class="font-semibold text-gray-800 mb-1">Our Office</h3>
+      <p class="text-gray-500 text-sm">BNN Mansion, #413/25, 3rd Floor,</p>
+      <p class="text-gray-500 text-sm">80 ft Road, 43rd Cross Rd, 8th Block,</p>
+      <p class="text-gray-500 text-sm">Jayanagar, Bengaluru, Karnataka 560070</p>
+    </div>
+
+    <!-- Phone -->
+    <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center text-center hover:shadow-md transition">
+      <div class="bg-teal-100 p-3 rounded-xl mb-4">
+        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21L8.5 10.5a11.042 11.042 0 005 5l1.113-1.724a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 15.72V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z" />
+        </svg>
+      </div>
+      <h3 class="font-semibold text-gray-800 mb-1">Phone</h3>
+      <p class="text-gray-500 text-sm">+91 73494 07373</p>
+      <p class="text-gray-500 text-sm">+91 72042 66167</p>
+      <p class="text-gray-500 text-sm">+91 99002 69617</p>
+    </div>
+
+    <!-- Email -->
+    <div class="bg-white rounded-2xl shadow-sm p-6 flex flex-col items-center text-center hover:shadow-md transition">
+      <div class="bg-purple-100 p-3 rounded-xl mb-4">
+        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h3 class="font-semibold text-gray-800 mb-1">Email</h3>
+      <p class="text-gray-500 text-sm">info&#64;blute.co.in</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Form + Map Section -->
+<section class="bg-white py-14 px-6">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+    <!-- Contact Form -->
+    <div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Send Us a Message</h2>
+      <p class="text-gray-500 mb-6 text-sm">Fill out the form and our team will get back to you within 24 hours.</p>
+
+      <!-- Success Message -->
+      <div *ngIf="successMessage"
+        class="bg-teal-50 border border-teal-300 text-teal-700 px-4 py-3 rounded-xl mb-5 text-sm">
+        ✅ {{ successMessage }}
+      </div>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-4">
+
+        <!-- Name & Email -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm font-medium text-gray-700 mb-1 block">Full Name *</label>
+            <input formControlName="name" type="text" placeholder="John Doe"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              [class.border-red-400]="submitted && f['name'].errors" />
+            <p *ngIf="submitted && f['name'].errors" class="text-red-500 text-xs mt-1">Name is required.</p>
+          </div>
+          <div>
+            <label class="text-sm font-medium text-gray-700 mb-1 block">Email Address *</label>
+            <input formControlName="email" type="email" placeholder="john@example.com"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              [class.border-red-400]="submitted && f['email'].errors" />
+            <p *ngIf="submitted && f['email'].errors" class="text-red-500 text-xs mt-1">Valid email is required.</p>
+          </div>
+        </div>
+
+        <!-- Phone & Subject -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm font-medium text-gray-700 mb-1 block">Phone (Optional)</label>
+            <input formControlName="phone" type="tel" placeholder="+91 00000 00000"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400" />
+          </div>
+          <div>
+            <label class="text-sm font-medium text-gray-700 mb-1 block">Subject *</label>
+            <select formControlName="subject"
+              class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 bg-white"
+              [class.border-red-400]="submitted && f['subject'].errors">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="general">General Inquiry</option>
+              <option value="project">Start a Project</option>
+              <option value="support">Technical Support</option>
+              <option value="careers">Careers</option>
+            </select>
+            <p *ngIf="submitted && f['subject'].errors" class="text-red-500 text-xs mt-1">Please select a subject.</p>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="text-sm font-medium text-gray-700 mb-1 block">Message *</label>
+          <textarea formControlName="message" rows="5" placeholder="Tell us about your project or inquiry..."
+            class="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none"
+            [class.border-red-400]="submitted && f['message'].errors"></textarea>
+          <p *ngIf="submitted && f['message'].errors" class="text-red-500 text-xs mt-1">Message must be at least 10
+            characters.</p>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit"
+          class="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 rounded-xl transition text-sm">
+          Send Message →
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Map + Social -->
+    <div class="flex flex-col gap-6">
+      <!-- Google Map Embed -->
+  <div class="rounded-2xl overflow-hidden shadow-sm border border-gray-100 h-64">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.831589030654!2d77.57649917428289!3d12.918543387391942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15765f2cb411%3A0xf3d9022f7dffc214!2s43rd%20Cross%20Rd%2C%20Jayanagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1771498123646!5m2!1sen!2sin"
+      width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+      <!-- Social Links -->
+      <div class="bg-gray-50 rounded-2xl p-6">
+        <h3 class="font-semibold text-gray-800 mb-4">Follow Us</h3>
+        <div class="flex gap-4 flex-wrap">
+
+          <!-- LinkedIn -->
+          <a  href="https://www.linkedin.com/company/blute-technologies-pvt-ltd/posts/?feedView=all" target="_blank"
+            class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-xl text-sm text-gray-700 hover:border-teal-400 hover:text-teal-600 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
+
+          
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

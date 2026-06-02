@@ -1,0 +1,338 @@
+<div class="aai-page">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="aai-hero">
+    <div class="aai-hero__bg-overlay"></div>
+
+    <div class="aai-hero__wrap">
+      <!-- Left -->
+      <div @slideInLeft class="aai-hero__left">
+        <div class="aai-hero__badge">
+          <span class="aai-hero__badge-dot"></span>AGENTIC AI
+        </div>
+        <h1 class="aai-hero__h1">
+          AUTONOMOUS<br>
+          AI-DRIVEN<br>
+          <span class="aai-hero__h1-accent">AUTOMATION</span>
+        </h1>
+        <p class="aai-hero__p">
+          Blute Technologies builds Agentic AI systems that operate autonomously — perceiving
+          their environment, making decisions, and taking actions to achieve complex goals
+          without constant human intervention. From AI Agents to multi-agent LLM orchestration,
+          we automate entire business workflows at scale.
+        </p>
+      
+      
+      </div>
+
+      <!-- Right: Floating agent cards constellation -->
+      <div @slideInRight class="aai-hero__right">
+        <div class="aai-constellation">
+
+          <!-- Central glowing orb -->
+          <div class="aai-orb">
+            <div class="aai-orb__core">
+              <div class="aai-orb__icon">🤖</div>
+              <div class="aai-orb__label">AI AGENT</div>
+            </div>
+            <div class="aai-orb__ring aai-orb__ring--1"></div>
+            <div class="aai-orb__ring aai-orb__ring--2"></div>
+            <div class="aai-orb__ring aai-orb__ring--3"></div>
+          </div>
+
+          <!-- Orbiting agent cards -->
+          <div class="aai-orbit-card aai-orbit-card--1">
+            <div class="aai-orbit-card__inner">
+              <span class="aai-orbit-card__icon">🧠</span>
+              <span class="aai-orbit-card__name">PLANNER</span>
+              <div class="aai-orbit-card__bar">
+                <div class="aai-orbit-card__bar-fill" style="width:85%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="aai-orbit-card aai-orbit-card--2">
+            <div class="aai-orbit-card__inner">
+              <span class="aai-orbit-card__icon">🔍</span>
+              <span class="aai-orbit-card__name">RESEARCHER</span>
+              <div class="aai-orbit-card__bar">
+                <div class="aai-orbit-card__bar-fill" style="width:70%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="aai-orbit-card aai-orbit-card--3">
+            <div class="aai-orbit-card__inner">
+              <span class="aai-orbit-card__icon">⚙️</span>
+              <span class="aai-orbit-card__name">EXECUTOR</span>
+              <div class="aai-orbit-card__bar">
+                <div class="aai-orbit-card__bar-fill" style="width:92%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="aai-orbit-card aai-orbit-card--4">
+            <div class="aai-orbit-card__inner">
+              <span class="aai-orbit-card__icon">✅</span>
+              <span class="aai-orbit-card__name">VALIDATOR</span>
+              <div class="aai-orbit-card__bar">
+                <div class="aai-orbit-card__bar-fill" style="width:78%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="aai-orbit-card aai-orbit-card--5">
+            <div class="aai-orbit-card__inner">
+              <span class="aai-orbit-card__icon">💾</span>
+              <span class="aai-orbit-card__name">MEMORY</span>
+              <div class="aai-orbit-card__bar">
+                <div class="aai-orbit-card__bar-fill" style="width:60%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SVG connection lines from center to cards -->
+          <svg class="aai-constellation__lines" viewBox="0 0 500 500">
+            <!-- Lines from center (250,250) to card positions -->
+            <line x1="250" y1="250" x2="250" y2="80" class="cline cl-1" />
+            <line x1="250" y1="250" x2="420" y2="175" class="cline cl-2" />
+            <line x1="250" y1="250" x2="380" y2="370" class="cline cl-3" />
+            <line x1="250" y1="250" x2="120" y2="370" class="cline cl-4" />
+            <line x1="250" y1="250" x2="80" y2="175" class="cline cl-5" />
+            <!-- Animated pulses on lines -->
+            <circle r="4" fill="#a855f7" class="pulse-dot">
+              <animateMotion dur="2s" repeatCount="indefinite" path="M250,250 L250,80" />
+            </circle>
+            <circle r="4" fill="#8b5cf6" class="pulse-dot">
+              <animateMotion dur="2.3s" repeatCount="indefinite" begin="0.5s" path="M250,250 L420,175" />
+            </circle>
+            <circle r="4" fill="#a855f7" class="pulse-dot">
+              <animateMotion dur="2.1s" repeatCount="indefinite" begin="1s" path="M250,250 L380,370" />
+            </circle>
+            <circle r="4" fill="#8b5cf6" class="pulse-dot">
+              <animateMotion dur="1.9s" repeatCount="indefinite" begin="0.3s" path="M250,250 L120,370" />
+            </circle>
+            <circle r="4" fill="#a855f7" class="pulse-dot">
+              <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.2s" path="M250,250 L80,175" />
+            </circle>
+          </svg>
+
+          <!-- Floating status chips -->
+          <div class="aai-status-chip aai-status-chip--1">
+            <span class="aai-status-chip__dot aai-status-chip__dot--green"></span>
+            Task Complete · 3.2s
+          </div>
+          <div class="aai-status-chip aai-status-chip--2">
+            <span class="aai-status-chip__dot aai-status-chip__dot--purple"></span>
+            GPT-4o Active
+          </div>
+          <div class="aai-status-chip aai-status-chip--3">
+            <span class="aai-status-chip__dot aai-status-chip__dot--cyan"></span>
+            0 Human Steps
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════ WHAT IS AGENTIC AI ═══════════ -->
+  <section class="aai-intro">
+    <div class="aai-intro__wrap">
+      <div @slideInLeft class="aai-intro__text-col">
+        <span class="aai-section-tag">OVERVIEW</span>
+        <h2 class="aai-intro__h2">AI That Works For You — Autonomously</h2>
+        <p class="aai-intro__p">
+          Agentic AI goes far beyond chatbots. These are goal-driven systems that plan,
+          reason, use tools, and iterate — handling multi-step business workflows end-to-end
+          without human handholding. Think of them as tireless digital employees that never
+          sleep, never make repetitive mistakes, and scale instantly.
+        </p>
+        <p class="aai-intro__p">
+          At Blute Technologies, we architect multi-agent systems using LangChain, CrewAI,
+          AutoGen, and custom frameworks — powered by GPT-4, Claude, and open-source LLMs —
+          to deploy agents that truly transform operations.
+        </p>
+      </div>
+      <div @slideInRight class="aai-intro__visual">
+        <div class="aai-img-card">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80" alt="Agentic AI Robot"
+            class="aai-img-card__img" />
+          <div class="aai-img-card__overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CORE CAPABILITIES ═══════════ -->
+  <section class="aai-caps">
+    <div class="aai-caps__wrap">
+      <span @fadeInUp class="aai-section-tag aai-section-tag--center">CAPABILITIES</span>
+      <h2 @fadeInUp class="aai-caps__h2">Core Agentic AI Capabilities</h2>
+      <div @staggerCards class="aai-caps__grid">
+        <div class="aai-cap-card card-item" *ngFor="let c of capabilities">
+          <div class="aai-cap-card__icon-wrap" [style.background]="c.bg">
+            <span class="aai-cap-card__icon">{{ c.icon }}</span>
+          </div>
+          <h4 class="aai-cap-card__title">{{ c.title }}</h4>
+          <p class="aai-cap-card__desc">{{ c.desc }}</p>
+          <div class="aai-cap-card__tags">
+            <span class="aai-tag" *ngFor="let t of c.tags">{{ t }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ AGENT EXECUTION LOOP ═══════════ -->
+  <section class="aai-feature aai-feature--alt">
+    <div class="aai-feature__wrap">
+      <div @slideInLeft class="aai-feature__visual">
+        <div class="aai-react-loop">
+          <svg viewBox="0 0 300 300" fill="none" class="aai-react-svg">
+            <circle cx="150" cy="150" r="110" stroke="#ede9fe" stroke-width="2" stroke-dasharray="8 4" />
+            <path d="M150,40 A110,110 0 0,1 260,150" stroke="#7c3aed" stroke-width="3" fill="none"
+              stroke-linecap="round" />
+            <path d="M260,150 A110,110 0 0,1 150,260" stroke="#a855f7" stroke-width="3" fill="none"
+              stroke-linecap="round" />
+            <path d="M150,260 A110,110 0 0,1 40,150" stroke="#c084fc" stroke-width="3" fill="none"
+              stroke-linecap="round" />
+            <path d="M40,150 A110,110 0 0,1 150,40" stroke="#7c3aed" stroke-width="3" fill="none"
+              stroke-linecap="round" />
+            <circle cx="150" cy="40" r="22" fill="#7c3aed" />
+            <text x="150" y="36" fill="#fff" font-size="8" text-anchor="middle" font-family="monospace"
+              font-weight="700">THINK</text>
+            <text x="150" y="47" fill="#e9d5ff" font-size="6" text-anchor="middle" font-family="monospace">Reason</text>
+            <circle cx="260" cy="150" r="22" fill="#a855f7" />
+            <text x="260" y="146" fill="#fff" font-size="8" text-anchor="middle" font-family="monospace"
+              font-weight="700">ACT</text>
+            <text x="260" y="157" fill="#e9d5ff" font-size="6" text-anchor="middle"
+              font-family="monospace">Execute</text>
+            <circle cx="150" cy="260" r="22" fill="#c084fc" />
+            <text x="150" y="256" fill="#fff" font-size="8" text-anchor="middle" font-family="monospace"
+              font-weight="700">OBSERVE</text>
+            <text x="150" y="267" fill="#e9d5ff" font-size="6" text-anchor="middle"
+              font-family="monospace">Perceive</text>
+            <circle cx="40" cy="150" r="22" fill="#7c3aed" />
+            <text x="40" y="146" fill="#fff" font-size="8" text-anchor="middle" font-family="monospace"
+              font-weight="700">PLAN</text>
+            <text x="40" y="157" fill="#e9d5ff" font-size="6" text-anchor="middle"
+              font-family="monospace">Strategize</text>
+            <circle cx="150" cy="150" r="36" fill="rgba(124,58,237,0.12)" stroke="#7c3aed" stroke-width="1.5" />
+            <text x="150" y="146" fill="#7c3aed" font-size="9" text-anchor="middle" font-family="monospace"
+              font-weight="700">ReAct</text>
+            <text x="150" y="158" fill="#a855f7" font-size="7" text-anchor="middle" font-family="monospace">LOOP</text>
+            <circle r="6" fill="#e879f9">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M150,40 A110,110 0 1,1 149.99,40" />
+            </circle>
+          </svg>
+        </div>
+      </div>
+      <div @slideInRight class="aai-feature__content">
+        <span class="aai-section-tag">AI AGENTS</span>
+        <h3 class="aai-feature__title">Agents That Think, Plan, Act & Observe</h3>
+        <p class="aai-feature__desc">
+          Our AI agents run the ReAct (Reason + Act) loop — continuously thinking through
+          the problem, planning next steps, taking actions with real tools, observing results,
+          and iterating until the goal is achieved. No human in the loop required.
+        </p>
+        <div class="aai-feature__list">
+          <div class="aai-feature__item" *ngFor="let item of agentFeatures">
+            <span class="aai-feature__bullet">▸</span>{{ item }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ LLM SECTION ═══════════ -->
+  <section class="aai-feature">
+    <div class="aai-feature__wrap aai-feature__wrap--rev">
+      <div @slideInRight class="aai-feature__content">
+        <span class="aai-section-tag">LARGE LANGUAGE MODELS</span>
+        <h3 class="aai-feature__title">Powered by World's Leading LLMs</h3>
+        <p class="aai-feature__desc">
+          We integrate and fine-tune the most powerful LLMs — GPT-4o, Claude 3, Gemini Pro,
+          Llama 3, and Mistral — to power agentic workflows. Whether RAG pipelines,
+          custom fine-tuned models, or private on-premise deployments, we architect the
+          right LLM strategy for your business.
+        </p>
+        <div class="aai-feature__list">
+          <div class="aai-feature__item" *ngFor="let item of llmFeatures">
+            <span class="aai-feature__bullet">▸</span>{{ item }}
+          </div>
+        </div>
+      </div>
+      <div @slideInLeft class="aai-feature__visual">
+        <div class="aai-chat-visual">
+          <div class="aai-chat-bubble aai-chat-bubble--user cb-1">
+            <span>Summarise this 200-page legal document</span>
+          </div>
+          <div class="aai-chat-bubble aai-chat-bubble--agent cb-2">
+            <div class="aai-chat-thinking">
+              <span class="aai-chat-dot"></span>
+              <span class="aai-chat-dot"></span>
+              <span class="aai-chat-dot"></span>
+            </div>
+            <span>Reading document... extracting clauses... cross-referencing precedents...</span>
+          </div>
+          <div class="aai-chat-bubble aai-chat-bubble--tool cb-3">
+            <span>🔧 Tool: document_reader → 47 key clauses extracted</span>
+          </div>
+          <div class="aai-chat-bubble aai-chat-bubble--tool cb-4">
+            <span>🔧 Tool: risk_analyzer → 3 high-risk items flagged</span>
+          </div>
+          <div class="aai-chat-bubble aai-chat-bubble--result cb-5">
+            <span>✅ Summary ready — 2-page brief with risk highlights in <strong>4.1s</strong></span>
+          </div>
+          <div class="aai-llm-badge">
+            <span class="aai-llm-badge__dot"></span>GPT-4o · Claude 3 · Gemini Pro
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ USE CASES ═══════════ -->
+  <section class="aai-usecases">
+    <div class="aai-usecases__wrap">
+      <span @fadeInUp class="aai-section-tag aai-section-tag--center">USE CASES</span>
+      <h2 @fadeInUp class="aai-usecases__h2">Agentic AI Across Industries</h2>
+      <div @staggerCards class="aai-usecases__grid">
+        <div class="aai-uc-card card-item" *ngFor="let u of useCases">
+          <div class="aai-uc-card__img-wrap">
+            <img [src]="u.img" [alt]="u.title" class="aai-uc-card__img" />
+            <div class="aai-uc-card__img-overlay"></div>
+            <div class="aai-uc-card__category">{{ u.category }}</div>
+          </div>
+          <div class="aai-uc-card__body">
+            <span class="aai-uc-card__icon">{{ u.icon }}</span>
+            <h4 class="aai-uc-card__title">{{ u.title }}</h4>
+            <p class="aai-uc-card__desc">{{ u.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROCESS ═══════════ -->
+  <section class="aai-process">
+    <div class="aai-process__wrap">
+      <span @fadeInUp class="aai-section-tag aai-section-tag--center">HOW WE WORK</span>
+      <h2 @fadeInUp class="aai-process__h2">Our Agentic AI Delivery Process</h2>
+      <div @staggerCards class="aai-process__steps">
+        <div class="aai-step card-item" *ngFor="let s of processSteps; let i = index">
+          <div class="aai-step__num">{{ (i + 1).toString().padStart(2,'0') }}</div>
+          <div class="aai-step__icon">{{ s.icon }}</div>
+          <h4 class="aai-step__title">{{ s.title }}</h4>
+          <p class="aai-step__desc">{{ s.desc }}</p>
+          <div class="aai-step__connector" *ngIf="i < processSteps.length - 1"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</div>
