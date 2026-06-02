@@ -1,0 +1,41 @@
+[2026-06-02T10:53:23+05:30] List of important pages, routes, component files, and lookup commands
+└── Total Pages: 32 active routes mapped to Angular components
+    ├── Pages ASCII Tree:
+    │   ├── Core / General
+    │   │   ├── Home (/) -> src/app/home/home.component.ts
+    │   │   ├── About (/about) -> src/app/about.component/about.component.ts
+    │   │   ├── Team (/team) -> src/app/team/team.component.ts
+    │   │   ├── Careers (/careers) -> src/app/careers/careers.component.ts
+    │   │   ├── Clients (/clients) -> src/app/clients/clients.component.ts
+    │   │   ├── Portfolio (/portfolio) -> src/app/portfolio/portfolio.component.ts
+    │   │   └── Contact (/contact) -> src/app/contact/contact.component.ts
+    │   ├── Services & Solutions
+    │   │   ├── Web Application (/web-application) -> src/app/web-application/web-application.component.ts
+    │   │   ├── Mobile App Development (/mobile-app-development) -> src/app/mobile-app-development/mobile-app-development.component.ts
+    │   │   ├── Product Engineering (/product-engineering) -> src/app/product-engineering/product-engineering.component.ts
+    │   │   ├── Ecosystem (/ecosystem) -> src/app/ecosystem/ecosystem.component.ts
+    │   │   ├── Build Team (/build-team) -> src/app/build-team/build-team.component.ts
+    │   │   ├── IoT Solutions (/iot-solutions) -> src/app/iot-solutions/iot-solutions.component.ts
+    │   │   ├── Enterprise (/enterprise) -> src/app/enterprise/enterprise.component.ts
+    │   │   ├── DevOps (/devops) -> src/app/devops/devops.component.ts
+    │   │   ├── IT Consulting (/it-consulting) -> src/app/it-consulting/it-consulting.component.ts
+    │   │   ├── Cyber Security (/cyber-security) -> src/app/cyber-security/cyber-security.component.ts
+    │   │   ├── Networking (/networking) -> src/app/networking/networking.component.ts
+    │   │   ├── Cloud (/cloud) -> src/app/cloud/cloud.component.ts
+    │   │   ├── Cognitive (/cognitive) -> src/app/cognitive/cognitive.component.ts
+    │   │   └── Agentic AI (/agentic-ai) -> src/app/agentic-ai/agentic-ai.component.ts
+    │   ├── Industries
+    │   │   ├── Government (/industries/government) -> src/app/government/government.component.ts
+    │   │   ├── BFSI (/industries/bfsi) -> src/app/bfsi/bfsi.component.ts
+    │   │   ├── Manufacturing (/industries/manufacturing) -> src/app/manufacture/manufacture.component.ts
+    │   │   ├── Education (/industries/education) -> src/app/education/education.component.ts
+    │   │   ├── Transportation (/industries/transportation) -> src/app/transportation/transportation.component.ts
+    │   │   ├── Telecom (/industries/telecom) -> src/app/telecom/telecom.component.ts
+    │   │   ├── Retail & E-commerce (/retail-ecommerce) -> src/app/retail-ecommerce/retail-ecommerce.component.ts
+    │   │   └── Healthcare & Pharma (/healthcare-pharma) -> src/app/healthcare-pharma/healthcare-pharma.component.ts
+    │   └── Legal
+    │       ├── Privacy Policy (/privacy-policy) -> src/app/privacy-policy/privacy-policy.component.ts
+    │       └── Terms of Use (/terms-of-use) -> src/app/terms-of-use/terms-of-use.component.ts
+    └── Bash Commands:
+        ├── Find Component Files -> find src/app -name "*.component.ts"
+        └── View Mapped Routes -> cat src/app/app.routes.ts
