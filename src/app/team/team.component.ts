@@ -25,9 +25,20 @@ export class TeamComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Our Team - Blute Technologies');
-    this.metaService.updateTag({ name: 'description', content: 'Meet the talented and passionate team at Blute Technologies behind our innovative IT and enterprise-class solutions.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies Founders, Engineering Team, IT Professionals Bangalore' });
+    this.titleService.setTitle('Our Team | Blute Technologies - Software Development Company Bangalore');
+    this.metaService.updateTag({ name: 'description', content: 'Meet the passionate engineers, designers, and leaders at Blute Technologies — driving custom software development, mobile app development, IoT, and AI/ML solutions for global enterprises from Bangalore, India.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies team, software engineers Bangalore, IT professionals India, software development company Bangalore, tech leadership team, IT company Bangalore' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Our Team | Blute Technologies - Software Development Company Bangalore' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Meet the passionate engineers, designers, and leaders at Blute Technologies driving custom software, mobile app, IoT, and AI solutions for global enterprises.' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/team' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Our Team | Blute Technologies - Software Development Company Bangalore' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Meet the passionate engineers, designers, and leaders at Blute Technologies driving custom software, mobile app, IoT, and AI solutions for global enterprises.' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
   }
   // Floating particles data
   particles = Array.from({ length: 18 }, (_, i) => ({
@@ -70,4 +81,40 @@ export class TeamComponent implements OnInit {
     { value: '8+', label: 'Industries Served' },
     { value: '8+', label: 'Years of Excellence' },
   ];
+
+  private readonly avatarColors = [
+    '0d9488', '2563eb', '7c3aed', '059669',
+    'd97706', 'dc2626', '0284c7', '9333ea',
+  ];
+
+  extendedTeam = [
+    { name: 'Janakiraman T S',     role: 'Technology Lead',    linkedin: 'https://www.linkedin.com/in/janakiraman-t-s' },
+    { name: 'Chaithra P',          role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/chaithra-p-1b76b7157/' },
+    { name: 'Kavita Patil',        role: 'Angular Developer',  linkedin: 'https://www.linkedin.com/in/kavita-patil-angular/' },
+    { name: 'Sudhanshu Bhardwaj',  role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/sudhanshu-bhardwaj-0301a6113/' },
+    { name: 'Krishna Goudelar',    role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/krishnagoudelar/' },
+    { name: 'Aftab Alam',          role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/aftab-alam-73827b164/' },
+    { name: 'Varun Gowda',         role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/varun-gowda-40209a82/' },
+    { name: 'Akshay Hegde',        role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/akshay-hegde-050649196/' },
+    { name: 'Akshaya Kharvi',      role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/akshaya-kharvi-47a9ba1b5/' },
+    { name: 'Salmaan Jawad',       role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/salmaan-jawad-52383111/' },
+    { name: 'Asha Kumari Ranawat', role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/asha-kumari-ranawat-8b1599287/' },
+    { name: 'Madhan Mohan',        role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/madhan-mohan-0bb463123' },
+    { name: 'Bharath Petkar',      role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/bharath-petkar/' },
+    { name: 'Asha Anwar',          role: 'Software Developer', linkedin: 'https://www.linkedin.com/in/asha-anwar-developer/' },
+    { name: 'Mithun K',            role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/mithun-k-9a90151b3/' },
+    { name: 'Varunakumara G',      role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/varunakumara-g-a9201917b/' },
+    { name: 'Darshan BR',          role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/darshan-br-972769231/' },
+    { name: 'Deepa Ramalingiah',   role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/deepa-ramalingiah-034593255/' },
+    { name: 'Sahana Godi',         role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/sahana-godi-0772ba40a/' },
+    { name: 'Likhith M Gowda',     role: 'Software Engineer',  linkedin: 'https://www.linkedin.com/in/likhith-m-gowda/' },
+  ].map((m, i) => ({
+    ...m,
+    image: `https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=${this.avatarColors[i % this.avatarColors.length]}&color=fff&size=200&bold=true&font-size=0.38`,
+  }));
+
+  onPhotoError(event: Event, name: string): void {
+    const img = event.target as HTMLImageElement;
+    img.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=0d9488&color=fff&size=300&bold=true&font-size=0.38`;
+  }
 }

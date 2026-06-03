@@ -75,7 +75,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
   // ── Filter ──────────────────────────────
   activeFilter = 'All';
-  filters = [];
+  filters = ['All', 'Team', 'Events', 'Culture'];
 
   // ── Lightbox ────────────────────────────
   selectedImage: PortfolioImage | null = null;
@@ -190,9 +190,20 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit(): void {
-    this.titleService.setTitle('Our Portfolio - Blute Technologies');
-    this.metaService.updateTag({ name: 'description', content: 'Browse our portfolio of completed projects. We deliver scalable, high-performance technology solutions across various industries.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies Portfolio, IT Case Studies, Custom Software Projects, Enterprise Portfolios' });
+    this.titleService.setTitle('Our Portfolio | Custom Software Projects - Blute Technologies Bangalore');
+    this.metaService.updateTag({ name: 'description', content: 'Explore Blute Technologies\' portfolio of custom software, mobile app development, IoT, and AI/ML projects delivered for global enterprises. See our work from Bangalore, India.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies portfolio, custom software solutions, software development projects India, mobile app development Bangalore, IoT solutions provider, AI ML development company, IT case studies Bangalore' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Our Portfolio | Custom Software Projects - Blute Technologies Bangalore' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Explore Blute Technologies\' portfolio of custom software, mobile app, IoT, and AI/ML projects delivered for global enterprises from Bangalore, India.' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/portfolio' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Our Portfolio | Custom Software Projects - Blute Technologies Bangalore' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Explore Blute Technologies\' portfolio of custom software, mobile app, IoT, and AI/ML projects delivered for global enterprises from Bangalore, India.' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
 
     this.images = Array.from({ length: 22 }, (_, i) => ({
       src: `assets/images/clients/image%20${i + 1}.${this.imgExts[i]}`,

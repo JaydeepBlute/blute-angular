@@ -1,0 +1,9 @@
+# Blute Technologies — blute.co.in
+# Allow all search engine bots to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /404
+
+# Sitemap location
+Sitemap: https://blute.co.in/sitemap.xml

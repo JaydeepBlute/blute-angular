@@ -413,7 +413,29 @@
         </svg>
       </a>
     </div>
-  
+
+    <!-- Service Card 6 - Mobile App Development -->
+    <div
+      class="group bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+      <div
+        class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-emerald-500/30">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-3">Mobile App Development</h3>
+      <p class="text-gray-600 mb-6 leading-relaxed">Native and cross-platform mobile apps for iOS and Android with
+        exceptional performance, UX, and reliability.</p>
+      <a [routerLink]="['/mobile-app-development']"
+        class="inline-flex items-center gap-2 text-emerald-600 font-semibold group-hover:gap-3 transition-all cursor-pointer">
+        Learn More
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
   </div>
     </div>
   </div>
@@ -653,6 +675,45 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-20">
+    <div class="absolute inset-0 opacity-[0.05]"
+      style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
+             background-size: 40px 40px;"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-5 py-2 mb-8">
+        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+        <span class="text-teal-300 text-sm font-semibold tracking-widest uppercase">Let's Work Together</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+        Ready to Start Your<br>
+        <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          Digital Journey?
+        </span>
+      </h2>
+      <p class="text-lg text-white/55 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Partner with Blute Technologies to build world-class digital solutions that drive real, measurable business growth.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a [routerLink]="['/contact']"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 transition-all duration-200">
+          Get In Touch
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a [routerLink]="['/portfolio']"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-bold hover:bg-white/20 transition-all duration-200 backdrop-blur-sm">
+          View Portfolio
+        </a>
       </div>
     </div>
   </div>

@@ -3,3 +3,17 @@
 [2026-06-02T14:08:40+05:30] git push -u origin main
 [2026-06-02T14:09:38+05:30] git status && git diff
 [2026-06-02T14:10:05+05:30] git add CLAUDE.md logs/audit.log logs/change.log && git commit -m "docs: add observability logging guidelines to CLAUDE.md" && git push
+[2026-06-02T18:30:00+05:30] Read: home.component.{ts,html}, about.component.{ts,html}, team.component.{ts,html}, careers.component.{ts,html}, clients.component.{ts,html}, portfolio.component.{ts,html}, contact.component.{ts,html}, styles.css
+[2026-06-02T18:31:00+05:30] Edit: clients.component.ts — added industries array property
+[2026-06-02T18:31:00+05:30] Write: contact.component.html — complete premium redesign
+[2026-06-02T18:32:00+05:30] Edit: careers.component.html — inserted perks grid + open roles section with filter buttons
+[2026-06-02T18:32:00+05:30] Edit: clients.component.html — added industry filter pill buttons + bottom CTA section
+[2026-06-02T18:33:00+05:30] Edit: home.component.html — added 6th service card (Mobile App Dev) + dark CTA section
+[2026-06-02T18:33:00+05:30] Edit: team.component.html — added values section + bottom dark CTA
+[2026-06-02T18:34:00+05:30] Edit: about.component.html — added hero CTA buttons
+[2026-06-02T18:34:00+05:30] Edit: portfolio.component.ts — fixed empty filters array bug
+[2026-06-03T09:30:00+05:30] git diff && git status
+[2026-06-03T09:31:00+05:30] npm run build
+[2026-06-03T09:33:00+05:30] npx firebase projects:list
+[2026-06-03T09:40:00+05:30] git add . && git commit -m "feat: complete UI/UX improvements, SEO optimization, sitemap, JSON-LD schema configuration, and deploy to firebase" && git push
+[2026-06-03T09:45:00+05:30] npx firebase deploy

@@ -82,9 +82,20 @@ export class Home implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.titleService.setTitle('Blute Technologies - Digital Transformation & IT Solutions');
-    this.metaService.updateTag({ name: 'description', content: 'Blute Technologies accelerates digital transformation for enterprises. We build custom software, mobile apps, web solutions, IoT systems, and Agentic AI integrations.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'IT Solutions, Software Development, Digital Transformation, Mobile Apps, IoT Solutions, Agentic AI, Blute Technologies' });
+    this.titleService.setTitle('Software Development Company in Bangalore | Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Blute Technologies is a leading software development company in Bangalore offering custom software solutions, mobile app development, IoT, AI/ML, AR/VR, and IT outsourcing services.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'software development company, IT services company India, custom software solutions, digital transformation company, technology outsourcing partner, Blute Technologies, mobile app development Bangalore, IoT company Bangalore, offshore software development India, software company Bengaluru' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Software Development Company in Bangalore | Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Blute Technologies is a leading software development company in Bangalore offering custom software solutions, mobile app development, IoT, AI/ML, AR/VR, and IT outsourcing services.' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Software Development Company in Bangalore | Blute Technologies' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Blute Technologies is a leading software development company in Bangalore offering custom software solutions, mobile app development, IoT, AI/ML, AR/VR, and IT outsourcing services.' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
 
     this.contentInterval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.content.length;

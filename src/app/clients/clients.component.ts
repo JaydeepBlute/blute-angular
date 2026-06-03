@@ -21,11 +21,24 @@ export class ClientsComponent implements OnInit {
   constructor(private titleService: Title, private metaService: Meta) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Our Clients - Blute Technologies');
-    this.metaService.updateTag({ name: 'description', content: 'Discover the companies that trust Blute Technologies for their digital transformation, software engineering, and consulting needs.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies Clients, Software Client Testimonials, Tech Partners Bangalore' });
+    this.titleService.setTitle('Our Clients | Trusted Software Development Partner - Blute Technologies');
+    this.metaService.updateTag({ name: 'description', content: 'Discover 23+ companies that trust Blute Technologies for offshore software development, digital transformation, and IT outsourcing. Serving clients across 8+ industries worldwide from Bangalore, India.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Blute Technologies clients, technology outsourcing partner, offshore software development India, software company Bengaluru, IT services company India, digital transformation company, custom software solutions' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Our Clients | Trusted Software Development Partner - Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Discover 23+ companies that trust Blute Technologies for offshore software development, digital transformation, and IT outsourcing across 8+ industries.' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/clients' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Our Clients | Trusted Software Development Partner - Blute Technologies' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Discover 23+ companies that trust Blute Technologies for offshore software development, digital transformation, and IT outsourcing across 8+ industries.' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
   }
   activeIndustry = 'All';
+
+  industries = ['All', 'Technology', 'Healthcare', 'Finance', 'Manufacturing', 'Education', 'Energy', 'Retail', 'Others'];
 
   stats = [
     { value: '23+', label: 'Happy Clients' },

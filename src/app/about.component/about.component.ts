@@ -39,9 +39,20 @@ export class AboutComponent implements OnInit {
   constructor(private router: Router, private titleService: Title, private metaService: Meta) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('About Us - Blute Technologies');
-    this.metaService.updateTag({ name: 'description', content: 'Learn about Blute Technologies, our mission, vision, approach, and how we help enterprises accelerate the adoption of latest technologies.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'About Blute Technologies, Tech Mission, Digital Transformation Team, IT Consulting Partner' });
+    this.titleService.setTitle('About Blute Technologies | IT Services Company in Bangalore, India');
+    this.metaService.updateTag({ name: 'description', content: 'Blute Technologies is a trusted IT services company in Bangalore, India. Learn about our mission, digital transformation expertise, and how we help enterprises worldwide with custom software solutions and technology outsourcing.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'About Blute Technologies, IT services company India, software development company Bangalore, digital transformation company, technology outsourcing partner, IT company Bangalore, custom software solutions' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:title', content: 'About Blute Technologies | IT Services Company in Bangalore, India' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Blute Technologies is a trusted IT services company in Bangalore, India delivering custom software solutions and digital transformation services to clients worldwide.' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/about' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'About Blute Technologies | IT Services Company in Bangalore, India' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Blute Technologies is a trusted IT services company in Bangalore, India delivering custom software solutions and digital transformation services to clients worldwide.' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
 
     this.initScrollAnimations();
     this.initHeroCanvas();

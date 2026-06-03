@@ -55,9 +55,20 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Contact Us - Blute Technologies');
-    this.metaService.updateTag({ name: 'description', content: 'Get in touch with Blute Technologies. Contact our offices to discuss your next software, mobile app, or digital transformation project.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'Contact Blute Technologies, Office Location Bangalore, IT Consulting Inquiry' });
+    this.titleService.setTitle('Contact Blute Technologies | Software Company in Bengaluru, India');
+    this.metaService.updateTag({ name: 'description', content: 'Get in touch with Blute Technologies — a leading software development company in Bengaluru, India. Contact us for custom software, mobile app development, IoT, AI/ML, or IT outsourcing services.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'Contact Blute Technologies, software company Bengaluru, IT company Bangalore, software development company India, offshore software development India, technology outsourcing partner, custom software solutions' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Contact Blute Technologies | Software Company in Bengaluru, India' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Get in touch with Blute Technologies — a leading software development company in Bengaluru, India for custom software, mobile apps, IoT, AI/ML, or IT outsourcing.' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/contact' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
+    this.metaService.updateTag({ name: 'twitter:title', content: 'Contact Blute Technologies | Software Company in Bengaluru, India' });
+    this.metaService.updateTag({ name: 'twitter:description', content: 'Get in touch with Blute Technologies — a leading software development company in Bengaluru, India for custom software, mobile apps, IoT, AI/ML, or IT outsourcing.' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
   }
 
   get f() {

@@ -53,6 +53,24 @@
 
   <div class="max-w-5xl mx-auto px-6 relative">
 
+    <!-- Industry Filters -->
+    <div class="flex flex-wrap gap-2 justify-center mb-10">
+      <button *ngFor="let ind of industries"
+        (click)="activeIndustry = ind"
+        class="px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200"
+        [class.bg-gradient-to-r]="activeIndustry === ind"
+        [class.from-teal-500]="activeIndustry === ind"
+        [class.to-blue-500]="activeIndustry === ind"
+        [class.text-white]="activeIndustry === ind"
+        [class.border-transparent]="activeIndustry === ind"
+        [class.shadow-md]="activeIndustry === ind"
+        [class.bg-white]="activeIndustry !== ind"
+        [class.text-gray-600]="activeIndustry !== ind"
+        [class.border-gray-200]="activeIndustry !== ind">
+        {{ ind }}
+      </button>
+    </div>
+
     <!-- Count -->
     <div class="flex items-center justify-between mb-8">
       <p class="text-sm text-gray-400 font-medium">
@@ -92,6 +110,44 @@
     <div *ngIf="filteredClients.length === 0" class="text-center py-20">
       <div class="text-4xl mb-3">🔍</div>
       <p class="text-gray-400 text-sm">No clients in this category yet.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── BOTTOM CTA ── -->
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-20">
+  <div class="absolute inset-0 opacity-[0.05]"
+    style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
+           linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
+           background-size: 40px 40px;"></div>
+  <div class="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-4xl mx-auto px-6 text-center">
+    <div class="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-5 py-2 mb-8">
+      <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+      <span class="text-teal-300 text-sm font-semibold tracking-widest uppercase">Become Our Next Success Story</span>
+    </div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-5 leading-tight">
+      Ready to Transform<br>
+      <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">Your Business?</span>
+    </h2>
+    <p class="text-white/55 max-w-xl mx-auto mb-10 leading-relaxed">
+      Join 23+ companies already growing with Blute Technologies. Let's build something remarkable together.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/contact"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 transition-all duration-200">
+        Start a Conversation
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      <a href="/portfolio"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-bold hover:bg-white/20 transition-all duration-200 backdrop-blur-sm">
+        View Our Work
+      </a>
     </div>
   </div>
 </section>

@@ -51,6 +51,117 @@
 </section>
 
 
+<!-- ── PERKS ── -->
+<section class="bg-white py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="inline-block text-xs font-bold tracking-widest text-teal-600 uppercase mb-3 bg-teal-50 px-4 py-1.5 rounded-full border border-teal-100">
+        Why Join Us
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">Benefits &amp; Perks</h2>
+      <p class="text-gray-400 max-w-lg mx-auto leading-relaxed">We invest in our people. Here's what you get when you join Blute.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div *ngFor="let perk of perks"
+        class="group relative bg-white rounded-2xl p-6 border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-default overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-xl" [ngClass]="perk.iconBg">
+            {{ perk.icon }}
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1.5 group-hover:text-teal-700 transition-colors duration-300">{{ perk.title }}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{{ perk.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── OPEN ROLES ── -->
+<section class="bg-gray-50 py-20 relative overflow-hidden">
+  <div class="absolute -left-32 top-1/4 w-96 h-96 rounded-full bg-teal-100/30 blur-3xl pointer-events-none"></div>
+  <div class="absolute -right-32 bottom-1/4 w-96 h-96 rounded-full bg-blue-100/30 blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-6 relative">
+    <div class="text-center mb-12">
+      <span class="inline-block text-xs font-bold tracking-widest text-teal-600 uppercase mb-3 bg-teal-50 px-4 py-1.5 rounded-full border border-teal-100">
+        Open Positions
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">Current Openings</h2>
+      <p class="text-gray-400 max-w-lg mx-auto leading-relaxed">Find the role that aligns with your ambitions and expertise.</p>
+    </div>
+
+    <!-- Department Filters -->
+    <div class="flex flex-wrap gap-2 justify-center mb-10">
+      <button *ngFor="let dept of departments"
+        (click)="activeFilter = dept"
+        class="px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200"
+        [class.bg-gradient-to-r]="activeFilter === dept"
+        [class.from-teal-500]="activeFilter === dept"
+        [class.to-blue-500]="activeFilter === dept"
+        [class.text-white]="activeFilter === dept"
+        [class.border-transparent]="activeFilter === dept"
+        [class.shadow-md]="activeFilter === dept"
+        [class.bg-white]="activeFilter !== dept"
+        [class.text-gray-600]="activeFilter !== dept"
+        [class.border-gray-200]="activeFilter !== dept">
+        {{ dept }}
+      </button>
+    </div>
+
+    <!-- Job Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <article *ngFor="let job of filteredJobs; let i = index"
+        class="group bg-white rounded-2xl border border-gray-100 p-6 hover:border-teal-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden animate-fade-in-up"
+        [style.animation-delay]="(i * 0.07) + 's'">
+
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+
+        <span *ngIf="job.isNew"
+          class="absolute top-4 right-4 bg-green-100 text-green-700 text-xs font-bold px-2.5 py-0.5 rounded-full">New</span>
+
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0" [ngClass]="job.iconBg">
+            {{ job.icon }}
+          </div>
+          <div class="flex-1 min-w-0 pr-12">
+            <h3 class="font-bold text-gray-900 text-base mb-1 group-hover:text-teal-700 transition-colors duration-300">{{ job.title }}</h3>
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="text-xs px-2.5 py-0.5 rounded-full font-semibold" [ngClass]="job.typeColor">{{ job.type }}</span>
+              <span class="text-xs text-gray-400">{{ job.location }}</span>
+              <span class="text-xs text-gray-300">·</span>
+              <span class="text-xs text-gray-400">{{ job.experience }}</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span *ngFor="let tag of job.tags"
+                class="text-xs px-2.5 py-1 rounded-lg bg-gray-50 text-gray-600 border border-gray-100 font-medium">{{ tag }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-4 border-t border-gray-50 flex items-center justify-between">
+          <span class="text-xs font-semibold text-gray-400 uppercase tracking-wide">{{ job.dept }}</span>
+          <a href="mailto:info@blute.co.in?subject=Application - {{ job.title }}"
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 hover:text-teal-700 group/apply transition-colors duration-200">
+            Apply Now
+            <svg class="w-3.5 h-3.5 group-hover/apply:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <div *ngIf="filteredJobs.length === 0" class="text-center py-16">
+      <p class="text-5xl mb-4">🔍</p>
+      <p class="text-gray-400 text-sm">No openings in this department right now.</p>
+    </div>
+  </div>
+</section>
 
 
 <!-- ── CULTURE STRIP ── -->
