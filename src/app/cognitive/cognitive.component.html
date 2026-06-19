@@ -162,12 +162,16 @@
       <span @fadeInUp class="cog-section-tag cog-section-tag--center">CAPABILITIES</span>
       <h2 @fadeInUp class="cog-caps__h2">Core Cognitive Capabilities</h2>
       <div @staggerCards class="cog-caps__grid">
-        <div class="cog-cap-card card-item" *ngFor="let c of capabilities">
-          <div class="cog-cap-card__icon-wrap" [style.background]="c.bg">
+        <div class="cog-cap-card card-item relative overflow-hidden" *ngFor="let c of capabilities">
+          <ng-container *ngIf="isUrl(c.icon)">
+            <img [src]="c.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          </ng-container>
+          <div *ngIf="!isUrl(c.icon)" class="cog-cap-card__icon-wrap" [style.background]="c.bg">
             <span class="cog-cap-card__icon"><ng-container *ngIf="isUrl(c.icon); else iconRef_c_1"><img [src]="c.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_c_1>{{ c.icon }}</ng-template></span>
           </div>
-          <h4 class="cog-cap-card__title">{{ c.title }}</h4>
-          <p class="cog-cap-card__desc">{{ c.desc }}</p>
+          <h4 class="cog-cap-card__title" [ngClass]="isUrl(c.icon) ? 'text-white' : 'text-gray-900 group-hover:text-[#533AFD]'">{{ c.title }}</h4>
+          <p class="cog-cap-card__desc" [ngClass]="isUrl(c.icon) ? 'text-gray-200' : 'text-gray-600'">{{ c.desc }}</p>
           <div class="cog-cap-card__tags">
             <span class="cog-tag" *ngFor="let t of c.tags">{{ t }}</span>
           </div>
@@ -340,12 +344,16 @@
       <span @fadeInUp class="cog-section-tag cog-section-tag--center">HOW WE WORK</span>
       <h2 @fadeInUp class="cog-process__h2">Our Cognitive AI Process</h2>
       <div @staggerCards class="cog-process__steps">
-        <div class="cog-step card-item" *ngFor="let s of processSteps; let i = index">
-          <div class="cog-step__num">{{ (i + 1).toString().padStart(2,'0') }}</div>
-          <div class="cog-step__icon"><ng-container *ngIf="isUrl(s.icon); else iconRef_s_2"><img [src]="s.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_s_2>{{ s.icon }}</ng-template></div>
-          <h4 class="cog-step__title">{{ s.title }}</h4>
-          <p class="cog-step__desc">{{ s.desc }}</p>
-          <div class="cog-step__connector" *ngIf="i < processSteps.length - 1"></div>
+        <div class="cog-step card-item relative overflow-hidden" *ngFor="let s of processSteps; let i = index">
+          <ng-container *ngIf="isUrl(s.icon)">
+            <img [src]="s.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          </ng-container>
+          <div class="cog-step__num" [ngClass]="isUrl(s.icon) ? 'text-white/60' : ''">{{ (i + 1).toString().padStart(2,'0') }}</div>
+          <div class="cog-step__icon" *ngIf="!isUrl(s.icon)"><ng-container *ngIf="isUrl(s.icon); else iconRef_s_2"><img [src]="s.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_s_2>{{ s.icon }}</ng-template></div>
+          <h4 class="cog-step__title" [ngClass]="isUrl(s.icon) ? 'text-white' : 'text-gray-900 group-hover:text-[#533AFD]'">{{ s.title }}</h4>
+          <p class="cog-step__desc" [ngClass]="isUrl(s.icon) ? 'text-gray-200' : 'text-gray-600'">{{ s.desc }}</p>
+          <div class="cog-step__connector" *ngIf="i < processSteps.length - 1 && !isUrl(s.icon)"></div>
         </div>
       </div>
     </div>

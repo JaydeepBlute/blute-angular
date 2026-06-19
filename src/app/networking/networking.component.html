@@ -142,12 +142,17 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" @staggerList>
         <div *ngFor="let svc of services"
-          class="stagger-item group bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-400/60 hover:bg-teal-50/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-200/50 cursor-pointer">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" [style.background]="svc.bg">
-            <ng-container *ngIf="isUrl(svc.icon); else iconRef_svc_1"><img [src]="svc.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_svc_1>{{ svc.icon }}</ng-template></div>
-          <h3 class="text-lg font-semibold mb-2 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
+          class="stagger-item group relative overflow-hidden bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-400/60 hover:bg-teal-50/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-teal-200/50 cursor-pointer">
+          <ng-container *ngIf="isUrl(svc.icon)">
+            <img [src]="svc.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          </ng-container>
+          <div *ngIf="!isUrl(svc.icon)" class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" [style.background]="svc.bg">
+            {{ svc.icon }}
+          </div>
+          <h3 class="text-lg font-semibold mb-2 transition-colors duration-300" [ngClass]="isUrl(svc.icon) ? 'text-white' : 'text-gray-800 group-hover:text-teal-600'">
             {{ svc.title }}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{{ svc.desc }}</p>
+          <p class="text-sm leading-relaxed" [ngClass]="isUrl(svc.icon) ? 'text-gray-200' : 'text-gray-500'">{{ svc.desc }}</p>
         </div>
       </div>
     </div>
@@ -171,13 +176,17 @@
         </h2>
         <div class="space-y-4">
           <div *ngFor="let item of whyItems"
-            class="flex gap-4 items-start group p-4 rounded-xl border border-gray-100 hover:border-teal-300 hover:bg-teal-50/40 hover:translate-x-1 transition-all duration-300">
-            <div class="w-11 h-11 flex-shrink-0 rounded-xl flex items-center justify-center text-xl"
-              [style.background]="item.bg"><ng-container *ngIf="isUrl(item.icon); else iconRef_item_2"><img [src]="item.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_item_2>{{ item.icon }}</ng-template></div>
+            class="flex gap-4 items-start group relative overflow-hidden p-4 rounded-xl border border-gray-100 hover:border-teal-300 hover:bg-teal-50/40 hover:translate-x-1 transition-all duration-300">
+            <ng-container *ngIf="isUrl(item.icon)">
+              <img [src]="item.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+            </ng-container>
+            <div *ngIf="!isUrl(item.icon)" class="w-11 h-11 flex-shrink-0 rounded-xl flex items-center justify-center text-xl"
+              [style.background]="item.bg">{{ item.icon }}</div>
             <div>
-              <h4 class="font-semibold mb-1 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">{{
+              <h4 class="font-semibold mb-1 transition-colors duration-300" [ngClass]="isUrl(item.icon) ? 'text-white' : 'text-gray-800 group-hover:text-teal-600'">{{
                 item.title }}</h4>
-              <p class="text-gray-500 text-sm">{{ item.desc }}</p>
+              <p class="text-sm" [ngClass]="isUrl(item.icon) ? 'text-gray-200' : 'text-gray-500'">{{ item.desc }}</p>
             </div>
           </div>
         </div>

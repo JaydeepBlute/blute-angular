@@ -106,10 +106,14 @@
     <!-- staggerCards = flip-up 3-D cascade -->
     <div *ngIf="isVisible" @staggerCards class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let ch of challenges"
-        class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-red-300 hover:-translate-y-1 transition-all duration-300">
-        <div class="text-3xl mb-4"><ng-container *ngIf="isUrl(ch.icon); else iconRef_ch_1"><img [src]="ch.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_ch_1>{{ ch.icon }}</ng-template></div>
-        <h3 class="font-bold text-gray-800 mb-2 group-hover:text-red-500 transition-colors">{{ ch.title }}</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">{{ ch.desc }}</p>
+        class="stagger-item group relative overflow-hidden bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-red-300 hover:-translate-y-1 transition-all duration-300">
+        <ng-container *ngIf="isUrl(ch.icon)">
+          <img [src]="ch.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(ch.icon)" class="text-3xl mb-4">{{ ch.icon }}</div>
+        <h3 class="font-bold mb-2 transition-colors" [ngClass]="isUrl(ch.icon) ? 'text-white' : 'text-gray-800 group-hover:text-red-500'">{{ ch.title }}</h3>
+        <p class="text-sm leading-relaxed" [ngClass]="isUrl(ch.icon) ? 'text-gray-200' : 'text-gray-500'">{{ ch.desc }}</p>
       </div>
     </div>
   </div>
@@ -217,10 +221,14 @@
     </div>
     <div *ngIf="isVisible" @staggerCards class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let reason of whyBlute"
-        class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-red-300 hover:-translate-y-1 transition-all duration-300 text-center">
-        <div class="text-4xl mb-4"><ng-container *ngIf="isUrl(reason.icon); else iconRef_reason_3"><img [src]="reason.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_reason_3>{{ reason.icon }}</ng-template></div>
-        <h3 class="text-gray-800 font-bold mb-2 group-hover:text-red-500 transition-colors">{{ reason.title }}</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">{{ reason.desc }}</p>
+        class="stagger-item group relative overflow-hidden bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-red-300 hover:-translate-y-1 transition-all duration-300 text-center">
+        <ng-container *ngIf="isUrl(reason.icon)">
+          <img [src]="reason.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(reason.icon)" class="text-4xl mb-4">{{ reason.icon }}</div>
+        <h3 class="font-bold mb-2 transition-colors" [ngClass]="isUrl(reason.icon) ? 'text-white' : 'text-gray-800 group-hover:text-red-500'">{{ reason.title }}</h3>
+        <p class="text-sm leading-relaxed" [ngClass]="isUrl(reason.icon) ? 'text-gray-200' : 'text-gray-500'">{{ reason.desc }}</p>
       </div>
     </div>
   </div>

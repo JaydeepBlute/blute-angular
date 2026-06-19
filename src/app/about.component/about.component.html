@@ -353,17 +353,21 @@
       <!-- Cards -->
       <div class="space-y-5">
         <div *ngFor="let mv of missionVision"
-          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] cursor-default">
+          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] cursor-default relative overflow-hidden">
+          <ng-container *ngIf="isUrl(mv.icon)">
+            <img [src]="mv.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          </ng-container>
           <div class="flex items-start gap-4">
-            <div
+            <div *ngIf="!isUrl(mv.icon)"
               class="w-12 h-12 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
               <img *ngIf="isUrl(mv.icon); else rawMvIcon" [src]="mv.icon" class="w-full h-full object-cover" alt="" />
               <ng-template #rawMvIcon><ng-container *ngIf="isUrl(mv.icon); else iconRef_mv_1"><img [src]="mv.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_mv_1>{{ mv.icon }}</ng-template></ng-template>
             </div>
             <div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#533AFD] transition-colors duration-300">
+              <h3 class="text-lg font-bold transition-colors duration-300 mb-2" [ngClass]="isUrl(mv.icon) ? 'text-white' : 'text-gray-900 group-hover:text-[#533AFD]'">
                 {{ mv.title }}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">{{ mv.description }}</p>
+              <p class="text-sm leading-relaxed" [ngClass]="isUrl(mv.icon) ? 'text-gray-200' : 'text-gray-600'">{{ mv.description }}</p>
             </div>
           </div>
         </div>
@@ -424,16 +428,20 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let tech of technologies; let i = index"
-          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 animate-fade-in-up cursor-default"
+          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 animate-fade-in-up cursor-default relative overflow-hidden"
           [style.animation-delay.s]="i * 0.1">
+          <ng-container *ngIf="isUrl(tech.icon)">
+            <img [src]="tech.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          </ng-container>
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
+            <div *ngIf="!isUrl(tech.icon)" class="w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
               <img *ngIf="isUrl(tech.icon); else rawTechIcon" [src]="tech.icon" class="w-full h-full object-cover" alt="" />
               <ng-template #rawTechIcon><ng-container *ngIf="isUrl(tech.icon); else iconRef_tech_2"><img [src]="tech.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_tech_2>{{ tech.icon }}</ng-template></ng-template>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#533AFD] transition-colors duration-300">{{ tech.category }}</h3>
+            <h3 class="text-lg font-bold transition-colors duration-300" [ngClass]="isUrl(tech.icon) ? 'text-white' : 'text-gray-900 group-hover:text-[#533AFD]'">{{ tech.category }}</h3>
           </div>
-          <p class="text-gray-600 text-sm leading-relaxed">{{ tech.description }}</p>
+          <p class="text-sm leading-relaxed" [ngClass]="isUrl(tech.icon) ? 'text-gray-200' : 'text-gray-600'">{{ tech.description }}</p>
         </div>
       </div>
     </div>

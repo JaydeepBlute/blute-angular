@@ -75,18 +75,22 @@
     </div>
 
     <div class="services-grid">
-      <div class="service-card" *ngFor="let svc of services; let i = index"
+      <div class="service-card relative overflow-hidden" *ngFor="let svc of services; let i = index"
         [@cardSlide]="servicesVisible ? 'visible' : 'hidden'" [style.transition-delay]="i * 0.1 + 's'"
         (mouseenter)="svc.hovered = true" (mouseleave)="svc.hovered = false" [class.hovered]="svc.hovered">
+        <ng-container *ngIf="isUrl(svc.icon)">
+          <img [src]="svc.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+        </ng-container>
         <!-- Background image -->
-        <div class="svc-bg-img" [style.background-image]="'url(' + svc.img + ')'"></div>
+        <div class="svc-bg-img" *ngIf="!isUrl(svc.icon)" [style.background-image]="'url(' + svc.img + ')'"></div>
         <div class="svc-content">
-          <div class="svc-icon-wrap" [style.background]="svc.iconBg">
+          <div class="svc-icon-wrap" *ngIf="!isUrl(svc.icon)" [style.background]="svc.iconBg">
             <span><ng-container *ngIf="isUrl(svc.icon); else iconRef_svc_1"><img [src]="svc.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_svc_1>{{ svc.icon }}</ng-template></span>
           </div>
-          <h3 class="svc-title">{{ svc.title }}</h3>
-          <p class="svc-desc">{{ svc.desc }}</p>
-          <span class="svc-link" [style.color]="svc.color">Learn more →</span>
+          <h3 class="svc-title" [ngClass]="isUrl(svc.icon) ? 'text-white' : ''">{{ svc.title }}</h3>
+          <p class="svc-desc" [ngClass]="isUrl(svc.icon) ? 'text-gray-200' : ''">{{ svc.desc }}</p>
+          <span class="svc-link" [style.color]="isUrl(svc.icon) ? '#fff' : svc.color">Learn more →</span>
         </div>
       </div>
     </div>
