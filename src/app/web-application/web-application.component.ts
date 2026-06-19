@@ -68,37 +68,37 @@ export class WebApplicationComponent implements OnInit {
 
   services = [
     {
-      icon: '🏗️',
+      icon: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=120&q=80',
       title: 'Enterprise Web Applications',
       desc: 'Scalable, role-based platforms handling millions of users — built on Angular or React with a microservices backend.',
       img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
     },
     {
-      icon: '🎨',
+      icon: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=120&q=80',
       title: 'UI/UX Design & Prototyping',
       desc: 'Figma-first design systems, pixel-perfect components, and interactive prototypes that win stakeholder sign-off.',
       img: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Progressive Web Apps (PWA)',
       desc: 'Offline-ready, installable web apps that feel native on any device — with push notifications and background sync.',
       img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80',
     },
     {
-      icon: '🔗',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'API & Backend Integration',
       desc: 'RESTful and GraphQL APIs, OAuth2 authentication, and third-party integrations from Stripe to Salesforce.',
       img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80',
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Cloud-Native Deployment',
       desc: 'Containerised deployments on AWS, Azure, or GCP — with CI/CD pipelines, auto-scaling, and zero downtime.',
       img: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=600&q=80',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       title: 'Performance Optimisation',
       desc: 'Lighthouse audits, lazy loading, SSR with Angular Universal, and CDN tuning to hit 95+ performance scores.',
       img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
@@ -107,25 +107,25 @@ export class WebApplicationComponent implements OnInit {
 
   whyItems = [
     {
-      icon: '🧩',
+      icon: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&q=80',
       title: 'Component-Driven Architecture',
       desc: 'Reusable design systems and modular code that scale gracefully as your product grows.',
       bg: 'rgba(20,184,166,0.12)',
     },
     {
-      icon: '🚀',
+      icon: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=120&q=80',
       title: 'Rapid Iteration',
       desc: 'Agile sprints with weekly demos so you see progress, give feedback, and ship faster.',
       bg: 'rgba(14,165,233,0.12)',
     },
     {
-      icon: '🔒',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Security by Default',
       desc: 'OWASP Top 10 mitigation, CSP headers, and penetration testing built into every release.',
       bg: 'rgba(99,102,241,0.12)',
     },
     {
-      icon: '📱',
+      icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80',
       title: 'Responsive & Accessible',
       desc: 'WCAG 2.1 AA compliant, mobile-first layouts that work flawlessly on every screen size.',
       bg: 'rgba(245,158,11,0.12)',
@@ -133,19 +133,19 @@ export class WebApplicationComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular 17+', desc: 'Enterprise SPA framework' },
-    { icon: '⚛️', name: 'React 18', desc: 'Component UI library' },
-    { icon: '📘', name: 'TypeScript', desc: 'Type-safe development' },
-    { icon: '🟢', name: 'Node.js', desc: 'Backend runtime' },
-    { icon: '🐳', name: 'Docker', desc: 'Container platform' },
-    { icon: '☁️', name: 'AWS / GCP', desc: 'Cloud infrastructure' },
-    { icon: '🗄️', name: 'PostgreSQL', desc: 'Relational database' },
-    { icon: '🔴', name: 'Redis', desc: 'Caching & queues' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular 17+', desc: 'Enterprise SPA framework' },
+    { icon: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=120&q=80', name: 'React 18', desc: 'Component UI library' },
+    { icon: 'https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=120&q=80', name: 'TypeScript', desc: 'Type-safe development' },
+    { icon: 'https://images.unsplash.com/photo-1627390496608-7d6824d0140c?auto=format&fit=crop&w=120&q=80', name: 'Node.js', desc: 'Backend runtime' },
+    { icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80', name: 'Docker', desc: 'Container platform' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / GCP', desc: 'Cloud infrastructure' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'PostgreSQL', desc: 'Relational database' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'Redis', desc: 'Caching & queues' },
   ];
 
   dashBars = [
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       label: 'Performance Score',
       pct: 98,
       val: '98/100',
@@ -153,7 +153,7 @@ export class WebApplicationComponent implements OnInit {
       labelColor: '#4ade80',
     },
     {
-      icon: '♿',
+      icon: 'https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=120&q=80',
       label: 'Accessibility',
       pct: 96,
       val: '96/100',
@@ -161,7 +161,7 @@ export class WebApplicationComponent implements OnInit {
       labelColor: '#14b8a6',
     },
     {
-      icon: '📱',
+      icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80',
       label: 'Mobile UX',
       pct: 94,
       val: '94/100',
@@ -169,7 +169,7 @@ export class WebApplicationComponent implements OnInit {
       labelColor: '#0ea5e9',
     },
     {
-      icon: '🔍',
+      icon: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=120&q=80',
       label: 'SEO Score',
       pct: 100,
       val: '100/100',
@@ -215,5 +215,9 @@ export class WebApplicationComponent implements OnInit {
 
   toggleFaq(i: number) {
     this.faqs[i].open = !this.faqs[i].open;
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

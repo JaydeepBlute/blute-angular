@@ -207,11 +207,11 @@ export class EducationComponent implements OnInit {
 
   trustBadges = [
     { icon: '🎓', label: 'EdTech Certified' },
-    { icon: '🔒', label: 'FERPA Compliant' },
-    { icon: '📱', label: 'Mobile-First Learning' },
-    { icon: '🤖', label: 'AI-Powered Personalisation' },
+    { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'FERPA Compliant' },
+    { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', label: 'Mobile-First Learning' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', label: 'AI-Powered Personalisation' },
     { icon: '🌍', label: 'Multi-Language Support' },
-    { icon: '⚡', label: '99.9% Uptime SLA' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
   ];
 
   keyPoints = [
@@ -224,22 +224,22 @@ export class EducationComponent implements OnInit {
 
   challenges = [
     {
-      icon: '📚',
+      icon: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=120&q=80',
       title: 'Outdated Learning Systems',
       desc: 'Legacy LMS platforms fail to engage modern learners, resulting in poor completion rates and limited personalisation.',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       title: 'Lack of Learning Analytics',
       desc: 'Educators struggle without real-time data on student progress, making timely intervention nearly impossible.',
     },
     {
-      icon: '🔗',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Siloed Platforms & Data',
       desc: 'Disconnected tools create friction for students and administrators, reducing efficiency and consistency.',
     },
     {
-      icon: '🌐',
+      icon: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=120&q=80',
       title: 'Accessibility & Inclusion',
       desc: 'Many institutions lack the digital infrastructure to deliver equitable, accessible learning to all students.',
     },
@@ -323,14 +323,14 @@ export class EducationComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'AWS / Azure', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
     { icon: '🎓', name: 'Moodle / Canvas', role: 'LMS Integration' },
-    { icon: '🤖', name: 'TensorFlow / NLP', role: 'AI / ML' },
-    { icon: '🗄️', name: 'PostgreSQL', role: 'Database' },
-    { icon: '📱', name: 'Flutter', role: 'Mobile' },
-    { icon: '🔐', name: 'Keycloak / OAuth2', role: 'Security' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow / NLP', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'PostgreSQL', role: 'Database' },
+    { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', name: 'Flutter', role: 'Mobile' },
+    { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'Keycloak / OAuth2', role: 'Security' },
   ];
 
   whyBlute = [
@@ -340,17 +340,17 @@ export class EducationComponent implements OnInit {
       desc: 'Proven track record building scalable learning platforms for schools, universities, and corporate training providers.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Rapid Deployment',
       desc: 'Pre-built EdTech accelerators and reusable modules that reduce time-to-launch by up to 50%.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'End-to-End Partnership',
       desc: 'From LMS to mobile app to analytics — one team, one vision, full accountability.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Data Security & Compliance',
       desc: 'FERPA, COPPA, and GDPR-compliant platforms with role-based access and encrypted student data.',
     },
@@ -358,5 +358,9 @@ export class EducationComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => (this.isVisible = true), 100);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

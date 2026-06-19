@@ -65,28 +65,28 @@ export class CognitiveDetailComponent implements OnInit, OnDestroy {
       bg: 'rgba(139,92,246,0.12)',
     },
     {
-      icon: '🧠',
+      icon: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=120&q=80',
       title: 'Deep Learning',
       desc: 'Multi-layered neural networks that recognize complex patterns across images, audio, video and tabular data.',
       tags: ['CNN', 'RNN', 'Transformers'],
       bg: 'rgba(99,102,241,0.12)',
     },
     {
-      icon: '👁️',
+      icon: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=120&q=80',
       title: 'Computer Vision',
       desc: 'Enable machines to see and interpret visual data — from object detection to facial recognition and OCR.',
       tags: ['Object Detection', 'OCR', 'Segmentation'],
       bg: 'rgba(168,85,247,0.12)',
     },
     {
-      icon: '🤖',
+      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
       title: 'Conversational AI',
       desc: 'Build intelligent chatbots and virtual assistants that understand context and deliver natural conversations.',
       tags: ['Chatbots', 'Dialog Systems', 'GPT'],
       bg: 'rgba(139,92,246,0.12)',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       title: 'Predictive Analytics',
       desc: 'Forecast outcomes, detect anomalies, and surface actionable insights from complex data streams.',
       tags: ['Forecasting', 'Anomaly Detection', 'ML'],
@@ -159,27 +159,27 @@ export class CognitiveDetailComponent implements OnInit, OnDestroy {
   // ── Process steps ──
   processSteps = [
     {
-      icon: '🔍',
+      icon: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=120&q=80',
       title: 'Discovery & Data Audit',
       desc: 'We assess your data landscape, identify AI opportunities, and define success metrics aligned to business goals.',
     },
     {
-      icon: '🏗️',
+      icon: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=120&q=80',
       title: 'Model Architecture Design',
       desc: 'Our AI architects design the optimal neural network topology and select the right frameworks for your use case.',
     },
     {
-      icon: '🎯',
+      icon: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=120&q=80',
       title: 'Training & Validation',
       desc: 'We train models on your data with rigorous validation pipelines ensuring accuracy, fairness, and robustness.',
     },
     {
-      icon: '🚀',
+      icon: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=120&q=80',
       title: 'Deployment & Integration',
       desc: 'Seamless deployment to cloud or edge with REST APIs, monitoring dashboards and CI/CD pipelines.',
     },
     {
-      icon: '📈',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       title: 'Continuous Learning',
       desc: 'Models are monitored and retrained as new data arrives, ensuring they stay accurate and relevant over time.',
     },
@@ -189,5 +189,9 @@ export class CognitiveDetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     clearInterval(this.counterInterval);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

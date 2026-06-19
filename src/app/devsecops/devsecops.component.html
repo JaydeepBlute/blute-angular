@@ -141,7 +141,7 @@
                  hover:border-teal-400/60 hover:bg-teal-50/40 hover:-translate-y-2
                  hover:shadow-xl hover:shadow-teal-200/50 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" [style.background]="svc.bg">
-            {{ svc.icon }}</div>
+            <ng-container *ngIf="isUrl(svc.icon); else iconRef_svc_1"><img [src]="svc.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_svc_1>{{ svc.icon }}</ng-template></div>
           <h3 class="text-lg font-semibold mb-2 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
             {{ svc.title }}</h3>
           <p class="text-gray-500 text-sm leading-relaxed">{{ svc.desc }}</p>
@@ -175,7 +175,7 @@
           <div *ngFor="let w of whyItems" class="flex gap-4 items-start group p-4 rounded-xl border border-gray-100
                    hover:border-teal-300 hover:bg-teal-50/40 hover:translate-x-1 transition-all duration-300">
             <div class="w-11 h-11 flex-shrink-0 rounded-xl flex items-center justify-center text-xl"
-              [style.background]="w.bg">{{ w.icon }}</div>
+              [style.background]="w.bg"><ng-container *ngIf="isUrl(w.icon); else iconRef_w_2"><img [src]="w.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_w_2>{{ w.icon }}</ng-template></div>
             <div>
               <h4 class="font-semibold mb-1 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">{{
                 w.title }}</h4>
@@ -219,7 +219,7 @@
             <div *ngFor="let bar of dashBars">
               <div class="flex justify-between text-xs text-gray-500 mb-1">
                 <span class="flex items-center gap-1.5">
-                  <span>{{ bar.icon }}</span> {{ bar.label }}
+                  <span><ng-container *ngIf="isUrl(bar.icon); else iconRef_bar_3"><img [src]="bar.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_bar_3>{{ bar.icon }}</ng-template></span> {{ bar.label }}
                 </span>
                 <span class="font-medium" [style.color]="bar.labelColor">{{ bar.status }}</span>
               </div>

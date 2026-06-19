@@ -73,7 +73,7 @@
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
         <div class="flex items-start gap-4">
           <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-xl" [ngClass]="perk.iconBg">
-            {{ perk.icon }}
+            <ng-container *ngIf="isUrl(perk.icon); else iconRef_perk_1"><img [src]="perk.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_perk_1>{{ perk.icon }}</ng-template>
           </div>
           <div>
             <h3 class="font-bold text-gray-900 mb-1.5 group-hover:text-teal-700 transition-colors duration-300">{{ perk.title }}</h3>
@@ -131,7 +131,7 @@
 
         <div class="flex items-start gap-4">
           <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0" [ngClass]="job.iconBg">
-            {{ job.icon }}
+            <ng-container *ngIf="isUrl(job.icon); else iconRef_job_2"><img [src]="job.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_job_2>{{ job.icon }}</ng-template>
           </div>
           <div class="flex-1 min-w-0 pr-12">
             <h3 class="font-bold text-gray-900 text-base mb-1 group-hover:text-teal-700 transition-colors duration-300">{{ job.title }}</h3>

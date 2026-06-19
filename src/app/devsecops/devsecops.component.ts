@@ -59,19 +59,19 @@ export class DevSecOpsComponent implements OnInit {
 
   services = [
     {
-      icon: '🔍',
+      icon: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=120&q=80',
       title: 'SAST & DAST Scanning',
       desc: 'Static and dynamic analysis baked into every PR — catch vulnerabilities before they reach production.',
       bg: 'rgba(20,184,166,0.10)',
     },
     {
-      icon: '🔄',
+      icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80',
       title: 'CI/CD Security Gates',
       desc: 'Automated policy enforcement at every pipeline stage with zero-tolerance security checkpoints.',
       bg: 'rgba(14,165,233,0.10)',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Container & Image Security',
       desc: 'Scan Docker images for CVEs, misconfigs, and malicious packages before deployment.',
       bg: 'rgba(99,102,241,0.10)',
@@ -89,7 +89,7 @@ export class DevSecOpsComponent implements OnInit {
       bg: 'rgba(20,184,166,0.10)',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       title: 'Security Observability',
       desc: 'Unified dashboards for threat detection, audit logs, and security posture scoring in real time.',
       bg: 'rgba(14,165,233,0.10)',
@@ -98,25 +98,25 @@ export class DevSecOpsComponent implements OnInit {
 
   whyItems = [
     {
-      icon: '🚀',
+      icon: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=120&q=80',
       title: 'Shift-Left Security',
       desc: 'Catch vulnerabilities at commit time — not after deployment — dramatically reducing fix costs.',
       bg: 'rgba(20,184,166,0.12)',
     },
     {
-      icon: '🤖',
+      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
       title: 'AI-Powered Analysis',
       desc: 'Machine-learning triage cuts false positives by 80%, so engineers focus on real risks.',
       bg: 'rgba(14,165,233,0.12)',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'Tool-Agnostic Integration',
       desc: 'Works with GitHub Actions, GitLab CI, Jenkins, ArgoCD, Terraform, and 50+ tools.',
       bg: 'rgba(99,102,241,0.12)',
     },
     {
-      icon: '📈',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       title: 'Measurable ROI',
       desc: 'Customers report 3× faster releases and 90% fewer production security incidents.',
       bg: 'rgba(245,158,11,0.12)',
@@ -125,7 +125,7 @@ export class DevSecOpsComponent implements OnInit {
 
   dashBars = [
     {
-      icon: '💻',
+      icon: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=120&q=80',
       label: 'Code Analysis',
       pct: 100,
       status: 'Passed',
@@ -141,7 +141,7 @@ export class DevSecOpsComponent implements OnInit {
       labelColor: '#14b8a6',
     },
     {
-      icon: '🧪',
+      icon: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=120&q=80',
       label: 'Tests & DAST',
       pct: 85,
       status: 'Running…',
@@ -149,7 +149,7 @@ export class DevSecOpsComponent implements OnInit {
       labelColor: '#0ea5e9',
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       label: 'Deploy & Audit',
       pct: 60,
       status: 'Queued',
@@ -198,4 +198,8 @@ export class DevSecOpsComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
+  }
 }

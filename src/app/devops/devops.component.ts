@@ -107,7 +107,7 @@ export class DevopsComponent implements OnInit, AfterViewInit {
       hovered: false,
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       color: '#6366f1',
       iconBg: 'linear-gradient(135deg,#ede9fe,#ddd6fe)',
       img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=70',
@@ -116,7 +116,7 @@ export class DevopsComponent implements OnInit, AfterViewInit {
       hovered: false,
     },
     {
-      icon: '🐳',
+      icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80',
       color: '#06b6d4',
       iconBg: 'linear-gradient(135deg,#cffafe,#a5f3fc)',
       img: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=400&q=70',
@@ -125,7 +125,7 @@ export class DevopsComponent implements OnInit, AfterViewInit {
       hovered: false,
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       color: '#f59e0b',
       iconBg: 'linear-gradient(135deg,#fef9c3,#fef08a)',
       img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=70',
@@ -134,7 +134,7 @@ export class DevopsComponent implements OnInit, AfterViewInit {
       hovered: false,
     },
     {
-      icon: '🔒',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       color: '#ef4444',
       iconBg: 'linear-gradient(135deg,#fee2e2,#fecaca)',
       img: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&q=70',
@@ -143,7 +143,7 @@ export class DevopsComponent implements OnInit, AfterViewInit {
       hovered: false,
     },
     {
-      icon: '🔄',
+      icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80',
       color: '#10b981',
       iconBg: 'linear-gradient(135deg,#d1fae5,#a7f3d0)',
       img: 'https://images.unsplash.com/photo-1647166545674-ce28ce93bdca?w=400&q=70',
@@ -156,13 +156,13 @@ export class DevopsComponent implements OnInit, AfterViewInit {
   // ── Tools ─────────────────────────────────────────────────────
   tools = [
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       name: 'Jenkins',
       category: 'CI/CD',
       bg: 'linear-gradient(135deg,#fef3c7,#fde68a)',
     },
     {
-      icon: '🐳',
+      icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80',
       name: 'Docker',
       category: 'Container',
       bg: 'linear-gradient(135deg,#dbeafe,#bfdbfe)',
@@ -174,44 +174,44 @@ export class DevopsComponent implements OnInit, AfterViewInit {
       bg: 'linear-gradient(135deg,#e0f2fe,#bae6fd)',
     },
     {
-      icon: '🏗️',
+      icon: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=120&q=80',
       name: 'Terraform',
       category: 'IaC',
       bg: 'linear-gradient(135deg,#ede9fe,#ddd6fe)',
     },
-    { icon: '☁️', name: 'AWS', category: 'Cloud', bg: 'linear-gradient(135deg,#fff7ed,#fed7aa)' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS', category: 'Cloud', bg: 'linear-gradient(135deg,#fff7ed,#fed7aa)' },
     {
-      icon: '🚀',
+      icon: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=120&q=80',
       name: 'GitHub Actions',
       category: 'CI/CD',
       bg: 'linear-gradient(135deg,#f0fdf4,#bbf7d0)',
     },
     {
-      icon: '📈',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       name: 'Prometheus',
       category: 'Monitoring',
       bg: 'linear-gradient(135deg,#fff1f2,#fecdd3)',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       name: 'Grafana',
       category: 'Visualization',
       bg: 'linear-gradient(135deg,#fff7ed,#fed7aa)',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       name: 'Ansible',
       category: 'Automation',
       bg: 'linear-gradient(135deg,#fef9c3,#fef08a)',
     },
     {
-      icon: '🔄',
+      icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80',
       name: 'ArgoCD',
       category: 'GitOps',
       bg: 'linear-gradient(135deg,#ecfdf5,#a7f3d0)',
     },
     {
-      icon: '🔐',
+      icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80',
       name: 'Vault',
       category: 'Security',
       bg: 'linear-gradient(135deg,#fee2e2,#fecaca)',
@@ -276,5 +276,9 @@ export class DevopsComponent implements OnInit, AfterViewInit {
         this.statsVisible = true;
       }
     }
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

@@ -220,12 +220,12 @@ export class TransportationComponent implements OnInit {
   }
 
   trustBadges = [
-    { icon: '🚦', label: 'Smart Mobility Ready' },
-    { icon: '🔒', label: 'ISO 27001 Certified' },
-    { icon: '📡', label: 'Real-Time Tracking' },
-    { icon: '🤖', label: 'AI Route Optimisation' },
+    { icon: 'https://images.unsplash.com/photo-1509059852496-f38229d2d03f?auto=format&fit=crop&w=120&q=80', label: 'Smart Mobility Ready' },
+    { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'ISO 27001 Certified' },
+    { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', label: 'Real-Time Tracking' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', label: 'AI Route Optimisation' },
     { icon: '🌍', label: 'Multi-Modal Support' },
-    { icon: '⚡', label: '99.9% Uptime SLA' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
   ];
 
   keyPoints = [
@@ -238,22 +238,22 @@ export class TransportationComponent implements OnInit {
 
   challenges = [
     {
-      icon: '🗺️',
+      icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80',
       title: 'Inefficient Route Planning',
       desc: 'Manual routing leads to fuel waste, delayed deliveries, and poor utilisation of fleet assets across the network.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'Vehicle Downtime & Maintenance',
       desc: 'Reactive maintenance causes unexpected breakdowns, costly repairs, and disruptions to service schedules.',
     },
     {
-      icon: '👁️',
+      icon: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=120&q=80',
       title: 'Limited Fleet Visibility',
       desc: 'Without real-time tracking, operators lack the insights needed to make fast, data-driven dispatch decisions.',
     },
     {
-      icon: '📦',
+      icon: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=120&q=80',
       title: 'Last-Mile Delivery Challenges',
       desc: 'Rising customer expectations demand faster, more transparent last-mile delivery with live status updates.',
     },
@@ -337,36 +337,40 @@ export class TransportationComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'AWS / Azure', role: 'Cloud' },
-    { icon: '📡', name: 'MQTT / WebSockets', role: 'Real-Time' },
-    { icon: '🗺️', name: 'Google Maps / HERE', role: 'Mapping' },
-    { icon: '🤖', name: 'TensorFlow', role: 'AI / ML' },
-    { icon: '📱', name: 'Flutter', role: 'Mobile Apps' },
-    { icon: '🔐', name: 'Keycloak / OAuth2', role: 'Security' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', name: 'MQTT / WebSockets', role: 'Real-Time' },
+    { icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80', name: 'Google Maps / HERE', role: 'Mapping' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', name: 'Flutter', role: 'Mobile Apps' },
+    { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'Keycloak / OAuth2', role: 'Security' },
   ];
 
   whyBlute = [
     {
-      icon: '🚦',
+      icon: 'https://images.unsplash.com/photo-1509059852496-f38229d2d03f?auto=format&fit=crop&w=120&q=80',
       title: 'Deep Transport Domain Expertise',
       desc: 'Experience across freight, public transit, ride-hailing, and last-mile delivery platforms at enterprise scale.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Real-Time at the Core',
       desc: 'Built for millisecond-level tracking updates, live dispatch decisions, and high-concurrency passenger apps.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'End-to-End Delivery',
       desc: 'From IoT hardware integration to passenger-facing apps — one accountable team across your full tech stack.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: '24/7 Mission-Critical Support',
       desc: 'Round-the-clock monitoring and incident response keeping your transport operations running without interruption.',
     },
   ];
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
+  }
 }

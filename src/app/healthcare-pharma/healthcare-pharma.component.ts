@@ -220,17 +220,17 @@ export class HealthcarePharmaComponent implements OnInit {
 
   challenges = [
     {
-      icon: '🔒',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Data Privacy & Compliance',
       desc: 'Meeting HIPAA, HL7, and GDPR standards while managing sensitive patient data securely.',
     },
     {
-      icon: '🔗',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Legacy System Integration',
       desc: 'Connecting outdated hospital systems with modern EHR, LIS, and pharmacy platforms.',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       title: 'Clinical Data Management',
       desc: 'Handling large volumes of unstructured clinical data across departments and locations.',
     },
@@ -306,49 +306,49 @@ export class HealthcarePharmaComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'AWS / Azure', role: 'Cloud' },
-    { icon: '🔗', name: 'HL7 / FHIR', role: 'Healthcare APIs' },
-    { icon: '🤖', name: 'TensorFlow', role: 'AI / ML' },
-    { icon: '🗄️', name: 'PostgreSQL', role: 'Database' },
-    { icon: '🐳', name: 'Docker / K8s', role: 'DevOps' },
-    { icon: '🔐', name: 'OAuth2 / Keycloak', role: 'Security' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'HL7 / FHIR', role: 'Healthcare APIs' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'PostgreSQL', role: 'Database' },
+    { icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80', name: 'Docker / K8s', role: 'DevOps' },
+    { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'OAuth2 / Keycloak', role: 'Security' },
   ];
 
   integrations = [
-    { icon: '🏥', name: 'Epic EHR' },
+    { icon: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=120&q=80', name: 'Epic EHR' },
     { icon: '📋', name: 'HL7 FHIR' },
     { icon: '💊', name: 'Cerner' },
     { icon: '🔬', name: 'LIMS' },
-    { icon: '📡', name: 'DICOM / PACS' },
-    { icon: '💳', name: 'Insurance APIs' },
-    { icon: '📱', name: 'Wearable Devices' },
-    { icon: '🗺️', name: 'Google Health' },
-    { icon: '☁️', name: 'AWS HealthLake' },
-    { icon: '📊', name: 'Power BI' },
-    { icon: '🔒', name: 'HIPAA Vault' },
-    { icon: '📬', name: 'Twilio / SMS' },
+    { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', name: 'DICOM / PACS' },
+    { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'Insurance APIs' },
+    { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', name: 'Wearable Devices' },
+    { icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80', name: 'Google Health' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS HealthLake' },
+    { icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', name: 'Power BI' },
+    { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'HIPAA Vault' },
+    { icon: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=120&q=80', name: 'Twilio / SMS' },
   ];
 
   whyBlute = [
     {
-      icon: '🏥',
+      icon: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=120&q=80',
       title: 'Healthcare Domain Expertise',
       desc: 'Deep understanding of clinical workflows, compliance standards, and patient data management.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Fast & Compliant Delivery',
       desc: 'Agile delivery with built-in HIPAA, HL7, and GDPR compliance at every stage.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'Full-Stack Capability',
       desc: 'From patient-facing apps to backend integrations — one partner for your entire healthcare IT stack.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: '24/7 Secure Support',
       desc: 'Round-the-clock monitoring and support to keep critical healthcare systems always available.',
     },
@@ -356,5 +356,9 @@ export class HealthcarePharmaComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => (this.isVisible = true), 100);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

@@ -55,7 +55,7 @@ export class RetailEcommerceComponent implements OnInit {
 
   challenges = [
     {
-      icon: '🔗',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Disconnected Systems',
       desc: 'Siloed POS, ERP, and e-commerce platforms causing data inconsistencies and slow operations.',
     },
@@ -65,12 +65,12 @@ export class RetailEcommerceComponent implements OnInit {
       desc: 'Outdated web and mobile storefronts losing customers to faster, modern competitors.',
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Scalability Issues',
       desc: 'Infrastructure unable to handle seasonal traffic spikes and rapid business growth.',
     },
     {
-      icon: '🔐',
+      icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80',
       title: 'Security & Compliance',
       desc: 'Vulnerability to data breaches and struggle with PCI-DSS and GDPR compliance requirements.',
     },
@@ -147,49 +147,49 @@ export class RetailEcommerceComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'AWS / Azure', role: 'Cloud' },
-    { icon: '🐳', name: 'Docker / K8s', role: 'DevOps' },
-    { icon: '🤖', name: 'TensorFlow', role: 'AI / ML' },
-    { icon: '🗄️', name: 'PostgreSQL / MongoDB', role: 'Database' },
-    { icon: '🔗', name: 'REST / GraphQL', role: 'APIs' },
-    { icon: '🔐', name: 'OAuth2 / Keycloak', role: 'Security' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80', name: 'Docker / K8s', role: 'DevOps' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'PostgreSQL / MongoDB', role: 'Database' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'REST / GraphQL', role: 'APIs' },
+    { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'OAuth2 / Keycloak', role: 'Security' },
   ];
 
   integrations = [
-    { icon: '🏢', name: 'SAP' },
-    { icon: '🔶', name: 'Oracle' },
-    { icon: '💳', name: 'Stripe' },
-    { icon: '🛒', name: 'Shopify' },
-    { icon: '📦', name: 'Magento' },
-    { icon: '📊', name: 'Salesforce' },
-    { icon: '📬', name: 'Mailchimp' },
-    { icon: '🚚', name: 'FedEx / DHL APIs' },
-    { icon: '🗺️', name: 'Google Maps' },
-    { icon: '📱', name: 'Twilio SMS' },
-    { icon: '📈', name: 'Google Analytics' },
-    { icon: '🏦', name: 'PayPal / Razorpay' },
+    { icon: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=120&q=80', name: 'SAP' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'Oracle' },
+    { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'Stripe' },
+    { icon: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=120&q=80', name: 'Shopify' },
+    { icon: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=120&q=80', name: 'Magento' },
+    { icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', name: 'Salesforce' },
+    { icon: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=120&q=80', name: 'Mailchimp' },
+    { icon: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=120&q=80', name: 'FedEx / DHL APIs' },
+    { icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80', name: 'Google Maps' },
+    { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', name: 'Twilio SMS' },
+    { icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80', name: 'Google Analytics' },
+    { icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80', name: 'PayPal / Razorpay' },
   ];
 
   whyBlute = [
     {
-      icon: '🏗️',
+      icon: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=120&q=80',
       title: 'Retail Domain Expertise',
       desc: 'Deep understanding of retail workflows, seasonal demands, and omnichannel customer journeys.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Agile & Fast Delivery',
       desc: 'Sprint-based delivery model with transparent communication and on-time project completion.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'Full-Stack Capability',
       desc: 'From UI/UX design to cloud deployment — one partner for your entire technology stack.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: '24/7 Support & Maintenance',
       desc: 'Dedicated support teams ensuring your retail platform stays live, secure, and performant.',
     },
@@ -197,5 +197,9 @@ export class RetailEcommerceComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => (this.isVisible = true), 100);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

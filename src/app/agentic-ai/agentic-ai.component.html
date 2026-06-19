@@ -174,7 +174,12 @@
       <div @staggerCards class="aai-caps__grid">
         <div class="aai-cap-card card-item" *ngFor="let c of capabilities">
           <div class="aai-cap-card__icon-wrap" [style.background]="c.bg">
-            <span class="aai-cap-card__icon">{{ c.icon }}</span>
+            <span class="aai-cap-card__icon">
+              <ng-container *ngIf="isUrl(c.icon); else rawCIcon">
+                <img [src]="c.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);" alt="icon" />
+              </ng-container>
+              <ng-template #rawCIcon><ng-container *ngIf="isUrl(c.icon); else iconRef_c_1"><img [src]="c.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_c_1>{{ c.icon }}</ng-template></ng-template>
+            </span>
           </div>
           <h4 class="aai-cap-card__title">{{ c.title }}</h4>
           <p class="aai-cap-card__desc">{{ c.desc }}</p>
@@ -308,7 +313,12 @@
             <div class="aai-uc-card__category">{{ u.category }}</div>
           </div>
           <div class="aai-uc-card__body">
-            <span class="aai-uc-card__icon">{{ u.icon }}</span>
+            <span class="aai-uc-card__icon">
+              <ng-container *ngIf="isUrl(u.icon); else rawUIcon">
+                <img [src]="u.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);" alt="icon" />
+              </ng-container>
+              <ng-template #rawUIcon><ng-container *ngIf="isUrl(u.icon); else iconRef_u_2"><img [src]="u.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_u_2>{{ u.icon }}</ng-template></ng-template>
+            </span>
             <h4 class="aai-uc-card__title">{{ u.title }}</h4>
             <p class="aai-uc-card__desc">{{ u.desc }}</p>
           </div>
@@ -325,7 +335,12 @@
       <div @staggerCards class="aai-process__steps">
         <div class="aai-step card-item" *ngFor="let s of processSteps; let i = index">
           <div class="aai-step__num">{{ (i + 1).toString().padStart(2,'0') }}</div>
-          <div class="aai-step__icon">{{ s.icon }}</div>
+          <div class="aai-step__icon">
+            <ng-container *ngIf="isUrl(s.icon); else rawSIcon">
+              <img [src]="s.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);" alt="icon" />
+            </ng-container>
+            <ng-template #rawSIcon><ng-container *ngIf="isUrl(s.icon); else iconRef_s_3"><img [src]="s.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_s_3>{{ s.icon }}</ng-template></ng-template>
+          </div>
           <h4 class="aai-step__title">{{ s.title }}</h4>
           <p class="aai-step__desc">{{ s.desc }}</p>
           <div class="aai-step__connector" *ngIf="i < processSteps.length - 1"></div>

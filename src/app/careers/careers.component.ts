@@ -54,7 +54,7 @@ export class CareersComponent implements OnInit {
 
   perks = [
     {
-      icon: '🚀',
+      icon: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-blue-50',
       title: 'High-Impact Work',
       desc: 'Ship features used by thousands. Your work matters from day one.',
@@ -68,14 +68,14 @@ export class CareersComponent implements OnInit {
       gradient: 'from-teal-50/80 to-transparent',
     },
     {
-      icon: '📈',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-purple-50',
       title: 'Growth & Learning',
       desc: 'Annual learning budget, internal tech talks, and clear career paths.',
       gradient: 'from-purple-50/80 to-transparent',
     },
     {
-      icon: '🤝',
+      icon: 'https://images.unsplash.com/photo-1521791136364-728647532899?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-orange-50',
       title: 'Collaborative Culture',
       desc: 'Flat hierarchy. Your ideas reach the founders directly.',
@@ -89,7 +89,7 @@ export class CareersComponent implements OnInit {
       gradient: 'from-green-50/80 to-transparent',
     },
     {
-      icon: '🏥',
+      icon: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-red-50',
       title: 'Health Benefits',
       desc: 'Comprehensive health insurance for you and your family.',
@@ -129,7 +129,7 @@ export class CareersComponent implements OnInit {
       location: 'Bangalore / Remote',
       experience: '2–5 years',
       tags: ['Figma', 'Prototyping', 'Design Systems', 'User Research'],
-      icon: '🎨',
+      icon: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-purple-50',
       isNew: true,
     },
@@ -141,7 +141,7 @@ export class CareersComponent implements OnInit {
       location: 'Remote',
       experience: '3–5 years',
       tags: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-sky-50',
     },
     {
@@ -152,7 +152,7 @@ export class CareersComponent implements OnInit {
       location: 'Bangalore',
       experience: '2–4 years',
       tags: ['B2B Sales', 'CRM', 'Proposal Writing', 'Client Relations'],
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-green-50',
     },
     {
@@ -163,7 +163,7 @@ export class CareersComponent implements OnInit {
       location: 'Remote',
       experience: '2–4 years',
       tags: ['React Native', 'TypeScript', 'REST APIs', 'Redux'],
-      icon: '📱',
+      icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-orange-50',
     },
   ];
@@ -171,5 +171,9 @@ export class CareersComponent implements OnInit {
   get filteredJobs(): Job[] {
     if (this.activeFilter === 'All') return this.jobs;
     return this.jobs.filter((j) => j.dept === this.activeFilter);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

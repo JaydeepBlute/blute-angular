@@ -59,31 +59,31 @@ export class NetworkingComponent implements OnInit {
 
   services = [
     {
-      icon: '🏗️',
+      icon: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=120&q=80',
       title: 'Network Architecture & Design',
       desc: 'Custom-designed LAN, WAN, and SD-WAN solutions aligned to your business requirements.',
       bg: 'rgba(20,184,166,0.1)',
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Cloud Networking',
       desc: 'Seamless hybrid and multi-cloud connectivity across AWS, Azure, and GCP environments.',
       bg: 'rgba(14,165,233,0.1)',
     },
     {
-      icon: '🔒',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Secure Network Access',
       desc: 'Zero-trust network access, VPN, and firewall management for a secure perimeter.',
       bg: 'rgba(99,102,241,0.1)',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       title: 'Network Monitoring & NOC',
       desc: '24/7 NOC with real-time dashboards, anomaly detection, and proactive alerting.',
       bg: 'rgba(245,158,11,0.1)',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'SD-WAN Solutions',
       desc: 'Software-defined WAN for intelligent traffic routing, reduced costs, and better performance.',
       bg: 'rgba(20,184,166,0.1)',
@@ -98,25 +98,25 @@ export class NetworkingComponent implements OnInit {
 
   whyItems = [
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Ultra-Low Latency',
       desc: 'Sub-5ms latency across our backbone with intelligent traffic engineering.',
       bg: 'rgba(20,184,166,0.12)',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Built-In Security',
       desc: 'Every network layer is hardened with zero-trust principles and DDoS protection.',
       bg: 'rgba(14,165,233,0.12)',
     },
     {
-      icon: '📈',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       title: 'Elastic Scalability',
       desc: 'Scale bandwidth on-demand — no hardware procurement, no downtime.',
       bg: 'rgba(99,102,241,0.12)',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: '24/7 Expert Support',
       desc: 'Dedicated network engineers available around the clock for rapid resolution.',
       bg: 'rgba(245,158,11,0.12)',
@@ -170,4 +170,8 @@ export class NetworkingComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
+  }
 }

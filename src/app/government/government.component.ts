@@ -220,7 +220,7 @@ export class GovernmentComponent implements OnInit {
       desc: 'Ageing IT infrastructure in government offices creates inefficiencies, data silos, and security vulnerabilities.',
     },
     {
-      icon: '🔐',
+      icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80',
       title: 'Cybersecurity & Data Privacy',
       desc: 'Protecting sensitive citizen data and critical national infrastructure from increasingly sophisticated cyber threats.',
     },
@@ -308,49 +308,49 @@ export class GovernmentComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'GovCloud / AWS', role: 'Cloud' },
-    { icon: '🔗', name: 'Aadhaar / DigiLocker', role: 'Gov APIs' },
-    { icon: '🤖', name: 'TensorFlow', role: 'AI / ML' },
-    { icon: '🗄️', name: 'PostgreSQL / Oracle', role: 'Database' },
-    { icon: '🗺️', name: 'GIS / MapMyIndia', role: 'Geospatial' },
-    { icon: '🔐', name: 'PKI / Keycloak', role: 'Security' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'GovCloud / AWS', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'Aadhaar / DigiLocker', role: 'Gov APIs' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'PostgreSQL / Oracle', role: 'Database' },
+    { icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80', name: 'GIS / MapMyIndia', role: 'Geospatial' },
+    { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'PKI / Keycloak', role: 'Security' },
   ];
 
   integrations = [
     { icon: '🪪', name: 'Aadhaar API' },
     { icon: '📁', name: 'DigiLocker' },
-    { icon: '💳', name: 'UPI / NPCI' },
-    { icon: '🏥', name: 'Ayushman Bharat' },
-    { icon: '🗺️', name: 'MapMyIndia GIS' },
-    { icon: '📜', name: 'MCA21' },
+    { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'UPI / NPCI' },
+    { icon: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=120&q=80', name: 'Ayushman Bharat' },
+    { icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80', name: 'MapMyIndia GIS' },
+    { icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80', name: 'MCA21' },
     { icon: '🚗', name: 'VAHAN / Sarathi' },
-    { icon: '📊', name: 'PFMS' },
-    { icon: '☁️', name: 'NIC GovCloud' },
-    { icon: '🔒', name: 'CERT-In SOC' },
-    { icon: '📬', name: 'India Post APIs' },
-    { icon: '🏦', name: 'Jan Dhan APIs' },
+    { icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', name: 'PFMS' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'NIC GovCloud' },
+    { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'CERT-In SOC' },
+    { icon: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=120&q=80', name: 'India Post APIs' },
+    { icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80', name: 'Jan Dhan APIs' },
   ];
 
   whyBlute = [
     {
-      icon: '🏛️',
+      icon: 'https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&w=120&q=80',
       title: 'Government Domain Expertise',
       desc: 'Deep experience with e-governance frameworks, NIC standards, and public sector procurement processes.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Compliant & Secure Delivery',
       desc: 'MeitY, CERT-In, and ISO 27001 compliant solutions with GovCloud-ready architecture from day one.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'End-to-End Capability',
       desc: 'From citizen portals to backend integrations — one accountable technology partner for your department.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: '24/7 Mission-Critical Support',
       desc: 'Round-the-clock monitoring ensuring uninterrupted public service delivery for millions of citizens.',
     },
@@ -358,5 +358,9 @@ export class GovernmentComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => (this.isVisible = true), 100);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

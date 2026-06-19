@@ -160,7 +160,7 @@ export class EnterpriseComponent implements OnInit {
 
   challenges = [
     {
-      icon: '🔗',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Disconnected Systems',
       desc: 'Siloed ERP, CRM, and legacy platforms causing data inconsistencies and slow operations.',
     },
@@ -170,12 +170,12 @@ export class EnterpriseComponent implements OnInit {
       desc: 'Lack of real-time insights across business units leading to delayed decision-making.',
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Scalability Bottlenecks',
       desc: 'On-premise infrastructure unable to scale with business growth and demand spikes.',
     },
     {
-      icon: '🔒',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Security & Compliance',
       desc: 'Vulnerability to data breaches and struggle with SOC2, ISO 27001 & GDPR requirements.',
     },
@@ -183,36 +183,36 @@ export class EnterpriseComponent implements OnInit {
 
   platforms = [
     { name: 'SAP', icon: '🔵', desc: 'S/4HANA, BTP, SuccessFactors, Ariba' },
-    { name: 'Oracle', icon: '🔴', desc: 'Oracle Cloud, EBS, Fusion, NetSuite' },
+    { name: 'Oracle', icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', desc: 'Oracle Cloud, EBS, Fusion, NetSuite' },
     { name: 'Microsoft', icon: '🟦', desc: 'Azure, Dynamics 365, Power Platform' },
-    { name: 'Salesforce', icon: '☁️', desc: 'CRM, Marketing Cloud, MuleSoft' },
+    { name: 'Salesforce', icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', desc: 'CRM, Marketing Cloud, MuleSoft' },
     { name: 'ServiceNow', icon: '🟩', desc: 'ITSM, HRSD, CSM workflows' },
-    { name: 'Custom APIs', icon: '🔗', desc: 'REST, GraphQL, SOAP, gRPC' },
+    { name: 'Custom APIs', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', desc: 'REST, GraphQL, SOAP, gRPC' },
   ];
 
   features = [
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Real-time Data Sync',
       desc: 'Bi-directional sync across all enterprise systems with sub-second latency.',
     },
     {
-      icon: '🏗️',
+      icon: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=120&q=80',
       title: 'Microservices Architecture',
       desc: 'Scalable, resilient integration layers using event-driven design patterns.',
     },
     {
-      icon: '🔒',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Enterprise Security',
       desc: 'End-to-end encryption, OAuth 2.0, SAML, SOC2 & ISO 27001 compliant.',
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       title: 'Analytics & Monitoring',
       desc: 'Real-time dashboards, alerting, and full audit trails for all touchpoints.',
     },
     {
-      icon: '🤖',
+      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
       title: 'AI-Powered Automation',
       desc: 'Intelligent workflow automation with ML-based anomaly detection.',
     },
@@ -247,12 +247,12 @@ export class EnterpriseComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'AWS / Azure', role: 'Cloud' },
-    { icon: '🐳', name: 'Docker / K8s', role: 'DevOps' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80', name: 'Docker / K8s', role: 'DevOps' },
     { icon: '📨', name: 'Apache Kafka', role: 'Messaging' },
-    { icon: '🔗', name: 'MuleSoft', role: 'Integration' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'MuleSoft', role: 'Integration' },
   ];
 
   techBadges = [
@@ -274,22 +274,22 @@ export class EnterpriseComponent implements OnInit {
 
   whyBlute = [
     {
-      icon: '🏢',
+      icon: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=120&q=80',
       title: 'Deep Domain Expertise',
       desc: 'Years of delivering enterprise integrations across SAP, Oracle, and Microsoft ecosystems.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Rapid Time-to-Value',
       desc: 'Pre-built accelerators cut deployment time by up to 40%.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'End-to-End Ownership',
       desc: 'One accountable partner from architecture to go-live and beyond.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: '24/7 Mission-Critical Support',
       desc: 'Round-the-clock monitoring ensuring your systems never miss a beat.',
     },
@@ -297,5 +297,9 @@ export class EnterpriseComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => (this.isVisible = true), 100);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

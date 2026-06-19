@@ -124,7 +124,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
   /* ── Services ───────────────────────────── */
   services = [
     {
-      icon: '🗺️',
+      icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80',
       color: '#0ea5e9',
       iconBg: 'rgba(14,165,233,0.15)',
       bg: '#f0f9ff',
@@ -134,7 +134,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       hov: false,
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       color: '#6366f1',
       iconBg: 'rgba(99,102,241,0.15)',
       bg: '#f5f3ff',
@@ -144,7 +144,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       hov: false,
     },
     {
-      icon: '🔄',
+      icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80',
       color: '#10b981',
       iconBg: 'rgba(16,185,129,0.15)',
       bg: '#f0fdf4',
@@ -154,7 +154,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       hov: false,
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       color: '#ef4444',
       iconBg: 'rgba(239,68,68,0.15)',
       bg: '#fff1f2',
@@ -164,7 +164,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       hov: false,
     },
     {
-      icon: '🤝',
+      icon: 'https://images.unsplash.com/photo-1521791136364-728647532899?auto=format&fit=crop&w=120&q=80',
       color: '#f59e0b',
       iconBg: 'rgba(245,158,11,0.15)',
       bg: '#fffbeb',
@@ -174,7 +174,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       hov: false,
     },
     {
-      icon: '📊',
+      icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
       color: '#06b6d4',
       iconBg: 'rgba(6,182,212,0.15)',
       bg: '#ecfeff',
@@ -188,7 +188,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
   /* ── Why Us ──────────────────────────────── */
   whyItems = [
     {
-      icon: '🎯',
+      icon: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=120&q=80',
       bg: '#e0f2fe',
       title: 'Business-First Approach',
       desc: 'Every recommendation is grounded in your goals, not just tech preferences.',
@@ -206,7 +206,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       desc: 'Battle-tested methodologies from TOGAF, ITIL, and agile transformation.',
     },
     {
-      icon: '📦',
+      icon: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=120&q=80',
       bg: '#fef9c3',
       title: 'End-to-End Ownership',
       desc: 'We stay accountable for outcomes — not just deliverables.',
@@ -248,17 +248,17 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
   /* ── Industries ─────────────────────────── */
   industries = [
     {
-      icon: '🏥',
+      icon: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=120&q=80',
       name: 'Healthcare',
       img: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400&q=70',
     },
     {
-      icon: '🏦',
+      icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80',
       name: 'Banking',
       img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=70',
     },
     {
-      icon: '🛒',
+      icon: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=120&q=80',
       name: 'Retail',
       img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=70',
     },
@@ -268,12 +268,12 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       img: 'https://images.unsplash.com/photo-1565793979540-c5ccf3dcba02?w=400&q=70',
     },
     {
-      icon: '📚',
+      icon: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=120&q=80',
       name: 'Education',
       img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=70',
     },
     {
-      icon: '🚚',
+      icon: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=120&q=80',
       name: 'Logistics',
       img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=70',
     },
@@ -319,5 +319,9 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
     if (!this.servicesRef) return;
     const r = this.servicesRef.nativeElement.getBoundingClientRect();
     if (r.top < window.innerHeight - 80) this.vis = true;
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

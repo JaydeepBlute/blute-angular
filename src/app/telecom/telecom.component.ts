@@ -220,22 +220,22 @@ export class TelecomComponent implements OnInit, OnDestroy {
 
   challenges = [
     {
-      icon: '📶',
+      icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=120&q=80',
       title: 'Network Modernisation',
       desc: 'Legacy network infrastructure struggles to support 5G, IoT, and the exponential growth in data traffic demands.',
     },
     {
-      icon: '💸',
+      icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80',
       title: 'Revenue Leakage & Fraud',
       desc: 'Complex billing environments and sophisticated fraud schemes erode margins without robust assurance systems.',
     },
     {
-      icon: '😤',
+      icon: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
       title: 'Customer Churn',
       desc: 'Rising customer expectations and fierce competition make retention a constant challenge for operators.',
     },
     {
-      icon: '🔄',
+      icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80',
       title: 'BSS/OSS Complexity',
       desc: 'Siloed back-office systems create operational inefficiencies, billing errors, and slow time-to-market for new services.',
     },
@@ -319,34 +319,34 @@ export class TelecomComponent implements OnInit, OnDestroy {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'AWS / Azure', role: 'Cloud' },
-    { icon: '📡', name: 'Diameter / SIP', role: 'Telecom Protocols' },
-    { icon: '🤖', name: 'TensorFlow', role: 'AI / ML' },
-    { icon: '🗄️', name: 'Cassandra / Oracle', role: 'Database' },
-    { icon: '🔗', name: 'Kafka / RabbitMQ', role: 'Messaging' },
-    { icon: '🔐', name: 'Keycloak / PKI', role: 'Security' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', name: 'Diameter / SIP', role: 'Telecom Protocols' },
+    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'Cassandra / Oracle', role: 'Database' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'Kafka / RabbitMQ', role: 'Messaging' },
+    { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'Keycloak / PKI', role: 'Security' },
   ];
 
   whyBlute = [
     {
-      icon: '📡',
+      icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80',
       title: 'Deep Telecom Domain Expertise',
       desc: 'Decades of combined experience in BSS/OSS, network virtualisation, and carrier-grade platform engineering.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Carrier-Grade Reliability',
       desc: '99.99% uptime SLAs backed by proven high-availability architecture and redundant deployment models.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'End-to-End Ownership',
       desc: 'From network layer integrations to customer-facing apps — one accountable team for your full digital stack.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: '24/7 NOC-Level Support',
       desc: 'Round-the-clock operations monitoring and incident response aligned with telecom-grade SLA requirements.',
     },
@@ -359,5 +359,9 @@ export class TelecomComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     window.removeEventListener('scroll', this.scrollListener);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

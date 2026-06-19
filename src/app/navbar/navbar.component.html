@@ -77,61 +77,47 @@
   <!-- TECHNOLOGIES PANEL -->
   <div *ngIf="activeMenu === 'tech'" class="mega-panel tech-panel-width" (mouseenter)="openMenu('tech')">
     <div class="mega-inner">
-      <div class="p-6 grid grid-cols-2 gap-4">
+      <div class="p-5 grid grid-cols-5 gap-3.5">
         <ng-container *ngFor="let tech of technologies">
           <a *ngIf="tech.routerLink" [routerLink]="tech.routerLink" (click)="closeMenu()"
-            class="group flex items-start gap-4 p-4 rounded-2xl transition-all duration-300 hover:bg-gray-50 border border-transparent hover:border-gray-100 hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.04)]">
-            <div class="icon-box flex-shrink-0" [ngClass]="tech.iconBg">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="tech.svgPath" />
-              </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1">
-                <h4 class="font-semibold text-gray-900 text-[14.5px] transition-colors group-hover:text-[#533afd]">
-                  {{ tech.label }}
-                </h4>
-                <span *ngIf="tech.badge" class="badge-tag" [ngClass]="[tech.tagBg2 || 'bg-teal-100', tech.tagText2 || 'text-teal-700']">
+            class="group relative h-40 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/30 transition-all duration-300 hover:shadow-[0_16px_36px_-12px_rgba(83,58,253,0.15)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="tech.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent transition-all duration-300 group-hover:via-gray-950/60 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3.5 z-10">
+              <span class="text-white font-semibold text-[13px] leading-tight flex items-center gap-1.5 group-hover:text-[#A594FF] transition-colors mb-1">
+                {{ tech.label }}
+                <span *ngIf="tech.badge" class="badge-tag scale-75 origin-left bg-gradient-to-r from-violet-600 to-indigo-600 text-white border-0">
                   {{ tech.badge }}
                 </span>
-              </div>
-              <p class="text-xs text-gray-500 leading-relaxed mb-2.5">{{ tech.description }}</p>
-              <div class="flex flex-wrap gap-1.5">
-                <span *ngFor="let tag of tech.tags" class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-gray-100 text-gray-600">
-                  {{ tag }}
-                </span>
-              </div>
+              </span>
+              <p class="text-[10px] text-white/70 leading-normal line-clamp-2">{{ tech.description }}</p>
             </div>
           </a>
 
           <a *ngIf="!tech.routerLink && tech.href" [href]="tech.href"
-            class="group flex items-start gap-4 p-4 rounded-2xl transition-all duration-300 hover:bg-gray-50 border border-transparent hover:border-gray-100 hover:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.04)]">
-            <div class="icon-box flex-shrink-0" [ngClass]="tech.iconBg">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="tech.svgPath" />
-              </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1">
-                <h4 class="font-semibold text-gray-900 text-[14.5px] transition-colors group-hover:text-[#533afd]">
-                  {{ tech.label }}
-                </h4>
-                <span *ngIf="tech.badge" class="badge-tag" [ngClass]="[tech.tagBg2 || 'bg-teal-100', tech.tagText2 || 'text-teal-700']">
+            class="group relative h-40 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/30 transition-all duration-300 hover:shadow-[0_16px_36px_-12px_rgba(83,58,253,0.15)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="tech.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent transition-all duration-300 group-hover:via-gray-950/60 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3.5 z-10">
+              <span class="text-white font-semibold text-[13px] leading-tight flex items-center gap-1.5 group-hover:text-[#A594FF] transition-colors mb-1">
+                {{ tech.label }}
+                <span *ngIf="tech.badge" class="badge-tag scale-75 origin-left bg-gradient-to-r from-violet-600 to-indigo-600 text-white border-0">
                   {{ tech.badge }}
                 </span>
-              </div>
-              <p class="text-xs text-gray-500 leading-relaxed mb-2.5">{{ tech.description }}</p>
-              <div class="flex flex-wrap gap-1.5">
-                <span *ngFor="let tag of tech.tags" class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-gray-100 text-gray-600">
-                  {{ tag }}
-                </span>
-              </div>
+              </span>
+              <p class="text-[10px] text-white/70 leading-normal line-clamp-2">{{ tech.description }}</p>
             </div>
           </a>
         </ng-container>
       </div>
-      <div class="panel-footer bg-gray-50/80 px-8 py-4 border-t border-gray-100 rounded-b-[24px] flex items-center justify-between text-xs text-gray-500">
-        <span>Looking for a custom solution?</span>
+      <div class="panel-footer bg-gray-50/80 px-8 py-3.5 border-t border-gray-100 rounded-b-[24px] flex items-center justify-between text-xs text-gray-500">
+        <span>Looking for a custom enterprise-grade solution?</span>
         <a routerLink="/contact" (click)="closeMenu()" class="font-semibold text-[#533afd] hover:text-[#4430d4] flex items-center gap-1 transition-colors">
           Talk to an Architect <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </a>
@@ -142,35 +128,35 @@
   <!-- SERVICES PANEL -->
   <div *ngIf="activeMenu === 'services'" class="mega-panel services-panel-width" (mouseenter)="openMenu('services')">
     <div class="mega-inner">
-      <div class="p-6 grid grid-cols-2 gap-3">
+      <div class="p-5 grid grid-cols-4 gap-3">
         <ng-container *ngFor="let svc of services">
           <a *ngIf="svc.routerLink" [routerLink]="svc.routerLink" (click)="closeMenu()"
-            class="group flex items-center gap-4 p-3.5 rounded-xl transition-all duration-200 hover:bg-gray-50 border border-transparent hover:border-gray-100/50">
-            <div class="icon-box-small transition-all group-hover:scale-105" [ngClass]="[svc.iconBg]">
-              <svg class="w-4 h-4" [ngClass]="svc.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="svc.svgPath" />
-              </svg>
-            </div>
-            <div>
-              <div class="font-semibold text-gray-900 text-[14px] transition-colors group-hover:text-[#533afd]">
+            class="group relative h-36 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/20 transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="svc.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent transition-all duration-300 group-hover:via-gray-950/70 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3 z-10">
+              <span class="text-white font-semibold text-[12.5px] leading-tight block group-hover:text-[#A594FF] transition-colors mb-0.5">
                 {{ svc.label }}
-              </div>
-              <div class="text-[11.5px] text-gray-400 mt-0.5 leading-normal">{{ svc.description }}</div>
+              </span>
+              <span class="text-[10px] text-white/60 leading-tight block line-clamp-1">{{ svc.description }}</span>
             </div>
           </a>
 
           <a *ngIf="!svc.routerLink && svc.href" [href]="svc.href"
-            class="group flex items-center gap-4 p-3.5 rounded-xl transition-all duration-200 hover:bg-gray-50 border border-transparent hover:border-gray-100/50">
-            <div class="icon-box-small transition-all group-hover:scale-105" [ngClass]="[svc.iconBg]">
-              <svg class="w-4 h-4" [ngClass]="svc.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="svc.svgPath" />
-              </svg>
-            </div>
-            <div>
-              <div class="font-semibold text-gray-900 text-[14px] transition-colors group-hover:text-[#533afd]">
+            class="group relative h-36 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/20 transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="svc.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent transition-all duration-300 group-hover:via-gray-950/70 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3 z-10">
+              <span class="text-white font-semibold text-[12.5px] leading-tight block group-hover:text-[#A594FF] transition-colors mb-0.5">
                 {{ svc.label }}
-              </div>
-              <div class="text-[11.5px] text-gray-400 mt-0.5 leading-normal">{{ svc.description }}</div>
+              </span>
+              <span class="text-[10px] text-white/60 leading-tight block line-clamp-1">{{ svc.description }}</span>
             </div>
           </a>
         </ng-container>
@@ -181,26 +167,34 @@
   <!-- INDUSTRIES PANEL -->
   <div *ngIf="activeMenu === 'industries'" class="mega-panel industries-panel-width" (mouseenter)="openMenu('industries')">
     <div class="mega-inner">
-      <div class="p-6 grid grid-cols-2 gap-2">
+      <div class="p-5 grid grid-cols-4 gap-3">
         <ng-container *ngFor="let ind of industries">
           <a *ngIf="ind.routerLink" [routerLink]="ind.routerLink" (click)="closeMenu()"
-            class="group flex items-center gap-3.5 p-3 rounded-xl text-sm transition-all duration-200 hover:bg-gray-50">
-            <div class="icon-box-small rounded-lg transition-colors flex-shrink-0" [ngClass]="[ind.iconBg]">
-              <svg class="w-4.5 h-4.5" [ngClass]="ind.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="ind.svgPath" />
-              </svg>
+            class="group relative h-32 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/20 transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="ind.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent transition-all duration-300 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3 z-10">
+              <span class="text-white font-semibold text-[12.5px] leading-tight block group-hover:text-[#A594FF] transition-colors">
+                {{ ind.label }}
+              </span>
             </div>
-            <span class="font-semibold text-gray-700 text-[13.5px] transition-colors group-hover:text-[#533afd]">{{ ind.label }}</span>
           </a>
 
           <a *ngIf="ind.href && !ind.routerLink" [href]="ind.href"
-            class="group flex items-center gap-3.5 p-3 rounded-xl text-sm transition-all duration-200 hover:bg-gray-50">
-            <div class="icon-box-small rounded-lg transition-colors flex-shrink-0" [ngClass]="[ind.iconBg]">
-              <svg class="w-4.5 h-4.5" [ngClass]="ind.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="ind.svgPath" />
-              </svg>
+            class="group relative h-32 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/20 transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="ind.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent transition-all duration-300 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3 z-10">
+              <span class="text-white font-semibold text-[12.5px] leading-tight block group-hover:text-[#A594FF] transition-colors">
+                {{ ind.label }}
+              </span>
             </div>
-            <span class="font-semibold text-gray-700 text-[13.5px] transition-colors group-hover:text-[#533afd]">{{ ind.label }}</span>
           </a>
         </ng-container>
       </div>
@@ -210,45 +204,41 @@
   <!-- COMPANY PANEL -->
   <div *ngIf="activeMenu === 'company'" class="mega-panel company-panel-width" (mouseenter)="openMenu('company')">
     <div class="mega-inner">
-      <div class="p-6 grid grid-cols-2 gap-3">
+      <div class="p-5 grid grid-cols-4 gap-3">
         <ng-container *ngFor="let link of companyLinks">
           <a *ngIf="link.routerLink" [routerLink]="link.routerLink" (click)="closeMenu()"
-            class="group flex items-start gap-4 p-3.5 rounded-xl transition-all duration-200 hover:bg-gray-50 border border-transparent hover:border-gray-100/50">
-            <div class="icon-box-small rounded-xl transition-colors flex-shrink-0" [ngClass]="[link.iconBg]">
-              <svg class="w-4 h-4" [ngClass]="link.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="link.svgPath" />
-              </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-1.5">
-                <span class="font-semibold text-gray-900 text-[14px] transition-colors group-hover:text-[#533afd]">
-                  {{ link.label }}
-                </span>
-                <span *ngIf="link.badge" class="badge-tag scale-90 origin-left" [ngClass]="[link.badgeBg || 'bg-green-100', link.badgeText || 'text-green-700']">
+            class="group relative h-36 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/20 transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="link.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent transition-all duration-300 group-hover:via-gray-950/70 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3 z-10">
+              <span class="text-white font-semibold text-[12.5px] leading-tight block group-hover:text-[#A594FF] transition-colors mb-0.5">
+                {{ link.label }}
+                <span *ngIf="link.badge" class="badge-tag scale-75 origin-left bg-gradient-to-r from-green-500 to-emerald-600 text-white border-0">
                   {{ link.badge }}
                 </span>
-              </div>
-              <span class="text-xs text-gray-400 mt-0.5 leading-normal block">{{ link.description }}</span>
+              </span>
+              <span class="text-[10px] text-white/60 leading-tight block line-clamp-1">{{ link.description }}</span>
             </div>
           </a>
 
           <a *ngIf="link.href && !link.routerLink" [href]="link.href"
-            class="group flex items-start gap-4 p-3.5 rounded-xl transition-all duration-200 hover:bg-gray-50 border border-transparent hover:border-gray-100/50">
-            <div class="icon-box-small rounded-xl transition-colors flex-shrink-0" [ngClass]="[link.iconBg]">
-              <svg class="w-4 h-4" [ngClass]="link.iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="link.svgPath" />
-              </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-1.5">
-                <span class="font-semibold text-gray-900 text-[14px] transition-colors group-hover:text-[#533afd]">
-                  {{ link.label }}
-                </span>
-                <span *ngIf="link.badge" class="badge-tag scale-90 origin-left" [ngClass]="[link.badgeBg || 'bg-green-100', link.badgeText || 'text-green-700']">
+            class="group relative h-36 rounded-2xl overflow-hidden border border-gray-100 hover:border-[#533afd]/20 transition-all duration-300 hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] flex flex-col justify-end">
+            <!-- Background Image -->
+            <img [src]="link.imageUrl" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="" />
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent transition-all duration-300 group-hover:via-gray-950/70 z-0"></div>
+            <!-- Content -->
+            <div class="relative p-3 z-10">
+              <span class="text-white font-semibold text-[12.5px] leading-tight block group-hover:text-[#A594FF] transition-colors mb-0.5">
+                {{ link.label }}
+                <span *ngIf="link.badge" class="badge-tag scale-75 origin-left bg-gradient-to-r from-green-500 to-emerald-600 text-white border-0">
                   {{ link.badge }}
                 </span>
-              </div>
-              <span class="text-xs text-gray-400 mt-0.5 leading-normal block">{{ link.description }}</span>
+              </span>
+              <span class="text-[10px] text-white/60 leading-tight block line-clamp-1">{{ link.description }}</span>
             </div>
           </a>
         </ng-container>

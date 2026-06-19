@@ -157,7 +157,7 @@
           <div
             class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300"
             style="background:linear-gradient(135deg,#f0fdfa,#e0f2fe); border:1.5px solid #99f6e4;">
-            {{ ch.icon }}
+            <ng-container *ngIf="isUrl(ch.icon); else iconRef_ch_1"><img [src]="ch.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_ch_1>{{ ch.icon }}</ng-template>
           </div>
           <h3 class="font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors">{{ ch.title }}</h3>
           <p class="text-gray-500 text-sm leading-relaxed">{{ ch.desc }}</p>
@@ -198,7 +198,7 @@
         <div @staggerCards class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div *ngFor="let tech of techStack"
             class="stagger-item bg-white hover:bg-teal-50 border border-gray-200 hover:border-teal-300 transition-all duration-300 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm">
-            <span class="text-xl">{{ tech.icon }}</span>
+            <span class="text-xl"><ng-container *ngIf="isUrl(tech.icon); else iconRef_tech_2"><img [src]="tech.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_tech_2>{{ tech.icon }}</ng-template></span>
             <div>
               <div class="text-gray-800 text-sm font-semibold">{{ tech.name }}</div>
               <div class="text-gray-400 text-xs">{{ tech.role }}</div>
@@ -223,7 +223,7 @@
         <div
           class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
           style="background:linear-gradient(135deg,#f0fdfa,#e0f2fe); border:1.5px solid #99f6e4;">
-          {{ r.icon }}
+          <ng-container *ngIf="isUrl(r.icon); else iconRef_r_3"><img [src]="r.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_r_3>{{ r.icon }}</ng-template>
         </div>
         <h3 class="text-gray-800 font-bold mb-2 group-hover:text-teal-600 transition-colors">{{ r.title }}</h3>
         <p class="text-gray-500 text-sm leading-relaxed">{{ r.desc }}</p>

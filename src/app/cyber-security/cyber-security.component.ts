@@ -52,22 +52,22 @@ import { CommonModule } from '@angular/common';
 export class CyberSecurityComponent implements OnInit {
   services = [
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: 'Threat Detection & Prevention',
       desc: 'Real-time monitoring and AI-powered threat detection to stop attacks before they happen.',
     },
     {
-      icon: '🔐',
+      icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80',
       title: 'Identity & Access Management',
       desc: 'Secure authentication, MFA, and role-based access controls across your enterprise.',
     },
     {
-      icon: '🔍',
+      icon: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=120&q=80',
       title: 'Security Audits & Compliance',
       desc: 'Comprehensive audits ensuring compliance with ISO 27001, SOC 2, GDPR, and more.',
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Cloud Security',
       desc: 'End-to-end cloud security architecture for AWS, Azure, and GCP environments.',
     },
@@ -77,7 +77,7 @@ export class CyberSecurityComponent implements OnInit {
       desc: '24/7 incident response team to contain, investigate, and recover from breaches.',
     },
     {
-      icon: '🧪',
+      icon: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=120&q=80',
       title: 'Penetration Testing',
       desc: 'Ethical hacking and vulnerability assessments to expose weaknesses before attackers do.',
     },
@@ -109,4 +109,8 @@ export class CyberSecurityComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
+  }
 }

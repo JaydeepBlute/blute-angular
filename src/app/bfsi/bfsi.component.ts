@@ -221,32 +221,32 @@ export class BfsiComponent implements OnInit {
   isVisible = false;
 
   trustBadges = [
-    { icon: '🏦', label: 'RBI Compliant' },
-    { icon: '🔒', label: 'PCI-DSS Certified' },
-    { icon: '📜', label: 'ISO 27001' },
-    { icon: '🇮🇳', label: 'SEBI Guidelines' },
-    { icon: '🌐', label: 'GDPR Ready' },
-    { icon: '⚡', label: '99.9% Uptime SLA' },
+    { icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80', label: 'RBI Compliant' },
+    { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'PCI-DSS Certified' },
+    { icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80', label: 'ISO 27001' },
+    { icon: 'https://images.unsplash.com/photo-1532375811409-905115e3b55d?auto=format&fit=crop&w=120&q=80', label: 'SEBI Guidelines' },
+    { icon: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=120&q=80', label: 'GDPR Ready' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
   ];
 
   challenges = [
     {
-      icon: '🔐',
+      icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80',
       title: 'Cybersecurity Threats',
       desc: 'Protecting sensitive financial data from evolving threats, fraud, and ransomware attacks.',
     },
     {
-      icon: '📜',
+      icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80',
       title: 'Regulatory Compliance',
       desc: 'Meeting RBI, SEBI, Basel III, GDPR, and PCI-DSS standards across all operations.',
     },
     {
-      icon: '🏛️',
+      icon: 'https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&w=120&q=80',
       title: 'Legacy Core Systems',
       desc: 'Modernising outdated core banking platforms without disrupting live financial operations.',
     },
     {
-      icon: '📈',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       title: 'Real-Time Analytics',
       desc: 'Instant risk assessments, fraud detection, and market data processing at massive scale.',
     },
@@ -311,47 +311,47 @@ export class BfsiComponent implements OnInit {
   ];
 
   techStack = [
-    { icon: '🅰️', name: 'Angular / React', role: 'Frontend' },
-    { icon: '☕', name: 'Spring Boot', role: 'Backend' },
-    { icon: '☁️', name: 'AWS / Azure', role: 'Cloud' },
-    { icon: '🔗', name: 'Open Banking APIs', role: 'Integrations' },
-    { icon: '🗄️', name: 'Oracle / Postgres', role: 'Database' },
-    { icon: '🔐', name: 'OAuth2 / Keycloak', role: 'Security' },
+    { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
+    { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'Open Banking APIs', role: 'Integrations' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'Oracle / Postgres', role: 'Database' },
+    { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'OAuth2 / Keycloak', role: 'Security' },
   ];
 
   integrations = [
-    { icon: '🏦', name: 'Core Banking' },
-    { icon: '💳', name: 'PCI-DSS Vault' },
+    { icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80', name: 'Core Banking' },
+    { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'PCI-DSS Vault' },
     { icon: '📲', name: 'UPI / NPCI' },
-    { icon: '📊', name: 'Bloomberg' },
-    { icon: '🔗', name: 'SWIFT' },
-    { icon: '🛡️', name: 'KYC / AML' },
-    { icon: '📈', name: 'NSE / BSE APIs' },
-    { icon: '📬', name: 'Twilio / SMS' },
-    { icon: '☁️', name: 'AWS FinSpace' },
-    { icon: '🔒', name: 'HSM Encryption' },
+    { icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', name: 'Bloomberg' },
+    { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'SWIFT' },
+    { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'KYC / AML' },
+    { icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80', name: 'NSE / BSE APIs' },
+    { icon: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=120&q=80', name: 'Twilio / SMS' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS FinSpace' },
+    { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'HSM Encryption' },
     { icon: '📋', name: 'CIBIL / Experian' },
-    { icon: '🏢', name: 'Salesforce CRM' },
+    { icon: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=120&q=80', name: 'Salesforce CRM' },
   ];
 
   whyBlute = [
     {
-      icon: '🏦',
+      icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80',
       title: 'BFSI Domain Expertise',
       desc: 'Deep understanding of banking, insurance, and capital markets technology landscapes.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80',
       title: 'Compliant by Design',
       desc: 'PCI-DSS, RBI, SEBI, and GDPR compliance built into every layer from day one.',
     },
     {
-      icon: '🔧',
+      icon: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=120&q=80',
       title: 'Full-Stack Ownership',
       desc: 'From customer apps to core integrations — one accountable partner for your whole stack.',
     },
     {
-      icon: '🛡️',
+      icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
       title: '24/7 Mission-Critical Support',
       desc: 'Round-the-clock monitoring for zero-downtime on your financial systems.',
     },
@@ -359,5 +359,9 @@ export class BfsiComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => (this.isVisible = true), 100);
+  }
+
+  isUrl(value: string): boolean {
+    return typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'));
   }
 }

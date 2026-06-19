@@ -358,7 +358,7 @@
             <div
               class="w-12 h-12 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
               <img *ngIf="isUrl(mv.icon); else rawMvIcon" [src]="mv.icon" class="w-full h-full object-cover" alt="" />
-              <ng-template #rawMvIcon>{{ mv.icon }}</ng-template>
+              <ng-template #rawMvIcon><ng-container *ngIf="isUrl(mv.icon); else iconRef_mv_1"><img [src]="mv.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_mv_1>{{ mv.icon }}</ng-template></ng-template>
             </div>
             <div>
               <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#533AFD] transition-colors duration-300">
@@ -429,7 +429,7 @@
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
               <img *ngIf="isUrl(tech.icon); else rawTechIcon" [src]="tech.icon" class="w-full h-full object-cover" alt="" />
-              <ng-template #rawTechIcon>{{ tech.icon }}</ng-template>
+              <ng-template #rawTechIcon><ng-container *ngIf="isUrl(tech.icon); else iconRef_tech_2"><img [src]="tech.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_tech_2>{{ tech.icon }}</ng-template></ng-template>
             </div>
             <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#533AFD] transition-colors duration-300">{{ tech.category }}</h3>
           </div>

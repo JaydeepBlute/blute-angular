@@ -20,7 +20,12 @@
         </p>
         <!-- Tech pills -->
         <div class="wa-pills">
-          <span class="wa-pill" *ngFor="let t of techPills">{{ t }}</span>
+          <span class="wa-pill">React</span>
+          <span class="wa-pill">Angular</span>
+          <span class="wa-pill">Vue</span>
+          <span class="wa-pill">Node.js</span>
+          <span class="wa-pill">GraphQL</span>
+          <span class="wa-pill">AWS</span>
         </div>
    
       </div>
@@ -181,7 +186,7 @@
             <img [src]="svc.img" [alt]="svc.title"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div class="absolute bottom-3 left-4 text-3xl">{{ svc.icon }}</div>
+            <div class="absolute bottom-3 left-4 text-3xl"><ng-container *ngIf="isUrl(svc.icon); else iconRef_svc_1"><img [src]="svc.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_svc_1>{{ svc.icon }}</ng-template></div>
           </div>
           <div class="p-5">
             <h3
@@ -211,7 +216,7 @@
           <div *ngFor="let w of whyItems" class="flex gap-4 items-start group p-4 rounded-xl border border-gray-100
                    hover:border-teal-300 hover:bg-teal-50/40 hover:translate-x-1 transition-all duration-300">
             <div class="w-11 h-11 flex-shrink-0 rounded-xl flex items-center justify-center text-xl"
-              [style.background]="w.bg">{{ w.icon }}</div>
+              [style.background]="w.bg"><ng-container *ngIf="isUrl(w.icon); else iconRef_w_2"><img [src]="w.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_w_2>{{ w.icon }}</ng-template></div>
             <div>
               <h4 class="font-semibold mb-1 text-gray-800 group-hover:text-teal-600 transition-colors duration-300">{{
                 w.title }}</h4>
@@ -237,7 +242,7 @@
         <div *ngFor="let tech of techStack"
           class="stagger-item flex flex-col items-center gap-3 p-6 bg-white border border-gray-200 rounded-2xl
                  hover:border-teal-400/60 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer group">
-          <span class="text-4xl">{{ tech.icon }}</span>
+          <span class="text-4xl"><ng-container *ngIf="isUrl(tech.icon); else iconRef_tech_3"><img [src]="tech.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_tech_3>{{ tech.icon }}</ng-template></span>
           <span class="font-semibold text-gray-800 group-hover:text-teal-600 transition-colors text-sm">{{ tech.name
             }}</span>
           <span class="text-xs text-gray-400 text-center">{{ tech.desc }}</span>
@@ -277,7 +282,7 @@
           <div class="space-y-4 mb-5">
             <div *ngFor="let bar of dashBars">
               <div class="flex justify-between text-xs text-gray-500 mb-1">
-                <span class="flex items-center gap-1.5"><span>{{ bar.icon }}</span> {{ bar.label }}</span>
+                <span class="flex items-center gap-1.5"><span><ng-container *ngIf="isUrl(bar.icon); else iconRef_bar_4"><img [src]="bar.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_bar_4>{{ bar.icon }}</ng-template></span> {{ bar.label }}</span>
                 <span class="font-semibold" [style.color]="bar.labelColor">{{ bar.val }}</span>
               </div>
               <div class="h-2 bg-gray-100 rounded-full overflow-hidden">

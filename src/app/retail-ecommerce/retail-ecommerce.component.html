@@ -107,7 +107,7 @@
     <div *ngIf="isVisible" @staggerList class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let ch of challenges"
         class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300">
-        <div class="text-3xl mb-4">{{ ch.icon }}</div>
+        <div class="text-3xl mb-4"><ng-container *ngIf="isUrl(ch.icon); else iconRef_ch_1"><img [src]="ch.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_ch_1>{{ ch.icon }}</ng-template></div>
         <h3 class="font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors">{{ ch.title }}</h3>
         <p class="text-gray-500 text-sm leading-relaxed">{{ ch.desc }}</p>
       </div>
@@ -203,7 +203,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div *ngFor="let tech of techStack"
             class="bg-white hover:bg-teal-50 border border-gray-200 hover:border-teal-300 transition-all duration-300 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm">
-            <span class="text-xl">{{ tech.icon }}</span>
+            <span class="text-xl"><ng-container *ngIf="isUrl(tech.icon); else iconRef_tech_2"><img [src]="tech.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_tech_2>{{ tech.icon }}</ng-template></span>
             <div>
               <div class="text-gray-800 text-sm font-semibold">{{ tech.name }}</div>
               <div class="text-gray-400 text-xs">{{ tech.role }}</div>
@@ -227,7 +227,7 @@
     <div *ngIf="isVisible" @staggerList class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let reason of whyBlute"
         class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 text-center">
-        <div class="text-4xl mb-4">{{ reason.icon }}</div>
+        <div class="text-4xl mb-4"><ng-container *ngIf="isUrl(reason.icon); else iconRef_reason_3"><img [src]="reason.icon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" /></ng-container><ng-template #iconRef_reason_3>{{ reason.icon }}</ng-template></div>
         <h3 class="text-gray-800 font-bold mb-2 group-hover:text-teal-600 transition-colors">{{ reason.title }}</h3>
         <p class="text-gray-500 text-sm leading-relaxed">{{ reason.desc }}</p>
       </div>
