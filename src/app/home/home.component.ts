@@ -46,7 +46,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       description: 'Digital ecosystems for governments and enterprises — smart city platforms, rural broadband, and incubation accelerators. 8 ecosystems delivered.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80',
-      serviceImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
+      serviceImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
       route: 'ecosystem',
     },
     {
@@ -55,7 +55,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       description: 'Precision at every coordinate. Custom GIS platforms powering logistics, agriculture, and urban planning — real-time location intelligence at enterprise scale.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1920&q=80',
-      serviceImage: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800&q=80',
+      serviceImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80',
       route: 'it-consulting',
     },
     {
@@ -64,7 +64,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       description: 'Your engineering team, on demand. Vetted senior engineers and dedicated project squads embedded in your workflow — ready in 72 hours.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80',
-      serviceImage: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80',
+      serviceImage: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80',
       route: 'build-team',
     },
     {
@@ -73,7 +73,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       description: 'Connect everything. IoT platforms from sensor to dashboard — smart factories, connected health, and industrial automation. Trusted by Mitsubishi and global manufacturers.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1920&q=80',
-      serviceImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
+      serviceImage: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&q=80',
       route: 'iot-solutions',
     },
     {
@@ -82,7 +82,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       description: 'From concept to App Store in 8 weeks. Enterprise-grade iOS & Android — React Native, Flutter, Swift, Kotlin. 50+ apps shipped across 3 continents.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&q=80',
-      serviceImage: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80',
+      serviceImage: 'https://images.unsplash.com/photo-1616469829581-73993eb86b02?w=800&q=80',
       route: 'mobile-app-development',
     },
     {
@@ -91,7 +91,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       description: 'Ship products that scale to millions. End-to-end engineering from wireframe to production — one accountable team, zero handoffs, on time.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
-      serviceImage: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80',
+      serviceImage: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80',
       route: 'product-engineering',
     },
   ];
