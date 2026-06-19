@@ -1,75 +1,132 @@
 @reference "tailwindcss";
 
+// ─── Host ──────────────────────────────────────────────────────────────────
 :host {
   display: block;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
 }
 
-// ── Navbar background ─────────────────────────────────────────────────────────
-.nav-gradient {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f4c5c 100%);
-}
+// ─── Root nav ─────────────────────────────────────────────────────────────
+// Transparent at top of page — the dark hero shows through and the white text
+// is perfectly readable. Once the user scrolls 24px the root becomes the same
+// deep-navy as the hero but fully opaque, so it never looks out of place.
+.nav-root {
+  background: #0a1628;
+  transition:
+    background 280ms ease,
+    box-shadow 280ms ease;
 
-// ── Nav button ────────────────────────────────────────────────────────────────
-.nav-btn {
-  @apply flex items-center gap-1.5 px-4 py-2 text-white/80 hover:text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all cursor-pointer;
-
-  &.nav-btn-active {
-    @apply text-white bg-white/10;
+  &.nav-scrolled {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 }
 
-// ── CTA button ────────────────────────────────────────────────────────────────
-.cta-btn {
-  background: linear-gradient(135deg, #14b8a6, #06b6d4);
-  @apply text-white px-5 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer;
-  box-shadow: 0 4px 20px rgba(20, 184, 166, 0.35);
+// ─── Brand ─────────────────────────────────────────────────────────────────
+.nav-brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+}
+
+// ─── Nav button ───────────────────────────────────────────────────────────
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 150ms, background 150ms;
+
+  &:hover,
+  &.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+// ─── Chevron ───────────────────────────────────────────────────────────────
+.nav-chev {
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.40);
+  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms;
+
+  .nav-btn:hover &,
+  .nav-btn.active & {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+// ─── CTA button ───────────────────────────────────────────────────────────
+.nav-cta {
+  padding: 9px 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #533afd;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.10) inset,
+              0 2px 12px rgba(83, 58, 253, 0.45);
+  transition:
+    background 150ms,
+    box-shadow 150ms,
+    transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
   &:hover {
-    background: linear-gradient(135deg, #2dd4bf, #22d3ee);
-    box-shadow: 0 6px 24px rgba(20, 184, 166, 0.5);
+    background: #4430d4;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+                0 4px 20px rgba(83, 58, 253, 0.60);
     transform: translateY(-1px);
   }
-}
 
-// ── Mega menu panel ───────────────────────────────────────────────────────────
-.mega-panel {
-  position: absolute; // ✅ FIXED: absolute so it floats over content, doesn't push page
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 50;
-  animation: dropIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.mega-inner {
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.18);
-}
-
-// ── Dropdown header bar ───────────────────────────────────────────────────────
-.dropdown-header {
-  @apply px-8 py-3 flex items-center justify-between;
-  background: linear-gradient(90deg, #0f172a, #1e3a8a);
-}
-
-// ── Dropdown animation ────────────────────────────────────────────────────────
-@keyframes dropIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
+  &:active {
     transform: translateY(0);
   }
 }
 
-// ── Shared icon box ───────────────────────────────────────────────────────────
+// ─── Mega-menu panel ──────────────────────────────────────────────────────
+.mega-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50;
+  animation: dropIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mega-inner {
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.dropdown-header {
+  @apply flex items-center justify-between px-8 py-3;
+  background: linear-gradient(90deg, #0a1628 0%, #1e3a8a 100%);
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Shared mega-menu helpers ─────────────────────────────────────────────
 .icon-box {
   width: 36px;
   height: 36px;
@@ -80,16 +137,11 @@
   flex-shrink: 0;
 }
 
-// ── Menu item hover shift ─────────────────────────────────────────────────────
 .menu-item-hover {
-  transition: all 0.15s ease;
-
-  &:hover {
-    transform: translateX(2px);
-  }
+  transition: transform 150ms ease;
+  &:hover { transform: translateX(2px); }
 }
 
-// ── Small badge/tag ───────────────────────────────────────────────────────────
 .badge-tag {
   font-size: 9px;
   font-weight: 700;
@@ -99,13 +151,11 @@
   text-transform: uppercase;
 }
 
-// ── Horizontal rule divider ───────────────────────────────────────────────────
 .divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
 }
 
-// ── Company featured card ─────────────────────────────────────────────────────
 .featured-card {
   background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
   border-radius: 12px;
