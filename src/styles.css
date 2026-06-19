@@ -47,8 +47,14 @@
 html { overflow-x: hidden; }
 body {
   font-family: var(--font-body);
+  font-feature-settings: "ss01" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-numeric {
+  font-feature-settings: "tnum" on, "lnum" on;
+  letter-spacing: -0.36px;
 }
 
 /* Stripe-standard focus ring — replaces browser outline */

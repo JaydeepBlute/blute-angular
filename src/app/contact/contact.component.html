@@ -174,13 +174,19 @@
     <!-- Map + Social -->
     <div class="flex flex-col gap-6">
       <!-- Google Map -->
-      <div class="rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-1">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.831589030654!2d77.57649917428289!3d12.918543387391942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15765f2cb411%3A0xf3d9022f7dffc214!2s43rd%20Cross%20Rd%2C%20Jayanagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1771498123646!5m2!1sen!2sin"
-          width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+      @defer (on viewport) {
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-1">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.831589030654!2d77.57649917428289!3d12.918543387391942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15765f2cb411%3A0xf3d9022f7dffc214!2s43rd%20Cross%20Rd%2C%20Jayanagar%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1771498123646!5m2!1sen!2sin"
+            width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      } @placeholder {
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-1 bg-gray-100 h-[300px] flex items-center justify-center animate-pulse">
+          <span class="text-sm text-gray-400">Loading Map...</span>
+        </div>
+      }
 
       <!-- Connect -->
       <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">

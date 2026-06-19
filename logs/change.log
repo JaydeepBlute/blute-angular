@@ -141,3 +141,10 @@
             └── CTA         → #0A2540 navy, violet halo, gradient headline (iris→magenta→coral),
                                single primary #533AFD button + ghost secondary
 
+
+[2026-06-19T17:00:00+05:30] Implement website UX/UI improvements & performance optimization
+└── Files: src/app/contact/contact.component.html, src/styles.css
+    ├── Choice: Implement core typography optimizations and defer block map loading from the UX specification
+    └── Changes:
+        ├── contact.component.html -> Wrapped heavy google map iframe in Angular @defer (on viewport) block with an animated loading skeleton placeholder to decrease initial CPU usage and footprint
+        └── styles.css -> Added font-feature-settings: "ss01" on to body styling for fallback fonts and defined a global `.font-numeric` utility class for layout stability during statistic counters
