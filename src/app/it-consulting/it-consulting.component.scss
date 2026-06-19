@@ -63,7 +63,7 @@
 
 /* Buttons */
 .btn-solid {
-  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  background: #533AFD;
   border: none;
   border-radius: 12px;
   padding: 13px 28px;
@@ -71,21 +71,21 @@
   font-weight: 700;
   cursor: pointer;
   font-size: .97rem;
-  box-shadow: 0 6px 22px rgba(14, 165, 233, .35);
+  box-shadow: 0 6px 22px rgba(83,58,253,.40);
   transition: transform .2s, box-shadow .2s;
 }
 
 .btn-solid:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(14, 165, 233, .45);
+  box-shadow: 0 12px 32px rgba(83,58,253,.55);
 }
 
 .btn-ghost {
-  background: #fff;
-  border: 1.5px solid #cbd5e1;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 12px;
   padding: 13px 28px;
-  color: #334155;
+  color: white;
   font-weight: 600;
   cursor: pointer;
   font-size: .97rem;
@@ -93,8 +93,8 @@
 }
 
 .btn-ghost:hover {
-  border-color: #0ea5e9;
-  color: #0ea5e9;
+  border-color: rgba(255,255,255,0.50);
+  color: white;
   transform: translateY(-2px);
 }
 
@@ -112,16 +112,14 @@
   display: flex;
   align-items: center;
   /* ← exact gradient from your Product Engineering screenshot */
-  background: linear-gradient(160deg, #ffffff 0%, #e8f8f8 40%, #d0f0f0 75%, #c2eaea 100%);
+  background: #0A2540;
   overflow: hidden;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 550px 450px at 85% 20%, rgba(0, 200, 200, .08), transparent),
-    radial-gradient(ellipse 350px 350px at 10% 85%, rgba(0, 180, 180, .06), transparent);
+  background: none;
   pointer-events: none;
 }
 
@@ -143,12 +141,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(14, 165, 233, .1);
-  border: 1px solid rgba(14, 165, 233, .3);
+  background: rgba(83,58,253,0.15);
+  border: 1px solid rgba(83,58,253,0.30);
   border-radius: 20px;
   padding: 6px 16px;
   font-size: .82rem;
-  color: #0ea5e9;
+  color: #A594FF;
   font-weight: 600;
   margin-bottom: 1.4rem;
 }
@@ -157,7 +155,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #0ea5e9;
+  background: #533AFD;
   animation: blink 2s infinite;
 }
 
@@ -177,12 +175,12 @@
   font-size: clamp(2.8rem, 5vw, 4.4rem);
   font-weight: 900;
   line-height: 1.08;
-  color: #0f172a;
+  color: rgba(255,255,255,0.90);
   margin-bottom: 1.2rem;
 }
 
 .hero-p {
-  color: #475569;
+  color: rgba(255,255,255,0.70);
   font-size: 1.05rem;
   line-height: 1.75;
   max-width: 440px;
@@ -202,7 +200,7 @@
   gap: 2rem;
   flex-wrap: wrap;
   padding-top: 1.6rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid rgba(255,255,255,0.15);
 }
 
 .trust-item {
@@ -214,7 +212,7 @@
 .trust-val {
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  background: linear-gradient(135deg, #533AFD 0%, #F72DF3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -222,7 +220,7 @@
 
 .trust-lbl {
   font-size: .78rem;
-  color: #64748b;
+  color: rgba(255,255,255,0.70);
   font-weight: 500;
 }
 

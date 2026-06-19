@@ -223,15 +223,13 @@ $muted: #94a3b8;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(160deg, #ffffff 0%, #e8f8f8 40%, #d0f0f0 75%, #c2eaea 100%);
+  background: #0A2540;
 
   &__bg-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-      radial-gradient(ellipse 550px 450px at 85% 20%, rgba(0, 200, 200, 0.08), transparent),
-      radial-gradient(ellipse 350px 350px at 10% 85%, rgba(0, 180, 180, 0.06), transparent);
+    background: none;
   }
 
   &__wrap {
@@ -257,19 +255,19 @@ $muted: #94a3b8;
 }
 
 .cloud-hero__left {
-  color: $dark;
+  color: rgba(255,255,255,0.90);
 }
 
 .cloud-hero__badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba($teal, 0.10);
-  border: 1px solid rgba($teal, 0.30);
+  background: rgba(83,58,253,0.15);
+  border: 1px solid rgba(83,58,253,0.30);
   border-radius: 20px;
   padding: 6px 16px;
   font-size: 0.82rem;
-  color: #0d9488;
+  color: #A594FF;
   font-weight: 600;
   margin-bottom: 1.4rem;
 
@@ -278,7 +276,7 @@ $muted: #94a3b8;
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: $teal;
+    background: #533AFD;
     animation: waBlink 2s infinite;
     display: inline-block;
   }
@@ -288,13 +286,13 @@ $muted: #94a3b8;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 900;
   line-height: 1.15;
-  color: #0f172a;
+  color: rgba(255,255,255,0.90);
   margin-bottom: 1.4rem;
   letter-spacing: 0.02em;
 }
 
 .cloud-hero__p {
-  color: #475569;
+  color: rgba(255,255,255,0.70);
   font-size: 1rem;
   line-height: 1.85;
   max-width: 500px;

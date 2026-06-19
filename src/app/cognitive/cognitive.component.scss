@@ -210,16 +210,13 @@ $muted: #94a3b8;
   align-items: center;
   overflow: hidden;
   // ✅ Same gradient as the web-application hero
-  background: linear-gradient(160deg, #ffffff 0%, #e8f8f8 40%, #d0f0f0 75%, #c2eaea 100%);
+  background: #0A2540;
 
   &__bg-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-      radial-gradient(ellipse 600px 500px at 80% 20%, rgba($teal, 0.10), transparent),
-      radial-gradient(ellipse 400px 400px at 15% 80%, rgba($cyan, 0.08), transparent),
-      radial-gradient(ellipse 300px 300px at 50% 50%, rgba($teal, 0.05), transparent);
+    background: none;
   }
 
   &__wrap {
@@ -245,19 +242,19 @@ $muted: #94a3b8;
 
   // ✅ Dark text on light bg (same as web-app hero)
   &__left {
-    color: $dark;
+    color: rgba(255,255,255,0.90);
   }
 
   &__badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba($teal, 0.10);
-    border: 1px solid rgba($teal, 0.30);
+    background: rgba(83,58,253,0.15);
+    border: 1px solid rgba(83,58,253,0.30);
     border-radius: 20px;
     padding: 6px 16px;
     font-size: 0.82rem;
-    color: #0d9488;
+    color: #A594FF;
     font-weight: 600;
     margin-bottom: 1.4rem;
 
@@ -265,7 +262,7 @@ $muted: #94a3b8;
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: $teal;
+      background: #533AFD;
       animation: waBlink 2s infinite;
       display: inline-block;
     }
@@ -275,21 +272,21 @@ $muted: #94a3b8;
     font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 900;
     line-height: 1.12;
-    color: #0f172a;
+    color: rgba(255,255,255,0.90);
     margin-bottom: 1.4rem;
     letter-spacing: 0.02em;
   }
 
   // ✅ Teal/cyan gradient accent (matches page theme)
   &__h1-accent {
-    background: linear-gradient(90deg, $teal, $cyan, #0ea5e9);
+    background: linear-gradient(135deg, #533AFD 0%, #F72DF3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   &__p {
-    color: #475569;
+    color: rgba(255,255,255,0.70);
     font-size: 1rem;
     line-height: 1.85;
     max-width: 500px;
