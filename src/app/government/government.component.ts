@@ -215,7 +215,7 @@ export class GovernmentComponent implements OnInit {
 
   challenges = [
     {
-      icon: '🏚️',
+      icon: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=120&q=80',
       title: 'Legacy System Modernisation',
       desc: 'Ageing IT infrastructure in government offices creates inefficiencies, data silos, and security vulnerabilities.',
     },
@@ -225,12 +225,12 @@ export class GovernmentComponent implements OnInit {
       desc: 'Protecting sensitive citizen data and critical national infrastructure from increasingly sophisticated cyber threats.',
     },
     {
-      icon: '📋',
+      icon: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=120&q=80',
       title: 'Regulatory & Compliance Burden',
       desc: 'Meeting MeitY, NIC, and CERT-In mandates while ensuring inter-departmental data governance and audit readiness.',
     },
     {
-      icon: '👥',
+      icon: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=120&q=80',
       title: 'Citizen Service Delivery',
       desc: 'Bridging the digital divide and delivering seamless, accessible e-governance services to every citizen.',
     },
@@ -319,13 +319,13 @@ export class GovernmentComponent implements OnInit {
   ];
 
   integrations = [
-    { icon: '🪪', name: 'Aadhaar API' },
-    { icon: '📁', name: 'DigiLocker' },
+    { icon: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=120&q=80', name: 'Aadhaar API' },
+    { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'DigiLocker' },
     { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'UPI / NPCI' },
     { icon: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=120&q=80', name: 'Ayushman Bharat' },
     { icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80', name: 'MapMyIndia GIS' },
     { icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80', name: 'MCA21' },
-    { icon: '🚗', name: 'VAHAN / Sarathi' },
+    { icon: 'https://images.unsplash.com/photo-1494976388531-d1058094e2fd?auto=format&fit=crop&w=120&q=80', name: 'VAHAN / Sarathi' },
     { icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', name: 'PFMS' },
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'NIC GovCloud' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'CERT-In SOC' },

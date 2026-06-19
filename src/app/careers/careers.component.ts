@@ -61,7 +61,7 @@ export class CareersComponent implements OnInit {
       gradient: 'from-blue-50/80 to-transparent',
     },
     {
-      icon: '🌍',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-teal-50',
       title: 'Remote Friendly',
       desc: 'Work from anywhere. We value output, not office attendance.',
@@ -82,7 +82,7 @@ export class CareersComponent implements OnInit {
       gradient: 'from-orange-50/80 to-transparent',
     },
     {
-      icon: '💰',
+      icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-green-50',
       title: 'Competitive Pay',
       desc: 'Market-beating salaries reviewed annually with performance bonuses.',
@@ -106,7 +106,7 @@ export class CareersComponent implements OnInit {
       location: 'Bangalore / Remote',
       experience: '4–7 years',
       tags: ['Angular', 'TypeScript', 'RxJS', 'Tailwind'],
-      icon: '⚙️',
+      icon: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-blue-50',
       isNew: true,
     },
@@ -118,7 +118,7 @@ export class CareersComponent implements OnInit {
       location: 'Bangalore / Remote',
       experience: '3–6 years',
       tags: ['Java', 'Spring Boot', 'PostgreSQL', 'AWS'],
-      icon: '🖥️',
+      icon: 'https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-indigo-50',
     },
     {

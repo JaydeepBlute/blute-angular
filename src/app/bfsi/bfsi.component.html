@@ -200,11 +200,15 @@
     </div>
     <div *ngIf="isVisible" @staggerCards class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let ch of challenges; let i = index"
-        class="stagger-item group relative bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+        class="stagger-item group relative rounded-2xl p-6 hover:shadow-xl hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
         <ng-container *ngIf="isUrl(ch.icon)">
-          <img [src]="ch.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          <img [src]="ch.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
         </ng-container>
+        <div *ngIf="!isUrl(ch.icon)" class="absolute inset-0 bg-gray-50 border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                  
         <div
           class="absolute top-0 left-0 right-0 h-1 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style="background: linear-gradient(90deg, #14b8a6, #3b82f6);"></div>
@@ -221,6 +225,8 @@
           </div>
           <h3 class="font-bold mb-2 transition-colors" [ngClass]="isUrl(ch.icon) ? 'text-white' : 'text-gray-800 group-hover:text-teal-600'">{{ ch.title }}</h3>
           <p class="text-sm leading-relaxed" [ngClass]="isUrl(ch.icon) ? 'text-gray-200' : 'text-gray-500'">{{ ch.desc }}</p>
+        </div>
+      
         </div>
       </div>
     </div>
@@ -311,11 +317,15 @@
         </h3>
         <div @staggerCards class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div *ngFor="let tech of techStack"
-            class="stagger-item bg-white hover:bg-teal-50 border border-gray-200 hover:border-teal-300 transition-all duration-300 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm relative overflow-hidden">
-            <ng-container *ngIf="isUrl(tech.icon)">
-              <img [src]="tech.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
-            </ng-container>
+            class="stagger-item hover:bg-teal-50 hover:border-teal-300 transition-all duration-300 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm relative overflow-hidden">
+        <ng-container *ngIf="isUrl(tech.icon)">
+          <img [src]="tech.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(tech.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                      
             <span class="text-xl" *ngIf="!isUrl(tech.icon)">
               <ng-container *ngIf="isUrl(tech.icon); else rawTechIcon">
                 <img [src]="tech.icon" style="width: 28px; height: 28px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(128, 128, 128, 0.2);" alt="icon" />
@@ -326,7 +336,9 @@
               <div class="text-sm font-semibold" [ngClass]="isUrl(tech.icon) ? 'text-white' : 'text-gray-800'">{{ tech.name }}</div>
               <div class="text-xs" [ngClass]="isUrl(tech.icon) ? 'text-gray-200' : 'text-gray-400'">{{ tech.role }}</div>
             </div>
-          </div>
+          
+        </div>
+      </div>
         </div>
       </div>
     </div>
@@ -366,11 +378,15 @@
     </div>
     <div *ngIf="isVisible" @staggerCards class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let r of whyBlute"
-        class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 text-center relative overflow-hidden">
+        class="stagger-item group rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 text-center relative overflow-hidden">
         <ng-container *ngIf="isUrl(r.icon)">
-          <img [src]="r.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          <img [src]="r.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
         </ng-container>
+        <div *ngIf="!isUrl(r.icon)" class="absolute inset-0 bg-gray-50 border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                  
         <div *ngIf="!isUrl(r.icon)"
           class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
           style="background: linear-gradient(135deg, #f0fdfa, #e0f2fe); border: 1.5px solid #99f6e4;">
@@ -381,6 +397,8 @@
         </div>
         <h3 class="font-bold mb-2 transition-colors" [ngClass]="isUrl(r.icon) ? 'text-white' : 'text-gray-800 group-hover:text-teal-600'">{{ r.title }}</h3>
         <p class="text-sm leading-relaxed" [ngClass]="isUrl(r.icon) ? 'text-gray-200' : 'text-gray-500'">{{ r.desc }}</p>
+      
+        </div>
       </div>
     </div>
   </div>

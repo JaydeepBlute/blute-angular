@@ -106,14 +106,20 @@
     </div>
     <div *ngIf="isVisible" @staggerList class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let ch of challenges"
-        class="stagger-item group relative overflow-hidden bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300">
+        class="stagger-item group relative overflow-hidden rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300">
         <ng-container *ngIf="isUrl(ch.icon)">
-          <img [src]="ch.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          <img [src]="ch.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
         </ng-container>
+        <div *ngIf="!isUrl(ch.icon)" class="absolute inset-0 bg-gray-50 border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                  
         <div *ngIf="!isUrl(ch.icon)" class="text-3xl mb-4">{{ ch.icon }}</div>
         <h3 class="font-bold mb-2 transition-colors" [ngClass]="isUrl(ch.icon) ? 'text-white' : 'text-gray-800 group-hover:text-teal-600'">{{ ch.title }}</h3>
         <p class="text-sm leading-relaxed" [ngClass]="isUrl(ch.icon) ? 'text-gray-200' : 'text-gray-500'">{{ ch.desc }}</p>
+      
+        </div>
       </div>
     </div>
   </div>
@@ -230,14 +236,20 @@
     </div>
     <div *ngIf="isVisible" @staggerList class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let reason of whyBlute"
-        class="stagger-item group relative overflow-hidden bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 text-center">
+        class="stagger-item group relative overflow-hidden rounded-2xl p-6 hover:shadow-lg hover:border-teal-300 hover:-translate-y-1 transition-all duration-300 text-center">
         <ng-container *ngIf="isUrl(reason.icon)">
-          <img [src]="reason.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          <img [src]="reason.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
         </ng-container>
+        <div *ngIf="!isUrl(reason.icon)" class="absolute inset-0 bg-gray-50 border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                  
         <div *ngIf="!isUrl(reason.icon)" class="text-4xl mb-4">{{ reason.icon }}</div>
         <h3 class="font-bold mb-2 transition-colors" [ngClass]="isUrl(reason.icon) ? 'text-white' : 'text-gray-800 group-hover:text-teal-600'">{{ reason.title }}</h3>
         <p class="text-sm leading-relaxed" [ngClass]="isUrl(reason.icon) ? 'text-gray-200' : 'text-gray-500'">{{ reason.desc }}</p>
+      
+        </div>
       </div>
     </div>
   </div>

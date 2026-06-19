@@ -72,22 +72,22 @@ export class CloudDetailComponent implements OnInit, OnDestroy {
     {
       title: 'BECOME DATA-CENTRIC',
       desc: 'Cloud computing solutions will help your business seize and leverage all of your data.',
-      svgIcon: '📊',
+      svgIcon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80',
     },
     {
       title: 'SCALE, SPEED, AGILITY',
       desc: 'Cloud enables you to quickly launch your initiative with scale, reliability, and flexibility.',
-      svgIcon: '⚡',
+      svgIcon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80',
     },
     {
       title: 'ENTERPRISE-WIDE',
       desc: 'Cloud technology allows your business to be extensible, elastic, cost-efficient, and secure.',
-      svgIcon: '🏢',
+      svgIcon: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=120&q=80',
     },
     {
       title: 'DIGITAL TRANSFORMATION',
       desc: 'Transform and implement digital strategies with Public, Private, and Hybrid Cloud integration.',
-      svgIcon: '🔄',
+      svgIcon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80',
     },
   ];
 

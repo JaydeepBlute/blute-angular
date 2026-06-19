@@ -60,7 +60,7 @@ export class RetailEcommerceComponent implements OnInit {
       desc: 'Siloed POS, ERP, and e-commerce platforms causing data inconsistencies and slow operations.',
     },
     {
-      icon: '📉',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       title: 'Poor Digital Experience',
       desc: 'Outdated web and mobile storefronts losing customers to faster, modern competitors.',
     },

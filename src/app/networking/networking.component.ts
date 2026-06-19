@@ -89,7 +89,7 @@ export class NetworkingComponent implements OnInit {
       bg: 'rgba(20,184,166,0.1)',
     },
     {
-      icon: '🌍',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Global Connectivity',
       desc: 'MPLS, internet leased lines, and carrier-grade infrastructure across 60+ countries.',
       bg: 'rgba(14,165,233,0.1)',

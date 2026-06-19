@@ -80,12 +80,12 @@ export class DevopsComponent implements OnInit, AfterViewInit {
 
   // ── Pipeline ──────────────────────────────────────────────────
   pipelineStages = [
-    { name: 'Source', emoji: '📁', label: 'main branch', status: 'done' },
-    { name: 'Build', emoji: '🔨', label: 'Docker built', status: 'done' },
-    { name: 'Test', emoji: '🧪', label: '247 passed', status: 'done' },
-    { name: 'Scan', emoji: '🔍', label: '0 vulns', status: 'done' },
-    { name: 'Deploy', emoji: '🚀', label: 'to k8s…', status: 'running' },
-    { name: 'Monitor', emoji: '📊', label: 'watching…', status: 'pending' },
+    { name: 'Source', emoji: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', label: 'main branch', status: 'done' },
+    { name: 'Build', emoji: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=120&q=80', label: 'Docker built', status: 'done' },
+    { name: 'Test', emoji: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=120&q=80', label: '247 passed', status: 'done' },
+    { name: 'Scan', emoji: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=120&q=80', label: '0 vulns', status: 'done' },
+    { name: 'Deploy', emoji: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=120&q=80', label: 'to k8s…', status: 'running' },
+    { name: 'Monitor', emoji: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', label: 'watching…', status: 'pending' },
   ];
 
   stageColor(s: string) {
@@ -98,7 +98,7 @@ export class DevopsComponent implements OnInit, AfterViewInit {
   // ── Services ──────────────────────────────────────────────────
   services = [
     {
-      icon: '⚙️',
+      icon: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=120&q=80',
       color: '#0ea5e9',
       iconBg: 'linear-gradient(135deg,#e0f2fe,#bae6fd)',
       img: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=400&q=70',

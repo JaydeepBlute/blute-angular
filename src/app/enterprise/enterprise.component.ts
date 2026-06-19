@@ -165,7 +165,7 @@ export class EnterpriseComponent implements OnInit {
       desc: 'Siloed ERP, CRM, and legacy platforms causing data inconsistencies and slow operations.',
     },
     {
-      icon: '📉',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       title: 'Poor Data Visibility',
       desc: 'Lack of real-time insights across business units leading to delayed decision-making.',
     },
@@ -182,11 +182,11 @@ export class EnterpriseComponent implements OnInit {
   ];
 
   platforms = [
-    { name: 'SAP', icon: '🔵', desc: 'S/4HANA, BTP, SuccessFactors, Ariba' },
+    { name: 'SAP', icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', desc: 'S/4HANA, BTP, SuccessFactors, Ariba' },
     { name: 'Oracle', icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', desc: 'Oracle Cloud, EBS, Fusion, NetSuite' },
-    { name: 'Microsoft', icon: '🟦', desc: 'Azure, Dynamics 365, Power Platform' },
+    { name: 'Microsoft', icon: 'https://images.unsplash.com/photo-1625014020993-134179ae1188?auto=format&fit=crop&w=120&q=80', desc: 'Azure, Dynamics 365, Power Platform' },
     { name: 'Salesforce', icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', desc: 'CRM, Marketing Cloud, MuleSoft' },
-    { name: 'ServiceNow', icon: '🟩', desc: 'ITSM, HRSD, CSM workflows' },
+    { name: 'ServiceNow', icon: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&q=80', desc: 'ITSM, HRSD, CSM workflows' },
     { name: 'Custom APIs', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', desc: 'REST, GraphQL, SOAP, gRPC' },
   ];
 
@@ -217,7 +217,7 @@ export class EnterpriseComponent implements OnInit {
       desc: 'Intelligent workflow automation with ML-based anomaly detection.',
     },
     {
-      icon: '🌍',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Multi-Cloud Support',
       desc: 'Deploy across AWS, Azure, GCP, or hybrid on-premise environments.',
     },
@@ -251,7 +251,7 @@ export class EnterpriseComponent implements OnInit {
     { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
     { icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80', name: 'Docker / K8s', role: 'DevOps' },
-    { icon: '📨', name: 'Apache Kafka', role: 'Messaging' },
+    { icon: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=120&q=80', name: 'Apache Kafka', role: 'Messaging' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'MuleSoft', role: 'Integration' },
   ];
 

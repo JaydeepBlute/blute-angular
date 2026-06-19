@@ -322,7 +322,7 @@ export class BfsiComponent implements OnInit {
   integrations = [
     { icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80', name: 'Core Banking' },
     { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'PCI-DSS Vault' },
-    { icon: '📲', name: 'UPI / NPCI' },
+    { icon: 'https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=120&q=80', name: 'UPI / NPCI' },
     { icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', name: 'Bloomberg' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'SWIFT' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'KYC / AML' },
@@ -330,7 +330,7 @@ export class BfsiComponent implements OnInit {
     { icon: 'https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=120&q=80', name: 'Twilio / SMS' },
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS FinSpace' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'HSM Encryption' },
-    { icon: '📋', name: 'CIBIL / Experian' },
+    { icon: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=120&q=80', name: 'CIBIL / Experian' },
     { icon: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=120&q=80', name: 'Salesforce CRM' },
   ];
 

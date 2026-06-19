@@ -318,9 +318,9 @@ export class HealthcarePharmaComponent implements OnInit {
 
   integrations = [
     { icon: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=120&q=80', name: 'Epic EHR' },
-    { icon: '📋', name: 'HL7 FHIR' },
-    { icon: '💊', name: 'Cerner' },
-    { icon: '🔬', name: 'LIMS' },
+    { icon: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=120&q=80', name: 'HL7 FHIR' },
+    { icon: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=120&q=80', name: 'Cerner' },
+    { icon: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=120&q=80', name: 'LIMS' },
     { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', name: 'DICOM / PACS' },
     { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'Insurance APIs' },
     { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', name: 'Wearable Devices' },

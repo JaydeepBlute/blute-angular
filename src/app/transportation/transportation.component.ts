@@ -224,7 +224,7 @@ export class TransportationComponent implements OnInit {
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'ISO 27001 Certified' },
     { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', label: 'Real-Time Tracking' },
     { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', label: 'AI Route Optimisation' },
-    { icon: '🌍', label: 'Multi-Modal Support' },
+    { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', label: 'Multi-Modal Support' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
   ];
 

@@ -194,13 +194,13 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       desc: 'Every recommendation is grounded in your goals, not just tech preferences.',
     },
     {
-      icon: '👥',
+      icon: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=120&q=80',
       bg: '#d1fae5',
       title: 'Senior-Only Consultants',
       desc: 'Work directly with experts — no juniors, no hand-offs, ever.',
     },
     {
-      icon: '📐',
+      icon: 'https://images.unsplash.com/photo-1503387762-592dedbd82d2?auto=format&fit=crop&w=120&q=80',
       bg: '#ede9fe',
       title: 'Proven Frameworks',
       desc: 'Battle-tested methodologies from TOGAF, ITIL, and agile transformation.',
@@ -263,7 +263,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=70',
     },
     {
-      icon: '🏭',
+      icon: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=120&q=80',
       name: 'Manufacturing',
       img: 'https://images.unsplash.com/photo-1565793979540-c5ccf3dcba02?w=400&q=70',
     },

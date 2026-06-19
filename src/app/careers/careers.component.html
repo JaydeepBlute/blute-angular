@@ -69,11 +69,15 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div *ngFor="let perk of perks"
-        class="group relative bg-white rounded-2xl p-6 border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-default overflow-hidden">
+        class="group relative rounded-2xl p-6 hover:border-teal-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-default overflow-hidden">
         <ng-container *ngIf="isUrl(perk.icon)">
-          <img [src]="perk.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          <img [src]="perk.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
         </ng-container>
+        <div *ngIf="!isUrl(perk.icon)" class="absolute inset-0 bg-white border border-gray-100 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                  
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
         <div class="flex items-start gap-4">
           <div *ngIf="!isUrl(perk.icon)" class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-xl" [ngClass]="perk.iconBg">
@@ -83,6 +87,8 @@
             <h3 class="font-bold mb-1.5 transition-colors duration-300" [ngClass]="isUrl(perk.icon) ? 'text-white' : 'text-gray-900 group-hover:text-teal-700'">{{ perk.title }}</h3>
             <p class="text-sm leading-relaxed" [ngClass]="isUrl(perk.icon) ? 'text-gray-200' : 'text-gray-500'">{{ perk.desc }}</p>
           </div>
+        </div>
+      
         </div>
       </div>
     </div>
@@ -125,12 +131,16 @@
     <!-- Job Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <article *ngFor="let job of filteredJobs; let i = index"
-        class="group bg-white rounded-2xl border border-gray-100 p-6 hover:border-teal-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden animate-fade-in-up"
+        class="group rounded-2xl p-6 hover:border-teal-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden animate-fade-in-up"
         [style.animation-delay]="(i * 0.07) + 's'">
         <ng-container *ngIf="isUrl(job.icon)">
-          <img [src]="job.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          <img [src]="job.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
         </ng-container>
+        <div *ngIf="!isUrl(job.icon)" class="absolute inset-0 bg-white border border-gray-100 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                  
 
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
 
@@ -167,6 +177,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
+        </div>
+      
         </div>
       </article>
     </div>

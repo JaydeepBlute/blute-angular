@@ -77,13 +77,13 @@ export class DevSecOpsComponent implements OnInit {
       bg: 'rgba(99,102,241,0.10)',
     },
     {
-      icon: '📋',
+      icon: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=120&q=80',
       title: 'Compliance as Code',
       desc: 'Automate SOC2, ISO 27001, PCI-DSS, and HIPAA compliance checks across your infrastructure.',
       bg: 'rgba(245,158,11,0.10)',
     },
     {
-      icon: '🔑',
+      icon: 'https://images.unsplash.com/photo-1608501078713-8e445a709b39?auto=format&fit=crop&w=120&q=80',
       title: 'Secrets Management',
       desc: 'Detect and rotate leaked secrets across repos, pipelines, and cloud environments automatically.',
       bg: 'rgba(20,184,166,0.10)',
@@ -133,7 +133,7 @@ export class DevSecOpsComponent implements OnInit {
       labelColor: '#4ade80',
     },
     {
-      icon: '🔨',
+      icon: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=120&q=80',
       label: 'Build & SAST',
       pct: 100,
       status: 'Passed',

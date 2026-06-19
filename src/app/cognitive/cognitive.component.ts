@@ -58,7 +58,7 @@ export class CognitiveDetailComponent implements OnInit, OnDestroy {
   // ── Core capabilities ──
   capabilities = [
     {
-      icon: '🗣️',
+      icon: 'https://images.unsplash.com/photo-1516280440614-37939bbacd6a?auto=format&fit=crop&w=120&q=80',
       title: 'Natural Language Processing',
       desc: 'Extract meaning, sentiment, and intent from unstructured text and speech with state-of-the-art NLP models.',
       tags: ['Text Analysis', 'Sentiment', 'NER'],
@@ -93,7 +93,7 @@ export class CognitiveDetailComponent implements OnInit, OnDestroy {
       bg: 'rgba(99,102,241,0.12)',
     },
     {
-      icon: '⚙️',
+      icon: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=120&q=80',
       title: 'Intelligent Automation',
       desc: 'Combine AI with RPA to automate complex workflows that traditionally require human judgment.',
       tags: ['RPA', 'Decision AI', 'Workflow'],

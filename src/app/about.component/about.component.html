@@ -353,11 +353,15 @@
       <!-- Cards -->
       <div class="space-y-5">
         <div *ngFor="let mv of missionVision"
-          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] cursor-default relative overflow-hidden">
-          <ng-container *ngIf="isUrl(mv.icon)">
-            <img [src]="mv.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
-          </ng-container>
+          class="group rounded-2xl p-6 shadow-md hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] cursor-default relative overflow-hidden">
+        <ng-container *ngIf="isUrl(mv.icon)">
+          <img [src]="mv.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(mv.icon)" class="absolute inset-0 bg-white border-2 border-gray-100 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                    
           <div class="flex items-start gap-4">
             <div *ngIf="!isUrl(mv.icon)"
               class="w-12 h-12 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
@@ -370,7 +374,9 @@
               <p class="text-sm leading-relaxed" [ngClass]="isUrl(mv.icon) ? 'text-gray-200' : 'text-gray-600'">{{ mv.description }}</p>
             </div>
           </div>
+        
         </div>
+      </div>
       </div>
 
     </div>
@@ -428,12 +434,16 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let tech of technologies; let i = index"
-          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 animate-fade-in-up cursor-default relative overflow-hidden"
+          class="group rounded-2xl p-6 shadow-md hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 animate-fade-in-up cursor-default relative overflow-hidden"
           [style.animation-delay.s]="i * 0.1">
-          <ng-container *ngIf="isUrl(tech.icon)">
-            <img [src]="tech.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
-          </ng-container>
+        <ng-container *ngIf="isUrl(tech.icon)">
+          <img [src]="tech.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(tech.icon)" class="absolute inset-0 bg-white border-2 border-gray-100 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                    
           <div class="flex items-center gap-3 mb-4">
             <div *ngIf="!isUrl(tech.icon)" class="w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
               <img *ngIf="isUrl(tech.icon); else rawTechIcon" [src]="tech.icon" class="w-full h-full object-cover" alt="" />
@@ -442,7 +452,9 @@
             <h3 class="text-lg font-bold transition-colors duration-300" [ngClass]="isUrl(tech.icon) ? 'text-white' : 'text-gray-900 group-hover:text-[#533AFD]'">{{ tech.category }}</h3>
           </div>
           <p class="text-sm leading-relaxed" [ngClass]="isUrl(tech.icon) ? 'text-gray-200' : 'text-gray-600'">{{ tech.description }}</p>
+        
         </div>
+      </div>
       </div>
     </div>
   </div>

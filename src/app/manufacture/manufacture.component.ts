@@ -206,9 +206,9 @@ export class ManufacturingComponent implements OnInit {
   isVisible = false;
 
   trustBadges = [
-    { icon: '🏭', label: 'Industry 4.0 Ready' },
+    { icon: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=120&q=80', label: 'Industry 4.0 Ready' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'ISO 9001 Certified' },
-    { icon: '⚙️', label: 'IIoT Enabled' },
+    { icon: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=120&q=80', label: 'IIoT Enabled' },
     { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', label: 'AI-Powered Automation' },
     { icon: '♻️', label: 'Sustainable Manufacturing' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
@@ -229,7 +229,7 @@ export class ManufacturingComponent implements OnInit {
       desc: 'Older equipment and siloed IT systems hinder real-time visibility and slow down decision-making across the shop floor.',
     },
     {
-      icon: '📉',
+      icon: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&q=80',
       title: 'Unplanned Downtime',
       desc: 'Reactive maintenance strategies lead to costly production halts, missed delivery windows, and reduced throughput.',
     },
@@ -335,7 +335,7 @@ export class ManufacturingComponent implements OnInit {
 
   whyBlute = [
     {
-      icon: '🏭',
+      icon: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=120&q=80',
       title: 'Deep Manufacturing Domain Expertise',
       desc: 'Years of experience digitising discrete, process, and hybrid manufacturing environments across industries.',
     },

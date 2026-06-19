@@ -72,9 +72,13 @@
         [style.transition-delay]="i * 0.09 + 's'" (mouseenter)="s.hov = true" (mouseleave)="s.hov = false"
         [class.active]="s.hov">
         <ng-container *ngIf="isUrl(s.icon)">
-          <img [src]="s.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
+          <img [src]="s.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
         </ng-container>
+        <div *ngIf="!isUrl(s.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                  
         <div class="svc-top" [style.background]="s.bg">
           <img [src]="s.img" [alt]="s.title" class="svc-img" />
           <div *ngIf="!isUrl(s.icon)" class="svc-icon-pill" [style.background]="s.iconBg">{{ s.icon }}</div>
@@ -83,6 +87,8 @@
           <h3 [ngClass]="isUrl(s.icon) ? 'text-white' : ''">{{ s.title }}</h3>
           <p [ngClass]="isUrl(s.icon) ? 'text-gray-200' : ''">{{ s.desc }}</p>
           <a class="svc-cta" [style.color]="s.color">Learn more →</a>
+        </div>
+      
         </div>
       </div>
     </div>
@@ -112,16 +118,22 @@
       <div class="why-list">
         <div class="why-row relative overflow-hidden" *ngFor="let w of whyItems; let i = index" [@staggerUp]="vis ? 'in' : 'out'"
           [style.transition-delay]="i * 0.1 + 's'">
-          <ng-container *ngIf="isUrl(w.icon)">
-            <img [src]="w.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
-          </ng-container>
+        <ng-container *ngIf="isUrl(w.icon)">
+          <img [src]="w.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(w.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                    
           <div *ngIf="!isUrl(w.icon)" class="why-ico" [style.background]="w.bg">{{ w.icon }}</div>
           <div>
             <b [ngClass]="isUrl(w.icon) ? 'text-white' : ''">{{ w.title }}</b>
             <p [ngClass]="isUrl(w.icon) ? 'text-gray-200' : ''">{{ w.desc }}</p>
           </div>
+        
         </div>
+      </div>
       </div>
     </div>
   </div>

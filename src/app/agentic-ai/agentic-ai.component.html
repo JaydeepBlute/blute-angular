@@ -173,10 +173,14 @@
       <h2 @fadeInUp class="aai-caps__h2">Core Agentic AI Capabilities</h2>
       <div @staggerCards class="aai-caps__grid">
         <div class="aai-cap-card card-item relative overflow-hidden" *ngFor="let c of capabilities">
-          <ng-container *ngIf="isUrl(c.icon)">
-            <img [src]="c.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
-          </ng-container>
+        <ng-container *ngIf="isUrl(c.icon)">
+          <img [src]="c.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(c.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                    
           <div *ngIf="!isUrl(c.icon)" class="aai-cap-card__icon-wrap" [style.background]="c.bg">
             <span class="aai-cap-card__icon">
               <ng-container *ngIf="isUrl(c.icon); else rawCIcon">
@@ -190,7 +194,9 @@
           <div class="aai-cap-card__tags">
             <span class="aai-tag" *ngFor="let t of c.tags">{{ t }}</span>
           </div>
+        
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -311,10 +317,14 @@
       <h2 @fadeInUp class="aai-usecases__h2">Agentic AI Across Industries</h2>
       <div @staggerCards class="aai-usecases__grid">
         <div class="aai-uc-card card-item relative overflow-hidden" *ngFor="let u of useCases">
-          <ng-container *ngIf="isUrl(u.icon)">
-            <img [src]="u.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
-          </ng-container>
+        <ng-container *ngIf="isUrl(u.icon)">
+          <img [src]="u.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(u.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                    
           <div class="aai-uc-card__img-wrap" *ngIf="!isUrl(u.icon)">
             <img [src]="u.img" [alt]="u.title" class="aai-uc-card__img" />
             <div class="aai-uc-card__img-overlay"></div>
@@ -330,7 +340,9 @@
             <h4 class="aai-uc-card__title" [ngClass]="isUrl(u.icon) ? 'text-white' : 'text-gray-900 group-hover:text-[#533AFD]'">{{ u.title }}</h4>
             <p class="aai-uc-card__desc" [ngClass]="isUrl(u.icon) ? 'text-gray-200' : 'text-gray-600'">{{ u.desc }}</p>
           </div>
+        
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -342,10 +354,14 @@
       <h2 @fadeInUp class="aai-process__h2">Our Agentic AI Delivery Process</h2>
       <div @staggerCards class="aai-process__steps">
         <div class="aai-step card-item relative overflow-hidden" *ngFor="let s of processSteps; let i = index">
-          <ng-container *ngIf="isUrl(s.icon)">
-            <img [src]="s.icon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 -z-10" alt="" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent -z-10"></div>
-          </ng-container>
+        <ng-container *ngIf="isUrl(s.icon)">
+          <img [src]="s.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+        </ng-container>
+        <div *ngIf="!isUrl(s.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
+        
+        <div class="relative z-20 flex flex-col h-full justify-between">
+                    
           <div class="aai-step__num" [ngClass]="isUrl(s.icon) ? 'text-white/60' : ''">{{ (i + 1).toString().padStart(2,'0') }}</div>
           <div class="aai-step__icon" *ngIf="!isUrl(s.icon)">
             <ng-container *ngIf="isUrl(s.icon); else rawSIcon">
@@ -356,7 +372,9 @@
           <h4 class="aai-step__title" [ngClass]="isUrl(s.icon) ? 'text-white' : 'text-gray-900 group-hover:text-[#533AFD]'">{{ s.title }}</h4>
           <p class="aai-step__desc" [ngClass]="isUrl(s.icon) ? 'text-gray-200' : 'text-gray-600'">{{ s.desc }}</p>
           <div class="aai-step__connector" *ngIf="i < processSteps.length - 1 && !isUrl(s.icon)"></div>
+        
         </div>
+      </div>
       </div>
     </div>
   </section>
