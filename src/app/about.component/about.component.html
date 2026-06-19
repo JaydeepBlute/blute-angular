@@ -2,12 +2,12 @@
 
 
 <!-- ===== HERO ===== -->
-<div class="relative w-full bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50 pt-16 pb-20 overflow-hidden">
+<div class="relative w-full bg-gradient-to-br from-slate-50 via-blue-50 to-[#F8F7FF] pt-16 pb-20 overflow-hidden">
 
   <!-- Animated blobs -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl animate-pulse"
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#533AFD]/15 rounded-full blur-3xl animate-pulse"
       style="animation-delay:1s"></div>
     <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-200/20 rounded-full blur-2xl animate-bounce"
       style="animation-duration:3s"></div>
@@ -19,8 +19,8 @@
       <!-- ===== LEFT: Text ===== -->
       <div class="space-y-6">
         <div
-          class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-teal-200 shadow-sm">
-          <svg class="w-4 h-4 text-teal-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-[#533AFD]/20 shadow-sm">
+          <svg class="w-4 h-4 text-[#533AFD] animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
           </svg>
@@ -29,7 +29,7 @@
 
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
           About
-          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600">
+          <span class="block text-transparent bg-clip-text bg-[#0A2540]">
             Blute Technologies
           </span>
         </h1>
@@ -42,14 +42,14 @@
 
         <div class="flex flex-wrap gap-4">
           <button (click)="navigateToServices()"
-            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-bold shadow-lg shadow-teal-500/30 hover:shadow-teal-500/50 hover:-translate-y-0.5 transition-all duration-200">
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r [#533AFD] hover:bg-[#4430D4] text-white font-bold shadow-lg shadow-[#533AFD]/30 hover:shadow-[#533AFD]/50 hover:-translate-y-0.5 transition-all duration-200">
             Explore Services
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </button>
           <a href="/contact"
-            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-teal-200 text-teal-700 font-bold hover:border-teal-400 hover:bg-teal-50 hover:-translate-y-0.5 transition-all duration-200">
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-[#533AFD]/20 text-[#533AFD] font-bold hover:border-[#533AFD]/60 hover:bg-[#F0EDFF] hover:-translate-y-0.5 transition-all duration-200">
             Talk to Us
           </a>
         </div>
@@ -57,14 +57,14 @@
 
       <!-- ===== RIGHT: Branded Animated Video ===== -->
       <div class="relative hidden lg:block">
-        <div class="absolute -top-10 -right-10 w-72 h-72 bg-teal-400/20 rounded-full blur-3xl animate-pulse"
+        <div class="absolute -top-10 -right-10 w-72 h-72 bg-[#533AFD]/15 rounded-full blur-3xl animate-pulse"
           style="animation-duration:4s"></div>
         <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl animate-pulse"
           style="animation-duration:5s"></div>
 
         <div class="relative">
           <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white
-                      hover:shadow-teal-500/50 transition-all duration-500 transform hover:scale-[1.03] hover:rotate-1"
+                      hover:shadow-[#533AFD]/50 transition-all duration-500 transform hover:scale-[1.03] hover:rotate-1"
             style="height:420px; background:#020f23;">
 
             <!-- Particle canvas -->
@@ -199,7 +199,7 @@
 </div>
 
   <!-- ===== STATS ===== -->
-  <div class="bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600">
+  <div class="bg-[#0A2540]">
     <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-white text-center">
       <div *ngFor="let stat of stats" class="flex flex-col items-center group">
         <span class="text-4xl font-extrabold group-hover:scale-110 transition-transform duration-300">{{ stat.value }}</span>
@@ -215,7 +215,7 @@
 
       <!-- Left: Narrative -->
       <div>
-        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Journey</span>
+        <span class="text-[#533AFD] font-semibold text-sm uppercase tracking-wider">Our Journey</span>
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6 leading-tight">
           Built on Experience,<br>Driven by Innovation
         </h2>
@@ -233,7 +233,7 @@
         <!-- Timeline milestones -->
         <div class="space-y-5">
           <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg shadow-teal-500/25">
+            <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center shadow-lg shadow-[#533AFD]/25">
               <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
               </svg>
@@ -284,9 +284,9 @@
 
       <!-- Right: Highlight boxes -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div class="group relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-7 border border-teal-100 hover:border-teal-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-default">
-          <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-          <div class="text-4xl font-black text-teal-600 mb-1">8+</div>
+        <div class="group relative bg-gradient-to-br from-[#F0EDFF] to-[#F8F7FF] rounded-2xl p-7 border border-[#533AFD]/10 hover:border-[#533AFD]/40 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-default">
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#533AFD] to-[#F72DF3] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+          <div class="text-4xl font-black text-[#533AFD] mb-1">8+</div>
           <div class="text-sm font-bold text-gray-700 mb-2">Years of Operation</div>
           <p class="text-xs text-gray-500 leading-relaxed">A decade of honing our craft and delivering enterprise-grade solutions across diverse industries.</p>
         </div>
@@ -305,7 +305,7 @@
           <p class="text-xs text-gray-500 leading-relaxed">Healthcare, BFSI, Retail, Manufacturing, Education, Government — diverse expertise in every vertical.</p>
         </div>
 
-        <div class="group relative bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-7 border border-emerald-100 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-default">
+        <div class="group relative bg-gradient-to-br from-emerald-50 to-[#F8F7FF] rounded-2xl p-7 border border-emerald-100 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden cursor-default">
           <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
           <div class="text-4xl font-black text-emerald-600 mb-1">4</div>
           <div class="text-sm font-bold text-gray-700 mb-2">Global Regions</div>
@@ -322,7 +322,7 @@
 <div class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Purpose</span>
+      <span class="text-[#533AFD] font-semibold text-sm uppercase tracking-wider">Our Purpose</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2 animate-fade-in-up">Mission &amp; Vision</h2>
       <p class="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay:0.1s">
         We help enterprises accelerate technology adoption and orchestrate ongoing innovation.
@@ -355,14 +355,14 @@
       <!-- Cards -->
       <div class="space-y-5">
         <div *ngFor="let mv of missionVision"
-          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-teal-500 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] cursor-default">
+          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] cursor-default">
           <div class="flex items-start gap-4">
             <div
-              class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-teal-500/30">
+              class="w-12 h-12 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30">
               {{ mv.icon }}
             </div>
             <div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors duration-300">
+              <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#533AFD] transition-colors duration-300">
                 {{ mv.title }}</h3>
               <p class="text-gray-600 text-sm leading-relaxed">{{ mv.description }}</p>
             </div>
@@ -378,7 +378,7 @@
   <div class="py-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
-        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Why Blute</span>
+        <span class="text-[#533AFD] font-semibold text-sm uppercase tracking-wider">Why Blute</span>
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Why Choose Us</h2>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
           Early adoption of emerging technologies to keep clients ahead of the curve.
@@ -388,7 +388,7 @@
       <!-- Badges row -->
       <div class="flex flex-wrap gap-3 justify-center mb-12">
         <span *ngFor="let badge of whyBadges"
-          class="px-5 py-2 bg-gradient-to-r from-teal-50 to-cyan-50 text-teal-700 rounded-xl text-sm font-semibold border border-teal-100 hover:bg-teal-100 hover:scale-105 transition-all duration-300 cursor-default">
+          class="px-5 py-2 bg-gradient-to-r from-[#F0EDFF] to-[#F8F7FF] text-[#533AFD] rounded-xl text-sm font-semibold border border-[#533AFD]/10 hover:bg-[#E8E4FF] hover:scale-105 transition-all duration-300 cursor-default">
           ✓ {{ badge }}
         </span>
       </div>
@@ -397,7 +397,7 @@
         <div *ngFor="let benefit of benefits; let i = index"
           class="text-center group animate-fade-in-up"
           [style.animation-delay.s]="i * 0.1">
-          <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl text-white mb-4 shadow-lg shadow-teal-500/30 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-teal-500/50">
+          <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl text-white mb-4 shadow-lg shadow-[#533AFD]/30 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-[#533AFD]/50">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path *ngIf="benefit.icon === 'globe'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               <path *ngIf="benefit.icon === 'shield'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
@@ -405,7 +405,7 @@
               <path *ngIf="benefit.icon === 'support'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors duration-300">{{ benefit.title }}</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#533AFD] transition-colors duration-300">{{ benefit.title }}</h3>
           <p class="text-gray-600 text-sm leading-relaxed">{{ benefit.description }}</p>
         </div>
       </div>
@@ -416,7 +416,7 @@
   <div class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
-        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Expertise</span>
+        <span class="text-[#533AFD] font-semibold text-sm uppercase tracking-wider">Our Expertise</span>
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Technology Excellence</h2>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
           Comprehensive tech expertise across cutting-edge domains.
@@ -425,13 +425,13 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let tech of technologies; let i = index"
-          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-teal-500 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 animate-fade-in-up cursor-default"
+          class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 animate-fade-in-up cursor-default"
           [style.animation-delay.s]="i * 0.1">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-teal-500/30">
+            <div class="w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30">
               {{ tech.icon }}
             </div>
-            <h3 class="text-lg font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-300">{{ tech.category }}</h3>
+            <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#533AFD] transition-colors duration-300">{{ tech.category }}</h3>
           </div>
           <p class="text-gray-600 text-sm leading-relaxed">{{ tech.description }}</p>
         </div>
@@ -444,7 +444,7 @@
 <div class="py-20 bg-gradient-to-b from-gray-50 to-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Process</span>
+      <span class="text-[#533AFD] font-semibold text-sm uppercase tracking-wider">Our Process</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">How We Work</h2>
       <p class="text-lg text-gray-600 max-w-3xl mx-auto">
         A proven, structured approach that transforms ideas into enterprise-grade solutions — on time, on spec, and built to last.
@@ -456,15 +456,15 @@
       <div class="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-teal-200 via-cyan-300 to-blue-200 z-0"></div>
 
       <!-- Step 1 -->
-      <div class="group relative bg-white rounded-2xl p-7 border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center z-10 overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-        <div class="relative w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-teal-500/30 group-hover:scale-110 transition-transform duration-300">
+      <div class="group relative bg-white rounded-2xl p-7 border border-gray-100 hover:border-[#533AFD]/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center z-10 overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#533AFD] to-[#F72DF3] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+        <div class="relative w-16 h-16 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-[#533AFD]/30 group-hover:scale-110 transition-transform duration-300">
           <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
           </svg>
-          <span class="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-teal-500 rounded-full text-xs font-black text-teal-600 flex items-center justify-center">1</span>
+          <span class="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-[#533AFD] rounded-full text-xs font-black text-[#533AFD] flex items-center justify-center">1</span>
         </div>
-        <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-teal-600 transition-colors">Discover</h3>
+        <h3 class="font-bold text-gray-900 text-base mb-2 group-hover:text-[#533AFD] transition-colors">Discover</h3>
         <p class="text-sm text-gray-500 leading-relaxed">Deep-dive workshops to understand your business goals, pain points, users, and constraints before a single line of code is written.</p>
       </div>
 
@@ -516,7 +516,7 @@
 <div class="py-20 bg-gradient-to-b from-gray-50 to-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16">
-      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Trusted By</span>
+      <span class="text-[#533AFD] font-semibold text-sm uppercase tracking-wider">Trusted By</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Our Clients</h2>
       <p class="text-lg text-gray-600 max-w-3xl mx-auto">
         For over 8 years, Blute Technologies has been helping companies build solid software foundations.
@@ -526,7 +526,7 @@
     <!-- Logo Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
       <div *ngFor="let client of clients" class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100
-               hover:border-teal-500 hover:shadow-xl transition-all duration-300
+               hover:border-[#533AFD] hover:shadow-xl transition-all duration-300
                transform hover:-translate-y-2 group">
         <img [src]="client.logo" [alt]="client.name"
           class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110" loading="lazy">
@@ -540,7 +540,7 @@
 <div class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14">
-      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Where We Operate</span>
+      <span class="text-[#533AFD] font-semibold text-sm uppercase tracking-wider">Where We Operate</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Our Offices</h2>
       <p class="text-lg text-gray-600 max-w-3xl mx-auto">
         Headquartered in Bengaluru with strategic partnerships across the globe — always close to where our clients need us.
@@ -549,18 +549,18 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- India HQ -->
-      <div class="group relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-7 border border-teal-100 hover:border-teal-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-        <div class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-teal-500/25 group-hover:scale-110 transition-transform duration-300">
+      <div class="group relative bg-gradient-to-br from-[#F0EDFF] to-[#F8F7FF] rounded-2xl p-7 border border-[#533AFD]/10 hover:border-[#533AFD]/40 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#533AFD] to-[#F72DF3] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+        <div class="w-12 h-12 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#533AFD]/25 group-hover:scale-110 transition-transform duration-300">
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
         </div>
-        <div class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-1">Headquarters</div>
+        <div class="text-xs font-bold text-[#533AFD] uppercase tracking-widest mb-1">Headquarters</div>
         <h3 class="font-bold text-gray-900 text-lg mb-2">🇮🇳 Bengaluru, India</h3>
         <p class="text-sm text-gray-500 leading-relaxed">ESCN421, 40th Cross Rd, 4th Block, Jayanagar, Bangalore – 560 070</p>
-        <a href="tel:+919980268617" class="mt-3 block text-xs text-teal-600 font-semibold hover:underline">+91 99802 68617</a>
+        <a href="tel:+919980268617" class="mt-3 block text-xs text-[#533AFD] font-semibold hover:underline">+91 99802 68617</a>
       </div>
 
       <!-- India Office 2 -->
@@ -613,17 +613,17 @@
     style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
            linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
            background-size: 40px 40px;"></div>
-  <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[#533AFD]/10 rounded-full blur-3xl pointer-events-none"></div>
   <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
   <div class="relative max-w-4xl mx-auto px-6 text-center">
-    <div class="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-5 py-2 mb-8">
-      <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-      <span class="text-teal-300 text-sm font-semibold tracking-widest uppercase">Let's Build Together</span>
+    <div class="inline-flex items-center gap-2 bg-[#533AFD]/10 border border-[#533AFD]/20 rounded-full px-5 py-2 mb-8">
+      <span class="w-2 h-2 rounded-full bg-[#533AFD] animate-pulse"></span>
+      <span class="text-[#A594FF] text-sm font-semibold tracking-widest uppercase">Let's Build Together</span>
     </div>
     <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
       Ready to Accelerate<br>
-      <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+      <span class="bg-gradient-to-r from-[#533AFD] via-[#A594FF] to-[#F72DF3] bg-clip-text text-transparent">
         Your Digital Future?
       </span>
     </h2>
@@ -632,7 +632,7 @@
     </p>
     <div class="flex flex-wrap justify-center gap-4">
       <a href="/contact"
-        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 transition-all duration-200">
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r [#533AFD] hover:bg-[#4430D4] text-white font-bold shadow-lg shadow-[#533AFD]/25 hover:shadow-[#533AFD]/40 hover:-translate-y-0.5 transition-all duration-200">
         Start a Conversation
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>

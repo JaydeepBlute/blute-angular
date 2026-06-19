@@ -40,7 +40,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Ecosystem for',
       subtitle: 'Transformation',
-      description: 'Promoting Entrepreneurship at Rural and Urban areas with cutting-edge incubation models, ecosystem orchestration, and digital accelerators.',
+      description: 'Digital ecosystems for governments and enterprises — smart city platforms, rural broadband, and incubation accelerators. 8 ecosystems delivered.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80',
       serviceImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
@@ -49,7 +49,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'GIS & Geospatial',
       subtitle: 'Solutions',
-      description: 'Unlock enterprise-grade location intelligence with custom digital maps, route optimization, geospatial database design, and real-time GIS analytics.',
+      description: 'Precision at every coordinate. Custom GIS platforms powering logistics, agriculture, and urban planning — real-time location intelligence at enterprise scale.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1920&q=80',
       serviceImage: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800&q=80',
@@ -58,7 +58,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Build Your',
       subtitle: 'Dream Team',
-      description: 'We are a comprehensive resource outsourcing partner, empowering companies with top engineering talent, agile developers, and dedicated project squads.',
+      description: 'Your engineering team, on demand. Vetted senior engineers and dedicated project squads embedded in your workflow — ready in 72 hours.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80',
       serviceImage: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80',
@@ -67,7 +67,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Internet of',
       subtitle: 'Things',
-      description: 'Drawing upon our experience, diverse talent pool, and deep embedded hardware integration knowledge to build connected smart ecosystems.',
+      description: 'Connect everything. IoT platforms from sensor to dashboard — smart factories, connected health, and industrial automation. Trusted by Mitsubishi and global manufacturers.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1920&q=80',
       serviceImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
@@ -76,7 +76,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Mobile App',
       subtitle: 'Development',
-      description: 'Our skilled professionals deliver high performance iOS & Android apps using React Native, Flutter, Swift, and Kotlin with breathtaking UX/UI design.',
+      description: 'From concept to App Store in 8 weeks. Enterprise-grade iOS & Android — React Native, Flutter, Swift, Kotlin. 50+ apps shipped across 3 continents.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&q=80',
       serviceImage: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80',
@@ -85,7 +85,7 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     {
       title: 'Product',
       subtitle: 'Engineering',
-      description: 'Leveraging modern web, mobile and cloud architectures to design, prototype, and build next-generation products that scale infinitely.',
+      description: 'Ship products that scale to millions. End-to-end engineering from wireframe to production — one accountable team, zero handoffs, on time.',
       links: [],
       bgImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
       serviceImage: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80',
