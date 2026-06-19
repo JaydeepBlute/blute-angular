@@ -20,6 +20,24 @@
       <div class="absolute inset-0 bg-gradient-to-r from-[#0A2540]/90 via-[#0A2540]/80 to-[#0A2540]/95"></div>
     </div>
 
+    <!-- Living Background Waves (Dynamic Interactive Canvas) -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+      <canvas id="hero-waves-canvas" class="w-full h-full block"></canvas>
+    </div>
+
+    <!-- Mouse-following gradient orb (Stripe-style) -->
+    <div id="hero-orb" class="absolute pointer-events-none z-[2]"
+      style="width:700px; height:700px; top:0; left:0; border-radius:50%;
+             background: radial-gradient(ellipse at center, rgba(83,58,253,0.20) 0%, rgba(247,45,243,0.06) 45%, transparent 70%);
+             transition: transform 0.18s cubic-bezier(0.23,1,0.32,1);
+             will-change: transform;">
+    </div>
+
+    <!-- Particle antigravity canvas -->
+    <canvas id="hero-particles-canvas"
+      class="absolute inset-0 w-full h-full pointer-events-none z-[2]">
+    </canvas>
+
     <!-- Decorative gradient halos (behind hero art only — never content bg) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
       <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full"

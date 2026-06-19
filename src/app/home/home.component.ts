@@ -1,5 +1,5 @@
 // home.component.ts - COMPLETE FILE - REPLACE EVERYTHING
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
@@ -34,7 +34,21 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
   private contentInterval: ReturnType<typeof setInterval> | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private gsapCtx: any;
+  private waveCleanup: (() => void) | undefined;
   marqueeClients: Client[] = [];
+
+  // ── Antigravity particle system ────────────────────────────────
+  private pCanvas: HTMLCanvasElement | null = null;
+  private pCtx:    CanvasRenderingContext2D | null = null;
+  private pOrb:    HTMLElement | null = null;
+  private particles: {
+    x: number; y: number; homeX: number; homeY: number;
+    vx: number; vy: number; size: number; color: string;
+  }[] = [];
+  private mouse = { x: -9999, y: -9999 };
+  private pRaf  = 0;
+  private pDpr  = 1;
+  private pRo:   ResizeObserver | null = null;
 
   content: Content[] = [
     {
@@ -119,7 +133,12 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     { src: 'assets/images/clients/XUBERANT.jpg',                      alt: 'Xuberant' },
     { src: 'assets/images/clients/Zeiss.png',                         alt: 'Zeiss' },
   ];
-  constructor(private router: Router, private titleService: Title, private metaService: Meta) {}
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private metaService: Meta,
+    private ngZone: NgZone,
+  ) {}
 
   get currentContent(): Content {
     return this.content[this.currentIndex];
@@ -147,7 +166,75 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.initGSAPAnimations();
+    this.waveCleanup = this.initHeroWaves();
+    this.ngZone.runOutsideAngular(() => this.initParticles());
   }
+
+  initHeroWaves(): (() => void) | undefined {
+    if (typeof window === 'undefined') return;
+    const canvas = document.getElementById('hero-waves-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let width = (canvas.width = canvas.offsetWidth);
+    let height = (canvas.height = canvas.offsetHeight);
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    };
+    window.addEventListener('resize', handleResize);
+
+    let count = 0;
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+      count += 0.003; // Ultra slow, fluid speed matching Stripe premium wave
+
+      const linesCount = 38; // Dense layered lines matching the user's screenshot
+      for (let i = 0; i < linesCount; i++) {
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+        
+        const opacity = (1 - (i / linesCount)) * 0.28;
+        const grad = ctx.createLinearGradient(0, 0, width, 0);
+        grad.addColorStop(0, `rgba(247, 45, 243, ${opacity * 0.4})`); // Magenta
+        grad.addColorStop(0.4, `rgba(83, 58, 253, ${opacity})`);   // Electric Iris
+        grad.addColorStop(0.8, `rgba(0, 133, 255, ${opacity * 0.35})`);  // Electric Blue
+        grad.addColorStop(1, `rgba(247, 45, 243, ${opacity * 0.1})`);
+        
+        ctx.strokeStyle = grad;
+
+        const amplitude = 35 + i * 2.8;
+
+        for (let x = 0; x < width; x += 10) {
+          // Complex overlapping wave equations for natural fluid line dispersion
+          const y =
+            height / 1.7 +
+            Math.sin(x * 0.0018 + count + i * 0.062) * amplitude * Math.cos(count * 0.18 + i * 0.008);
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        ctx.stroke();
+      }
+
+      animationFrameId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }
+
+
 
   initGSAPAnimations(): void {
     if (typeof window === 'undefined') return;
@@ -223,9 +310,132 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+  // ── Particle system ─────────────────────────────────────────────
+
+  private onParticleMouseMove = (e: MouseEvent) => {
+    const rect = this.pCanvas!.getBoundingClientRect();
+    this.mouse.x = e.clientX - rect.left;
+    this.mouse.y = e.clientY - rect.top;
+    if (this.pOrb) {
+      this.pOrb.style.transform =
+        `translate(${this.mouse.x - 350}px, ${this.mouse.y - 350}px)`;
+    }
+  };
+
+  private onParticleMouseLeave = () => {
+    this.mouse.x = -9999;
+    this.mouse.y = -9999;
+  };
+
+  private onParticleTouchMove = (e: TouchEvent) => {
+    const t = e.touches[0];
+    const rect = this.pCanvas!.getBoundingClientRect();
+    this.mouse.x = t.clientX - rect.left;
+    this.mouse.y = t.clientY - rect.top;
+  };
+
+  private sizeParticleCanvas(): void {
+    if (!this.pCanvas || !this.pCtx) return;
+    this.pDpr = window.devicePixelRatio || 1;
+    const { width, height } = this.pCanvas.getBoundingClientRect();
+    this.pCanvas.width  = width  * this.pDpr;
+    this.pCanvas.height = height * this.pDpr;
+    this.pCtx.setTransform(this.pDpr, 0, 0, this.pDpr, 0, 0);
+  }
+
+  private spawnParticles(): void {
+    if (!this.pCanvas) return;
+    const W = this.pCanvas.width  / this.pDpr;
+    const H = this.pCanvas.height / this.pDpr;
+    const count = Math.max(50, Math.floor((W * H) / 7000));
+    const PALETTE: [number, number, number][] = [
+      [255, 255, 255],
+      [165, 148, 255],
+      [247,  45, 243],
+      [ 83,  58, 253],
+      [200, 220, 255],
+    ];
+    this.particles = Array.from({ length: count }, () => {
+      const x = Math.random() * W;
+      const y = Math.random() * H;
+      const [r, g, b] = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+      const a = 0.18 + Math.random() * 0.50;
+      return {
+        x, y, homeX: x, homeY: y, vx: 0, vy: 0,
+        size: 0.7 + Math.random() * 2.0,
+        color: `rgba(${r},${g},${b},${a})`,
+      };
+    });
+  }
+
+  private particleLoop = (): void => {
+    this.pRaf = requestAnimationFrame(this.particleLoop);
+    if (!this.pCtx || !this.pCanvas) return;
+    const ctx = this.pCtx;
+    const W   = this.pCanvas.width  / this.pDpr;
+    const H   = this.pCanvas.height / this.pDpr;
+    ctx.clearRect(0, 0, W, H);
+    const REPEL_R2 = 130 * 130;
+    const REPEL_F  = 3800;
+    const SPRING   = 0.036;
+    const DAMP     = 0.86;
+    const mx = this.mouse.x;
+    const my = this.mouse.y;
+    for (const p of this.particles) {
+      p.vx += (p.homeX - p.x) * SPRING;
+      p.vy += (p.homeY - p.y) * SPRING;
+      const dx = p.x - mx;
+      const dy = p.y - my;
+      const d2 = dx * dx + dy * dy;
+      if (d2 < REPEL_R2) {
+        const d = Math.sqrt(d2) + 0.1;
+        const f = REPEL_F / (d2 + 40);
+        p.vx += (dx / d) * f;
+        p.vy += (dy / d) * f;
+      }
+      p.vx *= DAMP; p.vy *= DAMP;
+      p.x  += p.vx; p.y  += p.vy;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, 6.2832);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+    }
+  };
+
+  initParticles(): void {
+    if (typeof window === 'undefined') return;
+    this.pCanvas = document.getElementById('hero-particles-canvas') as HTMLCanvasElement;
+    this.pOrb    = document.getElementById('hero-orb');
+    if (!this.pCanvas) return;
+    const ctx = this.pCanvas.getContext('2d');
+    if (!ctx) return;
+    this.pCtx = ctx;
+    this.sizeParticleCanvas();
+    this.spawnParticles();
+    const hero = this.pCanvas.closest('section')!;
+    hero.addEventListener('mousemove',  this.onParticleMouseMove);
+    hero.addEventListener('mouseleave', this.onParticleMouseLeave);
+    hero.addEventListener('touchmove',  this.onParticleTouchMove, { passive: true });
+    this.pRo = new ResizeObserver(() => {
+      this.sizeParticleCanvas();
+      this.spawnParticles();
+    });
+    this.pRo.observe(hero);
+    this.particleLoop();
+  }
+
   ngOnDestroy() {
     this.stopAutoplay();
     this.gsapCtx?.revert();
+    this.waveCleanup?.();
+    cancelAnimationFrame(this.pRaf);
+    const hero = this.pCanvas?.closest('section');
+    if (hero) {
+      hero.removeEventListener('mousemove',  this.onParticleMouseMove);
+      hero.removeEventListener('mouseleave', this.onParticleMouseLeave);
+      hero.removeEventListener('touchmove',  this.onParticleTouchMove);
+    }
+    this.pRo?.disconnect();
   }
 
   startAutoplay() {
