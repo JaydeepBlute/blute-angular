@@ -143,10 +143,12 @@
 
 
 [2026-06-19T17:00:00+05:30] Implement website UX/UI improvements & performance optimization
-└── Files: src/app/contact/contact.component.html, src/styles.css, src/app/home/home.component.html
-    ├── Choice: Implement core typography optimizations, defer block map loading, and hide slider arrows on mobile
+└── Files: src/app/contact/contact.component.html, src/styles.css, src/app/home/home.component.html, src/app/home/home.component.ts
+    ├── Choice: Implement core typography optimizations, defer block map loading, hide slider arrows on mobile, and refine mobile chat scroll triggers
     └── Changes:
         ├── contact.component.html -> Wrapped heavy google map iframe in Angular @defer (on viewport) block with an animated loading skeleton placeholder to decrease initial CPU usage and footprint
         ├── styles.css -> Added font-feature-settings: "ss01" on to body styling for fallback fonts and defined a global `.font-numeric` utility class for layout stability during statistic counters
-        └── home.component.html -> Hid hero carousel navigation arrows on mobile screen breakpoints (md:) to declutter interactive layouts
+        ├── home.component.html -> Hid hero carousel navigation arrows on mobile screen breakpoints (md:) to declutter interactive layouts and adjusted chat-section min-height styles for mobile responsiveness
+        └── home.component.ts -> Configured gsap.matchMedia() to enable ScrollTrigger pinning only on desktop screens (>=1024px); on mobile/tablet viewports, pinned scrolling is replaced by a smooth viewport-entry fade-up animation to prevent scrolling jitter and address bar conflicts
+
 

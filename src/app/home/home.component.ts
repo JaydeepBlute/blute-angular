@@ -183,21 +183,41 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
         }
       });
 
-      // Chat section — pinned scroll-scrubbed message reveal
+      // Chat section — matchMedia for different screens (pin only on desktop)
+      const mm = gsap.matchMedia();
       const chatMsgs = Array.from(document.querySelectorAll<HTMLElement>('.chat-msg'));
       if (chatMsgs.length) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: '.chat-section',
-            start: 'top top',
-            end: `+=${chatMsgs.length * 220}`,
-            pin: true,
-            scrub: 0.6,
-            anticipatePin: 1
-          }
+        // Desktop: Pin and scrub messages
+        mm.add('(min-width: 1024px)', () => {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: '.chat-section',
+              start: 'top top',
+              end: `+=${chatMsgs.length * 220}`,
+              pin: true,
+              scrub: 0.6,
+              anticipatePin: 1
+            }
+          });
+          chatMsgs.forEach((msg, i) => {
+            tl.from(msg, { opacity: 0, y: 28, duration: 0.8, ease: 'power2.out' }, i * 0.7);
+          });
         });
-        chatMsgs.forEach((msg, i) => {
-          tl.from(msg, { opacity: 0, y: 28, duration: 0.8, ease: 'power2.out' }, i * 0.7);
+
+        // Mobile/Tablet: No pinning! Smooth fade-up reveal on scroll enter
+        mm.add('(max-width: 1023px)', () => {
+          gsap.from(chatMsgs, {
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: '.chat-section',
+              start: 'top 80%',
+              once: true
+            }
+          });
         });
       }
     });
