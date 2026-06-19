@@ -5,16 +5,18 @@ import { filter } from 'rxjs/operators';
 import { FooterComponent } from './footer/footer.component';
 import { Navbar } from './navbar/navbar.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { GlobalParticlesComponent } from './global-particles/global-particles.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, Navbar, ChatbotComponent],
+  imports: [RouterOutlet, FooterComponent, Navbar, ChatbotComponent, GlobalParticlesComponent],
   template: `
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
     <app-chatbot></app-chatbot>
+    <app-global-particles></app-global-particles>
   `,
   styles: [],
 })
