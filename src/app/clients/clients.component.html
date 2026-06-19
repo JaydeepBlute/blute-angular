@@ -9,40 +9,41 @@
   <div class="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
   <div class="relative max-w-5xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-      <!-- Left -->
-      <div class="animate-fade-in-up">
-        <div
-          class="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-4 py-1.5 mb-4">
-          <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
-          <span class="text-teal-300 text-xs font-semibold tracking-widest uppercase">Trusted Partnerships</span>
+      <!-- Left: Text -->
+      <div class="lg:col-span-7 animate-fade-in-up">
+        <div class="inline-flex items-center gap-2 bg-[#533AFD]/15 border border-[#533AFD]/30 rounded-full px-4 py-1.5 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#533AFD] animate-pulse"></span>
+          <span class="text-[#A594FF] text-xs font-semibold tracking-widest uppercase">Trusted Partnerships</span>
         </div>
-        <h1 class="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3">
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4" style="font-family: var(--font-display); letter-spacing: -0.03em;">
           Clients Who Trust<br>
-          <span class="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
+          <span class="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-[#A594FF] to-blue-400">
             Blute Technologies
           </span>
         </h1>
-        <p class="text-sm text-white/50 max-w-md leading-relaxed">
-          From startups to global enterprises — we've delivered transformative digital solutions across 8+ industries
-          worldwide.
+        <p class="text-base text-white/60 leading-relaxed">
+          From fast-growing startups to global Fortune 500 enterprises — we design, build, and scale transformative digital products across 8+ industries globally.
         </p>
       </div>
 
-      <!-- Right: stats -->
-      <div class="grid grid-cols-2 gap-4 animate-fade-in-up shrink-0" style="animation-delay:0.2s">
-        <div *ngFor="let s of stats"
-          class="bg-white/5 border border-white/10 rounded-2xl p-4 text-center backdrop-blur-sm">
-          <div class="text-2xl font-black bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
-            {{ s.value }}
+      <!-- Right: Image Mockup -->
+      <div class="hidden lg:block lg:col-span-5 relative animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#533AFD]/20 to-fuchsia-500/20 rounded-2xl blur-xl opacity-60"></div>
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group" style="background: #020f23;">
+          <img src="https://images.unsplash.com/photo-1552581230-c015914626b1?w=800&q=80" alt="Client Collaboration" 
+               class="w-full h-[280px] object-cover transition-transform duration-500 group-hover:scale-105 opacity-90 filter grayscale-[10%]">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <p class="text-[10px] text-[#A594FF] uppercase tracking-widest font-semibold mb-1">Our Mission</p>
+            <h4 class="text-sm font-bold text-white">Delivering Outcomes that Drive Growth</h4>
           </div>
-          <div class="text-xs text-white/40 mt-1 font-medium">{{ s.label }}</div>
         </div>
       </div>
+
     </div>
-  </div>
-</section>
+  </div></section>
 
 
 
