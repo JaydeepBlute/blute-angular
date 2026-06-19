@@ -45,8 +45,19 @@
 /* Global font application */
 *, *::before, *::after { box-sizing: border-box; }
 html { overflow-x: hidden; }
-body {
+body, p, span, a, li, button, input, select, textarea, div, section, article, nav, footer, header {
   font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
+code, pre, .wc-line-nums, .wc-code-area, .wa-code-area, .wa-line-nums, code *, pre *, text[font-family="monospace"] {
+  font-family: 'Söhne Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace !important;
+}
+
+body {
   font-feature-settings: "ss01" on;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,6 +77,11 @@ body {
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Manrope', 'Inter', -apple-system, sans-serif;
+  --font-display: 'Manrope', 'Söhne', 'SF Pro Display', -apple-system, sans-serif;
+}
 
 @variant dark (&:where(.dark, .dark *));
 
