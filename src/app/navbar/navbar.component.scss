@@ -1,98 +1,98 @@
 @reference "tailwindcss";
 
-// ─── Host ──────────────────────────────────────────────────────────────────
+// ─── Host container ───
 :host {
   display: block;
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
 }
 
-// ─── Root nav ─────────────────────────────────────────────────────────────
-// Transparent at top of page — the dark hero shows through and the white text
-// is perfectly readable. Once the user scrolls 24px the root becomes the same
-// deep-navy as the hero but fully opaque, so it never looks out of place.
+// ─── Root Navigation (Floating Glass effect) ───
 .nav-root {
-  background: #0a1628;
-  transition:
-    background 280ms ease,
-    box-shadow 280ms ease;
+  background: rgba(10, 22, 40, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 
   &.nav-scrolled {
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+    background: rgba(10, 22, 40, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
   }
 }
 
-// ─── Brand ─────────────────────────────────────────────────────────────────
+// ─── Logo & Brand ───
 .nav-brand {
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: #ffffff;
 }
 
-// ─── Nav button ───────────────────────────────────────────────────────────
+// ─── Navigation Buttons ───
 .nav-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 8px 14px;
-  font-size: 13.5px;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
-  border-radius: 8px;
-  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 9999px;
+  border: 1px solid transparent;
   background: transparent;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 150ms, background 150ms;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  &:hover,
+  &:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
   &.active {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 }
 
-// ─── Chevron ───────────────────────────────────────────────────────────────
+// ─── Chevron ───
 .nav-chev {
-  width: 14px;
-  height: 14px;
-  color: rgba(255, 255, 255, 0.40);
-  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms;
-
-  .nav-btn:hover &,
-  .nav-btn.active & {
-    color: rgba(255, 255, 255, 0.75);
-  }
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &.open {
     transform: rotate(180deg);
+    opacity: 1;
   }
 }
 
-// ─── CTA button ───────────────────────────────────────────────────────────
+// ─── CTA Button ───
 .nav-cta {
-  padding: 9px 22px;
+  padding: 10px 22px;
   font-size: 13.5px;
   font-weight: 600;
   color: #ffffff;
   background: #533afd;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
   cursor: pointer;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.10) inset,
-              0 2px 12px rgba(83, 58, 253, 0.45);
-  transition:
-    background 150ms,
-    box-shadow 150ms,
-    transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 20px rgba(83, 58, 253, 0.3);
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
     background: #4430d4;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset,
-                0 4px 20px rgba(83, 58, 253, 0.60);
-    transform: translateY(-1px);
+    box-shadow: 0 6px 26px rgba(83, 58, 253, 0.45);
+    transform: translateY(-1.5px);
   }
 
   &:active {
@@ -100,126 +100,222 @@
   }
 }
 
-// ─── Mega-menu panel ──────────────────────────────────────────────────────
+// ─── Mega Dropdown Panels (Stripe-inspired Centered Cards) ───
 .mega-panel {
   position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 50;
-  animation: dropIn 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  pointer-events: none;
+  animation: dropIn 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto; // override animation pointer events
+}
+
+// Width bounds for different menus
+.tech-panel-width {
+  width: 720px;
+}
+.services-panel-width {
+  width: 600px;
+}
+.industries-panel-width {
+  width: 480px;
+}
+.company-panel-width {
+  width: 580px;
 }
 
 .mega-inner {
   background: #ffffff;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.dropdown-header {
-  @apply flex items-center justify-between px-8 py-3;
-  background: linear-gradient(90deg, #0a1628 0%, #1e3a8a 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.15),
+    0 10px 30px -10px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.02) inset;
+  overflow: hidden;
 }
 
 @keyframes dropIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
 }
 
-// ─── Shared mega-menu helpers ─────────────────────────────────────────────
+// ─── Dropdown Item Styles & Icon Boxes ───
 .icon-box {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.icon-box-small {
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-
-.menu-item-hover {
-  transition: transform 150ms ease;
-  &:hover { transform: translateX(2px); }
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
 }
 
 .badge-tag {
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 2px 6px;
-  border-radius: 4px;
+  letter-spacing: 0.05em;
+  padding: 1.5px 5px;
+  border-radius: 5px;
   text-transform: uppercase;
 }
 
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+// ─── Premium Mobile Overlay (Apple-style drawer) ───
+.mobile-overlay-wrapper {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: rgba(10, 22, 40, 0.65);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    .mobile-menu-container {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 }
 
-.featured-card {
-  background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
-  border-radius: 12px;
-  padding: 16px;
-}
-
-// ─── Mobile drawer ────────────────────────────────────────────────────────
-.mobile-drawer {
-  background: #0a1628;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: env(safe-area-inset-bottom, 0);
-  max-height: calc(100dvh - 68px);
+.mobile-menu-container {
+  width: 100%;
+  max-height: 100%;
   overflow-y: auto;
+  padding-bottom: 40px;
+  transform: translateY(-16px);
+  opacity: 0;
+  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mobile-section {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+.mobile-nav-group {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
 }
 
-.mobile-section-btn {
+.mobile-group-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 14px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.80);
+  padding: 12px 0;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
   background: transparent;
   border: none;
   cursor: pointer;
   text-align: left;
-  transition: color 150ms;
-
-  &:hover { color: #ffffff; }
 }
 
-.mobile-chev {
-  width: 16px;
-  height: 16px;
-  color: rgba(255, 255, 255, 0.35);
-  flex-shrink: 0;
-  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+.mobile-arrow {
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  &.open { transform: rotate(180deg); }
+  &.open {
+    transform: rotate(180deg);
+    color: #ffffff;
+  }
 }
 
-.mobile-links {
-  display: flex;
-  flex-direction: column;
-  padding: 0 8px 10px;
+.mobile-group-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
+
+  &.open {
+    max-height: 500px;
+    opacity: 1;
+  }
 }
 
-.mobile-link {
+.mobile-sublink {
   display: block;
-  padding: 9px 12px;
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.60);
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
   border-radius: 8px;
   text-decoration: none;
-  transition: color 150ms, background 150ms;
+  transition: all 200ms;
 
   &:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+// ─── Hamburger Icon Animation ───
+.hamburger-icon {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+
+    &:nth-child(1) { top: 0px; }
+    &:nth-child(2) { top: 6px; }
+    &:nth-child(3) { top: 12px; }
+  }
+
+  &.open span {
+    &:nth-child(1) {
+      top: 6px;
+      transform: rotate(135deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+      left: -60px;
+    }
+    &:nth-child(3) {
+      top: 6px;
+      transform: rotate(-135deg);
+    }
   }
 }

@@ -35,9 +35,7 @@
         </h1>
 
         <p class="text-xl text-white/70 leading-relaxed mb-8">
-          A leading IT services company — your digital transformation and outsourcing partner across all industries
-          worldwide.
-          We adopt cutting-edge technologies to empower clients and create lasting business value.
+          Since 2019, we've shipped 100+ enterprise products for clients across India, USA, Singapore &amp; Africa. 43 engineers. Zero middlemen. You work directly with the people writing your code.
         </p>
 
         <div class="flex flex-wrap gap-4">
@@ -358,8 +356,9 @@
           class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] cursor-default">
           <div class="flex items-start gap-4">
             <div
-              class="w-12 h-12 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30">
-              {{ mv.icon }}
+              class="w-12 h-12 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
+              <img *ngIf="isUrl(mv.icon); else rawMvIcon" [src]="mv.icon" class="w-full h-full object-cover" alt="" />
+              <ng-template #rawMvIcon>{{ mv.icon }}</ng-template>
             </div>
             <div>
               <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#533AFD] transition-colors duration-300">
@@ -428,8 +427,9 @@
           class="group bg-white rounded-2xl p-6 shadow-md border-2 border-gray-100 hover:border-[#533AFD] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 animate-fade-in-up cursor-default"
           [style.animation-delay.s]="i * 0.1">
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30">
-              {{ tech.icon }}
+            <div class="w-10 h-10 bg-gradient-to-br from-[#533AFD] to-[#7B5CF0] rounded-xl flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-[#533AFD]/30 overflow-hidden">
+              <img *ngIf="isUrl(tech.icon); else rawTechIcon" [src]="tech.icon" class="w-full h-full object-cover" alt="" />
+              <ng-template #rawTechIcon>{{ tech.icon }}</ng-template>
             </div>
             <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#533AFD] transition-colors duration-300">{{ tech.category }}</h3>
           </div>

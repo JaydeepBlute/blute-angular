@@ -151,6 +151,10 @@ export class AboutComponent implements OnInit {
     }, 100);
   }
 
+  isUrl(val: string): boolean {
+    return val ? (val.startsWith('http') || val.startsWith('assets/')) : false;
+  }
+
   stats: Stat[] = [
     { value: '8+', label: 'Years in Operation' },
     { value: '23+', label: 'Clients Served' },
@@ -160,19 +164,19 @@ export class AboutComponent implements OnInit {
 
   missionVision: MissionVision[] = [
     {
-      icon: '🎯',
+      icon: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=120&q=80',
       title: 'Our Vision',
       description:
         'To help enterprises accelerate adoption of latest technologies, untangle complex issues that always emerge during digital transformation, and orchestrate ongoing innovation for sustainable growth.',
     },
     {
-      icon: '🌍',
+      icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80',
       title: 'Our Mission',
       description:
         'To lead the process from ideation and concept to delivery, providing ongoing maintenance support to enhance business growth — building consumer-oriented apps or transformative enterprise-class solutions that create reliable competitive advantage.',
     },
     {
-      icon: '⚡',
+      icon: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=120&q=80',
       title: 'Our Approach',
       description:
         'We combine strategy consulting, CX design, engineering expertise, and lifecycle management to deliver world-class technology solutions that keep our clients always ahead of the curve.',
@@ -216,37 +220,37 @@ export class AboutComponent implements OnInit {
 
   technologies: Technology[] = [
     {
-      icon: '🖥️',
+      icon: 'https://images.unsplash.com/photo-1547658719-da2b81169d42?auto=format&fit=crop&w=120&q=80',
       category: 'Web Application',
       description:
         'Modern scalable web apps built with Angular and React for seamless, high-performance user experiences.',
     },
     {
-      icon: '☁️',
+      icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=120&q=80',
       category: 'Cloud',
       description:
         'Scalable cloud infrastructure, migration, CI/CD pipelines and managed services on AWS, Azure and DevOps.',
     },
     {
-      icon: '🧠',
+      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
       category: 'Cognitive Computing',
       description:
         'Intelligent decision-making systems powered by NLP, Deep Learning, and machine learning tailored to your data.',
     },
     {
-      icon: '🌐',
+      icon: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=120&q=80',
       category: 'Internet of Things',
       description:
         'Connected device ecosystems with Industrial IoT and Embedded systems for smart automation applications.',
     },
     {
-      icon: '🤖',
+      icon: 'https://images.unsplash.com/photo-1684369175833-3b24ab83fa71?auto=format&fit=crop&w=120&q=80',
       category: 'Agentic AI',
       description:
         'Autonomous AI-driven automation using AI Agents and LLMs to streamline complex business workflows.',
     },
     {
-      icon: '🎨',
+      icon: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=120&q=80',
       category: 'Customer Experience (UI/UX)',
       description:
         'User-centred design, interactive prototypes, and intuitive interfaces that delight your customers.',

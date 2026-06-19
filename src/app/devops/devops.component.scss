@@ -16,7 +16,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  background: linear-gradient(135deg, #533AFD, #F72DF3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -334,7 +334,7 @@
 .scroll-wheel {
   width: 4px;
   height: 8px;
-  background: #0ea5e9;
+  background: #533AFD;
   border-radius: 2px;
   animation: scrollWheel 1.8s ease-in-out infinite;
 }
