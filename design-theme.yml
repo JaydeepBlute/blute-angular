@@ -1,0 +1,796 @@
+# ============================================================
+# design-theme.yml
+# Stripe-Inspired Design System — Blute Technologies
+# Source references: stripe.com, designmd.run, refero.design
+# ============================================================
+
+meta:
+  name: Blute Design System
+  version: "1.0.0"
+  base: Stripe Design Language
+  philosophy: >
+    Near-monochrome canvas of cool whites and deep navy ink, interrupted only
+    by a single electric violet accent. Contrast, accessibility, and restraint
+    above all else. Every decorative gradient is a halo — never a content
+    background.
+
+# ============================================================
+# COLORS
+# ============================================================
+colors:
+
+  # --- Brand primitives (raw values — use semantic tokens in UI) ---
+  brand:
+    electric-iris:    "#533AFD"   # primary CTA — one per viewport maximum
+    cornflower:       "#635BFF"   # secondary accent / links in context
+    downriver:        "#0A2540"   # deep navy — primary text, hero ink
+    violet:           "#533AFD"
+    magenta:          "#F72DF3"
+    amber:            "#FFBB00"
+    coral:            "#FF6118"
+
+  # --- Light mode semantic tokens ---
+  light:
+    # Backgrounds
+    bg-page:          "#FFFFFF"
+    bg-surface:       "#F6F9FC"   # mist — card backgrounds, page fills
+    bg-surface-alt:   "#E5EDF5"   # slightly deeper card border / hairline
+    bg-overlay:       "rgba(255,255,255,0.85)"
+
+    # Text
+    text-primary:     "#0A2540"   # downriver — high-contrast heading ink
+    text-secondary:   "#50617A"   # steel — body, secondary headings, links
+    text-tertiary:    "#8C99AD"   # muted — captions, metadata
+    text-inverse:     "#FFFFFF"
+    text-placeholder: "#ADB5BD"
+
+    # Interactive
+    accent-primary:   "#533AFD"   # electric-iris
+    accent-hover:     "#4430D4"   # 10% darker
+    accent-active:    "#3726AA"   # 20% darker
+    accent-subtle:    "rgba(83,58,253,0.08)"  # focus ring fill / ghost bg
+
+    # Border
+    border-default:   "#E5EDF5"   # mist
+    border-strong:    "#C2D0DF"
+    border-focus:     "#533AFD"
+
+    # Status
+    success:          "#30B130"
+    success-bg:       "#F0FAF0"
+    success-text:     "#1A6E1A"
+    warning:          "#E8A000"
+    warning-bg:       "#FFFBF0"
+    warning-text:     "#7A4F00"
+    danger:           "#E0173D"
+    danger-bg:        "#FFF0F3"
+    danger-text:      "#8B0020"
+    info:             "#0085FF"
+    info-bg:          "#F0F7FF"
+    info-text:        "#003D80"
+
+  # --- Dark mode semantic tokens ---
+  dark:
+    # Backgrounds
+    bg-page:          "#0D1117"   # near-black — deepest layer
+    bg-surface:       "#14171D"   # cards, panels
+    bg-surface-alt:   "#1C2027"   # nested surfaces / table rows
+    bg-surface-raised:"#22262E"   # dropdowns, popovers
+    bg-overlay:       "rgba(13,17,23,0.90)"
+
+    # Text
+    text-primary:     "#C9CED8"   # high-contrast on dark
+    text-secondary:   "#8C99AD"
+    text-tertiary:    "#50617A"
+    text-inverse:     "#0A2540"
+    text-placeholder: "#50617A"
+
+    # Interactive
+    accent-primary:   "#0085FF"   # shifted to electric blue on dark canvas
+    accent-hover:     "#3399FF"
+    accent-active:    "#66B2FF"
+    accent-subtle:    "rgba(0,133,255,0.12)"
+
+    # Border
+    border-default:   "#2B3039"
+    border-strong:    "#3D4552"
+    border-focus:     "#0085FF"
+
+    # Status
+    success:          "#30B130"
+    success-bg:       "#152207"
+    success-text:     "#6FCF6F"
+    warning:          "#E8A000"
+    warning-bg:       "#2A1E00"
+    warning-text:     "#FFD166"
+    danger:           "#E0173D"
+    danger-bg:        "#420320"
+    danger-text:      "#FF7A95"
+    info:             "#0085FF"
+    info-bg:          "#001F40"
+    info-text:        "#66B2FF"
+
+  # --- Gradient palette (decorative halos only) ---
+  # Rule: max 3 stops; NEVER use as a content background
+  gradients:
+    brand-halo:     "linear-gradient(135deg, #533AFD 0%, #F72DF3 50%, #FF6118 100%)"
+    brand-glow:     "radial-gradient(ellipse at 60% 40%, rgba(83,58,253,0.35) 0%, transparent 70%)"
+    violet-amber:   "linear-gradient(135deg, #533AFD 0%, #FFBB00 100%)"
+    hero-edge:      "linear-gradient(180deg, rgba(83,58,253,0.18) 0%, transparent 100%)"
+    dark-bg:        "linear-gradient(180deg, #0D1117 0%, #14171D 100%)"
+
+# ============================================================
+# TYPOGRAPHY
+# ============================================================
+typography:
+
+  # --- Font stacks ---
+  families:
+    display:
+      # Sohne (Klim Type Foundry, proprietary) → SF Pro Display → system
+      stack: "'Söhne', 'Sohne', 'SF Pro Display', -apple-system, 'Helvetica Neue', sans-serif"
+      feature-settings: "'ss01' on"       # single-story 'a' — brand signature
+    body:
+      stack: "'Söhne', 'Sohne', 'Inter', 'SF Pro Text', -apple-system, sans-serif"
+      feature-settings: "'ss01' on"
+    mono:
+      stack: "'Söhne Mono', 'SF Mono', 'Fira Code', 'Cascadia Code', monospace"
+      feature-settings: "'tnum' on, 'zero' on"
+    numeric:
+      # All currency / transaction amounts use tabular figures + tighter tracking
+      feature-settings: "'tnum' on, 'lnum' on"
+      tracking: "-0.36px"
+
+  # --- Free Google Font fallback (when Sohne unavailable) ---
+  google-fonts:
+    primary: "Manrope"      # geometric humanist — closest free match
+    fallback: "Inter"
+    url: "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+
+  # --- Type scale (px / rem) ---
+  scale:
+    display-2xl:
+      size: "56px"          # 3.5rem
+      line-height: "60px"
+      weight: 300           # SIGNATURE — thin weight for all display
+      tracking: "-1.40px"
+      use: "Hero headlines, marquee sections"
+
+    display-xl:
+      size: "48px"          # 3rem
+      line-height: "52px"
+      weight: 300
+      tracking: "-1.12px"
+      use: "Page hero H1"
+
+    display-lg:
+      size: "40px"          # 2.5rem
+      line-height: "44px"
+      weight: 300
+      tracking: "-0.96px"
+      use: "Section headers"
+
+    display-md:
+      size: "32px"          # 2rem
+      line-height: "36px"
+      weight: 300
+      tracking: "-0.64px"
+      use: "H2 equivalent"
+
+    heading-xl:
+      size: "24px"          # 1.5rem
+      line-height: "30px"
+      weight: 500
+      tracking: "-0.40px"
+      use: "Card titles, panel headers"
+
+    heading-lg:
+      size: "20px"          # 1.25rem
+      line-height: "26px"
+      weight: 500
+      tracking: "-0.32px"
+      use: "Sub-section labels"
+
+    heading-md:
+      size: "16px"          # 1rem
+      line-height: "22px"
+      weight: 500
+      tracking: "-0.16px"
+      use: "Table headers, metadata labels"
+
+    body-lg:
+      size: "17px"          # 1.0625rem
+      line-height: "26px"
+      weight: 400
+      tracking: "0"
+      use: "Long-form body copy"
+
+    body-md:
+      size: "15px"          # 0.9375rem
+      line-height: "22px"
+      weight: 400
+      tracking: "0"
+      use: "Default UI body text"
+
+    body-sm:
+      size: "13px"          # 0.8125rem
+      line-height: "18px"
+      weight: 400
+      tracking: "0"
+      use: "Secondary metadata, captions"
+
+    label:
+      size: "12px"          # 0.75rem
+      line-height: "16px"
+      weight: 500
+      tracking: "0.04em"
+      text-transform: "uppercase"
+      use: "Badges, tags, overlines"
+
+    numeric-display:
+      size: "32px"
+      line-height: "40px"
+      weight: 400
+      feature-settings: "'tnum' on"
+      tracking: "-0.64px"
+      use: "Dashboard KPI values, currency amounts"
+
+  # --- Rules ---
+  rules:
+    - "Headlines ALWAYS weight 300; body/UI ALWAYS weight 400; emphasis weight 500."
+    - "Never weight 700+ in UI chrome — bold is for marketing copy only."
+    - "Any currency or numeric count: font-feature-settings tnum + negative tracking."
+    - "Heading tracking ranges from -1.4px (56px display) to -0.16px (16px heading)."
+    - "Body text tracking is always 0."
+
+# ============================================================
+# SPACING
+# ============================================================
+# Base unit: 4px. Use only multiples of 4 for all layout spacing.
+spacing:
+  base: 4
+
+  scale:
+    space-1:  "2px"
+    space-2:  "4px"
+    space-3:  "6px"
+    space-4:  "8px"
+    space-5:  "10px"
+    space-6:  "12px"
+    space-7:  "14px"
+    space-8:  "16px"
+    space-9:  "18px"
+    space-10: "20px"
+    space-11: "22px"
+    space-12: "24px"
+    space-16: "32px"
+    space-20: "40px"
+    space-24: "48px"
+    space-32: "64px"
+    space-40: "80px"
+    space-48: "96px"
+    space-64: "128px"
+
+  semantic:
+    component-xs:  "4px"    # icon gutter, tight inline gap
+    component-sm:  "8px"    # input inner padding-y, badge padding
+    component-md:  "12px"   # input inner padding-x, row gap
+    component-lg:  "16px"   # card inner padding, default gap
+    component-xl:  "24px"   # section internal gap
+    section-sm:    "32px"   # between content blocks
+    section-md:    "48px"   # between page sections
+    section-lg:    "80px"   # hero padding
+    section-xl:    "128px"  # landing section breathing room
+
+  layout:
+    container-max:  "1280px"
+    container-gutter: "24px"   # horizontal padding on container edges
+    grid-columns:   12
+    grid-gap:       "24px"
+
+# ============================================================
+# BORDER RADIUS
+# ============================================================
+radius:
+  none:   "0px"
+  xs:     "2px"    # internal tags, progress bars
+  sm:     "4px"    # buttons, inputs, badges, checkboxes — small interactive
+  md:     "6px"    # popovers, small panels
+  lg:     "8px"    # table containers, small cards
+  xl:     "12px"   # modal dialogs
+  card:   "16px"   # primary content cards — Stripe canonical card radius
+  pill:   "9999px" # toggle switches, chip filters
+
+  # Rules
+  rules:
+    - "All buttons, inputs, and small interactive elements: 4px (sm)."
+    - "Primary content cards and major containers: 16px (card)."
+    - "Never mix radii on related sibling components."
+
+# ============================================================
+# SHADOWS / ELEVATION
+# ============================================================
+# Rule: Never exceed rgba(50,50,93,0.12) 0px 16px 32px 0px as max elevation.
+# Elevation signals interactivity and hierarchy — not decoration.
+shadows:
+
+  none:   "none"
+
+  xs:     "0px 1px 2px rgba(50, 50, 93, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.04)"
+          # hairline — input resting state
+
+  sm:     "0px 2px 4px rgba(50, 50, 93, 0.08), 0px 1px 2px rgba(0, 0, 0, 0.06)"
+          # card default
+
+  md:     "0px 4px 8px rgba(50, 50, 93, 0.10), 0px 2px 4px rgba(0, 0, 0, 0.06)"
+          # card hover — intensifies from sm on hover
+
+  lg:     "0px 8px 16px rgba(50, 50, 93, 0.10), 0px 4px 8px rgba(0, 0, 0, 0.06)"
+          # dropdown, popover, tooltip
+
+  xl:     "0px 16px 32px rgba(50, 50, 93, 0.12), 0px 8px 16px rgba(0, 0, 0, 0.08)"
+          # modal, dialog — maximum elevation
+
+  floating:
+    "0px 0px 32px 8px rgba(0, 0, 0, 0.20)"
+    # product mockup depth — floating hero illustrations
+
+  focus:
+    "0px 0px 0px 3px rgba(99, 91, 255, 0.10)"
+    # :focus-visible ring — never outline, always box-shadow
+
+  focus-dark:
+    "0px 0px 0px 3px rgba(0, 133, 255, 0.20)"
+    # :focus-visible ring on dark surfaces
+
+  inset:
+    "inset 0px 1px 3px rgba(50, 50, 93, 0.08)"
+    # text input inner depth
+
+  # Rules
+  rules:
+    - "Use box-shadow for focus states, never CSS outline."
+    - "Card default: sm. Card hover: md. Never jump more than one level."
+    - "Popovers/dropdowns: lg. Modals: xl. Nothing higher."
+    - "Product mockup art only: floating."
+
+# ============================================================
+# ANIMATIONS & MOTION
+# ============================================================
+# Priority stack: CSS transitions → CSS @keyframes → Web Animations API
+# Never use built-in `ease-in`, `ease-out`, or `linear` for UI motion.
+motion:
+
+  # --- Custom easing curves (cubic-bezier) ---
+  easing:
+    standard:     "cubic-bezier(0.4, 0.0, 0.2, 1.0)"   # balanced enter + exit
+    enter:        "cubic-bezier(0.0, 0.0, 0.2, 1.0)"   # decelerate — element arriving
+    exit:         "cubic-bezier(0.4, 0.0, 1.0, 1.0)"   # accelerate — element leaving
+    sharp:        "cubic-bezier(0.4, 0.0, 0.6, 1.0)"   # fast in-out — state toggles
+    spring:       "cubic-bezier(0.34, 1.56, 0.64, 1.0)" # slight overshoot — interactive
+    elastic:      "cubic-bezier(0.68, -0.55, 0.265, 1.55)" # playful bounce — marketing
+    linear:       "linear"                               # loading bars, progress only
+
+  # --- Duration tokens ---
+  duration:
+    instant:   "50ms"    # micro feedback — ripples, checkbox
+    fast:      "100ms"   # hover color / border transitions
+    quick:     "150ms"   # button state, badge transitions
+    base:      "200ms"   # default — most interactive transitions
+    moderate:  "250ms"   # panel open, popover reveal
+    slow:      "300ms"   # modal enter, slide panel, tooltip
+    deliberate:"450ms"   # full-page transitions, hero reveals
+    branded:   "600ms"   # logo assembly, gradient morph
+
+  # --- Transition recipes (CSS-ready values) ---
+  transitions:
+    hover-color:     "color 100ms cubic-bezier(0.4,0,0.2,1), background-color 100ms cubic-bezier(0.4,0,0.2,1)"
+    hover-shadow:    "box-shadow 200ms cubic-bezier(0.4,0,0.2,1)"
+    hover-transform: "transform 200ms cubic-bezier(0.34,1.56,0.64,1)"
+    button-all:      "color 100ms, background-color 100ms, box-shadow 200ms, transform 100ms cubic-bezier(0.4,0,0.2,1)"
+    card-lift:       "box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1)"
+    input-focus:     "box-shadow 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms cubic-bezier(0.4,0,0.2,1)"
+    nav-morph:       "width 250ms cubic-bezier(0.4,0,0.2,1), height 250ms cubic-bezier(0.4,0,0.2,1), transform 250ms cubic-bezier(0.4,0,0.2,1)"
+    opacity-fade:    "opacity 200ms cubic-bezier(0.4,0,0.2,1)"
+
+  # --- @keyframes definitions ---
+  keyframes:
+
+    fade-up:
+      description: "Entry animation — element rises 16px and fades in"
+      css: |
+        @keyframes fade-up {
+          from { opacity: 0; transform: translateY(16px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      defaults:
+        duration: "300ms"
+        easing:   "cubic-bezier(0.0, 0.0, 0.2, 1.0)"
+        fill:     "both"
+
+    fade-in:
+      description: "Simple opacity entry"
+      css: |
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+      defaults:
+        duration: "200ms"
+        easing:   "cubic-bezier(0.0, 0.0, 0.2, 1.0)"
+
+    slide-in-right:
+      description: "Panel slides in from right edge"
+      css: |
+        @keyframes slide-in-right {
+          from { opacity: 0; transform: translateX(24px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+      defaults:
+        duration: "300ms"
+        easing:   "cubic-bezier(0.0, 0.0, 0.2, 1.0)"
+
+    slide-in-down:
+      description: "Dropdown / popover descends from trigger"
+      css: |
+        @keyframes slide-in-down {
+          from { opacity: 0; transform: translateY(-8px) scaleY(0.96); }
+          to   { opacity: 1; transform: translateY(0) scaleY(1); }
+        }
+      defaults:
+        duration: "200ms"
+        easing:   "cubic-bezier(0.0, 0.0, 0.2, 1.0)"
+        transform-origin: "top center"
+
+    scale-in:
+      description: "Modal / dialog entrance"
+      css: |
+        @keyframes scale-in {
+          from { opacity: 0; transform: scale(0.96); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+      defaults:
+        duration: "250ms"
+        easing:   "cubic-bezier(0.34, 1.56, 0.64, 1.0)"
+
+    pulse-glow:
+      description: "Ambient glow pulse — hero halo, radar effect"
+      css: |
+        @keyframes pulse-glow {
+          0%   { opacity: 0.4; transform: scale(1.0); }
+          50%  { opacity: 0.8; transform: scale(1.08); }
+          100% { opacity: 0.4; transform: scale(1.0); }
+        }
+      defaults:
+        duration: "3000ms"
+        easing:   "ease-in-out"
+        iteration: "infinite"
+
+    gradient-shift:
+      description: "Stripe hero gradient background morph"
+      css: |
+        @keyframes gradient-shift {
+          0%   { background-position: 0% 50%; }
+          50%  { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      defaults:
+        duration: "8000ms"
+        easing:   "linear"
+        iteration: "infinite"
+        background-size: "400% 400%"
+
+    shimmer:
+      description: "Loading skeleton shimmer — left to right"
+      css: |
+        @keyframes shimmer {
+          from { background-position: -200% 0; }
+          to   { background-position:  200% 0; }
+        }
+      defaults:
+        duration: "1500ms"
+        easing:   "linear"
+        iteration: "infinite"
+        background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)"
+        background-size: "200% 100%"
+
+    nav-indicator:
+      description: "Active nav indicator slides between items (scaleX)"
+      css: |
+        @keyframes nav-indicator {
+          from { transform: scaleX(0); opacity: 0; }
+          to   { transform: scaleX(1); opacity: 1; }
+        }
+      defaults:
+        duration: "200ms"
+        easing:   "cubic-bezier(0.4, 0.0, 0.2, 1.0)"
+        transform-origin: "left center"
+
+    spin:
+      description: "Loading spinner"
+      css: |
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+      defaults:
+        duration: "700ms"
+        easing:   "linear"
+        iteration: "infinite"
+
+  # --- Stripe nav morph pattern ---
+  nav-morph:
+    description: >
+      The popover container morphs to fit content using scaleX/scaleY rather
+      than width/height for compositor-thread performance. The container
+      transforms; content cross-fades independently.
+    technique:
+      - "Track width/height of each panel at mount."
+      - "On tab change, animate container via transform: scaleX() scaleY()."
+      - "Simultaneously cross-fade outgoing panel (opacity 1→0) and incoming (0→1)."
+      - "Container size transition: 250ms cubic-bezier(0.4,0,0.2,1)."
+      - "Content cross-fade: 150ms cubic-bezier(0.4,0,0.2,1)."
+      - "NEVER animate width or height — always transform for GPU compositing."
+
+  # --- Rules ---
+  rules:
+    - "CSS transitions first for simple hover/state. @keyframes for multi-step. Web Animations API for chainable sequences."
+    - "NEVER use built-in ease-in, ease-out, or linear for UI transitions (linear is OK for looping/loading)."
+    - "NEVER animate width or height — use transform: scale() for size changes."
+    - "Respect prefers-reduced-motion: wrap non-essential animations in @media (prefers-reduced-motion: no-preference)."
+    - "Decorative gradient animations (gradient-shift, pulse-glow) are hero-only — never inside cards or tables."
+
+# ============================================================
+# INTERACTIVE STATES
+# ============================================================
+interactive:
+
+  button-primary:
+    default:
+      background:  "var(--color-accent-primary)"     # #533AFD / #0085FF dark
+      color:       "#FFFFFF"
+      border:      "none"
+      radius:      "4px"
+      shadow:      "0px 1px 2px rgba(83,58,253,0.30)"
+      padding:     "10px 20px"
+      font-weight: 400
+      font-size:   "15px"
+      letter-spacing: "0"
+    hover:
+      background:  "var(--color-accent-hover)"
+      shadow:      "0px 4px 8px rgba(83,58,253,0.30)"
+      transform:   "translateY(-1px)"
+      transition:  "all 150ms cubic-bezier(0.34,1.56,0.64,1)"
+    active:
+      background:  "var(--color-accent-active)"
+      transform:   "translateY(0px)"
+      shadow:      "0px 1px 2px rgba(83,58,253,0.20)"
+    focus-visible:
+      outline:     "none"
+      shadow:      "0px 0px 0px 3px rgba(99,91,255,0.10)"
+    disabled:
+      opacity:     0.45
+      cursor:      "not-allowed"
+      transform:   "none"
+
+  button-secondary:
+    default:
+      background:  "transparent"
+      color:       "var(--color-text-secondary)"
+      border:      "1px solid var(--color-border-default)"
+      radius:      "4px"
+      padding:     "10px 20px"
+      font-weight: 400
+    hover:
+      background:  "var(--color-bg-surface)"
+      border-color:"var(--color-border-strong)"
+      color:       "var(--color-text-primary)"
+    dark-default:
+      background:  "#2B3039"
+      color:       "#C9CED8"
+      border:      "1px solid #3D4552"
+
+  input:
+    default:
+      background:  "#FFFFFF"
+      border:      "1px solid var(--color-border-default)"
+      radius:      "4px"
+      padding:     "10px 12px"
+      shadow:      "inset 0px 1px 3px rgba(50,50,93,0.08)"
+      font-size:   "15px"
+      color:       "var(--color-text-primary)"
+      transition:  "box-shadow 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms cubic-bezier(0.4,0,0.2,1)"
+    focus:
+      border-color:"var(--color-border-focus)"
+      shadow:      "0px 0px 0px 3px rgba(99,91,255,0.10), inset 0px 1px 3px rgba(50,50,93,0.08)"
+      outline:     "none"
+    error:
+      border-color:"var(--color-danger)"
+      shadow:      "0px 0px 0px 3px rgba(224,23,61,0.10)"
+    dark-default:
+      background:  "#1C2027"
+      border:      "1px solid #2B3039"
+      color:       "#C9CED8"
+
+  card:
+    default:
+      background:  "#FFFFFF"
+      border:      "1px solid var(--color-border-default)"
+      radius:      "16px"
+      shadow:      "0px 2px 4px rgba(50,50,93,0.08), 0px 1px 2px rgba(0,0,0,0.06)"
+      transition:  "box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1)"
+    hover:
+      shadow:      "0px 4px 8px rgba(50,50,93,0.10), 0px 2px 4px rgba(0,0,0,0.06)"
+      transform:   "translateY(-2px)"
+    dark-default:
+      background:  "#14171D"
+      border:      "1px solid #2B3039"
+
+  link:
+    default:
+      color:       "var(--color-text-secondary)"  # #50617A — steel
+      text-decoration: "none"
+      transition:  "color 100ms cubic-bezier(0.4,0,0.2,1)"
+    hover:
+      color:       "var(--color-accent-primary)"
+      text-decoration: "underline"
+    active:
+      color:       "var(--color-accent-active)"
+
+  checkbox-radio:
+    unchecked-border: "var(--color-border-strong)"
+    checked-bg:       "var(--color-accent-primary)"
+    checked-icon:     "#FFFFFF"
+    focus-shadow:     "0px 0px 0px 3px rgba(99,91,255,0.10)"
+    transition:       "background-color 100ms, border-color 100ms, box-shadow 150ms"
+
+  badge:
+    radius:  "9999px"
+    padding: "2px 8px"
+    font-size: "12px"
+    font-weight: 500
+    variants:
+      success: { bg: "#F0FAF0",  color: "#1A6E1A",  border: "#30B130" }
+      danger:  { bg: "#FFF0F3",  color: "#8B0020",  border: "#E0173D" }
+      warning: { bg: "#FFFBF0",  color: "#7A4F00",  border: "#E8A000" }
+      info:    { bg: "#F0F7FF",  color: "#003D80",  border: "#0085FF" }
+      neutral: { bg: "#F6F9FC",  color: "#50617A",  border: "#E5EDF5" }
+      dark-success: { bg: "#152207", color: "#6FCF6F", border: "#30B130" }
+      dark-danger:  { bg: "#420320", color: "#FF7A95", border: "#E0173D" }
+      dark-warning: { bg: "#2A1E00", color: "#FFD166", border: "#E8A000" }
+      dark-info:    { bg: "#001F40", color: "#66B2FF", border: "#0085FF" }
+
+  tooltip:
+    background:  "#0A2540"
+    color:       "#FFFFFF"
+    radius:      "4px"
+    padding:     "6px 10px"
+    font-size:   "13px"
+    shadow:      "0px 4px 8px rgba(50,50,93,0.10)"
+    animation:   "fade-up 200ms cubic-bezier(0.0,0.0,0.2,1) both"
+    dark-background: "#22262E"
+    dark-border: "1px solid #3D4552"
+
+# ============================================================
+# Z-INDEX LAYERS
+# ============================================================
+z-index:
+  below:     -1
+  base:       0
+  raised:    10    # elevated card, sticky table header
+  dropdown:  100   # menus, comboboxes
+  sticky:    200   # sticky nav bar
+  overlay:   300   # backdrop / scrim
+  modal:     400   # dialog
+  popover:   500   # tooltip, notification
+  toast:     600   # transient notifications
+  max:       9999  # escape hatch — never use routinely
+
+# ============================================================
+# BREAKPOINTS
+# ============================================================
+breakpoints:
+  xs:  "0px"       # mobile portrait
+  sm:  "480px"     # mobile landscape
+  md:  "768px"     # tablet
+  lg:  "1024px"    # small desktop
+  xl:  "1280px"    # standard desktop
+  2xl: "1536px"    # wide / ultra-wide
+
+  container-max: "1280px"
+
+# ============================================================
+# DARK THEME — CSS VARIABLE MAPPING
+# ============================================================
+# Drop this block into :root and [data-theme="dark"] selectors.
+css-variables:
+
+  light-root: |
+    :root {
+      --color-bg-page:         #FFFFFF;
+      --color-bg-surface:      #F6F9FC;
+      --color-bg-surface-alt:  #E5EDF5;
+      --color-text-primary:    #0A2540;
+      --color-text-secondary:  #50617A;
+      --color-text-tertiary:   #8C99AD;
+      --color-accent-primary:  #533AFD;
+      --color-accent-hover:    #4430D4;
+      --color-accent-active:   #3726AA;
+      --color-accent-subtle:   rgba(83,58,253,0.08);
+      --color-border-default:  #E5EDF5;
+      --color-border-strong:   #C2D0DF;
+      --color-border-focus:    #533AFD;
+      --color-success:         #30B130;
+      --color-danger:          #E0173D;
+      --color-warning:         #E8A000;
+      --color-info:            #0085FF;
+      --shadow-focus: 0px 0px 0px 3px rgba(99,91,255,0.10);
+      --radius-sm:  4px;
+      --radius-md:  6px;
+      --radius-lg:  8px;
+      --radius-xl:  12px;
+      --radius-card: 16px;
+    }
+
+  dark-root: |
+    [data-theme="dark"] {
+      --color-bg-page:         #0D1117;
+      --color-bg-surface:      #14171D;
+      --color-bg-surface-alt:  #1C2027;
+      --color-bg-surface-raised: #22262E;
+      --color-text-primary:    #C9CED8;
+      --color-text-secondary:  #8C99AD;
+      --color-text-tertiary:   #50617A;
+      --color-accent-primary:  #0085FF;
+      --color-accent-hover:    #3399FF;
+      --color-accent-active:   #66B2FF;
+      --color-accent-subtle:   rgba(0,133,255,0.12);
+      --color-border-default:  #2B3039;
+      --color-border-strong:   #3D4552;
+      --color-border-focus:    #0085FF;
+      --color-success:         #30B130;
+      --color-danger:          #E0173D;
+      --color-warning:         #E8A000;
+      --color-info:            #0085FF;
+      --shadow-focus: 0px 0px 0px 3px rgba(0,133,255,0.20);
+    }
+
+# ============================================================
+# DESIGN RULES SUMMARY
+# ============================================================
+rules:
+  color:
+    - "One primary accent per viewport — Electric Iris (#533AFD) light, Electric Blue (#0085FF) dark."
+    - "Gradient palette: max 3 stops. Halos behind product art only — never on content backgrounds."
+    - "Status colors are semantic-only; never use as decorative fills."
+    - "Accessible contrast: minimum 4.5:1 for body text, 3:1 for large text (WCAG AA)."
+
+  typography:
+    - "Display/headline: always weight 300, negative tracking. Body/UI: weight 400. Emphasis: weight 500."
+    - "Tabular figures (tnum) mandatory for all currency, amounts, and numeric counts."
+    - "Single-story 'a' via font-feature-settings ss01 — global brand signature."
+    - "No weight 700+ in UI chrome."
+
+  spacing:
+    - "4px grid. Only multiples of 4 for all layout values."
+    - "Cards and sections have generous internal padding — force focus on one piece of information."
+
+  radius:
+    - "Buttons, inputs, badges: 4px. Primary cards: 16px. Never mix on sibling components."
+
+  shadows:
+    - "box-shadow for focus, never CSS outline. Max elevation: rgba(50,50,93,0.12) 0px 16px 32px."
+    - "Card default: sm shadow. Card hover: md shadow. Never skip levels."
+
+  motion:
+    - "CSS transitions first. @keyframes for multi-step. Web Animations API for chained sequences."
+    - "Custom cubic-bezier always. Never ease-in, ease-out, linear for UI (linear OK for loops)."
+    - "Animate transform/opacity only — never width, height, top, left (not compositor-safe)."
+    - "Wrap decorative animations in prefers-reduced-motion: no-preference."
+    - "Nav morphs use scaleX/scaleY on container + independent content cross-fade."
+
+  interactions:
+    - "Every interactive element has hover, active, focus-visible, and disabled states."
+    - "Focus ring: box-shadow 0 0 0 3px accent-subtle. Never browser-default outline."
+    - "Hover on cards: translateY(-2px) + shadow upgrade. Duration 200ms spring easing."
+    - "Button hover: translateY(-1px) + shadow amplify. Duration 150ms spring easing."

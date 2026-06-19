@@ -101,3 +101,43 @@
         ├── Build -> Compiled production-ready bundle successfully using ng build
         └── Deployment -> Deployed to Firebase Hosting project blute-dc0d6
 
+[2026-06-18T00:00:00+05:30] Create Stripe-inspired design theme YAML specification
+└── File: design-theme.yml
+    ├── Choice: Single authoritative YAML for the full design language — token-level detail, ready for handoff to devs and designers
+    └── Sections:
+        ├── Colors     -> Brand primitives, light + dark semantic tokens, gradient palette (max 3 stops)
+        ├── Typography -> Sohne/Manrope stacks, ss01 feature, full type scale (display-2xl → label), numeric tnum rules
+        ├── Spacing    -> 4px-base scale (space-1 through space-64), semantic layout tokens, 12-col grid
+        ├── Radius     -> none → pill; 4px interactive, 16px card — canonical Stripe proportions
+        ├── Shadows    -> 6 elevation stops + focus ring + floating mockup; max rgba(50,50,93,0.12) ceiling
+        ├── Motion     -> 8 custom easing curves, duration scale, 9 @keyframe recipes, nav-morph pattern
+        ├── Interactive-> Full state table (default/hover/active/focus/disabled/dark) for button, input, card, link, badge, tooltip
+        ├── Z-index    -> 7 named layers (raised → max)
+        ├── Breakpoints-> xs–2xl, container-max 1280px
+        └── CSS vars   -> :root and [data-theme="dark"] blocks ready to drop into styles.css
+
+[2026-06-18T12:00:00+05:30] Redesign home page with Stripe-inspired design theme
+└── Files: src/app/home/home.component.html, home.component.ts, home.component.scss,
+           src/styles.css, src/index.html
+    ├── Choice: Full Stripe design language — Electric Iris (#533AFD), Manrope 300/400, navy canvas, mist surfaces
+    └── Changes:
+        ├── index.html          -> Manrope Google Fonts link added; theme-color #533AFD
+        ├── styles.css          -> :root CSS design tokens (colors, shadows, easing, fonts);
+        │                          Manrope font-family on body; :focus-visible box-shadow ring
+        ├── home.component.ts   -> contentInterval: any → ReturnType<typeof setInterval>|undefined;
+        │                          Client interface added; clients[] typed array added
+        ├── home.component.scss -> Replaced with minimal :host block (all styles via tokens/globals)
+        └── home.component.html -> Full redesign:
+            ├── Hero        → #0A2540 navy, violet/magenta radial halo, weight-300 Manrope headline
+            │                  (-0.04em tracking), carousel with spring transition, 4px-radius button,
+            │                  ghost secondary, pill progress dots
+            ├── Stats bar   → F6F9FC strip, Electric Iris tnum numerals, weight-300
+            ├── About       → Weight-300 section heading, 2 capability cards (16px radius, sm→md shadow on hover),
+            │                  feature pills (hairline border, checkmark icon), global presence note
+            ├── Services    → 6 flat white cards (16px radius), unified #533AFD icon bg (4px),
+            │                  hover: border-color+translateY(-2px)+shadow upgrade
+            ├── Clients     → Clean 8px-radius logo grid from typed clients[], violet border on hover
+            ├── Offices     → Mist-bg section, violet icon, accent-colored contact links
+            └── CTA         → #0A2540 navy, violet halo, gradient headline (iris→magenta→coral),
+                               single primary #533AFD button + ghost secondary
+

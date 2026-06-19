@@ -1,708 +1,1065 @@
-<!-- home.component.html -->
-<div class="min-h-screen bg-white">
-  <!-- Include Navbar -->
+<!-- home.component.html — Stripe-inspired redesign -->
+<div class="min-h-screen bg-white" style="font-family: var(--font-body);">
 
-  <!-- Hero Section with Carousel -->
-  <div
-    class="relative w-full bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50 pt-8 pb-16 lg:pt-12 lg:pb-20 overflow-hidden">
-    <!-- Decorative Background Elements -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl"></div>
+  <!-- ============================================================
+       HERO — Deep navy canvas, violet halo, thin-weight headline
+       ============================================================ -->
+  <section
+    class="relative w-full overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28"
+    style="background-color: #0A2540;">
+
+    <!-- Background Slideshow (Low Opacity, Parallax Zoom Effect) -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+      <div *ngFor="let item of content; let i = index"
+        class="absolute inset-0 transition-all duration-1000 ease-in-out"
+        [style.opacity]="i === currentIndex ? 0.18 : 0"
+        [style.transform]="i === currentIndex ? 'scale(1.04)' : 'scale(1)'">
+        <img [src]="item.bgImage" class="w-full h-full object-cover filter blur-[2px]" alt="" />
+      </div>
+      <!-- Gradient overlay to keep content legible -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0A2540]/90 via-[#0A2540]/80 to-[#0A2540]/95"></div>
     </div>
 
-    <!-- Main Content -->
-    <div class="relative z-20">
-      <div class="max-w-7xl mx-auto px-6 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <!-- Left Content -->
-          <div class="max-w-2xl">
-            <!-- Icon Badge -->
-            <div class="mb-4 animate-fade-in-up">
-              <div
-                class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-blue-200 shadow-sm">
-                <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <span class="text-gray-700 text-sm font-semibold">Innovation in Action</span>
-              </div>
-            </div>
+    <!-- Decorative gradient halos (behind hero art only — never content bg) -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+      <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full"
+        style="background: radial-gradient(ellipse at center, rgba(83,58,253,0.22) 0%, transparent 70%);"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full"
+        style="background: radial-gradient(ellipse at center, rgba(247,45,243,0.08) 0%, transparent 70%);"></div>
+    </div>
 
-            <!-- Animated Title -->
-            <div class="mb-4 relative" style="min-height: 160px;">
-              <div *ngFor="let item of content; let i = index" [class.opacity-100]="i === currentIndex"
-                [class.translate-y-0]="i === currentIndex" [class.opacity-0]="i !== currentIndex"
-                [class.translate-y-8]="i !== currentIndex" [class.absolute]="i !== currentIndex"
-                class="transition-all duration-700 ease-out">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-2">
-                  {{item.title}}
-                  <span
-                    class="block text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600">
-                    {{item.subtitle}}
-                  </span>
-                </h1>
-              </div>
-            </div>
+    <!-- Navigation Arrows -->
+    <div class="absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-4 lg:px-8 pointer-events-none">
+      <button (click)="prevSlide()"
+        class="pointer-events-auto w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white transition-all transform hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-sm"
+        aria-label="Previous Slide">
+        <svg class="w-5 h-5 -translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button (click)="nextSlide()"
+        class="pointer-events-auto w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white transition-all transform hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-sm"
+        aria-label="Next Slide">
+        <svg class="w-5 h-5 translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
 
-            <!-- Description -->
-            <div class="relative mb-6" style="min-height: 75px;">
-              <p *ngFor="let item of content; let i = index" [class.opacity-100]="i === currentIndex"
-                [class.translate-y-0]="i === currentIndex" [class.opacity-0]="i !== currentIndex"
-                [class.translate-y-8]="i !== currentIndex" [class.absolute]="i !== currentIndex"
-                class="text-lg text-gray-600 leading-relaxed transition-all duration-700">
-                {{item.description}}
-              </p>
-            </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          <!-- CTA Buttons -->
-          <div class="flex flex-wrap gap-4 mb-6 relative z-50">
-            <button type="button" (click)="goToPage(content[currentIndex].route)"
-              class="group inline-flex items-center gap-3 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/40 transition-all transform hover:scale-105 hover:-translate-y-1 cursor-pointer">
-              Learn More
-              <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor"
-                viewBox="0 0 24 24">
+        <!-- Left: copy -->
+        <div class="max-w-2xl relative">
+
+          <!-- Badge pill -->
+          <div class="mb-6" style="animation: fadeUp 300ms cubic-bezier(0,0,0.2,1) both;">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-widest uppercase"
+              style="background:rgba(83,58,253,0.15); color:#A594FF; border:1px solid rgba(83,58,253,0.30);">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#533AFD;"></span>
+              Innovation in Action
+            </span>
+          </div>
+
+          <!-- Animated headline — weight 300, tight tracking -->
+          <div class="mb-5 relative" style="min-height: clamp(120px, 20vw, 180px);">
+            <div *ngFor="let item of content; let i = index"
+              [class.opacity-100]="i === currentIndex"
+              [class.active-slide-content]="i === currentIndex"
+              [class.opacity-0]="i !== currentIndex"
+              [class.absolute]="i !== currentIndex"
+              class="transition-opacity duration-500 w-full"
+              style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);">
+              <h1 class="font-light leading-none text-white"
+                style="font-size: clamp(2.5rem, 5vw, 3.75rem); letter-spacing: -0.04em; font-family: var(--font-display);">
+                {{ item.title }}
+                <span class="block mt-1"
+                  style="background: linear-gradient(135deg, #533AFD 0%, #F72DF3 100%);
+                         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                         background-clip: text;">
+                  {{ item.subtitle }}
+                </span>
+              </h1>
+            </div>
+          </div>
+
+          <!-- Animated description -->
+          <div class="relative mb-8" style="min-height: 72px;">
+            <p *ngFor="let item of content; let i = index"
+              [class.opacity-100]="i === currentIndex"
+              [class.active-slide-content]="i === currentIndex"
+              [class.opacity-0]="i !== currentIndex"
+              [class.absolute]="i !== currentIndex"
+              class="text-base leading-relaxed transition-opacity duration-500 w-full"
+              style="color: rgba(201,206,216,0.80); font-weight: 400; transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);">
+              {{ item.description }}
+            </p>
+          </div>
+
+          <!-- CTA buttons -->
+          <div class="flex flex-wrap gap-4">
+            <!-- Primary: Electric Iris solid — ONE per viewport -->
+            <button type="button"
+              (click)="goToPage(content[currentIndex].route)"
+              class="group btn-shimmer inline-flex items-center gap-2.5 text-white font-medium text-sm cursor-pointer"
+              style="background: #533AFD;
+                     padding: 11px 24px;
+                     border-radius: 9999px;
+                     box-shadow: 0px 1px 2px rgba(83,58,253,0.30);
+                     transition: background 100ms cubic-bezier(0.4,0,0.2,1),
+                                 box-shadow 200ms cubic-bezier(0.4,0,0.2,1),
+                                 transform 150ms cubic-bezier(0.34,1.56,0.64,1);"
+              onmouseenter="this.style.background='#4430D4'; this.style.boxShadow='0px 4px 8px rgba(83,58,253,0.35)'; this.style.transform='translateY(-1px)';"
+              onmouseleave="this.style.background='#533AFD'; this.style.boxShadow='0px 1px 2px rgba(83,58,253,0.30)'; this.style.transform='translateY(0)';"
+              onmousedown="this.style.transform='translateY(0)'; this.style.background='#3726AA';"
+              onmouseup="this.style.background='#4430D4';">
+              Explore This Service
+              <svg class="w-4 h-4 transition-transform duration-150 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </button>
+
+            <!-- Secondary: ghost -->
+            <a [routerLink]="['/contact']"
+              class="inline-flex items-center gap-2 text-sm font-medium cursor-pointer"
+              style="padding: 11px 24px;
+                     border-radius: 9999px;
+                     border: 1px solid rgba(201,206,216,0.25);
+                     color: rgba(201,206,216,0.90);
+                     transition: background 100ms cubic-bezier(0.4,0,0.2,1), border-color 100ms, color 100ms;"
+              onmouseenter="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(201,206,216,0.50)';"
+              onmouseleave="this.style.background='transparent'; this.style.borderColor='rgba(201,206,216,0.25)';">
+              Talk to Us
+            </a>
           </div>
-          </div>
 
-          <!-- Right Content - Image Card with Decorative Elements -->
-          <div class="hidden lg:flex items-center justify-center">
-            <div class="relative w-full max-w-lg">
-              <!-- Decorative Circles -->
-              <div
-                class="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-teal-400/20 to-cyan-400/20 rounded-full blur-2xl">
-              </div>
-              <div
-                class="absolute -bottom-10 -left-10 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-2xl">
-              </div>
+        </div>
 
-              <div *ngFor="let item of content; let i = index" [class.opacity-100]="i === currentIndex"
-                [class.scale-100]="i === currentIndex" [class.relative]="i === currentIndex"
-                [class.opacity-0]="i !== currentIndex" [class.scale-95]="i !== currentIndex"
-                [class.absolute]="i !== currentIndex" [class.inset-0]="i !== currentIndex"
-                class="transition-all duration-1000 ease-out">
+        <!-- Right: service image card -->
+        <div class="hidden lg:flex items-center justify-center">
+          <div class="relative w-full max-w-md">
 
-                <!-- Main Image Card -->
-                <div class="relative group">
-                  <!-- Card with Image -->
-                  <div
-                    class="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500 border border-white/20">
-                    <div class="aspect-[11/12] w-full">
-                      <img [src]="item.serviceImage" [alt]="item.title"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    </div>
+            <!-- Soft depth halo behind card -->
+            <div class="absolute inset-0 -m-8 rounded-3xl pointer-events-none"
+              style="background: radial-gradient(ellipse at 60% 50%, rgba(83,58,253,0.18) 0%, transparent 70%);"></div>
 
-                    <!-- Gradient Overlays -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/50 to-transparent">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-transparent to-blue-500/10">
-                    </div>
+            <div *ngFor="let item of content; let i = index"
+              [class.opacity-100]="i === currentIndex"
+              [class.scale-100]="i === currentIndex"
+              [class.relative]="i === currentIndex"
+              [class.opacity-0]="i !== currentIndex"
+              [class.scale-95]="i !== currentIndex"
+              [class.absolute]="i !== currentIndex"
+              [class.inset-0]="i !== currentIndex"
+              class="transition-all duration-1000"
+              style="transition-timing-function: cubic-bezier(0.4,0,0.2,1);">
 
-                    <!-- Card Content -->
-                    <div class="absolute bottom-0 left-0 right-0 p-8">
-                      <div class="flex items-start gap-3 mb-4">
-                        <div class="w-1 h-16 bg-gradient-to-b from-teal-400 to-cyan-400 rounded-full"></div>
-                        <div>
-                          <h3 class="text-3xl font-bold text-white mb-2">
-                            {{item.title}} {{item.subtitle}}
-                          </h3>
-                          <p class="text-white/80 text-sm">Innovative Technology Solutions</p>
-                        </div>
-                      </div>
+              <div class="relative group overflow-hidden p-[1px] bg-gradient-to-br from-white/15 to-white/5 hover:from-[#533AFD] hover:to-[#F72DF3] transition-all duration-500"
+                style="border-radius: 28px;
+                       box-shadow: 0px 0px 32px 8px rgba(0,0,0,0.35);
+                       transition: transform 300ms cubic-bezier(0.16,1,0.3,1), box-shadow 300ms cubic-bezier(0.16,1,0.3,1);"
+                onmouseenter="this.style.transform='translateY(-6px) scale(1.01)'; this.style.boxShadow='0px 12px 48px 12px rgba(0,0,0,0.45)';"
+                onmouseleave="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0px 0px 32px 8px rgba(0,0,0,0.35)';">
 
-                      <!-- Feature Pills -->
-                      <div class="flex flex-wrap gap-2">
-                        <span
-                          class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/20">
-                          Enterprise Ready
-                        </span>
-                        <span
-                          class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/20">
-                          Scalable
-                        </span>
-                        <span
-                          class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/20">
-                          24/7 Support
-                        </span>
+                <div class="relative overflow-hidden bg-slate-950" style="border-radius: 27px;">
+                  <div class="aspect-[4/5] w-full overflow-hidden">
+                    <img [src]="item.serviceImage" [alt]="item.title"
+                      class="w-full h-full object-cover transition-transform duration-1000 ease-out"
+                      onmouseenter="this.style.transform='scale(1.06)';"
+                      onmouseleave="this.style.transform='scale(1)';" />
+                  </div>
+
+                  <!-- Gradient overlay -->
+                  <div class="absolute inset-0 pointer-events-none"
+                    style="background: linear-gradient(to top, rgba(10,37,64,0.96) 0%, rgba(10,37,64,0.40) 55%, transparent 100%);"></div>
+                  <!-- Violet tint -->
+                  <div class="absolute inset-0 pointer-events-none"
+                    style="background: linear-gradient(135deg, rgba(83,58,253,0.08) 0%, transparent 60%);"></div>
+
+                  <!-- Card content -->
+                  <div class="absolute bottom-0 left-0 right-0 p-7">
+                    <div class="flex items-start gap-3 mb-4">
+                      <div class="w-0.5 h-12 rounded-full flex-shrink-0"
+                        style="background: linear-gradient(to bottom, #533AFD, #F72DF3);"></div>
+                      <div>
+                        <h3 class="text-xl font-medium text-white mb-1" style="letter-spacing: -0.02em;">
+                          {{ item.title }} {{ item.subtitle }}
+                        </h3>
+                        <p class="text-xs font-medium tracking-widest uppercase" style="color: rgba(165,148,255,0.80);">
+                          Blute Technologies
+                        </p>
                       </div>
                     </div>
-
-                    <!-- Decorative Corner Elements -->
-                    <div
-                      class="absolute top-6 right-6 w-16 h-16 border-t-2 border-r-2 border-teal-400/50 rounded-tr-2xl">
-                    </div>
-                    <div
-                      class="absolute bottom-6 left-6 w-16 h-16 border-b-2 border-l-2 border-cyan-400/50 rounded-bl-2xl">
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-2.5 py-1 text-xs text-white rounded-sm"
+                        style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">Enterprise</span>
+                      <span class="px-2.5 py-1 text-xs text-white rounded-sm"
+                        style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">Scalable</span>
+                      <span class="px-2.5 py-1 text-xs text-white rounded-sm"
+                        style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">24/7 Support</span>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
-    <!-- Progress Indicators -->
-    <div class="relative z-20 mt-8 flex justify-center gap-2">
-      <button *ngFor="let item of content; let i = index" (click)="setIndex(i)" [class.w-12]="i === currentIndex"
-        [class.w-3]="i !== currentIndex" [class.bg-gradient-to-r]="i === currentIndex"
-        [class.from-teal-500]="i === currentIndex" [class.to-cyan-500]="i === currentIndex"
-        [class.bg-gray-300]="i !== currentIndex"
-        class="transition-all duration-300 rounded-full h-3 hover:bg-gray-400 shadow-sm">
+    <!-- Progress bar timeline indicators -->
+    <div class="relative z-10 mt-12 flex justify-center items-center gap-3">
+      <button *ngFor="let item of content; let i = index"
+        (click)="setIndex(i)"
+        class="group relative h-1.5 rounded-full overflow-hidden transition-all duration-300 bg-white/20 cursor-pointer"
+        [style.width]="i === currentIndex ? '48px' : '12px'"
+        [attr.aria-label]="'Slide ' + (i+1)">
+        <!-- Autoplay visual progress fill bar -->
+        <span *ngIf="i === currentIndex"
+          class="slide-progress-bar absolute inset-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full">
+        </span>
+        <!-- Hover indicator -->
+        <span *ngIf="i !== currentIndex"
+          class="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        </span>
       </button>
     </div>
-  </div>
+  </section>
 
-  <!-- About Company Section -->
-  <div class="bg-gradient-to-b from-gray-50 to-white py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">About Us</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 mt-2">Blute Technologies</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mx-auto mb-8"></div>
-      </div>
 
-      <div class="max-w-5xl mx-auto space-y-8">
-        <p class="text-lg text-gray-700 leading-relaxed text-center font-medium">
-          Blute Technologies is a <span class="text-teal-600 font-semibold">leading IT services company</span>, a
-          digital
-          transformation and outsourcing partner of choice for clients in all industries across the world. We adopt
-          cutting-edge technologies to empower clients transform digitally, create business values and success in the
-          ever-changing economic environment.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-8 mt-12">
-          <div
-            class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-            <div class="flex items-center gap-3 mb-4">
-              <div
-                class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900">Product Engineering</h3>
-            </div>
-            <p class="text-gray-600 leading-relaxed">
-              We provide cutting edge product engineering solutions in <span
-                class="font-semibold text-gray-800">Blockchain, IoT, Artificial Intelligence, Data Science, Extended
-                Reality, UI/UX, Mobile and Web</span>, helping Start-up, Small & Medium Business & Enterprise clients
-              untangle complex issues that always emerge during their digital evolution journey.
-            </p>
+  <!-- ============================================================
+       STATS BAR — Tabular figures, Electric Iris numbers
+       ============================================================ -->
+  <div style="background:#F6F9FC; border-top:1px solid #E5EDF5; border-bottom:1px solid #E5EDF5;">
+    <div class="max-w-7xl mx-auto px-6 py-10">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center stats-grid">
+        <div class="scroll-reveal">
+          <div class="text-3xl font-light mb-1"
+            style="color:#533AFD; letter-spacing:-0.04em; font-feature-settings:'tnum'; font-family: var(--font-display);">
+            <span class="stat-count" data-to="8">0</span>+
           </div>
-
-          <div
-            class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-            <div class="flex items-center gap-3 mb-4">
-              <div
-                class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900">Enterprise Solutions</h3>
-            </div>
-            <p class="text-gray-600 leading-relaxed">
-              We provide end-to-end packaged application services such as <span class="font-semibold text-gray-800">SAP,
-                Microsoft and Oracle</span> in the areas of ERP, CRM, HCM, and SCM. Our services include consulting,
-              evaluation, implementation, application maintenance and support, migration, upgrades and testing.
-            </p>
-          </div>
+          <div class="text-sm font-medium" style="color:#50617A;">Years Collective Experience</div>
         </div>
-
-        <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-10 rounded-2xl border border-teal-100 mt-8">
-          <div class="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div class="text-4xl font-bold text-teal-600 mb-2">8+</div>
-              <div class="text-gray-700 font-medium">Decades of Collective Experience</div>
-            </div>
-            <div class="border-l border-r border-teal-200">
-              <div class="text-4xl font-bold text-teal-600 mb-2">23+</div>
-              <div class="text-gray-700 font-medium">Satisfied Customers</div>
-            </div>
-            <div>
-              <div class="text-4xl font-bold text-teal-600 mb-2">Global</div>
-              <div class="text-gray-700 font-medium">Presence & Partnerships</div>
-            </div>
+        <div class="scroll-reveal delay-100" style="border-left:1px solid #E5EDF5; border-right:1px solid #E5EDF5;">
+          <div class="text-3xl font-light mb-1"
+            style="color:#533AFD; letter-spacing:-0.04em; font-feature-settings:'tnum'; font-family: var(--font-display);">
+            <span class="stat-count" data-to="23">0</span>+
           </div>
+          <div class="text-sm font-medium" style="color:#50617A;">Satisfied Customers</div>
         </div>
-
-        <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 mt-8">
-          <p class="text-gray-700 leading-relaxed text-center">
-            Team at Blute Technologies is having experience in <span class="font-semibold text-gray-800">early adoption
-              of
-              emerging technologies</span> for its clients to always stay ahead of the curve in the era of digital
-            transformation journey. Our team has successfully built and delivered large scale solution to multiple
-            global
-            customers, bringing industry best practices and transforming any concept to world class technology
-            solutions.
-          </p>
+        <div class="scroll-reveal delay-200">
+          <div class="text-3xl font-light mb-1"
+            style="color:#533AFD; letter-spacing:-0.04em; font-family: var(--font-display);">
+            Global
+          </div>
+          <div class="text-sm font-medium" style="color:#50617A;">Presence & Partnerships</div>
         </div>
-
-        <div class="flex flex-wrap justify-center gap-6 mt-8">
-          <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-200">
-            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-gray-700 font-medium">Cost-Effective</span>
-          </div>
-          <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-200">
-            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-gray-700 font-medium">Highest Quality</span>
-          </div>
-          <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-200">
-            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-gray-700 font-medium">Highly Secured</span>
-          </div>
-          <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-200">
-            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-gray-700 font-medium">Scalable Solutions</span>
-          </div>
-          <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md border border-gray-200">
-            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span class="text-gray-700 font-medium">High Performance</span>
-          </div>
-        </div>
-
-        <p class="text-gray-600 leading-relaxed text-center mt-8 italic">
-          We have presence in Bengaluru, serves as the frontend hub for delivery, supported by partners in USA,
-          Singapore,
-          Africa and India. With our extensive, widely-recognized business credentials and experience in managing
-          large-scale projects of the leadership team, Blute Technologies has become a trusted partner to a diversity of
-          organizations from different sectors.
-        </p>
       </div>
     </div>
   </div>
 
-
-
-  <!-- Services Section -->
-  <div class="bg-gradient-to-b from-white to-gray-50 py-20">
+  <!-- ============================================================
+       BRAND IDENTITY — Bento grid "What is Blute?"
+       ============================================================ -->
+  <section class="py-24" style="background:#F6F9FC;">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Expertise</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Comprehensive Services</h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+
+      <!-- Header -->
+      <div class="max-w-3xl mb-14 scroll-reveal">
+        <span class="text-xs font-medium tracking-widest uppercase mb-3 block"
+          style="color:#533AFD; letter-spacing:0.08em;">What We Do</span>
+        <h2 class="font-light mb-5"
+          style="font-size:clamp(2rem,4vw,3rem); letter-spacing:-0.04em; color:#0A2540; font-family:var(--font-display); line-height:1.05;">
+          One partner for your entire<br>digital journey.
+        </h2>
+        <p class="text-base leading-relaxed" style="color:#50617A; max-width:560px;">
+          8+ years · 23+ enterprise clients · HQ Bengaluru · Partners across USA, Singapore &amp; Africa.
+          From first line of code to global scale — we own every layer.
+        </p>
+      </div>
+
+      <!-- ── Bento grid ────────────────────────── -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+
+        <!-- Large card A — Product Engineering (dark navy) -->
+        <div class="md:col-span-7 scroll-reveal p-9 flex flex-col justify-between relative overflow-hidden cursor-default"
+          style="border-radius:24px; background:#0A2540; min-height:320px;
+                 border:1px solid rgba(255,255,255,0.07);
+                 box-shadow:0 8px 32px rgba(10,37,64,0.30);
+                 transition:transform 250ms cubic-bezier(0.4,0,0.2,1), box-shadow 250ms;"
+          onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 20px 56px rgba(10,37,64,0.40)';"
+          onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(10,37,64,0.30)';">
+          <!-- Ambient halo -->
+          <div class="absolute top-0 right-0 w-72 h-72 pointer-events-none"
+            style="background:radial-gradient(ellipse at top right,rgba(83,58,253,0.28) 0%,transparent 65%);"></div>
+          <!-- Top row -->
+          <div class="relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6"
+              style="background:rgba(83,58,253,0.20); color:#A594FF; border:1px solid rgba(83,58,253,0.35);">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              Flagship Service
+            </div>
+            <!-- Tech tags -->
+            <div class="flex flex-wrap gap-2 mb-7">
+              <span *ngFor="let t of ['Web App','Mobile','AI / ML','IoT','Blockchain','AR / VR','UI / UX']"
+                class="px-2.5 py-1 text-xs font-medium rounded-md"
+                style="background:rgba(255,255,255,0.08); color:rgba(201,206,216,0.82); border:1px solid rgba(255,255,255,0.10);">
+                {{ t }}
+              </span>
+            </div>
+          </div>
+          <!-- Bottom content -->
+          <div class="relative z-10">
+            <h3 class="text-2xl font-semibold text-white mb-3"
+              style="letter-spacing:-0.03em; font-family:var(--font-display);">Product Engineering</h3>
+            <p class="text-sm leading-relaxed mb-6" style="color:rgba(201,206,216,0.72); max-width:400px;">
+              We design, build, and ship digital products across every platform. Serving start-ups to global enterprises — fast cycles, zero compromise on quality.
+            </p>
+            <a [routerLink]="['/product-engineering']"
+              class="inline-flex items-center gap-2 text-sm font-medium"
+              style="color:#A594FF; transition:gap 150ms, color 150ms;"
+              onmouseenter="this.style.gap='14px'; this.style.color='#C4B5FF';"
+              onmouseleave="this.style.gap='8px'; this.style.color='#A594FF';">
+              Explore Product Engineering
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Large card B — Agentic AI (deep violet) -->
+        <div class="md:col-span-5 scroll-reveal delay-100 p-9 flex flex-col justify-between relative overflow-hidden cursor-default"
+          style="border-radius:24px; min-height:320px;
+                 background:linear-gradient(150deg,#0f0a2e 0%,#1c0b3a 100%);
+                 border:1px solid rgba(83,58,253,0.30);
+                 box-shadow:0 8px 32px rgba(83,58,253,0.18);
+                 transition:transform 250ms cubic-bezier(0.4,0,0.2,1), box-shadow 250ms;"
+          onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 20px 56px rgba(83,58,253,0.30)';"
+          onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(83,58,253,0.18)';">
+          <div class="absolute inset-0 pointer-events-none"
+            style="background:radial-gradient(ellipse at 80% 10%,rgba(247,45,243,0.18) 0%,transparent 55%);"></div>
+          <!-- Top -->
+          <div class="relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6"
+              style="background:rgba(247,45,243,0.15); color:#F72DF3; border:1px solid rgba(247,45,243,0.30);">
+              <span class="w-1.5 h-1.5 rounded-full inline-block"
+                style="background:#F72DF3; animation:pulse-glow 2s ease-in-out infinite;"></span>
+              Next-Gen
+            </div>
+            <!-- Live stats -->
+            <div class="flex items-center gap-8 mb-7">
+              <div>
+                <div class="text-3xl font-light text-white mb-1"
+                  style="font-family:var(--font-display); letter-spacing:-0.04em;">80%</div>
+                <div class="text-xs" style="color:rgba(201,206,216,0.50);">tickets handled autonomously</div>
+              </div>
+              <div style="width:1px; height:36px; background:rgba(255,255,255,0.12);"></div>
+              <div>
+                <div class="text-3xl font-light text-white mb-1"
+                  style="font-family:var(--font-display); letter-spacing:-0.04em;">3 wks</div>
+                <div class="text-xs" style="color:rgba(201,206,216,0.50);">average deployment time</div>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom -->
+          <div class="relative z-10">
+            <h3 class="text-2xl font-semibold text-white mb-3"
+              style="letter-spacing:-0.03em; font-family:var(--font-display);">Agentic AI</h3>
+            <p class="text-sm leading-relaxed mb-6" style="color:rgba(201,206,216,0.72);">
+              Autonomous agents that plan, reason, and execute complex workflows — support bots, code review, data pipelines, all running 24/7.
+            </p>
+            <a [routerLink]="['/agentic-ai']"
+              class="inline-flex items-center gap-2 text-sm font-medium"
+              style="color:#F72DF3; transition:gap 150ms;"
+              onmouseenter="this.style.gap='14px';"
+              onmouseleave="this.style.gap='8px';">
+              See Agentic AI
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Small card C — Mobile -->
+        <div class="md:col-span-3 scroll-reveal delay-150 p-6 bg-white flex flex-col cursor-default"
+          style="border-radius:20px; border:1px solid #E5EDF5; min-height:190px;
+                 box-shadow:0 2px 8px rgba(50,50,93,0.06);
+                 transition:transform 200ms, box-shadow 200ms, border-color 200ms;"
+          onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 28px rgba(83,58,253,0.12)'; this.style.borderColor='rgba(83,58,253,0.3)';"
+          onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(50,50,93,0.06)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+            style="background:linear-gradient(135deg,#533AFD,#7B5CF0);">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:#0A2540;">Mobile Apps</h3>
+          <p class="text-xs leading-relaxed flex-1" style="color:#50617A;">
+            iOS &amp; Android. React Native, Flutter, Swift, Kotlin. 50+ apps shipped.
+          </p>
+          <a [routerLink]="['/mobile-app-development']"
+            class="text-xs font-semibold mt-4 inline-flex items-center gap-1"
+            style="color:#533AFD;">
+            Explore
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Small card D — Cloud -->
+        <div class="md:col-span-3 scroll-reveal delay-200 p-6 bg-white flex flex-col cursor-default"
+          style="border-radius:20px; border:1px solid #E5EDF5; min-height:190px;
+                 box-shadow:0 2px 8px rgba(50,50,93,0.06);
+                 transition:transform 200ms, box-shadow 200ms, border-color 200ms;"
+          onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 28px rgba(14,165,233,0.12)'; this.style.borderColor='rgba(14,165,233,0.3)';"
+          onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(50,50,93,0.06)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+            style="background:linear-gradient(135deg,#0ea5e9,#0284c7);">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:#0A2540;">Cloud &amp; DevOps</h3>
+          <p class="text-xs leading-relaxed flex-1" style="color:#50617A;">
+            AWS, Azure, GCP. CI/CD, Kubernetes, serverless — scale without limits.
+          </p>
+          <a [routerLink]="['/cloud']"
+            class="text-xs font-semibold mt-4 inline-flex items-center gap-1"
+            style="color:#0ea5e9;">
+            Explore
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Small card E — GIS -->
+        <div class="md:col-span-3 scroll-reveal delay-250 p-6 bg-white flex flex-col cursor-default"
+          style="border-radius:20px; border:1px solid #E5EDF5; min-height:190px;
+                 box-shadow:0 2px 8px rgba(50,50,93,0.06);
+                 transition:transform 200ms, box-shadow 200ms, border-color 200ms;"
+          onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 28px rgba(16,185,129,0.12)'; this.style.borderColor='rgba(16,185,129,0.3)';"
+          onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(50,50,93,0.06)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+            style="background:linear-gradient(135deg,#10b981,#059669);">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:#0A2540;">GIS &amp; Geospatial</h3>
+          <p class="text-xs leading-relaxed flex-1" style="color:#50617A;">
+            Digital maps, route optimisation, geospatial databases, real-time location analytics.
+          </p>
+          <a [routerLink]="['/it-consulting']"
+            class="text-xs font-semibold mt-4 inline-flex items-center gap-1"
+            style="color:#10b981;">
+            Explore
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Small card F — Enterprise -->
+        <div class="md:col-span-3 scroll-reveal delay-300 p-6 bg-white flex flex-col cursor-default"
+          style="border-radius:20px; border:1px solid #E5EDF5; min-height:190px;
+                 box-shadow:0 2px 8px rgba(50,50,93,0.06);
+                 transition:transform 200ms, box-shadow 200ms, border-color 200ms;"
+          onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 28px rgba(245,158,11,0.12)'; this.style.borderColor='rgba(245,158,11,0.3)';"
+          onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(50,50,93,0.06)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
+            style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:#0A2540;">Enterprise Solutions</h3>
+          <p class="text-xs leading-relaxed flex-1" style="color:#50617A;">
+            SAP, Microsoft, Oracle — ERP, CRM, HCM, SCM consulting, implementation &amp; migration.
+          </p>
+          <a [routerLink]="['/product-engineering']"
+            class="text-xs font-semibold mt-4 inline-flex items-center gap-1"
+            style="color:#f59e0b;">
+            Explore
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Trust-signal pill strip -->
+      <div class="flex flex-wrap gap-3 mt-12 scroll-reveal delay-100">
+        <span *ngFor="let f of ['Cost-Effective','Highest Quality','Highly Secured','Scalable','High Performance','24/7 Support']"
+          class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium"
+          style="border-radius:9999px; background:white; color:#0A2540; border:1px solid #E5EDF5;">
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:#533AFD;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+          </svg>
+          {{ f }}
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAT SHOWCASE — Pinned scroll-scrubbed AI conversation
+       ============================================================ -->
+  <section class="chat-section relative overflow-hidden" style="background:#060f1e; min-height:100vh; display:flex; align-items:center;">
+
+    <!-- Ambient glow blobs -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full"
+        style="background:radial-gradient(circle, rgba(83,58,253,0.14) 0%, transparent 70%);"></div>
+      <div class="absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full"
+        style="background:radial-gradient(circle, rgba(247,45,243,0.08) 0%, transparent 70%);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 items-center py-24">
+
+      <!-- Left: copy -->
+      <div>
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium tracking-widest uppercase mb-6"
+          style="background:rgba(83,58,253,0.15); color:#A594FF; border:1px solid rgba(83,58,253,0.30); letter-spacing:0.08em;">
+          <span class="w-1.5 h-1.5 rounded-full" style="background:#533AFD; animation:pulse-glow 2s ease-in-out infinite;"></span>
+          Agentic AI
+        </span>
+        <h2 class="font-light text-white mb-6"
+          style="font-size:clamp(2rem,4vw,3rem); letter-spacing:-0.04em; line-height:1.1; font-family:var(--font-display);">
+          Intelligence that works<br>
+          <span style="background:linear-gradient(135deg,#A594FF 0%,#F72DF3 100%);
+                       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+            while you sleep.
+          </span>
+        </h2>
+        <p class="text-base leading-relaxed mb-8" style="color:rgba(201,206,216,0.70); max-width:420px;">
+          Our AI agents handle end-to-end workflows — from customer support to code review — autonomously, reliably, at scale.
+        </p>
+        <a [routerLink]="['/agentic-ai']"
+          class="inline-flex items-center gap-2 text-sm font-medium text-white"
+          style="background:#533AFD; padding:11px 24px; border-radius:9999px;
+                 box-shadow:0 1px 2px rgba(83,58,253,0.40);
+                 transition:background 100ms cubic-bezier(0.4,0,0.2,1), transform 150ms cubic-bezier(0.34,1.56,0.64,1);"
+          onmouseenter="this.style.background='#4430D4'; this.style.transform='translateY(-1px)';"
+          onmouseleave="this.style.background='#533AFD'; this.style.transform='translateY(0)';">
+          Explore Agentic AI
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: chat window -->
+      <div class="rounded-2xl overflow-hidden"
+        style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); backdrop-filter:blur(16px);">
+
+        <!-- Window chrome bar -->
+        <div class="flex items-center gap-1.5 px-5 py-4"
+          style="border-bottom:1px solid rgba(255,255,255,0.07); background:rgba(255,255,255,0.02);">
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#FF5F57;"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#FFBD2E;"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#28CA41;"></div>
+          <span class="ml-3 text-xs font-medium" style="color:rgba(201,206,216,0.45);">Blute AI Agent · Enterprise Support</span>
+          <span class="ml-auto w-2 h-2 rounded-full" style="background:#28CA41; box-shadow:0 0 6px #28CA41;"></span>
+        </div>
+
+        <!-- Messages -->
+        <div class="p-5 space-y-4">
+
+          <div class="chat-msg flex justify-end">
+            <div class="max-w-[82%] px-4 py-3 text-sm text-white"
+              style="background:#533AFD; border-radius:18px 18px 4px 18px; line-height:1.6;">
+              We need to automate customer support — 500 tickets daily, mostly repetitive.
+            </div>
+          </div>
+
+          <div class="chat-msg flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-white"
+              style="background:linear-gradient(135deg,#533AFD,#F72DF3);">B</div>
+            <div class="max-w-[82%] px-4 py-3 text-sm"
+              style="background:rgba(255,255,255,0.07); border-radius:4px 18px 18px 18px; color:rgba(201,206,216,0.90); line-height:1.6;">
+              Train on your SOPs. Handle 80% of tickets autonomously. Deploy in 3 weeks.
+            </div>
+          </div>
+
+          <div class="chat-msg flex justify-end">
+            <div class="max-w-[82%] px-4 py-3 text-sm text-white"
+              style="background:#533AFD; border-radius:18px 18px 4px 18px; line-height:1.6;">
+              What happens when it doesn't know the answer?
+            </div>
+          </div>
+
+          <div class="chat-msg flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-white"
+              style="background:linear-gradient(135deg,#533AFD,#F72DF3);">B</div>
+            <div class="max-w-[82%] px-4 py-3 text-sm"
+              style="background:rgba(255,255,255,0.07); border-radius:4px 18px 18px 18px; color:rgba(201,206,216,0.90); line-height:1.6;">
+              Escalates with full context — your team closes 5× faster. Every response auditable.
+            </div>
+          </div>
+
+          <div class="chat-msg flex justify-end">
+            <div class="max-w-[82%] px-4 py-3 text-sm text-white"
+              style="background:#533AFD; border-radius:18px 18px 4px 18px; line-height:1.6;">
+              That's exactly what we needed. Monday?
+            </div>
+          </div>
+
+          <div class="chat-msg flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-white"
+              style="background:linear-gradient(135deg,#533AFD,#F72DF3);">B</div>
+            <div class="max-w-[82%] px-4 py-3 text-sm"
+              style="background:rgba(255,255,255,0.07); border-radius:4px 18px 18px 18px; color:rgba(201,206,216,0.90); line-height:1.6;">
+              Already in the calendar. 12 enterprise deployments this year.
+              <span style="color:#A594FF; font-weight:500;"> Let's build. →</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES — Mist background, clean flat cards
+       ============================================================ -->
+  <section style="background:#F6F9FC;" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Section header -->
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-xs font-medium tracking-widest uppercase mb-3 block"
+          style="color:#533AFD; letter-spacing:0.08em;">Our Expertise</span>
+        <h2 class="font-light mb-4"
+          style="font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing:-0.04em; color:#0A2540; font-family: var(--font-display); line-height:1.1;">
+          Comprehensive Services
+        </h2>
+        <p class="text-base max-w-2xl mx-auto" style="color:#50617A; line-height:1.7;">
           End-to-end technology solutions across multiple domains to power your business growth.
         </p>
       </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  
-    <!-- Service Card 1 - Web Application -->
-    <div
-      class="group bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-      <div
-        class="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-teal-500/30">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
+      <!-- 7-card grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- Card template: bg-white, border 1px #E5EDF5, radius 16px -->
+
+        <!-- Web Application -->
+        <div class="bg-white p-8 flex flex-col group scroll-reveal"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms;"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#533AFD';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            style="background:#533AFD; border-radius:4px;">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-3" style="color:#0A2540; letter-spacing:-0.01em;">Web Application</h3>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color:#50617A;">
+            Modern, scalable web applications built with cutting-edge technologies for exceptional performance and user experience.
+          </p>
+          <a [routerLink]="['/web-application']"
+            class="inline-flex items-center gap-1.5 text-sm font-medium group-hover:gap-2.5 transition-all"
+            style="color:#533AFD; transition-property:gap; transition-duration:150ms; transition-timing-function:cubic-bezier(0.4,0,0.2,1);">
+            Learn More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Cloud -->
+        <div class="bg-white p-8 flex flex-col group scroll-reveal delay-75"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms;"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#533AFD';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            style="background:#533AFD; border-radius:4px;">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-3" style="color:#0A2540; letter-spacing:-0.01em;">Cloud</h3>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color:#50617A;">
+            Scalable cloud infrastructure, seamless migration, and continuous optimization services to power your business growth.
+          </p>
+          <a [routerLink]="['/cloud']"
+            class="inline-flex items-center gap-1.5 text-sm font-medium group-hover:gap-2.5 transition-all"
+            style="color:#533AFD;">
+            Learn More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Cognitive Computing -->
+        <div class="bg-white p-8 flex flex-col group scroll-reveal delay-150"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms;"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#533AFD';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            style="background:#533AFD; border-radius:4px;">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-3" style="color:#0A2540; letter-spacing:-0.01em;">Cognitive Computing</h3>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color:#50617A;">
+            Intelligent systems that simulate human thought processes to solve complex problems and enhance decision-making.
+          </p>
+          <a [routerLink]="['/cognitive']"
+            class="inline-flex items-center gap-1.5 text-sm font-medium group-hover:gap-2.5 transition-all"
+            style="color:#533AFD;">
+            Learn More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- IoT Solutions -->
+        <div class="bg-white p-8 flex flex-col group scroll-reveal delay-200"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms;"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#533AFD';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            style="background:#533AFD; border-radius:4px;">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-3" style="color:#0A2540; letter-spacing:-0.01em;">IoT Solutions</h3>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color:#50617A;">
+            Connected devices and smart automation systems for industrial and consumer applications.
+          </p>
+          <a [routerLink]="['/iot-solutions']"
+            class="inline-flex items-center gap-1.5 text-sm font-medium group-hover:gap-2.5 transition-all"
+            style="color:#533AFD;">
+            Learn More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Agentic AI -->
+        <div class="bg-white p-8 flex flex-col group scroll-reveal delay-250"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms;"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#533AFD';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            style="background:#533AFD; border-radius:4px;">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-3" style="color:#0A2540; letter-spacing:-0.01em;">Agentic AI</h3>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color:#50617A;">
+            Autonomous AI agents that plan, reason, and execute complex multi-step tasks to drive intelligent business automation.
+          </p>
+          <a [routerLink]="['/agentic-ai']"
+            class="inline-flex items-center gap-1.5 text-sm font-medium group-hover:gap-2.5 transition-all"
+            style="color:#533AFD;">
+            Learn More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile App Development -->
+        <div class="bg-white p-8 flex flex-col group scroll-reveal delay-300"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms;"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#533AFD';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            style="background:#533AFD; border-radius:4px;">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-3" style="color:#0A2540; letter-spacing:-0.01em;">Mobile App Development</h3>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color:#50617A;">
+            Native and cross-platform mobile apps for iOS and Android with exceptional performance, UX, and reliability.
+          </p>
+          <a [routerLink]="['/mobile-app-development']"
+            class="inline-flex items-center gap-1.5 text-sm font-medium group-hover:gap-2.5 transition-all"
+            style="color:#533AFD;">
+            Learn More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Geospatial & GIS Solutions -->
+        <div class="bg-white p-8 flex flex-col group scroll-reveal delay-350"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1), border-color 200ms;"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)'; this.style.borderColor='#533AFD';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)'; this.style.borderColor='#E5EDF5';">
+          <div class="w-10 h-10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+            style="background:#533AFD; border-radius:4px;">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+          </div>
+          <h3 class="font-medium text-base mb-3" style="color:#0A2540; letter-spacing:-0.01em;">GIS & Geospatial Solutions</h3>
+          <p class="text-sm leading-relaxed mb-6 flex-1" style="color:#50617A;">
+            Unlock enterprise-grade location intelligence with custom digital maps, route optimization, geospatial database design, and real-time GIS analytics.
+          </p>
+          <a [routerLink]="['/it-consulting']"
+            class="inline-flex items-center gap-1.5 text-sm font-medium group-hover:gap-2.5 transition-all"
+            style="color:#533AFD;">
+            Learn More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
       </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3">Web Application</h3>
-      <p class="text-gray-600 mb-6 leading-relaxed">Modern, scalable web applications built with cutting-edge
-        technologies for exceptional performance and user experience.</p>
-      <a [routerLink]="['/web-application']"
-        class="inline-flex items-center gap-2 text-teal-600 font-semibold group-hover:gap-3 transition-all cursor-pointer">
-        Learn More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
     </div>
-  
-    <!-- Service Card 2 - Cloud -->
-    <div
-      class="group bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-sky-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-      <div
-        class="w-14 h-14 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-sky-500/30">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3">Cloud</h3>
-      <p class="text-gray-600 mb-6 leading-relaxed">Scalable cloud infrastructure, seamless migration, and continuous
-        optimization services to power your business growth.</p>
-      <a [routerLink]="['/cloud']"
-        class="inline-flex items-center gap-2 text-sky-600 font-semibold group-hover:gap-3 transition-all cursor-pointer">
-        Learn More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
-    </div>
-  
-    <!-- Service Card 3 - Cognitive Computing -->
-    <div
-      class="group bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-indigo-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-      <div
-        class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-indigo-500/30">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3">Cognitive Computing</h3>
-      <p class="text-gray-600 mb-6 leading-relaxed">Intelligent systems that simulate human thought processes to solve
-        complex problems and enhance decision-making.</p>
-      <a [routerLink]="['/cognitive-computing']"
-        class="inline-flex items-center gap-2 text-indigo-600 font-semibold group-hover:gap-3 transition-all cursor-pointer">
-        Learn More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
-    </div>
-  
-    <!-- Service Card 4 - IoT Solutions -->
-    <div
-      class="group bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-cyan-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-      <div
-        class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-cyan-500/30">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3">IoT Solutions</h3>
-      <p class="text-gray-600 mb-6 leading-relaxed">Connected devices and smart automation systems for industrial
-        and consumer applications.</p>
-      <a [routerLink]="['/iot-solutions']"
-        class="inline-flex items-center gap-2 text-cyan-600 font-semibold group-hover:gap-3 transition-all cursor-pointer">
-        Learn More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
-    </div>
-  
-    <!-- Service Card 5 - Agentic AI -->
-    <div
-      class="group bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-violet-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-      <div
-        class="w-14 h-14 bg-gradient-to-br from-violet-500 to-purple-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-violet-500/30">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3">Agentic AI</h3>
-      <p class="text-gray-600 mb-6 leading-relaxed">Autonomous AI agents that plan, reason, and execute complex
-        multi-step tasks to drive intelligent business automation.</p>
-      <a [routerLink]="['/agentic-ai']"
-        class="inline-flex items-center gap-2 text-violet-600 font-semibold group-hover:gap-3 transition-all cursor-pointer">
-        Learn More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
+  </section>
+
+  <!-- ============================================================
+       CLIENTS — Two-row infinite marquee, full colour
+       ============================================================ -->
+  <section class="py-20" style="background:#F6F9FC;">
+    <div class="max-w-7xl mx-auto px-6 text-center mb-14 scroll-reveal">
+      <span class="text-xs font-medium tracking-widest uppercase mb-3 block"
+        style="color:#533AFD; letter-spacing:0.08em;">Trusted Partnerships</span>
+      <h2 class="font-light mb-4"
+        style="font-size:clamp(2rem,4vw,2.75rem); letter-spacing:-0.04em; color:#0A2540; font-family:var(--font-display); line-height:1.1;">
+        Our Clients
+      </h2>
+      <p class="text-base max-w-2xl mx-auto" style="color:#50617A; line-height:1.7;">
+        Trusted by leading enterprises and innovative start-ups across diverse industries worldwide.
+      </p>
     </div>
 
-    <!-- Service Card 6 - Mobile App Development -->
-    <div
-      class="group bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-      <div
-        class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-emerald-500/30">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
+    <div class="flex flex-col gap-5">
+
+      <!-- Row 1 — right to left -->
+      <div class="overflow-hidden"
+        style="mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
+               -webkit-mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);">
+        <div class="client-marquee flex items-center gap-8 py-3">
+          <div *ngFor="let client of marqueeClients"
+            class="flex-shrink-0 flex items-center justify-center"
+            style="width:220px; height:110px;
+                   background:white; border-radius:14px;
+                   border:1px solid #E5EDF5;
+                   box-shadow:0 2px 8px rgba(50,50,93,0.06), 0 1px 3px rgba(0,0,0,0.05);
+                   padding:16px 22px;
+                   transition:transform 250ms cubic-bezier(0.34,1.56,0.64,1),
+                               box-shadow 200ms;"
+            onmouseenter="this.style.transform='scale(1.07)'; this.style.boxShadow='0 8px 24px rgba(83,58,253,0.15), 0 2px 6px rgba(0,0,0,0.08)';"
+            onmouseleave="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(50,50,93,0.06), 0 1px 3px rgba(0,0,0,0.05)';">
+            <img [src]="client.src" [alt]="client.alt"
+              class="w-full h-full object-contain" />
+          </div>
+        </div>
       </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-3">Mobile App Development</h3>
-      <p class="text-gray-600 mb-6 leading-relaxed">Native and cross-platform mobile apps for iOS and Android with
-        exceptional performance, UX, and reliability.</p>
-      <a [routerLink]="['/mobile-app-development']"
-        class="inline-flex items-center gap-2 text-emerald-600 font-semibold group-hover:gap-3 transition-all cursor-pointer">
-        Learn More
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
-    </div>
 
-  </div>
-    </div>
-  </div>
+      <!-- Row 2 — left to right -->
+      <div class="overflow-hidden"
+        style="mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);
+               -webkit-mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);">
+        <div class="client-marquee-reverse flex items-center gap-8 py-3">
+          <div *ngFor="let client of marqueeClients"
+            class="flex-shrink-0 flex items-center justify-center"
+            style="width:220px; height:110px;
+                   background:white; border-radius:14px;
+                   border:1px solid #E5EDF5;
+                   box-shadow:0 2px 8px rgba(50,50,93,0.06), 0 1px 3px rgba(0,0,0,0.05);
+                   padding:16px 22px;
+                   transition:transform 250ms cubic-bezier(0.34,1.56,0.64,1),
+                               box-shadow 200ms;"
+            onmouseenter="this.style.transform='scale(1.07)'; this.style.boxShadow='0 8px 24px rgba(83,58,253,0.15), 0 2px 6px rgba(0,0,0,0.08)';"
+            onmouseleave="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(50,50,93,0.06), 0 1px 3px rgba(0,0,0,0.05)';">
+            <img [src]="client.src" [alt]="client.alt"
+              class="w-full h-full object-contain" />
+          </div>
+        </div>
+      </div>
 
-  <!-- Clients Section -->
-  <div class="bg-white py-20">
+    </div>
+  </section>
+
+   <!-- ============================================================
+       OFFICES — Mist background, minimal card
+       ============================================================ -->
+  <section style="background:#F6F9FC;" class="py-24">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Trusted Partnerships</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 mt-2">Our Clients</h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Trusted by leading enterprises and innovative startups across diverse industries worldwide.
+
+      <div class="text-center mb-14 scroll-reveal">
+        <h2 class="font-light mb-4"
+          style="font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing:-0.04em; color:#0A2540; font-family: var(--font-display); line-height:1.1;">
+          Our Offices
+        </h2>
+        <p class="text-base max-w-3xl mx-auto" style="color:#50617A; line-height:1.7;">
+          Headquartered in Bengaluru as our primary delivery hub, supported by partners across the USA, Singapore, Africa and India.
         </p>
       </div>
-  
-      <!-- Client Logos Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/agile.jpeg" alt="Agile Network"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/aikya.jpeg" alt="Aikya"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/alkimi.jpeg" alt="Alkimi"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/AmazingCare.jpg" alt="Amazing Care"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/arion.jpeg" alt="Arion"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-     
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/conlis.jpeg" alt="Conlis Global"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/evoscience.jpg" alt="Evoscience"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/firstearth.webp" alt="First Earth"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <!-- <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/global.jpg" alt="Global"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div> -->
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/gravity-india-technologies.png" alt="Gravity India Technologies"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/heylearno.png" alt="HeyLearno"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/infosys.jpg" alt="Infosys"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/ITC-Infotech.webp" alt="ITC Infotech"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/medverve.jpeg" alt="Medverve"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/Mitsubishi.png" alt="Mitsubishi"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/nivetti.jpeg" alt="Nivetti"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/novem.jpg" alt="Novem Solutions"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-      
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/percept.png" alt="Percept"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/simplex.jpeg" alt="Simplex"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/skbl.jpeg" alt="SKBL"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/tansorian.png" alt="Transorion"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/ullas.png" alt="Ullas"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/XUBERANT.jpg" alt="Xuberant"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-        <div
-          class="flex items-center justify-center p-6 bg-white rounded-xl border border-gray-100 hover:border-teal-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group">
-          <img src="assets/images/clients/Zeiss.png" alt="Zeiss"
-            class="h-16 w-auto object-contain transition-all duration-300 group-hover:scale-110">
-        </div>
-  
-      </div>
-    </div>
-  </div>
 
- 
-
-  <!-- Our Offices Section -->
-  <div class="bg-gray-50 py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Offices</h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Headquartered in Bengaluru as our primary delivery hub, supported by partners across the USA, Singapore, Africa, and India. Backed by widely recognised business credentials and proven leadership in large-scale project delivery, Blute Technologies is a trusted partner to organisations across diverse sectors.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- India Office -->
-        <div
-          class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
-          <div class="flex items-start gap-4 mb-6">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="max-w-sm mx-auto md:mx-0 md:max-w-none grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-8 scroll-reveal"
+          style="border-radius:24px; border:1px solid #E5EDF5;
+                 box-shadow:0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06);
+                 transition:box-shadow 200ms cubic-bezier(0.4,0,0.2,1), transform 200ms cubic-bezier(0.4,0,0.2,1);"
+          onmouseenter="this.style.boxShadow='0px 4px 8px rgba(50,50,93,0.10),0px 2px 4px rgba(0,0,0,0.06)'; this.style.transform='translateY(-2px)';"
+          onmouseleave="this.style.boxShadow='0px 2px 4px rgba(50,50,93,0.08),0px 1px 2px rgba(0,0,0,0.06)'; this.style.transform='translateY(0)';">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-8 h-8 flex items-center justify-center flex-shrink-0"
+              style="background:#533AFD; border-radius:4px;">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">India</h3>
-              <div class="w-12 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"></div>
-            </div>
+            <h3 class="font-medium text-base" style="color:#0A2540; letter-spacing:-0.01em;">India — Bengaluru HQ</h3>
           </div>
-
-          <div class="space-y-4 mb-6">
-            <div>
-              <p class="text-gray-700 font-semibold mb-1">Bengaluru, KA</p>
-              <p class="text-gray-600 text-sm leading-relaxed">BNN Mansion, #413/25, 3rd Floor,<br />80 ft Road, 43rd Cross Rd, 8th Block,<br />Jayanagar, Bengaluru, Karnataka 560070, India</p>
-
-            </div>
-          </div>
-
+          <p class="text-sm leading-relaxed mb-6" style="color:#50617A;">
+            BNN Mansion, #413/25, 3rd Floor, 80 ft Road,<br>
+            43rd Cross Rd, 8th Block, Jayanagar,<br>
+            Bengaluru, Karnataka 560070, India
+          </p>
           <div class="space-y-3">
             <a href="tel:+919980268617"
-              class="flex items-center gap-3 text-teal-600 hover:text-teal-700 transition-colors group/phone">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="flex items-center gap-2.5 text-sm font-medium"
+               style="color:#533AFD; transition:color 100ms cubic-bezier(0.4,0,0.2,1);"
+               onmouseenter="this.style.color='#4430D4';"
+               onmouseleave="this.style.color='#533AFD';">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span class="font-medium">+91 99802 68617</span>
+              +91 99802 68617
             </a>
             <a href="mailto:info@blute.co.in"
-              class="flex items-center gap-3 text-teal-600 hover:text-teal-700 transition-colors group/email">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="flex items-center gap-2.5 text-sm font-medium"
+               style="color:#533AFD; transition:color 100ms cubic-bezier(0.4,0,0.2,1);"
+               onmouseenter="this.style.color='#4430D4';"
+               onmouseleave="this.style.color='#533AFD';">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              <span class="font-medium">info@blute.co.in</span>
+              info@blute.co.in
             </a>
           </div>
         </div>
       </div>
+
     </div>
-  </div>
+  </section>
 
-  <!-- CTA Section -->
-  <div class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 py-20">
-    <div class="absolute inset-0 opacity-[0.05]"
-      style="background-image: linear-gradient(rgba(99,179,237,0.8) 1px, transparent 1px),
-             linear-gradient(90deg, rgba(99,179,237,0.8) 1px, transparent 1px);
-             background-size: 40px 40px;"></div>
-    <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- ============================================================
+       CTA — Deep navy, violet halo, single primary button
+       ============================================================ -->
+  <section class="relative overflow-hidden py-24 scroll-reveal" style="background:#0A2540;">
 
-    <div class="relative max-w-4xl mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 rounded-full px-5 py-2 mb-8">
-        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-        <span class="text-teal-300 text-sm font-semibold tracking-widest uppercase">Let's Work Together</span>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
-        Ready to Start Your<br>
-        <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+    <!-- Decorative halo — art only -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full"
+        style="background: radial-gradient(ellipse at center, rgba(83,58,253,0.20) 0%, transparent 70%);"></div>
+      <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full"
+        style="background: radial-gradient(ellipse at center, rgba(247,45,243,0.07) 0%, transparent 70%);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-widest uppercase mb-8"
+        style="background:rgba(83,58,253,0.15); color:#A594FF; border:1px solid rgba(83,58,253,0.30); letter-spacing:0.08em;">
+        <span class="w-1.5 h-1.5 rounded-full" style="background:#533AFD; animation:pulse-glow 2000ms ease-in-out infinite;"></span>
+        Let's Work Together
+      </span>
+
+      <h2 class="font-light mb-5 text-white"
+        style="font-size: clamp(2.25rem, 5vw, 3.25rem); letter-spacing:-0.04em; font-family: var(--font-display); line-height:1.05;">
+        Ready to Start Your
+        <span class="block"
+          style="background: linear-gradient(135deg, #A594FF 0%, #F72DF3 60%, #FF6118 100%);
+                 -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
           Digital Journey?
         </span>
       </h2>
-      <p class="text-lg text-white/55 max-w-2xl mx-auto mb-10 leading-relaxed">
+
+      <p class="text-base leading-relaxed max-w-2xl mx-auto mb-10" style="color:rgba(201,206,216,0.70);">
         Partner with Blute Technologies to build world-class digital solutions that drive real, measurable business growth.
       </p>
+
       <div class="flex flex-wrap justify-center gap-4">
+        <!-- Single primary CTA — Electric Iris -->
         <a [routerLink]="['/contact']"
-          class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-blue-500 text-white font-bold shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:-translate-y-0.5 transition-all duration-200">
+          class="inline-flex items-center gap-2 text-white font-medium text-sm"
+          style="background:#533AFD;
+                 padding: 11px 24px;
+                 border-radius: 9999px;
+                 box-shadow: 0px 1px 2px rgba(83,58,253,0.35);
+                 transition: background 100ms cubic-bezier(0.4,0,0.2,1),
+                             box-shadow 200ms cubic-bezier(0.4,0,0.2,1),
+                             transform 150ms cubic-bezier(0.34,1.56,0.64,1);"
+          onmouseenter="this.style.background='#4430D4'; this.style.boxShadow='0px 4px 8px rgba(83,58,253,0.40)'; this.style.transform='translateY(-1px)';"
+          onmouseleave="this.style.background='#533AFD'; this.style.boxShadow='0px 1px 2px rgba(83,58,253,0.35)'; this.style.transform='translateY(0)';">
           Get In Touch
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
+        <!-- Ghost secondary -->
         <a [routerLink]="['/portfolio']"
-          class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-bold hover:bg-white/20 transition-all duration-200 backdrop-blur-sm">
+          class="inline-flex items-center gap-2 text-sm font-medium"
+          style="padding: 11px 24px;
+                 border-radius: 9999px;
+                 border: 1px solid rgba(201,206,216,0.25);
+                 color: rgba(201,206,216,0.80);
+                 transition: background 100ms cubic-bezier(0.4,0,0.2,1), border-color 100ms;"
+          onmouseenter="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='rgba(201,206,216,0.50)';"
+          onmouseleave="this.style.background='transparent'; this.style.borderColor='rgba(201,206,216,0.25)';">
           View Portfolio
         </a>
       </div>
+
     </div>
-  </div>
+  </section>
+
 </div>

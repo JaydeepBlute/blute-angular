@@ -1,3 +1,62 @@
+/* ============================================================
+ * Stripe-Inspired Design Tokens — Blute Technologies
+ * ============================================================ */
+
+:root {
+  /* Fonts */
+  --font-display: 'Manrope', 'Söhne', 'SF Pro Display', -apple-system, 'Helvetica Neue', sans-serif;
+  --font-body:    'Manrope', 'Inter', -apple-system, sans-serif;
+
+  /* Brand */
+  --color-accent:        #533AFD;
+  --color-accent-hover:  #4430D4;
+  --color-accent-active: #3726AA;
+  --color-accent-subtle: rgba(83, 58, 253, 0.08);
+
+  /* Light surface */
+  --color-bg-page:       #FFFFFF;
+  --color-bg-surface:    #F6F9FC;
+  --color-bg-surface-alt:#E5EDF5;
+
+  /* Text */
+  --color-text-primary:   #0A2540;
+  --color-text-secondary: #50617A;
+  --color-text-tertiary:  #8C99AD;
+
+  /* Border */
+  --color-border:       #E5EDF5;
+  --color-border-strong:#C2D0DF;
+
+  /* Dark surfaces */
+  --color-navy:         #0A2540;
+
+  /* Shadows */
+  --shadow-sm:    0px 2px 4px rgba(50,50,93,0.08), 0px 1px 2px rgba(0,0,0,0.06);
+  --shadow-md:    0px 4px 8px rgba(50,50,93,0.10), 0px 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg:    0px 8px 16px rgba(50,50,93,0.10), 0px 4px 8px rgba(0,0,0,0.06);
+  --shadow-focus: 0px 0px 0px 3px rgba(83,58,253,0.12);
+
+  /* Easing */
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1.0);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1.0);
+  --ease-enter:    cubic-bezier(0.0, 0.0, 0.2, 1.0);
+}
+
+/* Global font application */
+*, *::before, *::after { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Stripe-standard focus ring — replaces browser outline */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
@@ -131,4 +190,111 @@
   50% {
     opacity: 0.2;
   }
+}
+
+@keyframes fillProgressBar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.slide-progress-bar {
+  transform-origin: left;
+  animation: fillProgressBar 4000ms linear forwards;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.active-slide-content {
+  animation: slideUpFadeIn 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes glassShimmer {
+  0% { left: -150%; }
+  50% { left: -150%; }
+  100% { left: 150%; }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: skewX(-25deg);
+  animation: glassShimmer 6s infinite ease-in-out;
+}
+
+/* Initial hidden state — GSAP sets y:64 and animates in */
+.scroll-reveal { opacity: 0; }
+
+/* Infinite marquee for client logos */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.client-marquee {
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.client-marquee:hover { animation-play-state: paused; }
+
+/* Reverse row: left to right */
+@keyframes marqueeScrollReverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.client-marquee-reverse {
+  width: max-content;
+  animation: marqueeScrollReverse 40s linear infinite;
+}
+
+.client-marquee-reverse:hover { animation-play-state: paused; }
+
+.delay-75  { transition-delay: 75ms;  animation-delay: 75ms;  }
+.delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; animation-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; animation-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; animation-delay: 300ms; }
+.delay-350 { transition-delay: 350ms; animation-delay: 350ms; }
+.delay-400 { transition-delay: 400ms; animation-delay: 400ms; }
+
+/* ── Chatbot widget ─────────────────────────── */
+@keyframes typingBounce {
+  0%, 100% { transform: translateY(0);   opacity: 0.40; }
+  50%       { transform: translateY(-5px); opacity: 1;    }
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(165, 148, 255, 0.85);
+  display: inline-block;
+  animation: typingBounce 1.1s ease-in-out infinite;
+}
+
+@keyframes chatPulse {
+  0%   { transform: scale(1);    opacity: 0.80; }
+  70%  { transform: scale(1.18); opacity: 0;    }
+  100% { transform: scale(1.18); opacity: 0;    }
 }

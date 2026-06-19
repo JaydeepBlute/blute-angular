@@ -1,75 +1,157 @@
 <!-- navbar.component.html -->
+<nav class="nav-root" [class.nav-scrolled]="isScrolled" (mouseleave)="closeMenu()">
 
-<nav class="nav-gradient shadow-2xl" (mouseleave)="closeMenu()">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex items-center justify-between h-16">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between" style="height:68px;">
 
-      <!-- Logo -->
-      <a routerLink="/" class="flex items-center gap-3 cursor-pointer">
-        <div
-          class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center shadow-lg">
-          <img src="assets/images/clients/blutelogo.jpeg" alt="Blute Technologies"
-            class="w-full h-full object-contain rounded-xl">
-        </div>
-        <div>
-          <div class="text-white font-bold text-base leading-tight">Blute Technologies</div>
-        </div>
+      <!-- ── Logo ────────────────────────────────────── -->
+      <a routerLink="/" class="flex items-center gap-3 flex-shrink-0 cursor-pointer">
+        <img src="assets/images/clients/blutelogo.jpeg" alt="Blute Technologies"
+          class="w-9 h-9 rounded-xl object-contain" style="flex-shrink:0;" />
+        <span class="nav-brand">Blute Technologies</span>
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- ── Desktop nav ──────────────────────────────── -->
       <div class="hidden md:flex items-center gap-1">
 
-        <!-- TECHNOLOGIES -->
         <div (mouseenter)="openMenu('tech')">
-          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'tech'">
+          <button class="nav-btn" [class.active]="activeMenu === 'tech'">
             Technologies
-            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'tech'"
+            <svg class="nav-chev" [class.open]="activeMenu === 'tech'"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
         </div>
 
-        <!-- SERVICES -->
         <div (mouseenter)="openMenu('services')">
-          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'services'">
+          <button class="nav-btn" [class.active]="activeMenu === 'services'">
             Services
-            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'services'"
+            <svg class="nav-chev" [class.open]="activeMenu === 'services'"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
         </div>
 
-        <!-- INDUSTRIES -->
         <div (mouseenter)="openMenu('industries')">
-          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'industries'">
+          <button class="nav-btn" [class.active]="activeMenu === 'industries'">
             Industries
-            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'industries'"
+            <svg class="nav-chev" [class.open]="activeMenu === 'industries'"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
         </div>
 
-        <!-- COMPANY -->
         <div (mouseenter)="openMenu('company')">
-          <button class="nav-btn" [class.nav-btn-active]="activeMenu === 'company'">
+          <button class="nav-btn" [class.active]="activeMenu === 'company'">
             Company
-            <svg class="w-3.5 h-3.5 transition-transform duration-200" [class.rotate-180]="activeMenu === 'company'"
+            <svg class="nav-chev" [class.open]="activeMenu === 'company'"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
             </svg>
           </button>
         </div>
 
-        <!-- CTA Button -->
-      <button class="ml-3 cta-btn"  routerLink="/contact">Get in Touch</button>
       </div>
+
+      <!-- ── CTA ─────────────────────────────────────── -->
+      <button class="nav-cta hidden md:block" routerLink="/contact">
+        Get in Touch
+      </button>
+
+      <!-- ── Hamburger (mobile only) ─────────────────── -->
+      <button class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+        (click)="toggleMobile()" [attr.aria-expanded]="mobileOpen" aria-label="Toggle navigation">
+        <svg *ngIf="!mobileOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg *ngIf="mobileOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
     </div>
   </div>
 
-  <!-- ── MEGA MENU PANELS ── -->
+  <!-- ── Mobile drawer ────────────────────────────────── -->
+  <div *ngIf="mobileOpen" class="md:hidden mobile-drawer">
+
+    <!-- Technologies -->
+    <div class="mobile-section">
+      <button class="mobile-section-btn" (click)="toggleMobileSection('tech')">
+        Technologies
+        <svg class="mobile-chev" [class.open]="mobileSection === 'tech'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div *ngIf="mobileSection === 'tech'" class="mobile-links">
+        <ng-container *ngFor="let item of technologies">
+          <a *ngIf="item.routerLink" [routerLink]="item.routerLink" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+          <a *ngIf="!item.routerLink && item.href" [href]="item.href" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="mobile-section">
+      <button class="mobile-section-btn" (click)="toggleMobileSection('services')">
+        Services
+        <svg class="mobile-chev" [class.open]="mobileSection === 'services'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div *ngIf="mobileSection === 'services'" class="mobile-links">
+        <ng-container *ngFor="let item of services">
+          <a *ngIf="item.routerLink" [routerLink]="item.routerLink" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+          <a *ngIf="!item.routerLink && item.href" [href]="item.href" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Industries -->
+    <div class="mobile-section">
+      <button class="mobile-section-btn" (click)="toggleMobileSection('industries')">
+        Industries
+        <svg class="mobile-chev" [class.open]="mobileSection === 'industries'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div *ngIf="mobileSection === 'industries'" class="mobile-links">
+        <ng-container *ngFor="let item of industries">
+          <a *ngIf="item.routerLink" [routerLink]="item.routerLink" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+          <a *ngIf="!item.routerLink && item.href" [href]="item.href" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div class="mobile-section">
+      <button class="mobile-section-btn" (click)="toggleMobileSection('company')">
+        Company
+        <svg class="mobile-chev" [class.open]="mobileSection === 'company'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+      <div *ngIf="mobileSection === 'company'" class="mobile-links">
+        <ng-container *ngFor="let item of companyLinks">
+          <a *ngIf="item.routerLink" [routerLink]="item.routerLink" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+          <a *ngIf="!item.routerLink && item.href" [href]="item.href" (click)="closeMobile()" class="mobile-link">{{ item.label }}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="px-4 pb-4 pt-2">
+      <a routerLink="/contact" (click)="closeMobile()"
+        class="block w-full text-center py-3 rounded-xl font-semibold text-white text-sm"
+        style="background:#533afd;">Get in Touch</a>
+    </div>
+
+  </div>
+
+  <!-- ── MEGA MENU PANELS ──────────────────────────── -->
 
 <!-- TECHNOLOGIES PANEL — replace the entire technologies grid section -->
 <div *ngIf="activeMenu === 'tech'" class="mega-panel">

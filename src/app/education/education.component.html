@@ -8,7 +8,7 @@
   <div class="absolute top-0 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl pointer-events-none"></div>
   <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center w-full">
+  <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
     <div *ngIf="isVisible" @fadeInLeft>
       <div
         class="inline-flex items-center gap-2 bg-violet-400/10 border border-violet-400/20 rounded-full px-4 py-1.5 mb-6">
@@ -19,7 +19,7 @@
         <span class="text-violet-300 text-xs font-semibold tracking-widest uppercase">Education & EdTech — IT
           Solutions</span>
       </div>
-      <h1 class="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
         Transforming Education
         <span class="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
           Through Technology
@@ -112,7 +112,7 @@
 
 <!-- ══ ABOUT ══ FIXED: py-16 both sides, items-center so columns align naturally -->
 <section class="bg-white py-16">
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
     <!-- Image side -->
     <div *ngIf="isVisible" @fadeInLeft class="relative">
@@ -168,7 +168,7 @@
       <p class="text-gray-500 max-w-2xl mx-auto">Rapidly changing learner expectations and technology demands are
         forcing institutions to rethink how they deliver, measure, and improve education.</p>
     </div>
-    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div *ngIf="isVisible" @staggerCards class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let ch of challenges; let i = index"
         class="stagger-item group relative bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:border-violet-300 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
         style="box-shadow:0 2px 12px rgba(0,0,0,0.05);">
@@ -193,7 +193,7 @@
 
 <!-- ══ STATS + IMAGE ══ -->
 <section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
     <div *ngIf="isVisible" @fadeInLeft>
       <span class="text-violet-600 font-semibold text-sm uppercase tracking-widest">Why It Matters</span>
       <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6 leading-tight">
@@ -203,7 +203,7 @@
         Our education platforms don't just digitise existing processes — they meaningfully improve how students
         learn and how educators teach. Every solution we build is measured against real learning outcomes.
       </p>
-      <div *ngIf="isVisible" @staggerCards class="grid grid-cols-2 gap-4">
+      <div *ngIf="isVisible" @staggerCards class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div *ngFor="let stat of eduStats"
           class="stagger-item group bg-gray-50 rounded-2xl p-5 border-2 border-gray-100 hover:border-violet-300 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-center"
           style="box-shadow:0 2px 10px rgba(0,0,0,0.04);">
@@ -231,7 +231,7 @@
 
 <!-- ══ HOW WE WORK ══ -->
 <section class="bg-gray-50 py-20">
-  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
     <div *ngIf="isVisible" @fadeInLeft>
       <span class="text-violet-600 font-semibold text-sm uppercase tracking-widest">Our Approach</span>
       <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-6">How Blute Delivers EdTech Projects</h2>
@@ -257,7 +257,7 @@
           <span class="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></span>
           Technologies We Use
         </h3>
-        <div @staggerCards class="grid grid-cols-2 gap-3">
+        <div @staggerCards class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div *ngFor="let tech of techStack"
             class="stagger-item bg-gray-50 hover:bg-violet-50 border border-gray-200 hover:border-violet-300 transition-all duration-300 rounded-xl p-3 flex items-center gap-3 cursor-default shadow-sm">
             <span class="text-xl">{{ tech.icon }}</span>
@@ -279,7 +279,7 @@
       <span class="text-violet-600 font-semibold text-sm uppercase tracking-widest">Why Blute Technologies</span>
       <h2 class="text-4xl font-extrabold text-gray-900 mt-3 mb-4">Your Trusted EdTech Partner</h2>
     </div>
-    <div *ngIf="isVisible" @staggerCards class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div *ngIf="isVisible" @staggerCards class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let r of whyBlute"
         class="stagger-item group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-violet-300 hover:-translate-y-1 transition-all duration-300 text-center">
         <div

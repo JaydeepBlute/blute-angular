@@ -4,15 +4,17 @@ import { DOCUMENT } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { FooterComponent } from './footer/footer.component';
 import { Navbar } from './navbar/navbar.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, Navbar],
+  imports: [RouterOutlet, FooterComponent, Navbar, ChatbotComponent],
   template: `
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
+    <app-chatbot></app-chatbot>
   `,
   styles: [],
 })
@@ -26,7 +28,6 @@ export class AppComponent implements OnInit {
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd) => {
-        // Strip query params and fragments from canonical
         const path = e.urlAfterRedirects.split('?')[0].split('#')[0];
         this.setCanonical(`https://blute.co.in${path}`);
       });

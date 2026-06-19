@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -33,14 +33,21 @@ export interface NavItem {
 })
 export class Navbar {
   activeMenu: string | null = null;
+  isScrolled = false;
+  showAnnouncement = true;
+  mobileOpen = false;
+  mobileSection: string | null = null;
 
-  openMenu(menu: string): void {
-    this.activeMenu = menu;
+  @HostListener('window:scroll')
+  onScroll(): void {
+    this.isScrolled = window.scrollY > 24;
   }
 
-  closeMenu(): void {
-    this.activeMenu = null;
-  }
+  openMenu(menu: string): void { this.activeMenu = menu; }
+  closeMenu(): void { this.activeMenu = null; }
+  toggleMobile(): void { this.mobileOpen = !this.mobileOpen; if (!this.mobileOpen) this.mobileSection = null; }
+  toggleMobileSection(s: string): void { this.mobileSection = this.mobileSection === s ? null : s; }
+  closeMobile(): void { this.mobileOpen = false; this.mobileSection = null; }
 
   technologies: NavItem[] = [
     {
