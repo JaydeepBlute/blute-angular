@@ -52,7 +52,7 @@ export class TeamComponent implements OnInit {
     {
       name: 'Vittaladas Bhat',
       role: 'Co-Founder & Chief Executive Officer',
-      image: 'assets/images/clients/vittal.jpg',
+      image: 'assets/images/clients/vittal-2026.jpg',
       bio: 'A seasoned business leader and visionary entrepreneur with decades of experience in enterprise technology. Vittaladas co-founded Blute Technologies with a mission to deliver transformative digital solutions that create lasting business value for clients across industries.',
       expertise: [],
       linkedin: 'https://www.linkedin.com/in/vittaladas-bhat-2440195/',
@@ -60,7 +60,7 @@ export class TeamComponent implements OnInit {
     {
       name: 'Sudarshan Shenvi',
       role: 'Co-Founder & Director – Technology',
-      image: 'assets/images/clients/sudarshan.jpg',
+      image: 'assets/images/clients/sudarshan-2026.jpg',
       bio: 'A technology visionary with deep expertise in cloud architecture, AI, and modern software engineering. Sudarshan leads the technology direction at Blute, driving innovation and ensuring the delivery of scalable, high-performance solutions that keep clients ahead of the curve.',
       expertise: [],
       linkedin: 'https://www.linkedin.com/in/sudarshan-shenvi-27564226/',
