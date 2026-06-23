@@ -68,7 +68,7 @@ export class TeamComponent implements OnInit {
     {
       name: 'Satya Prakash H M',
       role: 'Co-Founder & Director – Sales',
-      image: 'assets/images/clients/satya.jpg',
+      image: 'assets/images/clients/satya.png',
       bio: 'A dynamic sales leader with a proven track record of building strong client relationships and driving business growth. Satya Prakash spearheads the go-to-market strategy at Blute Technologies, connecting clients with the right technology solutions to meet their unique goals.',
       expertise: [],
       linkedin: 'https://www.linkedin.com/in/satyaprakashhm/',

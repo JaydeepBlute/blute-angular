@@ -51,7 +51,7 @@ const RULES: { kw: string[]; reply: string }[] = [
   },
   {
     kw: ['contact', 'meet', 'call', 'schedule', 'meeting', 'demo', 'talk', 'discuss', 'appointment', 'reach'],
-    reply: "📧 info@blute.co.in\n📞 +91 99802 68617\n\nWe respond within 24h. Or just click 'Get in Touch' in the top nav!"
+    reply: "📧 info@blute.co.in\n📞 +91 99002 69617\n\nWe respond within 24h. Or just click 'Get in Touch' in the top nav!"
   },
   {
     kw: ['hire', 'developer', 'resource', 'talent', 'staff', 'outsource', 'offshore', 'team', 'engineer', 'recruit'],
@@ -73,7 +73,7 @@ const RULES: { kw: string[]; reply: string }[] = [
 
 const FALLBACKS = [
   "That's a great question! Our team would be best placed to answer. Drop us a line at info@blute.co.in.",
-  "I want to make sure you get the most accurate answer. Reach us at +91 99802 68617 or fill the contact form.",
+  "I want to make sure you get the most accurate answer. Reach us at +91 99002 69617 or fill the contact form.",
   "Interesting challenge! I'll connect you with the right specialist. Email info@blute.co.in and mention what you need.",
 ];
 
