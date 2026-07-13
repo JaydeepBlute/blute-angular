@@ -162,3 +162,10 @@
         ├── GitLab CI/CD -> Configured dual deploy jobs (deploy_firebase and deploy_vps) in stages
         ├── Nginx config -> Created new server block configuration for blute.org, www.blute.org, and IP
         └── Deployment -> Built and successfully copied static files to remote /var/www/blute-org/
+
+[2026-07-13T17:55:00+05:30] Obtain and configure SSL certificate for blute.org and www.blute.org on VPS
+└── Remote Files: /etc/nginx/sites-enabled/blute-org
+    ├── Choice: Keep chat.blute.co.in configuration untouched and use Certbot to register blute.org/www.blute.org
+    └── Changes:
+        └── Certbot -> Ran non-interactive Let's Encrypt generation on VPS to configure HTTPS for blute.org/www.blute.org
+
