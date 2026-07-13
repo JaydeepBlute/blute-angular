@@ -155,8 +155,10 @@
         └── clients.component.html -> Updated hero section to include a premium client consultation illustration image on the right column to emphasize trust signals and establish design sophistication
 
 
-
-
-
-
-
+[2026-07-13T16:09:00+05:30] Configure GitLab CI/CD for dual deployment (Firebase and VPS) and deploy static files to VPS
+└── Files: .gitlab-ci.yml, logs/change.log, logs/audit.log
+    ├── Choice: Added deploy_vps using alpine, rsync, and sshpass alongside existing deploy_firebase
+    └── Changes:
+        ├── GitLab CI/CD -> Configured dual deploy jobs (deploy_firebase and deploy_vps) in stages
+        ├── Nginx config -> Created new server block configuration for blute.org, www.blute.org, and IP
+        └── Deployment -> Built and successfully copied static files to remote /var/www/blute-org/
