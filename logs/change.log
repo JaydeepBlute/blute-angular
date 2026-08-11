@@ -169,3 +169,28 @@
     └── Changes:
         └── Certbot -> Ran non-interactive Let's Encrypt generation on VPS to configure HTTPS for blute.org/www.blute.org
 
+
+[2026-08-11T11:47:00+05:30] Fix trust badges and tech stack images size in manufacturing component HTML
+└── File: src/app/manufacture/manufacture.component.html
+    ├── Choice: Replaced width:100% and height:100% on inline elements/spans with fixed dimensions
+    └── Changes:
+        ├── Trust Badges -> Added flex layout container and set fixed image width and height to 24px
+        └── Tech Stack -> Added flex layout container and set fixed image width and height to 28px
+
+
+[2026-08-11T11:49:00+05:30] Fix broken Manufacturing image in Navbar industries dropdown
+└── File: src/app/navbar/navbar.component.ts
+    ├── Choice: Replaced non-functional/broken Unsplash URL for Manufacturing dropdown item
+    └── Changes:
+        └── Image -> Set Manufacturing item image to a functional, high-quality factory floor Unsplash image
+
+
+[2026-08-11T11:53:00+05:30] Fix broken Privacy Policy image in Navbar company dropdown
+└── File: src/app/navbar/navbar.component.ts
+    ├── Choice: Replaced non-functional/broken Unsplash URL for Privacy Policy dropdown item
+    └── Changes:
+        └── Image -> Set Privacy Policy item image to a functional, high-quality security/compliance Unsplash image
+
+
+
+
