@@ -400,6 +400,20 @@ export class Navbar {
         'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
     },
     {
+      label: 'Insights',
+      description: 'Latest updates from our team',
+      routerLink: '/insights',
+      iconBg: 'bg-indigo-100',
+      iconHover: 'group-hover:bg-indigo-200',
+      iconColor: 'text-indigo-600',
+      hoverBg: 'hover:bg-indigo-50',
+      hoverText: 'group-hover:text-indigo-600',
+      imageUrl:
+        'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=350&q=80',
+      svgPath:
+        'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m0 0h2a2 2 0 012 2v9a2 2 0 01-2 2h-2m0-13v13M7 8h6M7 12h4',
+    },
+    {
       label: 'Careers',
       description: 'Join our growing team',
       routerLink: '/careers',

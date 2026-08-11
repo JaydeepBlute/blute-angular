@@ -31,6 +31,7 @@ import { CloudDetailComponent } from './cloud/cloud.component';
 import { CognitiveDetailComponent } from './cognitive/cognitive.component';
 import { AgenticAiDetailComponent } from './agentic-ai/agentic-ai.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { InsightsComponent } from './insights/insights.component';
 
 export const routes: Routes = [
   {
@@ -92,4 +93,5 @@ export const routes: Routes = [
   { path: 'cognitive', component: CognitiveDetailComponent },
   { path: 'agentic-ai', component: AgenticAiDetailComponent },
   { path: 'portfolio', component: PortfolioComponent },
+  { path: 'insights', component: InsightsComponent },
 ];

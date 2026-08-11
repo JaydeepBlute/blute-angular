@@ -26,3 +26,9 @@
 
 
 
+[2026-08-11T12:35:00+05:30] LinkedIn posts feed integration
+├── curl -s https://payload-nine-ivory.vercel.app/api/{linkedin-posts,posts,linkedin}?limit=2  -> probed collection slugs
+├── curl -s https://payload-nine-ivory.vercel.app/api/access                                    -> enumerated deployed collections
+├── grep -ril "linkedin" src/                                                                   -> located existing LinkedIn profile links
+├── grep -n "--font-|--color-|:root" src/styles.css                                             -> captured design tokens
+└── npx ng build --configuration production                                                     -> PASSED (pre-existing devsecops SCSS deprecation warnings only)

@@ -1,0 +1,149 @@
+<!-- insights.component.html -->
+<div class="min-h-screen" style="background-color: var(--color-bg-page); font-family: var(--font-body);">
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="relative w-full overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-24" style="background-color: #0a2540;">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <div
+        class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full"
+        style="background: radial-gradient(ellipse at center, rgba(83, 58, 253, 0.22) 0%, transparent 70%);"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full"
+        style="background: radial-gradient(ellipse at center, rgba(247, 45, 243, 0.08) 0%, transparent 70%);"
+      ></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase mb-5 text-white/60">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"
+          />
+        </svg>
+        Insights
+      </span>
+
+      <h1
+        class="text-4xl sm:text-5xl lg:text-6xl leading-[1.1] font-light tracking-tight text-white max-w-4xl"
+        style="font-family: var(--font-display);"
+      >
+        What we are building, <span class="font-semibold">and what we are learning.</span>
+      </h1>
+
+      <p class="mt-6 text-lg sm:text-xl leading-relaxed text-white/70 max-w-2xl">
+        Engineering notes, product updates, and perspectives from the Blute Technologies team —
+        published straight from our LinkedIn.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       POST GRID
+       ============================================================ -->
+  <main class="w-full py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="sr-only">All posts</h2>
+
+      <!-- Loading skeletons -->
+      <div *ngIf="loading()" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div
+          *ngFor="let placeholder of [0, 1, 2, 3, 4, 5]"
+          class="rounded-2xl overflow-hidden"
+          style="border: 1px solid var(--color-border); background-color: #ffffff;"
+          aria-hidden="true"
+        >
+          <div class="skeleton aspect-[16/9]"></div>
+          <div class="p-6 space-y-3">
+            <div class="skeleton h-3 w-24 rounded"></div>
+            <div class="skeleton h-5 w-3/4 rounded"></div>
+            <div class="skeleton h-4 w-full rounded"></div>
+            <div class="skeleton h-4 w-5/6 rounded"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Posts -->
+      <div
+        *ngIf="!loading() && posts().length"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+      >
+        <app-post-card *ngFor="let post of posts()" [post]="post"></app-post-card>
+      </div>
+
+      <!-- Load more -->
+      <div *ngIf="!loading() && hasMore()" class="flex justify-center mt-14">
+        <button
+          type="button"
+          (click)="loadMore()"
+          [disabled]="loadingMore()"
+          class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4"
+          style="background-color: var(--color-accent); outline-color: var(--color-accent);"
+        >
+          {{ loadingMore() ? 'Loading…' : 'Load more posts' }}
+        </button>
+      </div>
+
+      <!-- Empty / error state -->
+      <div
+        *ngIf="!loading() && !posts().length"
+        class="max-w-xl mx-auto text-center py-16 px-6 rounded-2xl"
+        style="border: 1px solid var(--color-border); background-color: var(--color-bg-surface);"
+      >
+        <div
+          class="w-14 h-14 rounded-2xl mx-auto mb-6 flex items-center justify-center"
+          style="background-color: var(--color-accent-subtle);"
+        >
+          <svg
+            class="w-7 h-7"
+            style="color: var(--color-accent);"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"
+            />
+          </svg>
+        </div>
+
+        <h3
+          class="text-xl font-semibold mb-3"
+          style="font-family: var(--font-display); color: var(--color-text-primary);"
+        >
+          {{ failed() ? 'Posts are taking a moment' : 'New posts are on the way' }}
+        </h3>
+
+        <p class="text-base leading-relaxed mb-8" style="color: var(--color-text-secondary);">
+          {{
+            failed()
+              ? 'We could not load our latest posts just now. You can always read them directly on LinkedIn.'
+              : 'We are publishing our latest engineering notes and updates shortly. Follow us on LinkedIn to see them first.'
+          }}
+        </p>
+
+        <a
+          [href]="linkedInProfile"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4"
+          style="background-color: var(--color-accent); outline-color: var(--color-accent);"
+          aria-label="Follow Blute Technologies on LinkedIn (opens in a new tab)"
+        >
+          Follow us on LinkedIn
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+</div>

@@ -6,6 +6,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LatestPostsComponent } from '../latest-posts/latest-posts.component';
 
 interface Content {
   title: string;
@@ -25,7 +26,7 @@ interface Client {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, LatestPostsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

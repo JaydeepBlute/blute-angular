@@ -194,3 +194,30 @@
 
 
 
+[2026-08-11T12:35:00+05:30] Add CMS-driven LinkedIn posts feed (Payload CMS integration)
+├── File: src/environments/environment.ts (NEW)
+│   ├── Choice: Single environment file — Payload instance is identical in dev and prod, so no fileReplacements needed
+│   └── Config -> payloadBaseUrl + payloadPostsCollection (collection slug isolated to one line for easy change)
+├── File: src/app/app.config.ts
+│   └── Added provideHttpClient(withFetch()) — app had no HTTP provider previously
+├── File: src/app/services/linkedin-posts.service.ts (NEW)
+│   ├── Choice: Tolerant field normalizer instead of a rigid interface
+│   │   └── Reason: Payload collection schema was not yet deployed; normalizer maps common field-name
+│   │              variants (title/heading/name, excerpt/summary/content, url/link/postUrl, etc.)
+│   ├── Lexical rich-text -> toPlainText() walks the node tree to extract excerpt copy
+│   ├── Media relations -> relative Payload URLs prefixed with payloadBaseUrl
+│   └── getLatest() shareReplay-cached; getPage() paginated for /insights
+├── File: src/app/shared/post-card/post-card.component.ts (NEW)
+│   ├── Choice: Stretched-link pattern (absolute inset overlay) -> whole card clickable, no nested anchors
+│   └── Gradient LinkedIn-mark fallback when a post has no cover image
+├── File: src/app/latest-posts/latest-posts.component.{ts,html,scss} (NEW)
+│   └── Choice: Renders nothing when there are zero posts -> home page never shows an empty shell
+├── File: src/app/insights/insights.component.{ts,html,scss} (NEW)
+│   ├── Route /insights — full listing, Load-more pagination, SEO Title/Meta + og tags
+│   └── Empty and error states both fall back to the LinkedIn company page CTA
+├── File: src/app/home/home.component.{ts,html}
+│   └── <app-latest-posts> inserted above the final CTA section; LatestPostsComponent added to imports
+├── File: src/app/app.routes.ts
+│   └── Registered { path: 'insights', component: InsightsComponent }
+└── File: src/app/navbar/navbar.component.ts
+    └── Added "Insights" item to the Company dropdown (indigo palette), placed between Portfolio and Careers

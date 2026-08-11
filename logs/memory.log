@@ -39,3 +39,23 @@
     └── Bash Commands:
         ├── Find Component Files -> find src/app -name "*.component.ts"
         └── View Mapped Routes -> cat src/app/app.routes.ts
+
+[2026-08-11] CONTENT BACKEND — Payload CMS (external)
+└── Blute site content is no longer purely static. LinkedIn posts are authored in a Payload CMS
+    instance deployed separately on Vercel and consumed by the Angular app over REST.
+    ├── Admin UI  -> https://payload-nine-ivory.vercel.app/admin
+    ├── REST base -> https://payload-nine-ivory.vercel.app/api/<collection>
+    ├── Config    -> src/environments/environment.ts (payloadBaseUrl, payloadPostsCollection)
+    ├── Service   -> src/app/services/linkedin-posts.service.ts
+    │   └── normalizePost() tolerates varying Payload field names; if the CMS schema changes,
+    │       update the candidate key arrays there rather than the components.
+    ├── Consumers -> src/app/latest-posts (home strip, 3 posts) and src/app/insights (/insights listing)
+    ├── Card UI   -> src/app/shared/post-card/post-card.component.ts (shared by both consumers)
+    └── Read access on the collection must stay PUBLIC in Payload access control,
+        otherwise the browser receives an empty docs array with no error.
+
+[2026-08-11] ROUTE ADDED
+└── Insights (/insights) -> src/app/insights/insights.component.ts  [Company navbar dropdown]
+
+[2026-08-11] HTTP
+└── provideHttpClient(withFetch()) added in src/app/app.config.ts — first HTTP usage in the app.
