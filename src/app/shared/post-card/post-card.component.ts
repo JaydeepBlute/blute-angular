@@ -1,12 +1,13 @@
 // post-card.component.ts — single LinkedIn post card, shared by the home strip and /insights.
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { LinkedInPost } from '../../services/linkedin-posts.service';
 
 @Component({
   selector: 'app-post-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   template: `
     <article
       class="group relative flex flex-col h-full rounded-2xl overflow-hidden bg-white transition-all duration-300 hover:-translate-y-1"
@@ -59,47 +60,18 @@ import { LinkedInPost } from '../../services/linkedin-posts.service';
           class="text-sm leading-relaxed flex-1 whitespace-pre-line"
           style="color: var(--color-text-secondary);"
         >
-          {{ expanded ? post.fullText : post.excerpt }}
+          {{ post.excerpt }}
         </p>
 
-        <!--
-          No permalink stored in the CMS, so instead of a dead card we let the
-          post be read in place. Sits above the stretched link via z-index.
-        -->
-        <button
-          *ngIf="!post.linkedInUrl && canExpand"
-          type="button"
-          (click)="expanded = !expanded"
-          [attr.aria-expanded]="expanded"
-          class="relative z-10 self-start inline-flex items-center gap-2 mt-6 text-sm font-semibold rounded-md focus-visible:outline-2 focus-visible:outline-offset-4"
-          style="color: var(--color-accent); outline-color: var(--color-accent);"
-        >
-          {{ expanded ? 'Show less' : 'Read full post' }}
-          <svg
-            class="w-4 h-4 transition-transform duration-200"
-            [class.rotate-180]="expanded"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-
         <a
-          *ngIf="post.linkedInUrl"
-          [href]="post.linkedInUrl"
-          target="_blank"
-          rel="noopener noreferrer"
+          [routerLink]="['/insights', post.id]"
           class="inline-flex items-center gap-2 mt-6 text-sm font-semibold rounded-md focus-visible:outline-2 focus-visible:outline-offset-4"
           style="color: var(--color-accent); outline-color: var(--color-accent);"
-          [attr.aria-label]="'Read \\'' + post.title + '\\' on LinkedIn (opens in a new tab)'"
+          [attr.aria-label]="'Read \\'' + post.title + '\\''"
         >
           <!-- Stretched link: makes the whole card clickable without nesting anchors -->
           <span class="absolute inset-0" aria-hidden="true"></span>
-          Read on LinkedIn
+          Read full post
           <svg
             class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
             fill="none"
@@ -143,11 +115,4 @@ import { LinkedInPost } from '../../services/linkedin-posts.service';
 })
 export class PostCardComponent {
   @Input({ required: true }) post!: LinkedInPost;
-
-  expanded = false;
-
-  /** Only offer the toggle when there is genuinely more text than the excerpt shows. */
-  get canExpand(): boolean {
-    return this.post.fullText.length > this.post.excerpt.length;
-  }
 }

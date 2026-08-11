@@ -206,4 +206,13 @@ export class LinkedInPostsService {
       }),
     );
   }
+
+  /** Fetch a single post by ID. */
+  getById(id: string): Observable<LinkedInPost | null> {
+    const url = `${this.endpoint}/${id}`;
+    return this.http.get<any>(url).pipe(
+      map((doc) => normalizePost(doc)),
+      catchError(() => of(null))
+    );
+  }
 }
