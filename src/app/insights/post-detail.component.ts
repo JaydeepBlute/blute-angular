@@ -113,30 +113,6 @@ import { LinkedInPost, LinkedInPostsService } from '../services/linkedin-posts.s
             >
               {{ post()?.fullText }}
             </div>
-
-            <!-- Action Buttons / Links -->
-            <div *ngIf="post()?.linkedInUrl" class="mt-12 pt-8 border-t border-gray-100 flex flex-wrap gap-4 items-center justify-between">
-              <span class="text-sm text-gray-500">
-                This note was originally shared on LinkedIn.
-              </span>
-              <a
-                [href]="post()?.linkedInUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4"
-                style="background-color: #0077b5; outline-color: #0077b5;"
-              >
-                View on LinkedIn
-                <svg
-                  class="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-            </div>
           </article>
 
         </div>
