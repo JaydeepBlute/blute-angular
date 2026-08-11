@@ -72,7 +72,7 @@ export class CyberSecurityComponent implements OnInit {
       desc: 'End-to-end cloud security architecture for AWS, Azure, and GCP environments.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1590402449133-79d509907c0a?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=120&q=80',
       title: 'Incident Response',
       desc: '24/7 incident response team to contain, investigate, and recover from breaches.',
     },

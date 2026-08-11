@@ -44,3 +44,10 @@
 ├── PATCH /api/linkedin-posts/<id> {"linkedinShareUrl": ...}       -> backfilled 10 permalinks
 ├── git -C payload-src commit + push origin main                   -> c1b590c4aa
 └── npx ng build --configuration production                        -> PASSED
+[2026-08-11T16:45:00+05:30] Broken image audit + fix
+├── grep -rhoE "images.unsplash.com/photo-[...]" src/ | sort -u        -> 139 unique URLs
+├── xargs -P 12 curl -o /dev/null -w %{http_code} (all 139)            -> 17 returned 404
+├── curl status check on 24 candidate replacement photos               -> 23 OK, 1 rejected (404)
+├── grep -rl "photo-<dead>" src/ | xargs sed -i "s/<dead>/<new>/g"     -> 17 substitutions, 18 files
+├── re-scan all 133 unique URLs post-fix                               -> 0 broken
+└── npx ng build                                                       -> PASSED

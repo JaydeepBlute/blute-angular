@@ -220,10 +220,10 @@ export class TransportationComponent implements OnInit {
   }
 
   trustBadges = [
-    { icon: 'https://images.unsplash.com/photo-1509059852496-f38229d2d03f?auto=format&fit=crop&w=120&q=80', label: 'Smart Mobility Ready' },
+    { icon: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=120&q=80', label: 'Smart Mobility Ready' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'ISO 27001 Certified' },
     { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', label: 'Real-Time Tracking' },
-    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', label: 'AI Route Optimisation' },
+    { icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80', label: 'AI Route Optimisation' },
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', label: 'Multi-Modal Support' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
   ];
@@ -342,14 +342,14 @@ export class TransportationComponent implements OnInit {
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
     { icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', name: 'MQTT / WebSockets', role: 'Real-Time' },
     { icon: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=120&q=80', name: 'Google Maps / HERE', role: 'Mapping' },
-    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow', role: 'AI / ML' },
     { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', name: 'Flutter', role: 'Mobile Apps' },
     { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'Keycloak / OAuth2', role: 'Security' },
   ];
 
   whyBlute = [
     {
-      icon: 'https://images.unsplash.com/photo-1509059852496-f38229d2d03f?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=120&q=80',
       title: 'Deep Transport Domain Expertise',
       desc: 'Experience across freight, public transit, ride-hailing, and last-mile delivery platforms at enterprise scale.',
     },

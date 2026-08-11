@@ -58,7 +58,7 @@ export class AgenticAiDetailComponent implements OnInit, OnDestroy {
 
   capabilities = [
     {
-      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80',
       title: 'Autonomous AI Agents',
       desc: 'Agents that perceive context, plan actions, use tools, and iterate toward goals without human guidance.',
       tags: ['ReAct', 'AutoGPT', 'BabyAGI'],

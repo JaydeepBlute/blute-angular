@@ -75,7 +75,7 @@ export class CareersComponent implements OnInit {
       gradient: 'from-purple-50/80 to-transparent',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1521791136364-728647532899?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&q=80',
       iconBg: 'bg-orange-50',
       title: 'Collaborative Culture',
       desc: 'Flat hierarchy. Your ideas reach the founders directly.',

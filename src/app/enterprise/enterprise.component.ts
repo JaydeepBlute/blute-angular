@@ -184,7 +184,7 @@ export class EnterpriseComponent implements OnInit {
   platforms = [
     { name: 'SAP', icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=120&q=80', desc: 'S/4HANA, BTP, SuccessFactors, Ariba' },
     { name: 'Oracle', icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', desc: 'Oracle Cloud, EBS, Fusion, NetSuite' },
-    { name: 'Microsoft', icon: 'https://images.unsplash.com/photo-1625014020993-134179ae1188?auto=format&fit=crop&w=120&q=80', desc: 'Azure, Dynamics 365, Power Platform' },
+    { name: 'Microsoft', icon: 'https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&fit=crop&w=120&q=80', desc: 'Azure, Dynamics 365, Power Platform' },
     { name: 'Salesforce', icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', desc: 'CRM, Marketing Cloud, MuleSoft' },
     { name: 'ServiceNow', icon: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&q=80', desc: 'ITSM, HRSD, CSM workflows' },
     { name: 'Custom APIs', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', desc: 'REST, GraphQL, SOAP, gRPC' },
@@ -212,7 +212,7 @@ export class EnterpriseComponent implements OnInit {
       desc: 'Real-time dashboards, alerting, and full audit trails for all touchpoints.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80',
       title: 'AI-Powered Automation',
       desc: 'Intelligent workflow automation with ML-based anomaly detection.',
     },

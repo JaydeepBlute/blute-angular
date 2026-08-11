@@ -164,7 +164,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       hov: false,
     },
     {
-      icon: 'https://images.unsplash.com/photo-1521791136364-728647532899?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&q=80',
       color: '#f59e0b',
       iconBg: 'rgba(245,158,11,0.15)',
       bg: '#fffbeb',
@@ -200,7 +200,7 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
       desc: 'Work directly with experts — no juniors, no hand-offs, ever.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1503387762-592dedbd82d2?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=120&q=80',
       bg: '#ede9fe',
       title: 'Proven Frameworks',
       desc: 'Battle-tested methodologies from TOGAF, ITIL, and agile transformation.',
@@ -265,12 +265,12 @@ export class ItConsultingComponent implements OnInit, AfterViewInit {
     {
       icon: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=120&q=80',
       name: 'Manufacturing',
-      img: 'https://images.unsplash.com/photo-1565793979540-c5ccf3dcba02?w=400&q=70',
+      img: 'https://images.unsplash.com/photo-1567789884554-0b844b597180?w=400&q=70',
     },
     {
       icon: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=120&q=80',
       name: 'Education',
-      img: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=70',
+      img: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&q=70',
     },
     {
       icon: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=120&q=80',

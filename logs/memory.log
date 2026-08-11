@@ -59,3 +59,16 @@
 
 [2026-08-11] HTTP
 └── provideHttpClient(withFetch()) added in src/app/app.config.ts — first HTTP usage in the app.
+
+[2026-08-11] IMAGE ASSETS — remote Unsplash URLs are a recurring failure point
+└── Most page components store card artwork as remote https://images.unsplash.com/photo-<id> URLs
+    inside their TS data arrays (icon / img / image fields), NOT as local assets.
+    ├── Templates branch on isUrl(icon): a URL renders a photo-background card (white text),
+    │   anything else renders a flat light card with the value as an emoji/text glyph.
+    │   Consequence: swapping a URL for an emoji silently changes that card's whole design.
+    ├── Unsplash removes photos over time, so these IDs rot and 404 without any code change.
+    │   The same ID is reused across many components — one dead ID breaks several pages at once.
+    └── Audit command (run after touching image data, or periodically):
+        grep -rhoE "https://images\.unsplash\.com/photo-[0-9a-zA-Z_-]+" src/ | sort -u |
+          xargs -P 12 -I{} sh -c 'c=$(curl -s -o /dev/null -w "%{http_code}" -m 20 "{}?w=200&q=80&auto=format&fit=crop"); [ "$c" = 200 ] || echo "BROKEN $c {}"'
+        Last run 2026-08-11: 133 unique URLs, all 200.

@@ -224,7 +224,7 @@ export class BfsiComponent implements OnInit {
     { icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80', label: 'RBI Compliant' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'PCI-DSS Certified' },
     { icon: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=120&q=80', label: 'ISO 27001' },
-    { icon: 'https://images.unsplash.com/photo-1532375811409-905115e3b55d?auto=format&fit=crop&w=120&q=80', label: 'SEBI Guidelines' },
+    { icon: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=120&q=80', label: 'SEBI Guidelines' },
     { icon: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=120&q=80', label: 'GDPR Ready' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
   ];
@@ -322,7 +322,7 @@ export class BfsiComponent implements OnInit {
   integrations = [
     { icon: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=120&q=80', name: 'Core Banking' },
     { icon: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=120&q=80', name: 'PCI-DSS Vault' },
-    { icon: 'https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=120&q=80', name: 'UPI / NPCI' },
+    { icon: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=120&q=80', name: 'UPI / NPCI' },
     { icon: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80', name: 'Bloomberg' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', name: 'SWIFT' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', name: 'KYC / AML' },

@@ -206,10 +206,10 @@ export class EducationComponent implements OnInit {
   isVisible = false;
 
   trustBadges = [
-    { icon: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=120&q=80', label: 'EdTech Certified' },
+    { icon: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=120&q=80', label: 'EdTech Certified' },
     { icon: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=120&q=80', label: 'FERPA Compliant' },
     { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', label: 'Mobile-First Learning' },
-    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', label: 'AI-Powered Personalisation' },
+    { icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80', label: 'AI-Powered Personalisation' },
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', label: 'Multi-Language Support' },
     { icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=120&q=80', label: '99.9% Uptime SLA' },
   ];
@@ -326,8 +326,8 @@ export class EducationComponent implements OnInit {
     { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular / React', role: 'Frontend' },
     { icon: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=120&q=80', name: 'Spring Boot', role: 'Backend' },
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / Azure', role: 'Cloud' },
-    { icon: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=120&q=80', name: 'Moodle / Canvas', role: 'LMS Integration' },
-    { icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow / NLP', role: 'AI / ML' },
+    { icon: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=120&q=80', name: 'Moodle / Canvas', role: 'LMS Integration' },
+    { icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80', name: 'TensorFlow / NLP', role: 'AI / ML' },
     { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'PostgreSQL', role: 'Database' },
     { icon: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=120&q=80', name: 'Flutter', role: 'Mobile' },
     { icon: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=120&q=80', name: 'Keycloak / OAuth2', role: 'Security' },
@@ -335,7 +335,7 @@ export class EducationComponent implements OnInit {
 
   whyBlute = [
     {
-      icon: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=120&q=80',
       title: 'Deep EdTech Expertise',
       desc: 'Proven track record building scalable learning platforms for schools, universities, and corporate training providers.',
     },

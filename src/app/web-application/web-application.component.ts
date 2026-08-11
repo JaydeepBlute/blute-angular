@@ -135,8 +135,8 @@ export class WebApplicationComponent implements OnInit {
   techStack = [
     { icon: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=120&q=80', name: 'Angular 17+', desc: 'Enterprise SPA framework' },
     { icon: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=120&q=80', name: 'React 18', desc: 'Component UI library' },
-    { icon: 'https://images.unsplash.com/photo-1618401471353-b98aedd07871?auto=format&fit=crop&w=120&q=80', name: 'TypeScript', desc: 'Type-safe development' },
-    { icon: 'https://images.unsplash.com/photo-1627390496608-7d6824d0140c?auto=format&fit=crop&w=120&q=80', name: 'Node.js', desc: 'Backend runtime' },
+    { icon: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=120&q=80', name: 'TypeScript', desc: 'Type-safe development' },
+    { icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=120&q=80', name: 'Node.js', desc: 'Backend runtime' },
     { icon: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=120&q=80', name: 'Docker', desc: 'Container platform' },
     { icon: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=120&q=80', name: 'AWS / GCP', desc: 'Cloud infrastructure' },
     { icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=120&q=80', name: 'PostgreSQL', desc: 'Relational database' },

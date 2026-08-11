@@ -262,3 +262,38 @@
 │       └── Previously open: an unauthenticated POST returned 201.
 └── Content: backfilled linkedinShareUrl on all 10 documents BEFORE pushing the access change,
     since the lockdown removes anonymous write access.
+
+
+[2026-08-11T16:45:00+05:30] Fix broken (404) Unsplash images site-wide
+├── Trigger: reported missing images on /industries/education, /industries/transportation,
+│            /industries/telecom (broken-image placeholders in the "Technologies We Use" grid).
+├── Diagnosis: the icon/img values are remote Unsplash photo URLs. Audited ALL 139 unique
+│   Unsplash URLs under src/ with curl; 17 returned HTTP 404 (photos removed upstream).
+│   The failure was never page-specific — the same dead IDs are shared across 18 components,
+│   so fixing only the three reported pages would have left the rest broken.
+├── Decision: replace each dead photo ID with a topically equivalent, curl-verified (200) photo
+│   rather than delete the images or swap in local SVG icons.
+│   └── Reason: the templates branch on isUrl(icon) — a non-URL value silently changes the card
+│              to a completely different light/flat layout, so removing URLs would alter design.
+├── Dead ID -> replacement (subject kept the same):
+│   ├── 1677442136019 -> 1620712943543  AI/ML, TensorFlow      (used in 15 places, widest blast radius)
+│   ├── 1523050854058 -> 1580582932707  classroom / EdTech / Moodle
+│   ├── 1509059852496 -> 1449965408869  smart mobility / transport
+│   ├── 1494976388531 -> 1502877338535  VAHAN / Sarathi (vehicles)
+│   ├── 1503387762    -> 1454165804606  proven frameworks / strategy
+│   ├── 1516280440614 -> 1526628953301  natural language processing
+│   ├── 1521791136364 -> 1522071820081  collaborative culture / team
+│   ├── 1532375811409 -> 1554224155     SEBI guidelines / finance
+│   ├── 1547658719    -> 1499951360447  web application
+│   ├── 1552581230    -> 1600880292089  clients "Our Mission" hero
+│   ├── 1563013544    -> 1601597111158  UPI / NPCI payments
+│   ├── 1565793979540 -> 1567789884554  manufacturing industry
+│   ├── 1590402449133 -> 1550751827     incident response / SOC
+│   ├── 1618401471353 -> 1555949963     TypeScript / code
+│   ├── 1625014020993 -> 1633419461186  Microsoft / Azure
+│   ├── 1627390496608 -> 1544197150     Node.js / servers
+│   └── 1684369175833 -> 1485827404703  Agentic AI / robotics
+├── Files: about.component, agentic-ai, bfsi, careers, clients(.html), cognitive, cyber-security,
+│          devsecops, education, enterprise, government, healthcare-pharma, it-consulting,
+│          manufacture, retail-ecommerce, telecom, transportation, web-application
+└── Verify: re-scanned all 133 remaining unique URLs -> 0 non-200. ng build PASSED.

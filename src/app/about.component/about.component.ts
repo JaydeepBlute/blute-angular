@@ -220,7 +220,7 @@ export class AboutComponent implements OnInit {
 
   technologies: Technology[] = [
     {
-      icon: 'https://images.unsplash.com/photo-1547658719-da2b81169d42?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=120&q=80',
       category: 'Web Application',
       description:
         'Modern scalable web apps built with Angular and React for seamless, high-performance user experiences.',
@@ -232,7 +232,7 @@ export class AboutComponent implements OnInit {
         'Scalable cloud infrastructure, migration, CI/CD pipelines and managed services on AWS, Azure and DevOps.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80',
       category: 'Cognitive Computing',
       description:
         'Intelligent decision-making systems powered by NLP, Deep Learning, and machine learning tailored to your data.',
@@ -244,7 +244,7 @@ export class AboutComponent implements OnInit {
         'Connected device ecosystems with Industrial IoT and Embedded systems for smart automation applications.',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1684369175833-3b24ab83fa71?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=120&q=80',
       category: 'Agentic AI',
       description:
         'Autonomous AI-driven automation using AI Agents and LLMs to streamline complex business workflows.',

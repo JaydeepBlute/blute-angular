@@ -104,7 +104,7 @@ export class DevSecOpsComponent implements OnInit {
       bg: 'rgba(20,184,166,0.12)',
     },
     {
-      icon: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=120&q=80',
+      icon: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=120&q=80',
       title: 'AI-Powered Analysis',
       desc: 'Machine-learning triage cuts false positives by 80%, so engineers focus on real risks.',
       bg: 'rgba(14,165,233,0.12)',
