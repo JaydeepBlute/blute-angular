@@ -242,3 +242,23 @@
 │   └── canExpand guard -> toggle only appears when fullText actually exceeds the excerpt
 └── Content: seeded 10 posts into the linkedin-posts collection (status=posted), oldest first
     so -createdAt ordering matches the original LinkedIn chronology.
+
+
+[2026-08-11T16:10:00+05:30] Correct field mapping + fix Payload CORS and access control
+├── CORRECTION to the 15:25 entry: the linkedin-posts collection DOES have url and media fields.
+│   The earlier GraphQL probe missed them because it guessed names like url/link/image/media.
+│   Reading the source at payload-src/test/_community/collections/LinkedinPosts/index.ts shows:
+│   title, text, attachments (relationship -> media, hasMany), status
+│   (draft|scheduled|posted|failed), scheduledDate, linkedinPostId, linkedinShareUrl.
+├── File: src/app/services/linkedin-posts.service.ts
+│   ├── linkedinShareUrl added as the first permalink candidate -> cards link out again
+│   ├── attachments[0] resolved as the cover image (hasMany relationship)
+│   └── scheduledDate added as the preferred date, ahead of createdAt
+├── Repo: payload-src (gitlab.com/jaydeep.v/payload.git) commit c1b590c4aa
+│   ├── test/_community/config.ts -> cors: [blute.co.in, www, blute-dc0d6.web.app, localhost:4200]
+│   │   └── Root cause of the empty feed: API returned 200 but no Access-Control-Allow-Origin,
+│   │       so the browser discarded the response and the UI fell through to its empty state.
+│   └── collections/LinkedinPosts/index.ts -> create/update/delete now require req.user
+│       └── Previously open: an unauthenticated POST returned 201.
+└── Content: backfilled linkedinShareUrl on all 10 documents BEFORE pushing the access change,
+    since the lockdown removes anonymous write access.

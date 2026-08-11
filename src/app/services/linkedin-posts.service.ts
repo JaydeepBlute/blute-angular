@@ -112,6 +112,7 @@ export function normalizePost(doc: Record<string, any>): LinkedInPost {
   const excerpt = truncate(toPlainText(rawBody));
 
   const linkedInUrl = pick(doc, [
+    'linkedinShareUrl',
     'linkedInUrl',
     'linkedinUrl',
     'linkedinLink',
@@ -120,11 +121,21 @@ export function normalizePost(doc: Record<string, any>): LinkedInPost {
     'link',
   ]);
 
+  // `attachments` is a hasMany relationship — the first image is the cover.
+  const attachments = doc['attachments'];
+  const firstAttachment = Array.isArray(attachments) ? attachments[0] : attachments;
   const { url: imageUrl, alt } = resolveImage(
-    pick(doc, ['image', 'media', 'thumbnail', 'coverImage', 'featuredImage']),
+    firstAttachment ?? pick(doc, ['image', 'media', 'thumbnail', 'coverImage', 'featuredImage']),
   );
 
-  const rawDate = pick(doc, ['publishedAt', 'publishedDate', 'postedAt', 'date', 'createdAt']);
+  const rawDate = pick(doc, [
+    'scheduledDate',
+    'publishedAt',
+    'publishedDate',
+    'postedAt',
+    'date',
+    'createdAt',
+  ]);
   const parsed = rawDate ? new Date(rawDate) : null;
 
   return {
