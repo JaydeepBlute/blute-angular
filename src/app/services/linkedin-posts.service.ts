@@ -9,6 +9,8 @@ export interface LinkedInPost {
   id: string;
   title: string;
   excerpt: string;
+  /** Full body text, shown when a card is expanded. */
+  fullText: string;
   linkedInUrl: string | null;
   imageUrl: string | null;
   imageAlt: string;
@@ -57,6 +59,31 @@ function toPlainText(value: any): string {
   return out.replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Same as toPlainText but keeps paragraph breaks, so an expanded card reads the
+ * way the post was written rather than as one run-on block.
+ */
+function toPlainTextPreservingBreaks(value: any): string {
+  if (!value) return '';
+  if (typeof value === 'string') return value.trim();
+
+  const paragraphs: string[] = [];
+  const walk = (node: any): void => {
+    if (!node) return;
+    if (Array.isArray(node)) return node.forEach(walk);
+    if (node.root) return walk(node.root);
+    if (node.type === 'paragraph' || node.type === 'heading') {
+      const text = toPlainText(node);
+      if (text) paragraphs.push(text);
+      return;
+    }
+    if (node.children) walk(node.children);
+    else if (typeof node.text === 'string' && node.text.trim()) paragraphs.push(node.text.trim());
+  };
+  walk(value);
+  return paragraphs.join('\n\n').trim();
+}
+
 function truncate(text: string, max = 220): string {
   if (text.length <= max) return text;
   return text.slice(0, text.lastIndexOf(' ', max) || max).trimEnd() + '…';
@@ -81,6 +108,7 @@ export function normalizePost(doc: Record<string, any>): LinkedInPost {
   const title = toPlainText(pick(doc, ['title', 'heading', 'name', 'headline'])) || 'Untitled post';
 
   const rawBody = pick(doc, ['excerpt', 'summary', 'description', 'content', 'body', 'text']);
+  const fullText = toPlainTextPreservingBreaks(rawBody);
   const excerpt = truncate(toPlainText(rawBody));
 
   const linkedInUrl = pick(doc, [
@@ -103,6 +131,7 @@ export function normalizePost(doc: Record<string, any>): LinkedInPost {
     id: String(doc['id'] ?? doc['_id'] ?? crypto.randomUUID()),
     title,
     excerpt,
+    fullText,
     linkedInUrl: typeof linkedInUrl === 'string' ? linkedInUrl : null,
     imageUrl,
     imageAlt: alt || title,
@@ -140,7 +169,16 @@ export class LinkedInPostsService {
   }
 
   private fetch(limit: number, page: number): Observable<{ posts: LinkedInPost[]; hasMore: boolean }> {
-    const url = `${this.endpoint}?limit=${limit}&page=${page}&sort=-publishedAt&depth=1`;
+    // Sort by createdAt: the collection has no publishedAt field, and Payload
+    // errors on an unknown sort key rather than falling back to a default.
+    const query = [
+      `limit=${limit}`,
+      `page=${page}`,
+      'sort=-createdAt',
+      'depth=1',
+      `where[status][equals]=${environment.payloadPublishedStatus}`,
+    ].join('&');
+    const url = `${this.endpoint}?${query}`;
 
     return this.http.get<PayloadListResponse>(url).pipe(
       map((response) => {

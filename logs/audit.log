@@ -32,3 +32,10 @@
 ├── grep -ril "linkedin" src/                                                                   -> located existing LinkedIn profile links
 ├── grep -n "--font-|--color-|:root" src/styles.css                                             -> captured design tokens
 └── npx ng build --configuration production                                                     -> PASSED (pre-existing devsecops SCSS deprecation warnings only)
+[2026-08-11T15:25:00+05:30] Schema discovery + content seeding
+├── POST /api/graphql  {"query":"{ LinkedinPosts { docs { <field> } } }"}  -> field existence probe
+├── POST /api/linkedin-posts  status=<value>                               -> enum discovery (draft|scheduled|posted)
+├── DELETE /api/linkedin-posts/<id>                                        -> removed probe documents
+├── curl https://www.linkedin.com/company/blute-technologies-pvt-ltd/      -> one-time content extraction
+├── python3 extract -> scratchpad/posts.json (10 posts, text + permalink)
+└── npx ng build --configuration production                                -> PASSED

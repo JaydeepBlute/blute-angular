@@ -221,3 +221,24 @@
 │   └── Registered { path: 'insights', component: InsightsComponent }
 └── File: src/app/navbar/navbar.component.ts
     └── Added "Insights" item to the Company dropdown (indigo palette), placed between Portfolio and Careers
+
+
+[2026-08-11T15:25:00+05:30] Wire insights feed to the real Payload schema + seed content
+├── Discovery: GraphQL introspection is disabled on the Payload instance, so the schema was
+│   recovered by probing field names against error messages on the LinkedinPost type.
+│   └── Actual collection `linkedin-posts` fields: id, title, text, status, createdAt, updatedAt
+│       └── status enum = draft | scheduled | posted   (NO url, NO image, NO publishedAt field)
+├── File: src/environments/environment.ts
+│   ├── payloadPostsCollection -> 'linkedin-posts' (was the placeholder 'posts')
+│   └── payloadPublishedStatus -> 'posted'
+├── File: src/app/services/linkedin-posts.service.ts
+│   ├── sort=-createdAt (was -publishedAt; Payload errors on an unknown sort key)
+│   ├── where[status][equals]=posted -> drafts and scheduled posts stay off the site
+│   └── Added fullText + toPlainTextPreservingBreaks() to keep paragraph breaks
+├── File: src/app/shared/post-card/post-card.component.ts
+│   ├── Choice: expand-in-place "Read full post" toggle when a post has no permalink
+│   │   └── Reason: the collection stores no url, so a link-out card would be dead; expanding
+│   │              keeps every post fully readable on-site. Link-out still wins when a url exists.
+│   └── canExpand guard -> toggle only appears when fullText actually exceeds the excerpt
+└── Content: seeded 10 posts into the linkedin-posts collection (status=posted), oldest first
+    so -createdAt ordering matches the original LinkedIn chronology.

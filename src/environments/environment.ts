@@ -7,6 +7,9 @@ export const environment = {
   payloadBaseUrl: 'https://payload-nine-ivory.vercel.app',
 
   // Slug of the Payload collection holding LinkedIn posts.
-  // Change this one line if the collection is named something other than `posts`.
-  payloadPostsCollection: 'posts',
+  payloadPostsCollection: 'linkedin-posts',
+
+  // Only documents with this status are shown on the site.
+  // The collection's status options are: draft | scheduled | posted.
+  payloadPublishedStatus: 'posted',
 };

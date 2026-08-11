@@ -56,11 +56,37 @@ import { LinkedInPost } from '../../services/linkedin-posts.service';
 
         <p
           *ngIf="post.excerpt"
-          class="text-sm leading-relaxed flex-1"
+          class="text-sm leading-relaxed flex-1 whitespace-pre-line"
           style="color: var(--color-text-secondary);"
         >
-          {{ post.excerpt }}
+          {{ expanded ? post.fullText : post.excerpt }}
         </p>
+
+        <!--
+          No permalink stored in the CMS, so instead of a dead card we let the
+          post be read in place. Sits above the stretched link via z-index.
+        -->
+        <button
+          *ngIf="!post.linkedInUrl && canExpand"
+          type="button"
+          (click)="expanded = !expanded"
+          [attr.aria-expanded]="expanded"
+          class="relative z-10 self-start inline-flex items-center gap-2 mt-6 text-sm font-semibold rounded-md focus-visible:outline-2 focus-visible:outline-offset-4"
+          style="color: var(--color-accent); outline-color: var(--color-accent);"
+        >
+          {{ expanded ? 'Show less' : 'Read full post' }}
+          <svg
+            class="w-4 h-4 transition-transform duration-200"
+            [class.rotate-180]="expanded"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
 
         <a
           *ngIf="post.linkedInUrl"
@@ -117,4 +143,11 @@ import { LinkedInPost } from '../../services/linkedin-posts.service';
 })
 export class PostCardComponent {
   @Input({ required: true }) post!: LinkedInPost;
+
+  expanded = false;
+
+  /** Only offer the toggle when there is genuinely more text than the excerpt shows. */
+  get canExpand(): boolean {
+    return this.post.fullText.length > this.post.excerpt.length;
+  }
 }
