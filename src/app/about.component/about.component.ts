@@ -46,13 +46,13 @@ export class AboutComponent implements OnInit {
     this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
     this.metaService.updateTag({ property: 'og:title', content: 'About Blute Technologies | IT Services Company in Bangalore, India' });
     this.metaService.updateTag({ property: 'og:description', content: 'Blute Technologies is a trusted IT services company in Bangalore, India delivering custom software solutions and digital transformation services to clients worldwide.' });
-    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/about' });
-    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.org/about' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.org/assets/images/og-banner.png' });
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
     this.metaService.updateTag({ name: 'twitter:title', content: 'About Blute Technologies | IT Services Company in Bangalore, India' });
     this.metaService.updateTag({ name: 'twitter:description', content: 'Blute Technologies is a trusted IT services company in Bangalore, India delivering custom software solutions and digital transformation services to clients worldwide.' });
-    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.org/assets/images/og-banner.png' });
 
     this.initScrollAnimations();
     this.initHeroCanvas();

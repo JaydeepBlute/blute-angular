@@ -32,13 +32,13 @@ export class TeamComponent implements OnInit {
     this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
     this.metaService.updateTag({ property: 'og:title', content: 'Our Team | Blute Technologies - Software Development Company Bangalore' });
     this.metaService.updateTag({ property: 'og:description', content: 'Meet the passionate engineers, designers, and leaders at Blute Technologies driving custom software, mobile app, IoT, and AI solutions for global enterprises.' });
-    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/team' });
-    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.org/team' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.org/assets/images/og-banner.png' });
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
     this.metaService.updateTag({ name: 'twitter:title', content: 'Our Team | Blute Technologies - Software Development Company Bangalore' });
     this.metaService.updateTag({ name: 'twitter:description', content: 'Meet the passionate engineers, designers, and leaders at Blute Technologies driving custom software, mobile app, IoT, and AI solutions for global enterprises.' });
-    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.org/assets/images/og-banner.png' });
   }
   // Floating particles data
   particles = Array.from({ length: 18 }, (_, i) => ({

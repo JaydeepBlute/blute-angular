@@ -34,13 +34,13 @@ export class CareersComponent implements OnInit {
     this.metaService.updateTag({ property: 'og:site_name', content: 'Blute Technologies' });
     this.metaService.updateTag({ property: 'og:title', content: 'Careers | IT Jobs in Bangalore - Blute Technologies' });
     this.metaService.updateTag({ property: 'og:description', content: 'Join Blute Technologies — a leading software development company in Bangalore. Explore IT jobs in engineering, design, DevOps, and more.' });
-    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.co.in/careers' });
-    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://blute.org/careers' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://blute.org/assets/images/og-banner.png' });
     this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.metaService.updateTag({ name: 'twitter:site', content: '@blutetech' });
     this.metaService.updateTag({ name: 'twitter:title', content: 'Careers | IT Jobs in Bangalore - Blute Technologies' });
     this.metaService.updateTag({ name: 'twitter:description', content: 'Join Blute Technologies — a leading software development company in Bangalore. Explore IT jobs in engineering, design, DevOps, and more.' });
-    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.co.in/assets/images/og-banner.png' });
+    this.metaService.updateTag({ name: 'twitter:image', content: 'https://blute.org/assets/images/og-banner.png' });
   }
   activeFilter = 'All';
 
