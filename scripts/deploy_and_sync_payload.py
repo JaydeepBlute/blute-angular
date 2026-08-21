@@ -14,6 +14,7 @@ import subprocess
 import argparse
 import urllib.request
 import json
+import time
 try:
     import paramiko
 except ImportError:
@@ -25,7 +26,7 @@ SERVER_IP = "161.97.133.83"
 SERVER_USER = "bluteadmin"
 KEY_PATH = "/home/btpl-lap-22/live/blute-site/server-cread/bluteadmin_key"
 KEY_PASSPHRASE = "@dmin@5142"
-PAYLOAD_API_URL = "https://payload-nine-ivory.vercel.app/api/posts"
+PAYLOAD_API_URL = "https://payload-nine-ivory.vercel.app/api/linkedin-posts"
 
 def build_angular():
     print("🔨 Step 1: Building Production Angular Bundle...")
@@ -111,52 +112,49 @@ def sync_linkedin_posts():
     print("📰 Step 3: Posting Updates to Payload CMS (linkedin-posts)...")
     linkedin_posts = [
         {
-            "title": "Blute Technologies - Enterprise Mobility & Cloud Engineering Platform",
-            "text": (
-                "Blute Technologies Pvt Ltd (Bengaluru, India) is a premier IT services and software engineering company. "
-                "We specialize in custom web & mobile app development, enterprise cloud native architecture, staff augmentation, "
-                "and industry 4.0 IoT platforms. Our mission is empowering enterprises with high-availability, scalable software "
-                "systems built for seamless customer experience and operational excellence."
-            )
+            "title": "Technology That Delivers: Empowering Enterprise Digital Transformation",
+            "text": "At Blute Technologies, we believe that real software engineering is about solving complex operational challenges with precision, reliability, and measurable ROI.\n\nHeadquartered in Jayanagar, Bengaluru, our engineering teams build high-availability cloud solutions, custom mobile applications, enterprise ERP/CRM platforms, and staff augmentation services for global clients across mobility, logistics, equipment manufacturing, and fintech.\n\nLooking to accelerate your digital adoption? Connect with our solution architects today!\n\n#DigitalTransformation #CloudEngineering #SoftwareDevelopment #BengaluruTech #BluteTechnologies"
         },
         {
-            "title": "Next-Gen Mobility & Intercity Bus Operations Platform",
-            "text": (
-                "Introducing our Next-Generation Intercity Bus Operations & Booking Platform! Designed for fleet owners, "
-                "travel agencies, and bus operators across India. Key features include: 1) Interactive 2D/3D Sleeper Berth "
-                "Seat Selection Engine with real-time locking; 2) Live GPS Telemetry Stream & Geo-fenced SMS passenger boarding alerts; "
-                "3) Handheld Android POS Ticketing for conductors with instant QR boarding pass validation; 4) Depot Fleet Operations, "
-                "waybill reconciliation, and automated GST invoice compliance."
-            )
+            "title": "Next-Gen Intercity Bus Operations & Sleeper Berth Ticketing Engine",
+            "text": "The intercity bus industry requires real-time precision. Blute Technologies is proud to announce our unified Mobility & Intercity Bus Operations Platform!\n\nKey Innovations:\n✨ Interactive 2D/3D Sleeper Berth Seat Selection Engine with sub-second holding locks.\n🛰️ Live GPS Telemetry Stream & Geo-fenced SMS arrival alerts to passenger phones.\n📱 Handheld Android POS Terminal integration for conductors to validate QR tickets and issue physical tickets on the go.\n📊 Depot Fleet Operations & automated waybill cash reconciliation.\n\n#BusOps #FleetManagement #PassengerSafety #IntercityTravel #MobilityOps"
         },
         {
-            "title": "Industrial IoT Telemetry & Equipment Sales & Service Platform",
-            "text": (
-                "Empower heavy machinery dealers, equipment fleet managers, and industrial OEMs with our unified Equipment "
-                "Sales & Service Platform. Features: 1) Spare parts catalog & real-time inventory management; 2) Automated "
-                "workshop job cards & preventive maintenance schedules; 3) Live IoT sensor telemetry for fuel mileage variance "
-                "and engine health monitoring; 4) Customer service ticket management & warranty claims engine."
-            )
+            "title": "Heavy Machinery & Equipment Sales & Service Platform Launch",
+            "text": "Managing heavy equipment sales, spare parts inventories, and workshop service logs can be daunting without a unified data engine. Blute Technologies delivers an end-to-end Equipment Sales & Service Platform!\n\nWhat sets our platform apart:\n🛠️ Real-time Spare Parts Catalog & Serialized Inventory Tracking.\n📋 Automated Workshop Job Cards & Technician Shift Scheduling.\n📈 IoT Telemetry for Fuel Mileage Variance & Predictive Engine Health Alerts.\n💼 B2B Invoicing with Statutory GST & E-Waybill Compliance.\n\n#EquipmentOps #HeavyMachinery #IndustrialIoT #FleetService #SupplyChain"
         },
         {
-            "title": "Agentic AI & Multi-Agent Autonomous Automation Engine",
-            "text": (
-                "Orchestrate enterprise workflows with Agentic AI! Our autonomous multi-agent platform enables: 1) Declarative "
-                "Rules Engine for dynamic business logic; 2) DAG Workflow Execution with fallback retry logic; 3) OpenTelemetry "
-                "tracing for sub-second auditability; 4) Seamless integration with legacy enterprise APIs and multi-agent AI coding assistants."
-            )
+            "title": "Agentic AI: Multi-Agent Autonomous Automation for Enterprise Workflows",
+            "text": "Artificial Intelligence is evolving from simple prompt-response models to autonomous multi-agent networks that execute complex multi-step workflows.\n\nAt Blute Technologies, our Agentic AI framework equips enterprises with:\n🤖 Specialized Sub-Agents for automated code audits, security scanning, and data transformations.\n⚡ Declarative Rules Engine for instant business logic updates without code deployments.\n🌐 OpenTelemetry Waterfall Tracing for 100% execution visibility and sub-second debugging.\n\nDiscover how autonomous AI agents can elevate your enterprise software productivity.\n\n#AgenticAI #AutonomousAgents #SoftwareAutomation #EnterpriseAI #DevOps"
         },
         {
-            "title": "Enterprise Cloud Migration & DevSecOps Infrastructure",
-            "text": (
-                "Accelerate your cloud journey with Blute Technologies' DevSecOps engineering team. We deliver: 1) High-availability "
-                "Kubernetes cluster orchestration; 2) Zero-downtime CI/CD automated pipeline deployment; 3) End-to-end security audits "
-                "& vulnerability scanning; 4) 24/7 cloud infrastructure monitoring with automated failover."
-            )
+            "title": "Building High-Availability Kubernetes & DevSecOps Infrastructure",
+            "text": "Downtime costs businesses millions. Our Cloud Engineering & DevSecOps practice at Blute Technologies helps organizations build resilient, automated cloud infrastructure.\n\nOur Cloud Engineering Checklist:\n🔒 Zero-Trust Security Gates & Secret Scanning in CI/CD pipelines.\n☸️ Self-healing Kubernetes clusters with automated pod scaling.\n📊 Real-time OTel metrics, APM tracing, and log aggregation.\n🚀 Zero-downtime blue/green rolling deployments.\n\n#CloudNative #Kubernetes #DevSecOps #CloudInfrastructure #SiteReliability"
+        },
+        {
+            "title": "Empowering Tech Teams with Enterprise Staff Augmentation Services",
+            "text": "Finding specialized software engineering talent shouldn't bottleneck your product roadmap. Blute Technologies offers dedicated Staff Augmentation & Offshore Development Centers (ODC).\n\nWhy enterprises trust Blute Tech Talent:\n⚡ Pre-vetted senior engineers skilled in Angular, Next.js, Go, Kotlin, Node.js, and Cloud Ops.\n🎯 Seamless integration with your agile sprints and internal engineering practices.\n🛡️ Strict IP protection, SOC-2 compliance, and transparent delivery metrics.\n\nScale your software team effortlessly with our Bengaluru engineering talent hub.\n\n#StaffAugmentation #SoftwareEngineering #TechTalent #Outsourcing #Bengaluru"
+        },
+        {
+            "title": "Industrial IoT Telemetry: Transforming Equipment Fleet Monitoring",
+            "text": "Connected sensors are revolutionizing equipment fleet management. By streaming real-time CAN-bus telemetry, operators can detect anomalies before costly breakdowns occur.\n\nHighlights of Blute IoT Telemetry:\n📡 Sub-second sensor data ingestion via Kafka & MQTT pipelines.\n⛽ Fuel theft detection & mileage efficiency scoring per driver.\n🔧 Automated maintenance alerts based on actual engine operating hours.\n\n#IndustrialIoT #Telemetry #FleetOps #PredictiveMaintenance #IoT"
+        },
+        {
+            "title": "Statutory GST & E-Invoicing Integration for Multi-Operator Fleets",
+            "text": "Navigating tax compliance across state borders shouldn't slow down your mobility operations. Our Mobility Platform features automated GST E-Invoicing with instant IRN & QR code generation.\n\nFeatures:\n📄 Automated B2B GST tax invoice generation for corporate rosters.\n💳 Multi-channel payment gateway reconciliation (UPI, Cards, NetBanking, Agent Wallets).\n📑 Real-time waybill ledger audits for depot cashiers.\n\n#TaxCompliance #GSTInvoicing #Fintech #MobilityTech #EnterpriseSoftware"
+        },
+        {
+            "title": "Designing Ergonomic 3D Visualizations for Modern Web UX",
+            "text": "User experience is no longer just flat 2D forms. By introducing Three.js WebGL spatial viewports, web applications can provide immersive, real-time spatial previews.\n\nAt Blute Technologies, we engineered an open-exploded 3D sleeper bus deck visualization with:\n🎨 Smooth curved extrude geometry for ergonomic berth modeling.\n🖱️ Full user orbit, tilt, drag, and pinch-zoom controls.\n⚡ Instant raycasting click interaction for seat lock reservations.\n\n#WebUX #ThreeJS #WebGL #FrontendEngineering #Angular"
+        },
+        {
+            "title": "Blute Technologies Mission: Untangling Digital Complexity",
+            "text": "Our vision at Blute Technologies is simple: to help enterprises untangle digital complexity, accelerate technology adoption, and orchestrate a future of constant innovation.\n\nWhether you are modernizing legacy software, deploying IoT telemetry fleets, or building consumer mobility apps, our engineering team in Bengaluru is ready to build solutions that deliver.\n\nVisit us at https://blute.co.in or contact our solution architects to get started!\n\n#BluteTechnologies #TechInnovation #SoftwareServices #BengaluruIT #DigitalTransformation"
         }
     ]
     for p in linkedin_posts:
         post_to_payload(p["title"], p.get("text", ""))
+        time.sleep(0.1)
 
 def main():
     parser = argparse.ArgumentParser(description="Blute Technologies Automated Deployment & Payload Sync Tool")
