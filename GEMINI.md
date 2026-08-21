@@ -1,19 +1,19 @@
-# Claude Code — Instructions & Architecture Enforcement
+# Gemini CLI — Instructions & Architecture Enforcement
 
 @AGENTS.md
 
-## Claude Code Specific Enforcement Protocol
+## Gemini CLI Specific Enforcement Protocol
 
 You are operating under **Zero-Trust Mechanical Rule Enforcement**. You must strictly obey all rules defined in `@AGENTS.md` and `agent-kit/platform/rules-manifest.yaml`.
 
-### 1. Mandatory Pre-Edit Protocol (Every Turn)
+### 1. Mandatory Pre-Edit Protocol
 Before generating or modifying any code in this repository:
 1. State out loud:
    - The exact task you are executing.
-   - The exact Rule IDs from `agent-kit/platform/rules-manifest.yaml` that apply (e.g. `ID-TAXONOMY-001`, `DB-RLS-001`, `STRUCTURE-001`, `CENTRAL-001`, `UI-TRANSFORM-001`, `LOOP-001`, `TS-ANY-001`, `DB-MIGRATION-001`).
-   - The relevant ADR from `platform/adr/` (e.g. `ADR-0001`).
+   - The exact Rule IDs from `agent-kit/platform/rules-manifest.yaml` that apply.
+   - The relevant ADR from `platform/adr/`.
 
-### 2. Mandatory Post-Edit Gate (Before Claiming Done)
+### 2. Mandatory Post-Edit Gate
 Before presenting your work as done or answering the user:
 ```bash
 bash agent-kit/scripts/run-rules-manifest.sh --changed

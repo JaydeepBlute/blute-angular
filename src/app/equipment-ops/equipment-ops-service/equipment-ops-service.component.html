@@ -1,0 +1,43 @@
+<div class="arlikat-page-root">
+  <div class="arlikat-container">
+
+    <div class="arlikat-header">
+      <div class="arlikat-badge bg-blue-500/10 border border-blue-500/20 text-blue-300">
+        Platform Core Feature
+      </div>
+      <h1 class="arlikat-title">
+        {{ pageTitle }}
+      </h1>
+      <p class="arlikat-subtitle">
+        {{ pageSubtitle }}
+      </p>
+    </div>
+
+    <div class="arlikat-grid-3">
+      <div *ngFor="let f of features" class="arlikat-card hover:border-blue-500/30">
+        <div>
+          <span class="arlikat-card-category text-blue-400">{{ f.category }}</span>
+          <h3 class="arlikat-card-title">{{ f.title }}</h3>
+          <p class="arlikat-card-desc">{{ f.description }}</p>
+        </div>
+        <div class="arlikat-bullet-list">
+          <ul class="space-y-2">
+            <li *ngFor="let b of f.bullets" class="arlikat-bullet-item">
+              <svg class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>{{ b }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="arlikat-cta-box bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border-blue-500/30">
+      <h2 class="text-2xl md:text-3xl font-bold text-white font-display mb-3">See the Service Feature with Live Data</h2>
+      <p class="text-slate-300 text-sm max-w-xl mx-auto mb-6">Book a 30-minute tailored demo with your industry equipment specifications.</p>
+      <a routerLink="/contact" class="arlikat-btn-primary bg-blue-600 hover:bg-blue-500">
+        Book Feature Demo
+      </a>
+    </div>
+
+  </div>
+</div>

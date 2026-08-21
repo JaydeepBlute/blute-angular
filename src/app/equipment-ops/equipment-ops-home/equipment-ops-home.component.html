@@ -1,0 +1,228 @@
+<!-- Equipment Ops Single Product Landing Page HTML -->
+<div class="arlikat-page-root">
+  <!-- Subtle Gradient Background Glows -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-indigo-600/20 via-purple-600/10 to-transparent blur-3xl pointer-events-none"></div>
+
+  <div class="arlikat-container">
+    
+    <!-- ── Hero Section ── -->
+    <div class="arlikat-header">
+      <div class="arlikat-badge bg-indigo-500/10 border border-indigo-500/20 text-indigo-300">
+        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+        Enterprise Product Platform
+      </div>
+
+      <h1 class="arlikat-title">
+        {{ heroTitle }}
+      </h1>
+
+      <p class="arlikat-subtitle">
+        {{ heroSubtitle }}
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+        <a routerLink="/products/equipment-ops/amc-calculator"
+          class="arlikat-btn-primary bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 shadow-[0_10px_30px_rgba(79,70,229,0.35)] flex items-center justify-center gap-2">
+          Calculate Your AMC Leakage
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a routerLink="/products/equipment-ops/pricing"
+          class="arlikat-btn-secondary">
+          Explore Platform Pricing & Features
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Interactive Live Product Feature Simulator ── -->
+    <div class="my-16 p-8 rounded-3xl bg-slate-900/90 border border-indigo-500/30 backdrop-blur-2xl shadow-2xl">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-400 block mb-1">Interactive Feature Simulator</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-white font-display">Experience Integrated Operations</h2>
+        </div>
+        <!-- Tab Switchers -->
+        <div class="flex flex-wrap gap-2 p-1.5 rounded-xl bg-white/5 border border-white/10">
+          <button (click)="selectTab('service')"
+            [class.bg-indigo-600]="activeTab === 'service'"
+            [class.text-white]="activeTab === 'service'"
+            class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            Service & FSM
+          </button>
+          <button (click)="selectTab('sales')"
+            [class.bg-indigo-600]="activeTab === 'sales'"
+            [class.text-white]="activeTab === 'sales'"
+            class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            Sales & CRM
+          </button>
+          <button (click)="selectTab('inventory')"
+            [class.bg-indigo-600]="activeTab === 'inventory'"
+            [class.text-white]="activeTab === 'inventory'"
+            class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            Inventory & Spares
+          </button>
+          <button (click)="selectTab('purchase')"
+            [class.bg-indigo-600]="activeTab === 'purchase'"
+            [class.text-white]="activeTab === 'purchase'"
+            class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            Purchase & POs
+          </button>
+          <button (click)="selectTab('analytics')"
+            [class.bg-indigo-600]="activeTab === 'analytics'"
+            [class.text-white]="activeTab === 'analytics'"
+            class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white">
+            Analytics
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Active Simulator Panel -->
+      <div *ngIf="activeSimulatorDetails as sim" class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 transition-all">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+          <h3 class="text-xl font-bold text-white font-display">{{ sim.title }}</h3>
+          <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30">
+            {{ sim.badge }}
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div *ngFor="let stat of sim.stats" class="p-5 rounded-xl bg-slate-950/60 border border-white/10">
+            <span class="text-xs text-slate-400 block mb-1 font-medium">{{ stat.label }}</span>
+            <div class="text-xl font-extrabold text-white font-display mb-1">{{ stat.val }}</div>
+            <span class="text-[11px] font-semibold text-emerald-400">{{ stat.trend }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Metrics Highlight Strip ── -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-12 p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl">
+      <div *ngFor="let m of metrics" class="text-center p-4">
+        <div class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-300 font-display">
+          {{ m.value }}
+        </div>
+        <div class="text-sm font-semibold text-slate-200 mt-1">{{ m.label }}</div>
+        <div class="text-xs text-slate-400 mt-0.5">{{ m.detail }}</div>
+      </div>
+    </div>
+
+    <!-- ── Three Core Message Pillars ── -->
+    <div class="my-20">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl font-bold text-white tracking-tight font-display">Built for Equipment & Machinery Companies</h2>
+        <p class="text-slate-400 mt-3 text-base">Addressing the operational reality of equipment distributors and OEM service operations.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div *ngFor="let p of pillars" class="arlikat-card hover:border-indigo-500/30 group">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <span class="text-xs font-semibold text-indigo-400 tracking-wider uppercase block mb-1">{{ p.subtitle }}</span>
+            <h3 class="text-xl font-bold text-white mb-3 font-display">{{ p.title }}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">{{ p.description }}</p>
+          </div>
+          <div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+              <span *ngFor="let item of p.metrics" class="px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 text-xs font-medium border border-indigo-500/20">
+                {{ item }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Product Feature Modules Deep-Dive with Instant Search ── -->
+    <div class="my-24">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-3xl font-bold text-white tracking-tight font-display">Five Integrated Core Feature Suites</h2>
+        <p class="text-slate-400 mt-3 text-base">All 5 features run inside the same single product instance.</p>
+      </div>
+
+      <!-- Instant Search Filter Input -->
+      <div class="max-w-md mx-auto mb-12 relative">
+        <input type="text"
+          [value]="searchQuery"
+          (input)="searchQuery = $any($event.target).value"
+          placeholder="Search features (e.g. AMC, GST, Serial, SLA, Buyback)..."
+          class="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-indigo-500 transition-all" />
+        <svg class="w-5 h-5 text-slate-400 absolute right-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div *ngFor="let mod of filteredModules" class="arlikat-card hover:border-indigo-500/40">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r {{ mod.color }} text-white">
+                {{ mod.name }}
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2 font-display">{{ mod.tagline }}</h3>
+            <p class="arlikat-card-desc">{{ mod.description }}</p>
+            
+            <ul class="space-y-2 mb-6">
+              <li *ngFor="let feat of mod.keyFeatures" class="arlikat-bullet-item">
+                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>{{ feat }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <a [routerLink]="mod.route" class="inline-flex items-center text-sm font-semibold text-indigo-400 hover:text-indigo-300 gap-1 mt-2">
+            Explore {{ mod.name }}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Competitor & Category Positioning Grid ── -->
+    <div class="my-24 p-8 rounded-3xl bg-slate-900/80 border border-white/10">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl font-bold text-white font-display">Category & Solution Comparison</h2>
+        <p class="text-slate-400 mt-2">Why point solutions and fragmented multi-app suites fail machinery dealers.</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-slate-300 border-collapse">
+          <thead>
+            <tr class="border-b border-white/10 text-xs font-semibold uppercase tracking-wider text-slate-400">
+              <th class="py-4 px-4">Category</th>
+              <th class="py-4 px-4">Common Alternatives</th>
+              <th class="py-4 px-4">The Category Gap</th>
+              <th class="py-4 px-4 text-indigo-400">Our Platform Advantage</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            <tr *ngFor="let c of comparisons" class="hover:bg-white/[0.02]">
+              <td class="py-4 px-4 font-semibold text-white">{{ c.category }}</td>
+              <td class="py-4 px-4 text-slate-400">{{ c.competitors }}</td>
+              <td class="py-4 px-4 text-rose-300/80">{{ c.gap }}</td>
+              <td class="py-4 px-4 font-medium text-indigo-300 bg-indigo-500/5">{{ c.platformAdvantage }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── Call to Action Section ── -->
+    <div class="arlikat-cta-box bg-gradient-to-r from-indigo-900/60 via-violet-900/60 to-purple-900/60 border-indigo-500/30">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white font-display mb-4">
+        Ready for One Unified Platform to Run Your Equipment Business?
+      </h2>
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-8">
+        Experience sales, inventory, installed base, and field service inside one unified database.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a routerLink="/contact" class="arlikat-btn-primary bg-indigo-600 hover:bg-indigo-500">
+          Schedule Tailored Product Demo
+        </a>
+        <a routerLink="/products/equipment-ops/amc-calculator" class="arlikat-btn-secondary">
+          Calculate Revenue Leakage
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

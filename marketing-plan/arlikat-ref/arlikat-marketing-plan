@@ -1,0 +1,764 @@
+ARLIKAT - MARKETING PLAN, COMPETITIVE LANDSCAPE AND WEBSITE PLAN
+Compiled 2026-08-21 - companion to "arlikat-feature-list"
+
+
+ASSUMPTION THIS PLAN IS BUILT ON
+================================
+
+Arlikat is today a client-specific build. This plan assumes the intent
+is to productise it and sell it to more companies like Arlikat, under
+whatever brand is chosen (Arlikat, or a Blute product name). If the
+intent is only to market Arlikat's own services, ignore sections 4-6
+and use section 3 and 8 only.
+
+Everything below is grounded in features that exist in the code today.
+Section 8 of the feature-list file lists what does NOT exist - none of
+it appears as a claim here.
+
+
+------------------------------------------------------------
+1. POSITIONING
+------------------------------------------------------------
+
+The one-line positioning
+
+  For companies that sell a machine and then service it for the next
+  ten years - one system from the first enquiry to the last AMC
+  renewal.
+
+The problem statement customers will recognise
+
+  A machinery dealer runs Tally for accounts, Excel for AMC
+  contracts, a CRM trial nobody logs into, and WhatsApp for the
+  service team. The machine is sold in one system, installed in a
+  second, serviced in a third, and the spare that went out with the
+  engineer never comes back to any of them. The AMC that expired last
+  month is discovered next quarter. The standby machine sitting at a
+  customer site for eight months is on nobody's report.
+
+Why this is a real category gap
+
+  - Horizontal CRMs (Zoho, Salesforce, Freshsales) sell the machine
+    and then stop. No installed base, no AMC billing schedule, no
+    spare indent.
+  - Horizontal ERPs (SAP B1, Business Central, NetSuite, Odoo) handle
+    inventory and finance but their field-service modules are either
+    expensive add-ons or thin, and implementation runs 6-18 months.
+  - FSM specialists (ServiceMax, Zuper, FieldEZ, Zoho FSM) service the
+    machine but do not sell it - no quote-with-buyback, no margin
+    approval, no purchase and GRN chain.
+  - Tally does the books and nothing else.
+
+  Arlikat is the only one of these that owns the whole chain in one
+  database: enquiry -> quote (with buyback) -> order -> purchase ->
+  GRN with serial number -> dispatch -> installation -> asset ->
+  warranty -> AMC -> PM schedule -> complaint -> work order -> spare
+  indent -> service bill -> renewal.
+
+The three message pillars (use these in this order, everywhere)
+
+  Pillar 1 - Stop revenue leaking out of your installed base
+    Warranty expiries, AMC renewals and service bills due in the next
+    30/60/90 days, in quantity and value, on one screen. Non-returned
+    standby machines with aging. Estimation vs invoice variance.
+    This is the pillar that gets the meeting. Lead with money, not
+    features.
+
+  Pillar 2 - One system, sales to service, no re-keying
+    The serial number entered once on the GRN is the same serial number
+    the engineer consumes a spare against three years later. Info tabs
+    on every document show what was created from it.
+
+  Pillar 3 - Built for how Indian equipment companies actually run
+    GST, HSN, e-invoice with IRN and QR, e-way bill, multi-branch
+    GSTIN, buyback on quotes, margin-gated approvals, spare indent
+    against a work order, multi-tenant with per-screen permissions.
+
+Proof points to put on every page (all real, all countable)
+  - 4 role dashboards, ~50 report screens, Excel and PDF on all of them
+  - Serial and batch traceability from receipt to consumption
+  - Warranty / AMC / bill due in 30-60-90 day buckets by value
+  - SLA achievement percentage with business-hours-aware clocks
+  - Engineer performance and spare consumption per engineer
+  - Payables and receivables aging, dead stock, reorder, item ledger
+
+What NOT to say
+  Never say "ERP" as the first word. Every prospect has an ERP horror
+  story and a Tally licence. Say "runs your sales and service on one
+  system" and let them discover the depth in the demo.
+
+
+------------------------------------------------------------
+2. TARGET AUDIENCE
+------------------------------------------------------------
+
+2.1 Ideal customer profile (primary - go here first)
+
+  Indian equipment dealers, distributors and OEM service arms that
+  have an installed base they are contractually obliged to maintain.
+
+  Firmographics
+    - Revenue: Rs 25 cr to Rs 500 cr
+    - Employees: 50 to 500
+    - Field engineers: 10 to 100 (below 10, they cope with Excel;
+      above 100, they buy ServiceMax)
+    - Branches: 2 to 15, usually multi-state, so multi-GSTIN matters
+    - Installed base: 500 to 20,000 machines under warranty or AMC
+    - Existing stack: Tally + Excel + WhatsApp, or a half-abandoned
+      Zoho/Salesforce deployment
+
+  The qualifying question that sorts everything
+    "How many of your customers' machines go out of warranty next
+    quarter, and who is chasing those renewals today?"
+    If they cannot answer in under a minute, they are a prospect.
+
+2.2 Verticals, ranked by fit
+
+  Tier 1 - buy fastest, pain is sharpest
+    1. Medical and diagnostic equipment dealers (analysers, imaging,
+       dental, ICU) - AMC-heavy, uptime is contractual, standby units
+       everywhere, calibration records demanded by NABH
+    2. Printing, imaging and packaging machinery - consumables plus
+       AMC plus spares, classic dealer model
+    3. CNC, machine tools and industrial automation - high value
+       assets, buyback and trade-in is normal, spare lead times long
+    4. Lab and analytical instruments - AMC plus calibration plus
+       consumables
+
+  Tier 2 - strong fit, longer cycles
+    5. HVAC, chillers and cold chain
+    6. Diesel gensets and power backup
+    7. Material handling (forklifts, cranes, hoists)
+    8. Water and waste-water treatment systems
+    9. Weighing systems and test instruments
+   10. Commercial kitchen and laundry equipment
+
+  Tier 3 - adjacent, opportunistic
+   11. Fire and safety systems
+   12. IT hardware, AV and security systems integrators
+   13. Elevators and escalators (regulated, often has its own systems)
+   14. Solar EPC and O&M
+
+2.3 Buying committee - five people, five different pitches
+
+  A. Promoter / MD / Director  (economic buyer, signs)
+     Cares about: money leaking, no single version of truth, being
+       dependent on two people who "know everything"
+     Pitch: renewal leakage, receivables aging, margin visibility
+     Fear: another failed software project, staff won't use it
+     Kill it with: a 6-week pilot on one branch, one module
+
+  B. Service head / National service manager  (champion, the real user)
+     Cares about: SLA breaches, engineer productivity, spares walking
+       out, standby machines never coming back, PM schedules slipping
+     Pitch: service dashboard, engineer performance and spare
+       consumption reports, escalation matrix, non-returned standby
+       aging
+     This person is your internal seller. Arm them with the ROI
+       numbers - they will present it to the MD for you.
+
+  C. Sales head  (co-champion or blocker)
+     Cares about: pipeline accuracy, quote turnaround, discount
+       control, target tracking
+     Pitch: funnel, actual-vs-target, top-10s, margin approval gates,
+       quote-to-order conversion, open order risk
+     Blocker risk: they already picked a CRM. Do not fight it head-on;
+       show that CRM has no installed base and no AMC.
+
+  D. Finance controller / CFO  (gatekeeper)
+     Cares about: GST correctness, e-invoice, receivables and payables
+       aging, AMC billing schedules actually being billed
+     Pitch: compliance built in, billing schedule automation, aging
+       reports, "works with your Tally, doesn't replace it"
+     Do not overclaim accounting. Say plainly: no general ledger.
+
+  E. IT / systems admin  (technical gate)
+     Cares about: deployment, data migration, permissions, backup
+     Pitch: per-screen permission mapping, audit log, login history,
+       bulk upload for migration, multi-tenant isolation
+
+  F. Field engineer  (adoption risk, not a buyer)
+     Cares about: not filling forms twice, working on a phone
+     Pitch: EFSR on the phone browser, spare indent in three taps
+     If engineers reject it, the deal churns at renewal. Budget demo
+     time for them specifically.
+
+2.4 Trigger events - the moments to reach out
+
+  - Opened a new branch or state (multi-GSTIN pain becomes acute)
+  - Won a large AMC tender or a government uptime contract
+  - Hired a first "Service Head" or "Customer Support Manager"
+  - Lost a contract over an SLA penalty
+  - Statutory audit or NABH/ISO audit asked for service records
+  - Crossed roughly 25 field engineers
+  - Owner's son/daughter joined the business (the classic
+    digitisation trigger in Indian family businesses)
+  - A Zoho or Salesforce deployment quietly stalled
+
+
+------------------------------------------------------------
+3. COMPETITIVE LANDSCAPE
+------------------------------------------------------------
+
+3.1 The real competitor
+
+  Not a vendor. It is "Tally + Excel + WhatsApp + the guy who
+  remembers everything." It is free, it works badly, and it has no
+  champion to displace. Roughly 60% of losses will be no-decision,
+  not a competitor. Plan messaging against inertia, not against
+  Salesforce.
+
+3.2 Tier 1 - horizontal CRM
+
+  Zoho (CRM + Books + Inventory + FSM + One)
+    Their strength: price, brand, Indian, huge partner network, and
+      Zoho FSM now exists
+    Their weakness: you are buying and stitching 4-5 products;
+      no installed-base-to-AMC-to-billing-schedule chain; no buyback;
+      no margin approval matrix; Zoho FSM is thin on contracts and
+      spares; every module you add re-prices the deal
+    How we win: "Show me your AMC renewal pipeline by value for the
+      next 90 days" and "show me spare consumption per engineer"
+    Where we lose: budget under Rs 3 lakh a year, or a company that
+      wants email + accounting + CRM in one bill
+    Expect: Zoho is in every deal. Never disparage it - concede the
+      CRM, own the service.
+
+  Salesforce Sales Cloud + Field Service
+    Strength: brand, depth, ecosystem
+    Weakness: cost (often 5-10x), 6-12 month implementation, needs a
+      consultant permanently, and still no Indian GST/e-invoice
+      without a partner app
+    How we win: total cost, time-to-live, India compliance native
+    Where we lose: MNC subsidiaries with a global mandate
+
+  LeadSquared, Kylas, Freshsales
+    Strength: cheap, fast, good for lead management
+    Weakness: sales-only. Nothing after the invoice.
+    How we win: trivially, on scope. These are not real competitors,
+      they are what the sales head bought last year.
+
+3.3 Tier 2 - mid-market ERP
+
+  SAP Business One
+    Strength: the "safe" board-level choice, strong inventory/finance
+    Weakness: Rs 25-60 lakh+ all-in, 6-12 months, service module is
+      basic, every change is a partner change request
+    How we win: implementation risk, service depth, cost, and the fact
+      that B1's service module cannot run AMC billing schedules or
+      spare indents the way an equipment dealer needs
+    Where we lose: when finance depth and auditor comfort decides it
+
+  Microsoft Dynamics 365 Business Central
+    Strength: Microsoft trust, good finance, Field Service add-on
+    Weakness: cost stacks per module, partner-dependent, long cycle
+    How we win: same as B1 - time and service depth
+
+  Oracle NetSuite
+    Strength: true cloud, strong finance and multi-entity
+    Weakness: expensive, India localisation via partners, FSM is weak
+    How we win: cost and service; concede finance
+
+  Odoo
+    Strength: cheap, modular, huge module library, field service
+      module exists
+    Weakness: Indian GST and e-invoice depends on community modules
+      that break on upgrade; quality varies wildly by partner;
+      equipment-specific flows (buyback, AMC price hike, standby
+      tracking) need custom development
+    How we win: "how much of this is custom code your partner
+      maintains?" and upgrade risk
+    Where we lose: price-driven deals with a strong local partner
+    This is the most dangerous Tier 2 competitor in India right now.
+
+  ERPNext / Frappe
+    Strength: open source, free licence, Indian GST support is decent,
+      has asset and maintenance modules
+    Weakness: needs in-house technical ownership; service/AMC depth is
+      shallow compared to what is built here; reporting effort is
+      DIY
+    How we win: out-of-the-box service depth, ~50 ready reports,
+      4 ready dashboards
+    Where we lose: companies with an in-house dev team and a
+      zero-licence mandate
+
+  Marg, Busy, Focus 9, TallyPrime add-ons
+    Strength: entrenched, cheap, accountant-approved
+    Weakness: no CRM, no FSM, no dashboards worth the name
+    How we win: coexist. Position as "sits on top of your Tally."
+
+3.4 Tier 3 - FSM specialists (the closest real competition)
+
+  ServitiumCRM (India, machine-service focused)
+    The single most direct competitor. Same buyer, same verticals,
+      similar chain including AMC and spares.
+    How we win: we also own the sell side (quote, buyback, margin
+      approval, purchase, GRN). They are service-first. Also compete
+      on price and on customisation responsiveness.
+    Study their pricing and website structure closely before launch.
+
+  FieldEZ (India)
+    Strength: India presence, mobile-first, large deployments
+    Weakness: service-only, weak on contracts/AMC finance
+    How we win: contracts, billing schedules, sell side
+
+  Zuper, Fieldproxy, FieldCircle
+    Strength: modern mobile apps, scheduling, cheap entry
+    Weakness: no inventory depth, no purchase, no AMC billing
+      schedules, no India invoicing depth
+    How we win: on scope. Where we lose: on the engineer mobile app -
+      theirs is native and offline-capable, ours is a responsive web
+      app. Expect to lose deals where field connectivity is the
+      dominant pain. This is the #1 product gap to close.
+
+  ServiceMax (PTC), IFS FSM
+    Strength: enterprise-grade, deep installed-base management
+    Weakness: enterprise pricing, long implementations
+    How we win: below 100 engineers, they are not economical
+
+  Zoho FSM
+    Covered above. Cheap, improving, thin on contracts.
+
+  Freshdesk / Zendesk / Jira Service Management
+    Ticketing only, no asset-to-AMC-to-spare chain. Sometimes present
+      as "we already have a helpdesk" - the answer is that a ticket
+      is not a work order and a helpdesk does not know a serial
+      number.
+
+3.5 Positioning grid to reproduce on the website
+
+  Draw two axes: "sells the machine" (x) and "services the machine"
+  (y). Zoho CRM / LeadSquared sit bottom-right. Zuper / FieldEZ /
+  ServiceMax sit top-left. SAP B1 / Odoo sit mid-left. Tally sits at
+  origin. Arlikat is the only mark in the top-right quadrant. This
+  single graphic will do more selling than any feature table.
+
+3.6 Where we lose - state it internally, plan for it
+
+  1. No native offline mobile app for engineers
+  2. No customer self-service portal
+  3. No WhatsApp notifications
+  4. No general ledger, no proven Tally connector
+  5. No public API, no integration marketplace
+  6. Single-client track record - no logos, no case studies yet
+  7. No G2 / Capterra presence, no analyst coverage
+
+  Items 1-3 are product. Items 6-7 are marketing, and are fixable in
+  90 days with one good case study and two review-site listings.
+
+
+------------------------------------------------------------
+4. PACKAGING AND PRICING (starting hypothesis)
+------------------------------------------------------------
+
+Sell by module, price by user, and price field engineers separately -
+because engineers are many and use little.
+
+  Core (mandatory)          - Accounts, Contacts, masters, admin,
+                              permissions, dashboards, reports
+  Sales module              - Leads, opportunity, quote, SO, invoice,
+                              e-invoice, targets, approvals
+  Purchase module           - PO, bills, payables, supplier
+  Inventory module          - Stores, products, GRN, DC, serial/batch,
+                              adjustments, RMA
+  Service module            - Assets, warranty, AMC, CMS, work orders,
+                              PM, IMS, estimation, billing, SLA
+  Spares add-on             - Spare PO/PB/DC/credit/debit chain
+
+  Editions
+    Starter    - Core + Service, up to 10 back-office users,
+                 25 engineers
+    Growth     - Core + Sales + Service + Inventory, 25 users,
+                 75 engineers  <- the volume seller
+    Complete   - Everything, unlimited modules, multi-branch
+    Enterprise - Complete + dedicated instance + custom reports
+
+  Levers
+    - Per named back-office user per month, annual commit
+    - Field engineer seats at roughly 30-40% of a full seat
+    - One-time implementation and data migration fee (do not
+      discount this away - free implementation predicts churn)
+    - Custom report / custom module day rate
+    - Discount for annual prepay and for a public case study
+
+  Anchor the price against the loss, not the competitor: "one missed
+  AMC renewal on a Rs 8 lakh machine costs more than a year of this."
+
+
+------------------------------------------------------------
+5. GO-TO-MARKET
+------------------------------------------------------------
+
+5.1 Motion
+
+  This is a Rs 3-15 lakh ACV, 60-120 day, multi-stakeholder,
+  demo-led sale into a conservative buyer. That means founder-led
+  outbound plus vertical credibility. It is not a self-serve signup
+  product and it never will be. Do not build a free-trial funnel.
+
+  Funnel shape to design for
+    Vertical content / referral / outbound
+      -> ROI calculator or benchmark report (lead magnet)
+      -> 30-min discovery call
+      -> tailored demo on their vertical's data
+      -> 6-week paid pilot, one branch, Service module only
+      -> full rollout
+      -> module expansion (Sales, Inventory) at month 9-18
+
+  Land on Service. Expand into Sales and Inventory. The service head
+  is the champion, the service pain is the sharpest, and the service
+  module is the hardest thing for any competitor to match.
+
+5.2 Channels, in priority order
+
+  1. Founder-led outbound to Tier 1 verticals
+     Build a list of 300 named companies from: IndiaMART supplier
+     lists, medical device distributor directories, machine-tool
+     association members (IMTMA), packaging associations, GST
+     directories by HSN. Target the Service Head on LinkedIn, not
+     the MD. One vertical at a time, one message per vertical.
+
+  2. Vertical trade associations and expos
+     IMTMA / IMTEX (machine tools), India Med Expo and medical
+     device distributor bodies, PackPlus / printing expos, ACREX
+     (HVAC), Elecrama. A 3x3 stall with one screen showing the
+     service dashboard on a real installed base outperforms any ad
+     spend at this ACV.
+
+  3. OEM referral channel - the highest-leverage play
+     A single OEM (say a Japanese or German machine principal) has
+     20-60 Indian dealers who all have the same problem. Sell to one
+     dealer, get introduced to the OEM's channel management, become
+     the recommended dealer system. One OEM relationship can be
+     worth 20 customers. Prioritise this above all paid marketing.
+
+  4. Chartered accountant and Tally partner referrals
+     They already sit inside the finance function of every target.
+     Position explicitly as non-competing with Tally, pay referral
+     commission.
+
+  5. LinkedIn ABM
+     Target titles: Service Head, National Service Manager, Customer
+     Support Head, GM Service, Spare Parts Manager, plus MD/Director
+     at the named 300. Content, not ads, at this stage.
+
+  6. Google Search - high-intent long-tail only
+     Do not bid on "CRM software" or "ERP software". Bid on
+     "AMC management software India", "field service management
+     software for medical equipment", "spare parts management
+     software dealer", "service CRM with GST e-invoice",
+     "ServitiumCRM alternative", "Zoho FSM alternative India".
+
+  7. YouTube product walkthroughs
+     Screen-recorded, 6-10 minutes, one workflow each, no music, no
+     stock footage. "Complaint to work order to spare indent to
+     bill, in 8 minutes." Indian buyers watch these before booking.
+
+  8. Review sites
+     Get listed on G2, Capterra, SoftwareSuggest and Techjockey.
+     Techjockey and SoftwareSuggest genuinely generate Indian
+     mid-market leads. Seed with 5-8 real reviews from Arlikat users.
+
+5.3 First 90 days
+
+  Weeks 1-2
+    - Lock the product name, domain, logo, one-line positioning
+    - Get written permission for an Arlikat case study
+    - Record 5 core demo videos
+  Weeks 3-6
+    - Ship the website: home, product overview, 5 module pages,
+      2 industry pages, pricing, demo booking, about (see section 6)
+    - Build the AMC Revenue Leakage Calculator (the flagship lead
+      magnet)
+    - Publish the Arlikat case study with real numbers
+  Weeks 7-10
+    - Build the named-300 list for Tier 1 verticals
+    - Start outbound; target 40 discovery calls
+    - List on Techjockey, SoftwareSuggest, G2, Capterra
+    - Publish 4 pillar articles (section 6.6)
+  Weeks 11-13
+    - First expo or association event booked
+    - Approach 3 OEMs for channel introductions
+    - Target: 3 paid pilots signed
+
+  Months 4-6: second vertical, 2 more case studies, WhatsApp
+  notifications shipped (it removes a recurring objection).
+  Months 7-12: customer portal and engineer mobile app shipped,
+  partner/reseller programme opened, target 12-15 customers.
+
+5.4 Metrics
+
+  Leading    - named accounts reached, discovery calls booked,
+               demos delivered, calculator completions
+  Mid-funnel - demo-to-pilot rate (target 30%), pilot-to-paid rate
+               (target 60%)
+  Lagging    - ACV, CAC payback (target under 12 months), logo
+               churn, module expansion revenue, net revenue retention
+  Product    - weekly active engineers, work orders closed in-system,
+               percentage of AMC renewals captured before expiry.
+               That last one is the number that proves the pitch.
+
+
+------------------------------------------------------------
+6. WEBSITE AND PAGE PLAN (IN DEPTH)
+------------------------------------------------------------
+
+Principle: every page answers one question for one person and ends in
+one call to action. Two CTAs only across the whole site - "Book a
+30-minute demo" (primary) and "Calculate your AMC leakage"
+(secondary, no-commitment).
+
+6.1 Home page  /
+
+  H1: Sell the machine. Service it for ten years. One system.
+  Sub: Quotes, orders, stock, installed base, AMC and field service
+       for Indian equipment companies - with GST and e-invoice built
+       in.
+  Sections in order:
+    1. Hero with the service dashboard screenshot (real data blurred),
+       primary + secondary CTA
+    2. The problem, in their words - 4 short cards: "AMC expired,
+       nobody knew" / "Spare went out, never came back" / "SLA
+       breached, penalty paid" / "Quote in Excel, order in Tally"
+    3. The chain graphic - enquiry to renewal as one horizontal
+       flow, with the module names underneath. This is the single
+       most important asset on the site.
+    4. Three pillars (section 1), one row, each linking deeper
+    5. The positioning grid from 3.5
+    6. Module strip - 5 cards linking to module pages
+    7. Numbers strip - 4 dashboards, ~50 reports, serial-level
+       traceability, e-invoice ready
+    8. Industry strip - 8 vertical logos/links
+    9. Case study block
+   10. FAQ (6 questions, including "does it replace Tally?" - answer
+       honestly, no)
+   11. Closing CTA
+
+6.2 Product overview  /platform
+
+  One page that shows the whole chain, then hands off to module pages.
+  Include a "day in the life" narrative for three people: the sales
+  engineer, the service coordinator, the field engineer. Narrative
+  beats feature lists for this buyer.
+
+6.3 Module pages (5 pages)
+
+  Each follows the same template: who it is for -> the 3 pains ->
+  what the screens do (annotated screenshots) -> the reports you get
+  -> what it connects to upstream and downstream -> CTA.
+
+  /sales      Sales and CRM
+              Angle: quote to cash for equipment sellers - buyback,
+              margin approvals, e-invoice. Not another CRM.
+  /purchase   Purchase and procurement
+              Angle: PO to GRN to bill with the conversion trail, and
+              a payables aging you can act on.
+  /inventory  Inventory, warehouse and spares
+              Angle: serial and batch from receipt to consumption,
+              dead stock and reorder in one screen.
+  /service    Service and field operations   <- the flagship page,
+              build this one first and best
+              Angle: installed base, AMC, complaints, work orders,
+              SLA, engineer productivity.
+  /analytics  Dashboards and reports
+              Angle: 4 role dashboards, ~50 reports, Excel and PDF on
+              every one of them. Screenshot-heavy, low text.
+
+6.4 Sub-feature pages (SEO workhorses - one page per searched term)
+
+  These rank because they match exactly what a service head types.
+
+  /amc-management-software
+  /installed-base-asset-management
+  /warranty-management
+  /preventive-maintenance-scheduling
+  /complaint-management-sla-escalation
+  /work-order-management
+  /spare-parts-management
+  /serial-batch-traceability
+  /e-invoice-gst-compliance
+  /quotation-approval-workflow
+  /sales-target-tracking
+  /multi-branch-multi-gstin
+  /engineer-performance-tracking
+  /standby-machine-tracking      <- almost nobody else has this page,
+                                    and it is a real, painful,
+                                    searchable problem
+
+6.5 Industry pages (start with 4, grow to 12)
+
+  Template per page: the vertical's specific words, its specific
+  compliance need, its specific report, one named customer or a
+  detailed anonymised scenario, and a demo CTA that says "see it with
+  <industry> data".
+
+  /industries/medical-equipment          (NABH, calibration, uptime)
+  /industries/printing-packaging         (consumables + AMC + spares)
+  /industries/machine-tools-cnc          (buyback, high-value spares)
+  /industries/lab-instruments            (calibration, AMC)
+  then: /hvac-cold-chain, /gensets, /material-handling,
+  /water-treatment, /weighing-test, /commercial-kitchen,
+  /fire-safety, /it-av-integrators
+
+  These pages will out-convert every generic page on the site by
+  3-5x. Do not skip them, and do not write one generic page and
+  swap the noun - write the vertical's actual vocabulary.
+
+6.6 Comparison and alternative pages
+
+  High intent, low competition, and they let you frame the fight.
+  Be scrupulously fair on these - one dishonest claim loses the deal
+  when the prospect checks.
+
+  /compare/vs-zoho              (CRM+FSM stitched vs one chain)
+  /compare/vs-sap-business-one  (time to live, service depth, cost)
+  /compare/vs-odoo              (custom modules and upgrade risk)
+  /compare/vs-erpnext           (out-of-box service depth)
+  /compare/vs-tally             (coexistence, not replacement)
+  /compare/vs-fsm-tools         (Zuper/FieldEZ/Zoho FSM - service
+                                 only vs sell-and-service)
+  /alternatives/servitiumcrm
+  /alternatives/zoho-fsm
+  /compare/spreadsheet-and-whatsapp   (the honest one, against the
+                                       real competitor - this will be
+                                       your best-performing
+                                       comparison page)
+
+6.7 Solution-by-role pages
+
+  /for/managing-director     ROI, control, one version of truth
+  /for/service-head          SLA, engineer productivity, spares
+  /for/sales-head            pipeline, targets, discount control
+  /for/finance               GST, e-invoice, aging, billing schedules
+  /for/field-engineer        EFSR on a phone, three-tap spare indent
+
+6.8 Tools and lead magnets (gated, this is where leads come from)
+
+  /tools/amc-leakage-calculator
+     Inputs: machines under warranty, average AMC value, renewal
+     capture rate today. Output: annual revenue leaking, plus a
+     PDF they can forward to their MD. Flagship magnet.
+  /tools/service-roi-calculator
+     Engineers x calls per day x travel cost, before and after.
+  /tools/sla-penalty-calculator
+  /tools/spare-shrinkage-estimator
+  /resources/amc-contract-template
+  /resources/service-report-efsr-template
+  /resources/installed-base-audit-checklist
+  /resources/equipment-dealer-digitisation-guide  (long-form,
+     ungated, the SEO anchor)
+
+6.9 Proof pages
+
+  /customers                 index of case studies
+  /customers/arlikat         the first one. Structure: business,
+                             before, what changed, numbers, quotes,
+                             screenshots. Get real numbers - renewal
+                             capture rate, SLA achievement, days to
+                             bill - even if only two of them.
+  /security                  multi-tenant isolation, per-screen
+                             permissions, audit log, login history,
+                             backups, hosting. IT gate asks for this.
+  /implementation            what the first 6 weeks looks like, data
+                             migration via bulk upload, training,
+                             pilot scope. Reduces the "another failed
+                             project" fear more than any feature page.
+  /integrations              be honest: what exists, what is on the
+                             roadmap with dates. An empty honest page
+                             beats a fake logo wall.
+  /roadmap                   public roadmap. For a young product this
+                             converts - it shows momentum and it lets
+                             prospects ask for what they need.
+
+6.10 Conversion and utility pages
+
+  /pricing        Show the module and edition structure, show a
+                  starting price, do not hide everything behind
+                  "contact us" - Indian mid-market buyers
+                  disqualify silent pricing. Include an ROI framing
+                  block and a comparison-to-cost-of-leakage block.
+  /demo           Two paths: "watch the 8-minute demo now" (no form)
+                  and "book a tailored demo" (form with vertical +
+                  engineer count, which pre-qualifies).
+  /contact  /about  /careers  /partners
+  /partners       reseller and implementation-partner programme -
+                  needed before the OEM channel play
+  /glossary       AMC, EFSR, GRN, DC, RMA, SLA, IRN, e-way bill,
+                  standby unit, indent, buyback. Genuinely useful,
+                  ranks well, and internally links to everything.
+
+6.11 Blog clusters (write in this order)
+
+  Cluster A - AMC and renewal revenue
+    Why 30% of AMC renewals are lost and how to see them 90 days out
+    How to price an AMC on a machine you sold three years ago
+    Auto-renewal and annual price hike: getting the contract right
+  Cluster B - Field service operations
+    What to measure in a field service team (and what to ignore)
+    Same-day closure rate: the only engineer metric that matters
+    Building an escalation matrix that respects business hours
+    Standby machines: the asset class nobody depreciates
+  Cluster C - Spares and inventory
+    Why spare consumption per engineer is your best fraud detector
+    Dead stock in a spares warehouse: finding it and clearing it
+    Serial and batch traceability without a barcode project
+  Cluster D - Compliance and finance
+    E-invoice for service billing: what actually changes
+    Multi-GSTIN across branches without duplicate masters
+    AMC billing schedules and revenue recognition
+  Cluster E - Buying software
+    Why equipment dealers abandon generic CRMs
+    Tally plus what? A practical stack for a machinery dealer
+    ERP implementations that fail in Indian mid-market and why
+
+6.12 Paid landing pages (separate from the site, one per campaign)
+
+  Single message, single form, no navigation, one screenshot, one
+  case-study quote. One per vertical x per pain:
+    lp/medical-amc-tracking
+    lp/machine-tools-service
+    lp/spare-parts-control
+    lp/sla-compliance
+  Never point an ad at the home page.
+
+6.13 In-product pages worth adding (they become marketing claims)
+
+  Marketing-driven product asks, in value order:
+    1. Customer self-service portal - becomes /customer-portal, a
+       page every competitor has and we do not
+    2. WhatsApp notification settings screen - unlocks the "your
+       customer gets a WhatsApp when the engineer is assigned" line
+    3. A single "Renewal Cockpit" screen consolidating warranty
+       expiry, AMC expiry and bill-due into one worklist with an
+       assign-and-chase action. The data already exists on the
+       service dashboard - surfacing it as one actionable screen
+       makes it demoable in 30 seconds and is the strongest single
+       demo moment available.
+    4. Engineer mobile app (native, offline EFSR capture) - closes
+       the biggest competitive loss
+    5. Public API + webhook page
+
+6.14 Build order
+
+  Phase 1 (weeks 3-6)   home, platform, /service, /sales, pricing,
+                        demo, about, arlikat case study,
+                        amc-leakage-calculator
+  Phase 2 (weeks 7-12)  remaining module pages, 4 industry pages,
+                        4 comparison pages, security,
+                        implementation, first 4 blog posts
+  Phase 3 (months 4-6)  sub-feature SEO pages, role pages, remaining
+                        industries, glossary, roadmap, partners,
+                        remaining tools
+
+
+------------------------------------------------------------
+7. THE SINGLE MOST IMPORTANT THING IN THIS DOCUMENT
+------------------------------------------------------------
+
+Do not market this as a CRM or an ERP. Both categories are crowded,
+commoditised, and price-anchored to Zoho.
+
+Market it as the system for the ten years after the machine is sold -
+and lead every conversation with the renewal and leakage numbers that
+the service dashboard already computes. The features are deep enough
+to win the evaluation. The positioning is what gets the evaluation.

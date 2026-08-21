@@ -1,27 +1,76 @@
-# Claude Code — Instructions & Architecture Enforcement
+# AGENTS.md — Mandatory Architecture & Rules Specification
 
-@AGENTS.md
+> **UNIVERSAL AGENT INSTRUCTION**: This file is read natively by Claude Code, Gemini CLI, Cursor, Windsurf, Copilot, Codex, and all autonomous coding agents. All rules in this document and `agent-kit/platform/rules-manifest.yaml` are **mechanically enforced, non-negotiable compile-time gates**.
 
-## Claude Code Specific Enforcement Protocol
+---
 
-You are operating under **Zero-Trust Mechanical Rule Enforcement**. You must strictly obey all rules defined in `@AGENTS.md` and `agent-kit/platform/rules-manifest.yaml`.
+## 1. Mandatory Execution Protocol (Every Agent Turn)
 
-### 1. Mandatory Pre-Edit Protocol (Every Turn)
-Before generating or modifying any code in this repository:
-1. State out loud:
-   - The exact task you are executing.
-   - The exact Rule IDs from `agent-kit/platform/rules-manifest.yaml` that apply (e.g. `ID-TAXONOMY-001`, `DB-RLS-001`, `STRUCTURE-001`, `CENTRAL-001`, `UI-TRANSFORM-001`, `LOOP-001`, `TS-ANY-001`, `DB-MIGRATION-001`).
-   - The relevant ADR from `platform/adr/` (e.g. `ADR-0001`).
+### Before writing or modifying ANY code:
+1. **Read `agent-kit/platform/rules-manifest.yaml` in full.**
+2. **Read every ADR under `platform/adr/`.** Do not silently contradict a prior decision.
+3. **State out loud in your initial response** which exact Rule IDs from the manifest apply to your current task.
+4. **Follow all 15 sections (§0 to §14) of the reference specification below.**
 
-### 2. Mandatory Post-Edit Gate (Before Claiming Done)
-Before presenting your work as done or answering the user:
+### After writing code, before claiming completion:
+Run:
 ```bash
 bash agent-kit/scripts/run-rules-manifest.sh --changed
 ```
-- If any `blocking` rule fails: **STOP IMMEDIATELY**. Fix the code. Do NOT present incomplete or failing work.
-- Output the raw script verification results in your response as evidence.
+- **`blocking` finding** → **STOP IMMEDIATELY**. Fix the violation before proceeding. Do NOT declare the task complete.
+- **`required-with-justification` finding** → Surface explicitly to the user with formal justification.
+- **Never claim a rule is satisfied without running the script and presenting the actual output.**
 
 ---
+
+## 2. Mechanically Enforced Rule ID Matrix (40 Rules)
+
+| Rule ID | Severity | Concern | Mechanism |
+|---|---|---|---|
+| `NAMING-001` | blocking | §0 Naming Law | `validate-naming.sh` |
+| `NAMING-002` | blocking | §0 Rule File Naming | `validate-rule-file-naming.sh` |
+| `STRUCTURE-001` | blocking | §1 & §2 Vertical Slice | `validate-folder-structure.sh` |
+| `KT-NULL-001` | blocking | §3 Kotlin Null Safety | `no-force-unwrap-kotlin.sh` |
+| `GO-ASSERT-001` | blocking | §3 Go Type Assertion | `no-unchecked-type-assertion-go.sh` |
+| `GO-ERRCHECK-001` | blocking | §3 Go Error Handling | `go-errcheck.sh` |
+| `GO-PANIC-001` | blocking | §3 Go Panic Ban | `no-panic-in-features-go.sh` |
+| `TS-ANY-001` | blocking | §3 TypeScript `any` Ban | `no-any-typescript.sh` |
+| `TS-ASSERT-001` | blocking | §3 TypeScript `as T` Ban | `no-unsafe-cast-typescript.sh` |
+| `TS-STRICT-001` | blocking | §3 TSConfig Strictness | `validate-tsconfig-strict.sh` |
+| `RESOURCE-TIMEOUT-001` | required* | §4 Explicit Timeouts | `no-default-timeouts.sh` |
+| `LOOP-001` | blocking | §5 Functional Combinators | `no-loops-in-features.sh` |
+| `CONFIG-SCHEMA-001` | blocking | §6 Config JSON Schema | `validate-config.sh` |
+| `CONFIG-ACCESS-001` | blocking | §6 Typed Config Access | `no-string-config-access.sh` |
+| `SECURITY-SECRET-001` | blocking | §6 Secret Scanning | `no-committed-secrets.sh` |
+| `CENTRAL-001` | blocking | §9 Centralization Master List | `enforce-centralization-master-list.sh` |
+| `ADR-COVERAGE-001` | blocking | §10 ADR Governance | `check-adr-coverage.sh` |
+| `AGENT-LOOP-001` | blocking | §10 3-Agent Loop Citations | `validate-3-agent-loop-citations.sh` |
+| `UI-LOGIC-001` | blocking | §11 Frontend Logic Ban | `no-business-logic-in-jsx.sh` |
+| `UI-TRANSFORM-001` | blocking | §11 Frontend Transforms | `no-data-transforms-in-components.sh` |
+| `UI-MAGIC-VALUES-001` | blocking | §11 Frontend Magic Values | `no-magic-values-in-components.sh` |
+| `UI-FETCH-001` | blocking | §11 Frontend Direct Fetch | `no-fetch-in-components.sh` |
+| `UI-STYLE-001` | required* | §11 Design Tokens | `no-inline-style-values.sh` |
+| `UI-INLINE-STYLE-001` | blocking | §11 Inline Style Ternary | `no-inline-style-ternary.sh` |
+| `UI-CROSS-IMPORT-001` | blocking | §11 Slice Isolation | `no-cross-feature-imports.sh` |
+| `UI-COMPONENT-SIZE-001` | advisory | §11 Component Size (<100L) | `check-component-size.sh` |
+| `DB-MIGRATION-001` | blocking | §12 Additive Migrations | `lint-migrations.sh` |
+| `DB-MIGRATION-002` | blocking | §12 Destructive Migration ADR | `lint-migrations.sh` |
+| `DB-MIGRATION-003` | blocking | §12 Idempotent Migrations | `lint-migrations-idempotent.sh` |
+| `DB-RLS-001` | blocking | §12 Row-Level Security (RLS) | `lint-migrations-rls.sh` |
+| `DB-TENANT-001` | blocking | §12 Tenant Query Parameter | `no-unscoped-queries.sh` |
+| `DB-COMPAT-001` | blocking | §12 Schema Compatibility Window | `validate-db-compat-window.sh` |
+| `DB-STATEMENT-TIMEOUT-001`| blocking | §12 Query Statement Timeout | `check-db-statement-timeout.sh` |
+| `REPLICA-CONSISTENCY-001` | blocking | §12 Replica Read Consistency | `check-replica-consistency-param.sh` |
+| `API-IDEMPOTENCY-001` | blocking | §13 OpenAPI Idempotency-Key | `require-idempotency-key-openapi.sh` |
+| `DB-IDEMPOTENCY-001` | blocking | §13 DB Idempotency Constraints | `lint-idempotency-table.sh` |
+| `API-CONCURRENCY-001` | required* | §13 OpenAPI If-Match/ETag | `require-etag-openapi.sh` |
+| `OUTBOX-PATTERN-001` | blocking | §13 Transactional Outbox | `no-uncoordinated-event-publish.sh` |
+| `ID-TAXONOMY-001` | blocking | §14 21+ Identifier Taxonomy | `validate-identifier-taxonomy.sh` |
+| `DEP-PIN-001` | blocking | §16 Dependency Pinning | `no-floating-deps.sh` |
+
+---
+
+## 3. Complete Authoritative Architecture Specification (§0 to §14)
 
 # Data-Driven, Rules-Engine, Vertical-Slice Architecture — v2
 ### Kotlin + Go + Next.js — generic, brutal, complete

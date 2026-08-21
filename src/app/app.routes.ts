@@ -96,4 +96,25 @@ export const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'insights', component: InsightsComponent },
   { path: 'insights/:id', component: PostDetailComponent },
+  {
+    path: 'products/equipment-ops',
+    loadComponent: () =>
+      import('./equipment-ops/equipment-ops-home/equipment-ops-home.component').then(
+        (m) => m.EquipmentOpsHomeComponent
+      ),
+  },
+  {
+    path: 'products/equipment-ops/service',
+    loadComponent: () =>
+      import('./equipment-ops/equipment-ops-service/equipment-ops-service.component').then(
+        (m) => m.EquipmentOpsServiceComponent
+      ),
+  },
+  {
+    path: 'products/mobility-ops',
+    loadComponent: () =>
+      import('./mobility-ops/mobility-ops-home.component').then(
+        (m) => m.MobilityOpsHomeComponent
+      ),
+  },
 ];

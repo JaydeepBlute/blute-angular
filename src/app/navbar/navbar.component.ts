@@ -50,6 +50,76 @@ export class Navbar {
   toggleMobileSection(s: string): void { this.mobileSection = this.mobileSection === s ? null : s; }
   closeMobile(): void { this.mobileOpen = false; this.mobileSection = null; }
 
+  onImgError(event: Event): void {
+    const target = event.currentTarget as HTMLImageElement;
+    if (target) {
+      target.style.opacity = '0';
+    }
+  }
+
+  products: NavItem[] = [
+    {
+      label: 'Equipment Ops Platform',
+      description: 'Unified Sales, Installed Base & Field Service',
+      routerLink: '/products/equipment-ops',
+      badge: 'Platform',
+      iconBg: 'bg-indigo-100',
+      iconColor: 'text-indigo-600',
+      hoverBg: 'hover:bg-indigo-50',
+      hoverText: 'group-hover:text-indigo-600',
+      imageUrl: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=350&q=80',
+      svgPath: 'M13 10V3L4 14h7v7l9-11h-7z',
+    },
+    {
+      label: 'Service & FSM Module',
+      description: 'Asset 360, AMC & EFSR Work Orders',
+      routerLink: '/products/equipment-ops/service',
+      badge: 'Feature',
+      iconBg: 'bg-blue-100',
+      iconColor: 'text-blue-600',
+      hoverBg: 'hover:bg-blue-50',
+      hoverText: 'group-hover:text-blue-600',
+      imageUrl: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=350&q=80',
+      svgPath: 'M11 4a2 2 0 114 0v1a2 2 0 01-4 0V4z',
+    },
+    {
+      label: 'Agentic AI Platform',
+      description: 'Autonomous AI Agents & Workflows',
+      routerLink: '/agentic-ai',
+      badge: 'Platform',
+      iconBg: 'bg-violet-100',
+      iconColor: 'text-violet-600',
+      hoverBg: 'hover:bg-violet-50',
+      hoverText: 'group-hover:text-violet-600',
+      imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=350&q=80',
+      svgPath: 'M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18',
+    },
+    {
+      label: 'Mobility & Bus Platform',
+      description: 'Seat Booking, Live GPS & Conductor POS',
+      routerLink: '/products/mobility-ops',
+      badge: 'Platform',
+      iconBg: 'bg-rose-100',
+      iconColor: 'text-rose-600',
+      hoverBg: 'hover:bg-rose-50',
+      hoverText: 'group-hover:text-rose-600',
+      imageUrl: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=350&q=80',
+      svgPath: 'M8 7h8m-8 4h8m-8 4h8M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z',
+    },
+    {
+      label: 'IoT Asset Telemetry',
+      description: 'Connected Sensor Streams & Predictive Alerts',
+      routerLink: '/iot-solutions',
+      badge: 'Platform',
+      iconBg: 'bg-cyan-100',
+      iconColor: 'text-cyan-600',
+      hoverBg: 'hover:bg-cyan-50',
+      hoverText: 'group-hover:text-cyan-600',
+      imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=350&q=80',
+      svgPath: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+    },
+  ];
+
   technologies: NavItem[] = [
     {
       label: 'Web Application',

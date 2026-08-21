@@ -1,0 +1,458 @@
+ARLIKAT PLATFORM - COMPLETE FEATURE LIST
+Compiled 2026-08-21 from the arlikatweb codebase (branch phase_2)
+
+
+WHAT THIS PRODUCT ACTUALLY IS
+=============================
+
+The UI calls itself "Arlikat-CRM", but that name undersells it. What is
+built is a single-database business platform covering four operational
+areas that are normally four separate purchases:
+
+  1. CRM / Sales      - lead to cash
+  2. Purchase         - indent to supplier payment
+  3. Inventory        - warehouse, serial/batch, spares
+  4. Service / FSM    - installed base, AMC, complaints, field engineers
+
+The thing that makes it unusual is that these are not four products
+glued together. A serial number received on a GRN becomes an asset at
+a customer site, that asset sits under a warranty, the warranty rolls
+into an AMC, the AMC generates preventive-maintenance schedules and
+billing schedules, a customer complaint against that asset becomes a
+work order, the engineer raises a spare indent on the work order, the
+indent pulls stock out of the same warehouse, and the consumption
+lands on the service bill. One chain, one system, no re-keying.
+
+Scale of what exists today (counted, not estimated):
+  - 298 entity modules in the Angular frontend
+  - 4 role-specific dashboards (Sales, Service, Inventory, Purchase)
+  - ~50 dedicated report screens with Excel + PDF export
+  - Angular 14 SPA on Spring Boot (JHipster 7.9.3), multi-tenant MySQL
+
+
+------------------------------------------------------------
+1. CRM AND SALES
+------------------------------------------------------------
+
+Accounts (customers)
+  - Account master with category, type, ownership, turnover band,
+    industry type, region
+  - Multiple billing addresses, shipping addresses and additional
+    addresses per account
+  - Contacts info tab on the account (every contact of that customer
+    visible from the account screen)
+  - Accounts list report, Customer 360 report
+
+Contacts
+  - Contact master with contact types
+  - Per-contact billing and shipping addresses
+  - Contact inventory / contact-to-account mapping
+  - Contacts list report
+
+Leads
+  - Lead master with type, subtype, source, stage, status
+  - Lost reason capture
+  - Assignment to users (lead-asgn-to)
+  - Competitor tagging per lead (which competitor you were up against)
+  - Multiple contacts per lead, plus account-contact mapping
+  - Lead conversion into account + contact + opportunity, with the
+    conversion trail stored
+  - Leads list report
+
+Opportunities
+  - Opportunity master with stages and probability-style pipeline
+  - Product lines on the opportunity
+  - Competitor tagging per opportunity
+  - Billing and shipping addresses
+  - Assignment to users
+  - Opportunity to Quote conversion, Opportunity to Sales Order
+    conversion, both with mapped product lines
+  - Opportunity summary report, opportunity detailed report,
+    opportunity conversion report
+
+Quotations
+  - Quote master with quote stages and numbering series
+  - Product lines, additional charges, terms and conditions blocks
+  - Buyback lines (customer trades in an old machine against the new
+    one) - rare in generic CRMs, essential in equipment sales
+  - Three separate approval streams: margin approval, document
+    approval, request approval
+  - Quote to Sales Order conversion with charge and product carry-over
+  - Quotation summary + quotation detailed reports
+
+Sales Orders
+  - SO master with stages and numbering series
+  - Products, additional charges, terms, buyback, attached documents
+  - Margin / document / request approvals
+  - SO to Invoice conversion
+  - SO to Purchase Order conversion (including buyback products) - the
+    "sell first, then procure" flow dealers actually run
+  - Sales order summary, sales order detailed, sales review report,
+    open order risk analysis
+
+Proforma Invoice
+  - PI master with PI types and numbering series
+  - Products, additional charges, terms, billing and shipping addresses
+  - Assignment
+
+Invoices
+  - Invoice master with invoice types and numbering series
+  - Products, additional charges, terms
+  - Bill-to, ship-to and dispatch-from addresses held separately
+  - Margin, document and request approvals
+  - E-invoice generation with IRN and QR code, and the raw e-invoice
+    response payload stored for audit (einvoice-resp-data)
+  - E-way bill fields
+  - Invoice cancellation with a cancellation report
+  - Invoice summary, invoice detailed, e-invoice report
+
+Credit / Debit notes
+  - Sales credit note and debit note, plus separate spare credit and
+    spare debit for the service side
+  - Credit note report
+
+Money in
+  - Payments with payment modes and quantity-pay types
+  - Receivables report, advances report, applied invoice/bill report
+  - Customer business analysis report
+
+Sales activities
+  - Activity master with type, subtype, status
+  - Assignment, activity inventory link
+  - Activity list report
+
+Sales targets and performance
+  - Per-user sales targets, target tenures, target frequencies
+  - Actual vs Target visualisation on the CRM dashboard
+  - Sales financial year separate from the accounting financial year
+
+Approval engine (used across quote / SO / invoice / PO / bill / DC)
+  - Sales approval setup + per-user approval setup
+  - Margin-gated approvals (discount beyond X needs approval)
+  - Document approvals and request approvals as separate tracks
+  - Approval log visible on the record, approval status widget on the
+    dashboard
+
+Terms and conditions library
+  - Reusable T&C blocks, assignable by group and by user, pulled into
+    quotes, SOs, invoices, POs
+
+
+------------------------------------------------------------
+2. PURCHASE AND PROCUREMENT
+------------------------------------------------------------
+
+Purchase Orders
+  - PO master with PO types and per-type numbering series
+  - Products, additional charges, terms
+  - Supplier address, bill-to and ship-to held separately
+  - Document and request approvals, assignment
+  - Conversion Info tab: from any PO, see every GRN and every Purchase
+    Bill created out of it, each row clickable through to the record
+  - PO summary and PO detailed reports
+
+Purchase Bills
+  - PB master with products, additional charges, attached documents
+  - Bill-to / ship-to addresses
+  - Document and request approvals, assignment
+  - Purchase summary and purchase detail reports
+
+Suppliers
+  - Supplier records with supplier document types
+  - Supplier inventory view (what this supplier has supplied)
+  - Manufacturer master separate from supplier
+
+Money out
+  - Payables, payments, payables aging
+  - Debit notes against purchase returns
+
+Service-side procurement (kept deliberately separate)
+  - Spare PO, Spare PB, Spare DC, Spare payable, Spare payment
+  - Spare PO summary / detailed, Spare PB summary / detailed reports
+
+Purchase dashboard
+  - Procurement progress funnel: PO value -> GRN value -> Bill value,
+    with percent converted and percent billed
+  - Action centre: open POs, pending GRNs, GRNs not billed, bills
+    awaiting payment, overdue bills, debit notes pending - each with
+    count and value
+  - Monthly trend of PO / GRN / Bill / Payment
+  - Payment overview: advance paid, paid, outstanding payables,
+    unpaid and overdue bill counts
+  - Returns and debit notes reconciliation
+  - Payables aging (current, 0-30, 31-60, 61-90, 90+)
+  - Filters by store and by supplier
+
+Purchase vs Sales analysis report (what you bought against what you
+sold - margin leakage at item level)
+
+
+------------------------------------------------------------
+3. INVENTORY AND WAREHOUSE
+------------------------------------------------------------
+
+Stores and stock
+  - Multiple stores / warehouses
+  - Product-to-store stock mapping with available and reserved
+    quantity
+
+Product master
+  - Category, subcategory, group, type, model, rating
+  - Multiple UOMs with UOM conversion factors
+  - Price categories
+  - HSN code linkage for GST
+  - Bulk upload of products from spreadsheet
+  - Products list report, products-by-sales report
+
+Spares master (separate from products, on purpose)
+  - Spares with category, subcategory, type, UOM
+  - Spare inventory, spare stock adjustment
+
+Goods movement
+  - GRN (goods receipt) with serial numbers and batch numbers, receipt
+    addresses, assignment
+  - Delivery Challan (DC) with DC types, DC statuses, numbering series,
+    serial/batch selection, direct DC, dispatch / bill / ship
+    addresses, approvals
+  - Stock adjustment with reason codes, and a separate spare stock
+    adjustment
+  - Inventory SR and RMA (returns) with the RMA to GRN and RMA to DC
+    outcome visible on the RMA screen itself
+  - GRN Conversion Info tab: every Purchase Bill the GRN rolled into
+
+Serial and batch traceability
+  - Serial number and batch number captured on GRN, carried through
+    DC, work order consumption and RMA
+  - Serial / batch report
+
+Inventory dashboard
+  - Stock value, available quantity, reserved quantity, warehouse
+    count, out-of-stock count
+  - Transaction summary by transaction type (count / qty / value)
+  - Return reconciliation: total vs matched vs pending, in nos, qty
+    and value
+  - Recent transactions and recent stock adjustments feeds
+  - Stock health: reorder items, below-minimum items, out-of-stock,
+    healthy items - each with count and value
+  - Inventory aging by value and percent (0-30, 31-90, 91-180, 180+)
+  - Filters by store
+
+Inventory reports
+  - Stock summary, dead stock, reorder, item transaction ledger,
+    serial/batch, RMA analysis, DC summary / detailed, GRN summary /
+    detailed, payables, receivables, debit note
+
+
+------------------------------------------------------------
+4. SERVICE AND FIELD SERVICE MANAGEMENT
+------------------------------------------------------------
+
+This is the part no horizontal CRM or ERP in this price band does
+properly, and it is the reason the product exists.
+
+Installed base / Assets
+  - Asset master tied to customer, site and serial number
+  - Asset category, subcategory, type, criticality, rating
+  - Bulk upload of assets
+  - Asset 360 report (everything that ever happened to one machine)
+  - Asset summary report
+
+Warranty
+  - Warranty records with warranty types, covered products, documents,
+    billing and site addresses, assignment
+  - Warranty management report
+  - Warranty expiry feeds the AMC prospect pipeline
+
+AMC (annual maintenance contracts)
+  - AMC master with contract type, AMC type, AMC stages
+  - Asset-level AMC with asset ratings and asset replacement tracking
+  - Auto-renewal rules, minimum cost rules, annual price-hike rules
+  - Billing schedule (what to invoice, when, for how much)
+  - PMS schedule (which preventive visits are due, when)
+  - AMC to Billing, AMC to PMS, AMC to Service PI conversions
+  - Approval log, comments, documents
+  - AMC management report
+
+Complaint management (CMS)
+  - Complaint master with category, priority, status, event type
+  - SLA info attached to the complaint
+  - Spare info and live spare stock visible on the complaint
+  - Replacement history for the machine
+  - Product stock and spare stock lookups inline
+  - CMS to Work Order, CMS to DC, CMS to Purchase Order conversions
+  - CMS management report, SLA compliance report
+
+Work Orders (the engineer's screen)
+  - WO master with work order types and stages
+  - EFSR - Engineer Field Service Report captured on the work order
+  - Spare indent requests, split into service indents and repair
+    indents
+  - Indent to DC conversion and GRN conversion (spare goes out,
+    replaced part comes back)
+  - Serial and batch selection on consumption
+  - Track Status timeline, comments, documents, change log
+  - Reference details and estimation info tabs
+  - Work order management report, engineer performance report,
+    engineer spare consumption report, replacement machine report
+
+Preventive maintenance
+  - PM master with preventive stages and statuses
+  - Schedules generated from AMC
+  - PM management report
+
+Installation management (IMS)
+  - Installation records with installation type, stage, status
+  - Work Order info tab on the installation
+  - IMS management report
+
+Service estimation and billing
+  - Estimation with estimate types and estimation stages
+  - Estimation vs Invoice report (did we bill what we quoted)
+  - Service billing with billing types, detailed and management
+    reports
+  - Service PI
+
+SLA and escalation
+  - SLA definitions
+  - Escalation matrix
+  - Business hours and holiday setup so SLA clocks respect working
+    time
+  - SLA status on the service dashboard with achievement percentage
+
+Service dashboard
+  - Revenue pipeline: estimation and AMC value, billed value,
+    outstanding value, with totals
+  - Outstanding aging split by estimation and AMC (0-30, 31-60,
+    61-90, 90+)
+  - AMC prospects and forecast: warranties due now / 30 / 60 / 90 days,
+    AMCs due now / 30 / 60 / 90, bills due now / 30 / 60 / 90 - each in
+    quantity and value. This is the renewal-leakage killer.
+  - Complaint status: total, unscheduled, scheduled, in progress,
+    hold, completed
+  - PM status: total, unscheduled, scheduled, in progress, completed,
+    overdue
+  - Installation status: total, unscheduled, scheduled, in progress,
+    under review, closed
+  - SLA status: active, achieved, at risk, breached, hold, with
+    percentages and overall achievement
+  - Non-returned standby machines: total outstanding, value, and aging
+    (a real cash leak nobody else tracks)
+  - Asset and resource overview: total assets, under warranty,
+    warranty expired, under AMC, AMC expired, inactive assets, total
+    engineers, assigned vs closed work orders, average WO per
+    engineer, same-day closure percentage
+  - Filters by period, date range and customer
+
+
+------------------------------------------------------------
+5. ANALYTICS AND REPORTING
+------------------------------------------------------------
+
+CRM / sales dashboard
+  - Sales overview in lakhs, Actual vs Target
+  - Sales funnel by quantity, sales pipeline
+  - Top 10 customers, top 10 opportunities, top 10 products
+  - Approval status widget (quotes / SO / invoice pending approval)
+  - Alerts, reminders, follow-ups, expired follow-ups
+  - New customer count, team view vs individual view
+
+Reporting engine
+  - Roughly 50 report screens grouped into Sales Reports, Purchase
+    Reports, Inventory Reports, Service Reports and Service-PO Reports
+  - Every report exports to Excel (styled, not raw dump) and PDF
+  - Print-friendly views, QR codes on documents, chart-to-image export
+  - Summary and detailed variants of the same report where the
+    detailed one drills to line-item level
+
+
+------------------------------------------------------------
+6. INDIA COMPLIANCE
+------------------------------------------------------------
+
+  - GST throughout: GST registration types, HSN master, tax details,
+    per-branch GSTIN via statutory info
+  - E-invoicing with IRN and QR code, and the government response
+    payload retained per invoice
+  - E-way bill fields
+  - Financial year handling, with a separate sales financial year
+  - Company statutory info, bank details, multi-branch setup
+
+
+------------------------------------------------------------
+7. PLATFORM, ADMIN AND SECURITY
+------------------------------------------------------------
+
+Multi-tenancy
+  - Tenant-scoped data with tenant-prefixed logins
+  - Company master, multiple branches (company branch setup), company
+    additional addresses, bank details, contact details, statutory
+    info
+  - License keys per company plus a license history trail
+
+Access control
+  - App modules and sub-modules registry
+  - Per-user, per-sub-module permission mapping - access is granted at
+    screen level, not just by role
+  - User groups, roles, reporting-to hierarchy (drives team vs
+    individual dashboard views)
+  - User details, addresses, checklists, document assignments
+  - Login history, audit log
+
+Working data
+  - Geography masters: countries, states, cities, regions
+  - Business hours, holiday setup
+  - Frequencies and recurring frequencies, months, financial years
+  - Expense categories and expenses, finance categories
+
+Across-the-board utilities
+  - Per-record comments thread (app-comments) on every major document
+  - Document attachments with document-approval workflow
+  - In-app notification centre plus email notification toggle
+  - Bulk upload for products, accounts and contacts, assets, and AMC
+  - Excel export (styled), PDF export with tables, print, QR code
+    generation, rich text editing
+  - Attendance report (light HR touchpoint)
+
+Technology
+  - Angular 14 single-page app, PrimeNG + Bootstrap UI, ApexCharts
+  - Spring Boot backend, MySQL, multi-tenant
+  - Responsive layouts with a dedicated mobile card pattern - every
+    list table has a mobile card fallback, so the field engineer works
+    on a phone browser
+  - Jest unit tests, visual-regression harness in place
+
+
+------------------------------------------------------------
+8. HONEST GAPS - READ THIS BEFORE WRITING ANY MARKETING COPY
+------------------------------------------------------------
+
+Do not claim these. They are the roadmap, not the product.
+
+  - No general ledger / trial balance / balance sheet. There are
+    payments, payables, receivables and expenses, but this is not an
+    accounting package. It sits alongside Tally, it does not replace
+    it. There is also no proven Tally or Zoho Books connector yet.
+  - No native mobile app. Engineers use a responsive web app. That is
+    genuinely workable but it is not an app-store app, and there is no
+    offline mode - which matters for basement plant rooms and rural
+    sites.
+  - No engineer scheduling map, no route optimisation, no live
+    technician GPS tracking. Assignment is manual.
+  - No customer self-service portal. Customers cannot log a complaint
+    or see their AMC status themselves.
+  - No WhatsApp notifications (zero references in the code). Email
+    and in-app only. For Indian field service this is the single
+    highest-value gap to close.
+  - No public API documentation, no webhook layer, no integration
+    marketplace.
+  - No payment gateway collection link on invoices.
+  - Single language (English only, i18n scaffolding exists).
+
+Sequence in which closing these unlocks the most sales:
+  1. WhatsApp notifications (complaint acknowledgement, engineer
+     assigned, AMC expiry, payment reminder)
+  2. Customer self-service portal (raise complaint, see AMC, see
+     invoices)
+  3. Tally / accounting export
+  4. Native engineer app with offline capture
+  5. Public API + webhooks
