@@ -3,7 +3,7 @@
 
   <!-- ── HOMEPAGE ── -->
   <url>
-    <loc>https://blute.co.in/</loc>
+    <loc>https://blute.org/</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,81 +11,87 @@
 
   <!-- ── CORE COMPANY PAGES ── -->
   <url>
-    <loc>https://blute.co.in/about</loc>
+    <loc>https://blute.org/about</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/contact</loc>
+    <loc>https://blute.org/contact</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/team</loc>
+    <loc>https://blute.org/team</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/careers</loc>
+    <loc>https://blute.org/careers</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/clients</loc>
+    <loc>https://blute.org/clients</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/portfolio</loc>
+    <loc>https://blute.org/portfolio</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blute.org/insights</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- ── HIGH-VALUE SERVICE PAGES ── -->
   <url>
-    <loc>https://blute.co.in/mobile-app-development</loc>
+    <loc>https://blute.org/mobile-app-development</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/product-engineering</loc>
+    <loc>https://blute.org/product-engineering</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/web-application</loc>
+    <loc>https://blute.org/web-application</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/cloud</loc>
+    <loc>https://blute.org/cloud</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/iot-solutions</loc>
+    <loc>https://blute.org/iot-solutions</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/agentic-ai</loc>
+    <loc>https://blute.org/agentic-ai</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/cognitive</loc>
+    <loc>https://blute.org/cognitive</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -93,49 +99,49 @@
 
   <!-- ── SECONDARY SERVICE PAGES ── -->
   <url>
-    <loc>https://blute.co.in/devops</loc>
+    <loc>https://blute.org/devops</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/devsecops</loc>
+    <loc>https://blute.org/devsecops</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/cyber-security</loc>
+    <loc>https://blute.org/cyber-security</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/it-consulting</loc>
+    <loc>https://blute.org/it-consulting</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/networking</loc>
+    <loc>https://blute.org/networking</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/ecosystem</loc>
+    <loc>https://blute.org/ecosystem</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/build-team</loc>
+    <loc>https://blute.org/build-team</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/enterprise</loc>
+    <loc>https://blute.org/enterprise</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -143,49 +149,49 @@
 
   <!-- ── INDUSTRY PAGES ── -->
   <url>
-    <loc>https://blute.co.in/retail-ecommerce</loc>
+    <loc>https://blute.org/retail-ecommerce</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/healthcare-pharma</loc>
+    <loc>https://blute.org/healthcare-pharma</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/industries/bfsi</loc>
+    <loc>https://blute.org/industries/bfsi</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/industries/government</loc>
+    <loc>https://blute.org/industries/government</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/industries/manufacturing</loc>
+    <loc>https://blute.org/industries/manufacturing</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/industries/education</loc>
+    <loc>https://blute.org/industries/education</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/industries/transportation</loc>
+    <loc>https://blute.org/industries/transportation</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/industries/telecom</loc>
+    <loc>https://blute.org/industries/telecom</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -193,13 +199,13 @@
 
   <!-- ── LEGAL PAGES ── -->
   <url>
-    <loc>https://blute.co.in/privacy-policy</loc>
+    <loc>https://blute.org/privacy-policy</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://blute.co.in/terms-of-use</loc>
+    <loc>https://blute.org/terms-of-use</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
