@@ -1,4 +1,4 @@
-<!-- latest-posts.component.html — Home page: full featured post + compact previews + View All -->
+<!-- latest-posts.component.html — Home page: Horizontal scrolling carousel -->
 <section
   *ngIf="loading() || posts().length"
   class="w-full py-20 lg:py-28"
@@ -7,7 +7,7 @@
 >
   <div class="max-w-7xl mx-auto px-6">
 
-    <!-- Section header -->
+    <!-- SECTION HEADER -->
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
       <div class="max-w-2xl">
         <span
@@ -35,52 +35,73 @@
         </p>
       </div>
 
-      <a
-        routerLink="/insights"
-        class="inline-flex items-center gap-2 flex-shrink-0 text-sm font-semibold rounded-md focus-visible:outline-2 focus-visible:outline-offset-4"
-        style="color: var(--color-accent); outline-color: var(--color-accent);"
-        aria-label="View all insights from Blute Technologies"
-      >
-        View all insights
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
-    </div>
-
-    <!-- Loading skeleton -->
-    <ng-container *ngIf="loading()">
-      <div class="w-full rounded-3xl border border-slate-200 bg-white animate-pulse mb-10" style="height: 600px;"></div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div *ngFor="let p of [0,1,2]" class="h-64 rounded-2xl border border-slate-200 bg-white animate-pulse"></div>
-      </div>
-    </ng-container>
-
-    <!-- FEATURED FULL POST (first LinkedIn post, fully embedded, no internal scroll) -->
-    <ng-container *ngIf="!loading() && featuredPost()">
-      <div class="w-full mb-10 rounded-3xl overflow-hidden bg-white border border-slate-200/80 shadow-xl">
-        <div *ngIf="featuredPost()!.linkedInUrl | safeUrl as embedUrl" class="w-full bg-white">
-          <iframe
-            [src]="embedUrl"
-            [style.height.px]="featuredPost()!.embedHeight || 1600"
-            scrolling="no"
-            loading="eager"
-            class="w-full block border-0"
-            frameborder="0"
-            allowfullscreen
-            title="LinkedIn Featured Post"
-          ></iframe>
+      <!-- Header actions: Arrow controls & View All link -->
+      <div class="flex items-center gap-4 flex-shrink-0">
+        <!-- Navigation Arrow Buttons -->
+        <div class="hidden sm:flex items-center gap-2">
+          <button
+            type="button"
+            (click)="scrollLeft()"
+            class="w-10 h-10 rounded-full flex items-center justify-center border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-700 transition-all shadow-sm active:scale-95 cursor-pointer"
+            aria-label="Scroll insights left"
+          >
+            <svg class="w-4 h-4 -translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            (click)="scrollRight()"
+            class="w-10 h-10 rounded-full flex items-center justify-center border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-700 transition-all shadow-sm active:scale-95 cursor-pointer"
+            aria-label="Scroll insights right"
+          >
+            <svg class="w-4 h-4 translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
-      </div>
-    </ng-container>
 
-    <!-- COMPACT PREVIEW CARDS (remaining posts, link to /insights) -->
-    <div *ngIf="!loading() && previewPosts().length" class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-      <app-post-card *ngFor="let post of previewPosts()" [post]="post"></app-post-card>
+        <a
+          routerLink="/insights"
+          class="inline-flex items-center gap-2 text-sm font-semibold rounded-md focus-visible:outline-2 focus-visible:outline-offset-4"
+          style="color: var(--color-accent); outline-color: var(--color-accent);"
+          aria-label="View all insights from Blute Technologies"
+        >
+          View all insights
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
     </div>
 
-    <!-- VIEW ALL BUTTON -->
-    <div *ngIf="!loading()" class="flex justify-center mt-4">
+    <!-- LOADING SKELETONS -->
+    <div *ngIf="loading()" class="flex gap-6 overflow-hidden pb-4">
+      <div *ngFor="let p of [0, 1, 2, 3]" class="w-[340px] h-[440px] flex-shrink-0 rounded-2xl border border-slate-200 bg-white animate-pulse p-4">
+        <div class="w-full aspect-[16/9] bg-slate-100 rounded-xl mb-4"></div>
+        <div class="h-4 bg-slate-100 rounded w-1/3 mb-3"></div>
+        <div class="h-5 bg-slate-100 rounded w-3/4 mb-3"></div>
+        <div class="h-4 bg-slate-100 rounded w-full mb-2"></div>
+        <div class="h-4 bg-slate-100 rounded w-5/6"></div>
+      </div>
+    </div>
+
+    <!-- HORIZONTAL SCROLLING CAROUSEL -->
+    <div
+      *ngIf="!loading() && posts().length"
+      #scrollContainer
+      class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-6 pt-2 px-1"
+    >
+      <div
+        *ngFor="let post of posts()"
+        class="w-[320px] sm:w-[360px] flex-shrink-0 snap-start h-full"
+      >
+        <app-post-card [post]="post"></app-post-card>
+      </div>
+    </div>
+
+    <!-- BOTTOM VIEW ALL BUTTON -->
+    <div *ngIf="!loading()" class="flex justify-center mt-8">
       <a
         routerLink="/insights"
         class="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
