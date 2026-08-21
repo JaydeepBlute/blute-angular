@@ -84,10 +84,10 @@ def deploy_to_server():
     ssh.close()
     print("✅ Web Server Deployment Completed Successfully!")
 
-def post_to_payload(title, summary=""):
+def post_to_payload(title, content=""):
     payload = {"title": title}
-    if summary:
-        payload["summary"] = summary
+    if content:
+        payload["content"] = content
 
     req = urllib.request.Request(
         PAYLOAD_API_URL,
@@ -106,19 +106,55 @@ def post_to_payload(title, summary=""):
         return None
 
 def sync_linkedin_posts():
-    print("📰 Step 3: Posting Updates to Payload CMS...")
-    sample_posts = [
+    print("📰 Step 3: Posting Updates with Full Content to Payload CMS...")
+    linkedin_posts = [
         {
             "title": "Blute Technologies - Enterprise Mobility & Cloud Engineering Platform",
-            "summary": "Custom software development, intercity bus operations platforms, and industrial IoT solutions."
+            "content": (
+                "Blute Technologies Pvt Ltd (Bengaluru, India) is a premier IT services and software engineering company. "
+                "We specialize in custom web & mobile app development, enterprise cloud native architecture, staff augmentation, "
+                "and industry 4.0 IoT platforms. Our mission is empowering enterprises with high-availability, scalable software "
+                "systems built for seamless customer experience and operational excellence."
+            )
         },
         {
-            "title": "Interactive 3D Bus Ticket Booking & Fleet GPS Telemetry Release",
-            "summary": "Interactive 3D sleeper berth selection engine, live vehicle location stream, and conductor mobile POS."
+            "title": "Next-Gen Mobility & Intercity Bus Operations Platform",
+            "content": (
+                "Introducing our Next-Generation Intercity Bus Operations & Booking Platform! Designed for fleet owners, "
+                "travel agencies, and bus operators across India. Key features include: 1) Interactive 2D/3D Sleeper Berth "
+                "Seat Selection Engine with real-time locking; 2) Live GPS Telemetry Stream & Geo-fenced SMS passenger boarding alerts; "
+                "3) Handheld Android POS Ticketing for conductors with instant QR boarding pass validation; 4) Depot Fleet Operations, "
+                "waybill reconciliation, and automated GST invoice compliance."
+            )
+        },
+        {
+            "title": "Industrial IoT Telemetry & Equipment Sales & Service Platform",
+            "content": (
+                "Empower heavy machinery dealers, equipment fleet managers, and industrial OEMs with our unified Equipment "
+                "Sales & Service Platform. Features: 1) Spare parts catalog & real-time inventory management; 2) Automated "
+                "workshop job cards & preventive maintenance schedules; 3) Live IoT sensor telemetry for fuel mileage variance "
+                "and engine health monitoring; 4) Customer service ticket management & warranty claims engine."
+            )
+        },
+        {
+            "title": "Agentic AI & Multi-Agent Autonomous Automation Engine",
+            "content": (
+                "Orchestrate enterprise workflows with Agentic AI! Our autonomous multi-agent platform enables: 1) Declarative "
+                "Rules Engine for dynamic business logic; 2) DAG Workflow Execution with fallback retry logic; 3) OpenTelemetry "
+                "tracing for sub-second auditability; 4) Seamless integration with legacy enterprise APIs and multi-agent AI coding assistants."
+            )
+        },
+        {
+            "title": "Enterprise Cloud Migration & DevSecOps Infrastructure",
+            "content": (
+                "Accelerate your cloud journey with Blute Technologies' DevSecOps engineering team. We deliver: 1) High-availability "
+                "Kubernetes cluster orchestration; 2) Zero-downtime CI/CD automated pipeline deployment; 3) End-to-end security audits "
+                "& vulnerability scanning; 4) 24/7 cloud infrastructure monitoring with automated failover."
+            )
         }
     ]
-    for p in sample_posts:
-        post_to_payload(p["title"], p.get("summary", ""))
+    for p in linkedin_posts:
+        post_to_payload(p["title"], p.get("content", ""))
 
 def main():
     parser = argparse.ArgumentParser(description="Blute Technologies Automated Deployment & Payload Sync Tool")
