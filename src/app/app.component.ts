@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { Navbar } from './navbar/navbar.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { GlobalParticlesComponent } from './global-particles/global-particles.component';
+import { AnalyticsService } from './services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -24,9 +25,12 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     @Inject(DOCUMENT) private doc: Document,
+    private analyticsService: AnalyticsService,
   ) {}
 
   ngOnInit(): void {
+    this.analyticsService.init();
+
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd) => {
