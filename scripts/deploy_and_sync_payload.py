@@ -84,10 +84,12 @@ def deploy_to_server():
     ssh.close()
     print("✅ Web Server Deployment Completed Successfully!")
 
-def post_to_payload(title, content=""):
-    payload = {"title": title}
-    if content:
-        payload["content"] = content
+def post_to_payload(title, text=""):
+    payload = {
+        "title": title,
+        "text": text or title,
+        "status": "posted"
+    }
 
     req = urllib.request.Request(
         PAYLOAD_API_URL,
@@ -99,18 +101,18 @@ def post_to_payload(title, content=""):
         with urllib.request.urlopen(req, timeout=10) as res:
             resp_data = json.loads(res.read().decode("utf-8"))
             doc_id = resp_data.get("doc", {}).get("id", "N/A")
-            print(f"✅ Created Payload Post: '{title}' (ID: {doc_id})")
+            print(f"✅ Created LinkedIn Post: '{title}' (ID: {doc_id})")
             return resp_data
     except Exception as e:
-        print(f"❌ Failed to create Payload Post '{title}': {e}")
+        print(f"❌ Failed to create LinkedIn Post '{title}': {e}")
         return None
 
 def sync_linkedin_posts():
-    print("📰 Step 3: Posting Updates with Full Content to Payload CMS...")
+    print("📰 Step 3: Posting Updates to Payload CMS (linkedin-posts)...")
     linkedin_posts = [
         {
             "title": "Blute Technologies - Enterprise Mobility & Cloud Engineering Platform",
-            "content": (
+            "text": (
                 "Blute Technologies Pvt Ltd (Bengaluru, India) is a premier IT services and software engineering company. "
                 "We specialize in custom web & mobile app development, enterprise cloud native architecture, staff augmentation, "
                 "and industry 4.0 IoT platforms. Our mission is empowering enterprises with high-availability, scalable software "
@@ -119,7 +121,7 @@ def sync_linkedin_posts():
         },
         {
             "title": "Next-Gen Mobility & Intercity Bus Operations Platform",
-            "content": (
+            "text": (
                 "Introducing our Next-Generation Intercity Bus Operations & Booking Platform! Designed for fleet owners, "
                 "travel agencies, and bus operators across India. Key features include: 1) Interactive 2D/3D Sleeper Berth "
                 "Seat Selection Engine with real-time locking; 2) Live GPS Telemetry Stream & Geo-fenced SMS passenger boarding alerts; "
@@ -129,7 +131,7 @@ def sync_linkedin_posts():
         },
         {
             "title": "Industrial IoT Telemetry & Equipment Sales & Service Platform",
-            "content": (
+            "text": (
                 "Empower heavy machinery dealers, equipment fleet managers, and industrial OEMs with our unified Equipment "
                 "Sales & Service Platform. Features: 1) Spare parts catalog & real-time inventory management; 2) Automated "
                 "workshop job cards & preventive maintenance schedules; 3) Live IoT sensor telemetry for fuel mileage variance "
@@ -138,7 +140,7 @@ def sync_linkedin_posts():
         },
         {
             "title": "Agentic AI & Multi-Agent Autonomous Automation Engine",
-            "content": (
+            "text": (
                 "Orchestrate enterprise workflows with Agentic AI! Our autonomous multi-agent platform enables: 1) Declarative "
                 "Rules Engine for dynamic business logic; 2) DAG Workflow Execution with fallback retry logic; 3) OpenTelemetry "
                 "tracing for sub-second auditability; 4) Seamless integration with legacy enterprise APIs and multi-agent AI coding assistants."
@@ -146,7 +148,7 @@ def sync_linkedin_posts():
         },
         {
             "title": "Enterprise Cloud Migration & DevSecOps Infrastructure",
-            "content": (
+            "text": (
                 "Accelerate your cloud journey with Blute Technologies' DevSecOps engineering team. We deliver: 1) High-availability "
                 "Kubernetes cluster orchestration; 2) Zero-downtime CI/CD automated pipeline deployment; 3) End-to-end security audits "
                 "& vulnerability scanning; 4) 24/7 cloud infrastructure monitoring with automated failover."
@@ -154,7 +156,7 @@ def sync_linkedin_posts():
         }
     ]
     for p in linkedin_posts:
-        post_to_payload(p["title"], p.get("content", ""))
+        post_to_payload(p["title"], p.get("text", ""))
 
 def main():
     parser = argparse.ArgumentParser(description="Blute Technologies Automated Deployment & Payload Sync Tool")
