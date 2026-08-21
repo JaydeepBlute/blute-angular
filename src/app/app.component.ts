@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
       .pipe(filter(e => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd) => {
         const path = e.urlAfterRedirects.split('?')[0].split('#')[0];
-        this.setCanonical(`https://blute.co.in${path}`);
+        this.setCanonical(`https://blute.org${path}`);
       });
   }
 
