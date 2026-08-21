@@ -1,9 +1,7 @@
-<!-- insights.component.html -->
+<!-- insights.component.html — Clean 2-Column Grid Layout -->
 <div class="min-h-screen" style="background-color: var(--color-bg-page); font-family: var(--font-body);">
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
-  <header class="relative w-full overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-24" style="background-color: #0a2540;">
+  <!-- HERO HEADER -->
+  <header class="relative w-full overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-20" style="background-color: #0a2540;">
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
       <div
         class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full"
@@ -15,135 +13,105 @@
       ></div>
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
-      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase mb-5 text-white/60">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase mb-4 text-white/60">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path
             d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"
           />
         </svg>
-        Insights
+        Insights & Updates
       </span>
 
       <h1
-        class="text-4xl sm:text-5xl lg:text-6xl leading-[1.1] font-light tracking-tight text-white max-w-4xl"
+        class="text-4xl sm:text-5xl leading-[1.1] font-light tracking-tight text-white max-w-4xl mx-auto"
         style="font-family: var(--font-display);"
       >
         What we are building, <span class="font-semibold">and what we are learning.</span>
       </h1>
 
-      <p class="mt-6 text-lg sm:text-xl leading-relaxed text-white/70 max-w-2xl">
-        Engineering notes, product updates, and perspectives from the Blute Technologies team —
-        published straight from our LinkedIn.
+      <p class="mt-4 text-base sm:text-lg leading-relaxed text-white/70 max-w-2xl mx-auto">
+        Engineering notes, product updates, and official posts from Blute Technologies.
       </p>
     </div>
   </header>
 
-  <!-- ============================================================
-       POST GRID
-       ============================================================ -->
-  <main class="w-full py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="sr-only">All posts</h2>
+  <!-- 2-COLUMN GRID FEED -->
+  <main class="w-full py-12 lg:py-16">
+    <div class="max-w-6xl mx-auto px-6">
 
-      <!-- Loading skeletons -->
-      <div *ngIf="loading()" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <div
-          *ngFor="let placeholder of [0, 1, 2, 3, 4, 5]"
-          class="rounded-2xl overflow-hidden"
-          style="border: 1px solid var(--color-border); background-color: #ffffff;"
-          aria-hidden="true"
-        >
-          <div class="skeleton aspect-[16/9]"></div>
-          <div class="p-6 space-y-3">
-            <div class="skeleton h-3 w-24 rounded"></div>
-            <div class="skeleton h-5 w-3/4 rounded"></div>
-            <div class="skeleton h-4 w-full rounded"></div>
-            <div class="skeleton h-4 w-5/6 rounded"></div>
-          </div>
+      <!-- Loading Skeletons -->
+      <div *ngIf="loading()" class="max-w-4xl mx-auto space-y-10">
+        <div *ngFor="let p of [0, 1]" class="w-full aspect-[4/5] bg-white rounded-3xl animate-pulse border border-slate-200 shadow-sm p-4">
+          <div class="w-full h-full bg-slate-100 rounded-2xl"></div>
         </div>
       </div>
 
-      <!-- Posts -->
-      <div
-        *ngIf="!loading() && posts().length"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-      >
-        <app-post-card *ngFor="let post of posts()" [post]="post"></app-post-card>
+      <!-- SINGLE STREAM FEED (max-w-4xl centered with reduced side space) -->
+      <div *ngIf="!loading() && posts().length" class="max-w-4xl mx-auto space-y-12 flex flex-col items-center">
+        <article *ngFor="let post of posts()" class="w-full rounded-3xl overflow-hidden bg-white border border-slate-200/80 shadow-xl transition-shadow duration-300 hover:shadow-2xl">
+          
+          <!-- Full LinkedIn Post (exact native height, zero inner scrollbar — page scrolls) -->
+          <div *ngIf="post.linkedInUrl | safeUrl as embedUrl; else imageFallback" class="w-full bg-white p-0">
+            <iframe
+              [src]="embedUrl"
+              [style.height.px]="post.embedHeight || 1600"
+              loading="lazy"
+              scrolling="no"
+              class="w-full block border-0"
+              frameborder="0"
+              allowfullscreen
+              title="LinkedIn Post"
+            ></iframe>
+          </div>
+
+          <!-- Fallback Image for standard posts -->
+          <ng-template #imageFallback>
+            <div *ngIf="post.imageUrl" class="w-full aspect-[16/9] overflow-hidden bg-slate-100">
+              <img [src]="post.imageUrl" [alt]="post.imageAlt" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-8">
+              <time *ngIf="post.publishedAt" class="text-xs font-bold text-blue-600 block mb-2">
+                {{ post.publishedAt | date: 'longDate' }}
+              </time>
+              <h3 class="text-2xl font-bold text-slate-900 mb-4">{{ post.title }}</h3>
+              <p class="text-base text-slate-700 whitespace-pre-line leading-relaxed">{{ post.fullText || post.excerpt }}</p>
+            </div>
+          </ng-template>
+
+        </article>
       </div>
 
-      <!-- Load more -->
-      <div *ngIf="!loading() && hasMore()" class="flex justify-center mt-14">
+      <!-- LOAD MORE STREAM BUTTON -->
+      <div *ngIf="!loading() && hasMore()" class="flex justify-center mt-12">
         <button
           type="button"
           (click)="loadMore()"
           [disabled]="loadingMore()"
-          class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4"
-          style="background-color: var(--color-accent); outline-color: var(--color-accent);"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
+          style="background-color: var(--color-accent);"
         >
-          {{ loadingMore() ? 'Loading…' : 'Load more posts' }}
+          {{ loadingMore() ? 'Loading more updates…' : 'Load More Updates' }}
         </button>
       </div>
 
-      <!-- Empty / error state -->
+      <!-- EMPTY STATE -->
       <div
         *ngIf="!loading() && !posts().length"
-        class="max-w-xl mx-auto text-center py-16 px-6 rounded-2xl"
-        style="border: 1px solid var(--color-border); background-color: var(--color-bg-surface);"
+        class="max-w-md mx-auto text-center py-16 px-6 rounded-3xl bg-white border border-slate-200 shadow-sm"
       >
-        <div
-          class="w-14 h-14 rounded-2xl mx-auto mb-6 flex items-center justify-center"
-          style="background-color: var(--color-accent-subtle);"
-        >
-          <svg
-            class="w-7 h-7"
-            style="color: var(--color-accent);"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.25 2.36 4.25 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"
-            />
-          </svg>
-        </div>
-
-        <h3
-          class="text-xl font-semibold mb-3"
-          style="font-family: var(--font-display); color: var(--color-text-primary);"
-        >
-          {{ failed() ? 'Posts are taking a moment' : 'New posts are on the way' }}
-        </h3>
-
-        <p class="text-base leading-relaxed mb-8" style="color: var(--color-text-secondary);">
-          {{
-            failed()
-              ? 'We could not load our latest posts just now. You can always read them directly on LinkedIn.'
-              : 'We are publishing our latest engineering notes and updates shortly. Follow us on LinkedIn to see them first.'
-          }}
-        </p>
-
+        <h3 class="text-xl font-bold text-slate-900 mb-2">New updates on the way</h3>
+        <p class="text-sm text-slate-600 mb-6">Follow us on LinkedIn to see our latest posts first.</p>
         <a
           [href]="linkedInProfile"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4"
-          style="background-color: var(--color-accent); outline-color: var(--color-accent);"
-          aria-label="Follow Blute Technologies on LinkedIn (opens in a new tab)"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all"
         >
-          Follow us on LinkedIn
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          Follow on LinkedIn
         </a>
       </div>
+
     </div>
   </main>
 </div>

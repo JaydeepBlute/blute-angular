@@ -12,6 +12,7 @@ export interface LinkedInPost {
   /** Full body text, shown when a card is expanded. */
   fullText: string;
   linkedInUrl: string | null;
+  embedHeight?: number;
   imageUrl: string | null;
   imageAlt: string;
   publishedAt: Date | null;
@@ -25,6 +26,18 @@ interface PayloadListResponse {
   hasNextPage?: boolean;
 }
 
+/** Known official heights for LinkedIn share URNs to eliminate empty white space */
+const LINKEDIN_URN_HEIGHTS: Record<string, number> = {
+  '7493596549793619968': 1622,
+  '7490751661246967808': 1447,
+  '7489916838970032128': 1475,
+  '7488811725824126976': 1958,
+  '7487380516975878144': 1531,
+  '7485674528317042689': 1538,
+  '7484828621908611073': 1475,
+  '7483128793541541888': 2077,
+};
+
 /** Returns the first candidate key that holds a non-empty value. */
 function pick(doc: Record<string, any>, keys: string[]): any {
   for (const key of keys) {
@@ -34,10 +47,6 @@ function pick(doc: Record<string, any>, keys: string[]): any {
   return null;
 }
 
-/**
- * Payload rich-text (Lexical) stores content as a nested node tree rather than a
- * string, so walk it and collect the leaf text. Plain strings pass straight through.
- */
 function toPlainText(value: any): string {
   if (!value) return '';
   if (typeof value === 'string') return value;
@@ -52,17 +61,12 @@ function toPlainText(value: any): string {
     if (typeof node.text === 'string') out += node.text;
     if (node.children) walk(node.children);
     if (node.root) walk(node.root);
-    // Keep block-level nodes from running together.
     if (node.type === 'paragraph' || node.type === 'heading') out += ' ';
   };
   walk(value);
   return out.replace(/\s+/g, ' ').trim();
 }
 
-/**
- * Same as toPlainText but keeps paragraph breaks, so an expanded card reads the
- * way the post was written rather than as one run-on block.
- */
 function toPlainTextPreservingBreaks(value: any): string {
   if (!value) return '';
   if (typeof value === 'string') return value.trim();
@@ -84,12 +88,6 @@ function toPlainTextPreservingBreaks(value: any): string {
   return paragraphs.join('\n\n').trim();
 }
 
-function truncate(text: string, max = 220): string {
-  if (text.length <= max) return text;
-  return text.slice(0, text.lastIndexOf(' ', max) || max).trimEnd() + '…';
-}
-
-/** Payload upload relations may be an object, an ID string, or already-populated media. */
 function resolveImage(value: any): { url: string | null; alt: string } {
   if (!value || typeof value === 'string') return { url: null, alt: '' };
 
@@ -98,7 +96,6 @@ function resolveImage(value: any): { url: string | null; alt: string } {
     media?.url ?? media?.sizes?.card?.url ?? media?.sizes?.thumbnail?.url ?? null;
   if (!raw) return { url: null, alt: '' };
 
-  // Payload returns media paths relative to its own host.
   const url = raw.startsWith('http') ? raw : `${environment.payloadBaseUrl}${raw}`;
   return { url, alt: media?.alt ?? '' };
 }
@@ -109,7 +106,7 @@ export function normalizePost(doc: Record<string, any>): LinkedInPost {
 
   const rawBody = pick(doc, ['excerpt', 'summary', 'description', 'content', 'body', 'text']);
   const fullText = toPlainTextPreservingBreaks(rawBody);
-  const excerpt = truncate(toPlainText(rawBody));
+  const excerpt = fullText || toPlainText(rawBody);
 
   const linkedInUrl = pick(doc, [
     'linkedinShareUrl',
@@ -121,7 +118,16 @@ export function normalizePost(doc: Record<string, any>): LinkedInPost {
     'link',
   ]);
 
-  // `attachments` is a hasMany relationship — the first image is the cover.
+  let embedHeight = 1500;
+  if (typeof linkedInUrl === 'string') {
+    for (const [urn, h] of Object.entries(LINKEDIN_URN_HEIGHTS)) {
+      if (linkedInUrl.includes(urn)) {
+        embedHeight = h;
+        break;
+      }
+    }
+  }
+
   const attachments = doc['attachments'];
   const firstAttachment = Array.isArray(attachments) ? attachments[0] : attachments;
   const { url: imageUrl, alt } = resolveImage(
@@ -144,6 +150,7 @@ export function normalizePost(doc: Record<string, any>): LinkedInPost {
     excerpt,
     fullText,
     linkedInUrl: typeof linkedInUrl === 'string' ? linkedInUrl : null,
+    embedHeight,
     imageUrl,
     imageAlt: alt || title,
     publishedAt: parsed && !isNaN(parsed.getTime()) ? parsed : null,
@@ -155,15 +162,10 @@ export class LinkedInPostsService {
   private readonly http = inject(HttpClient);
   private readonly endpoint = `${environment.payloadBaseUrl}/api/${environment.payloadPostsCollection}`;
 
-  /** Set when a request fails, so the UI can show a graceful fallback instead of an empty void. */
   readonly loadFailed = signal(false);
 
   private latestCache?: Observable<LinkedInPost[]>;
 
-  /**
-   * Newest posts for the home-page strip. Cached for the lifetime of the app so
-   * navigating home repeatedly does not re-hit the API.
-   */
   getLatest(limit = 3): Observable<LinkedInPost[]> {
     if (!this.latestCache) {
       this.latestCache = this.fetch(limit, 1).pipe(
@@ -174,14 +176,11 @@ export class LinkedInPostsService {
     return this.latestCache;
   }
 
-  /** One page of posts for the /insights listing. */
-  getPage(page: number, limit = 9): Observable<{ posts: LinkedInPost[]; hasMore: boolean }> {
+  getPage(page: number, limit = 4): Observable<{ posts: LinkedInPost[]; hasMore: boolean }> {
     return this.fetch(limit, page);
   }
 
   private fetch(limit: number, page: number): Observable<{ posts: LinkedInPost[]; hasMore: boolean }> {
-    // Sort by createdAt: the collection has no publishedAt field, and Payload
-    // errors on an unknown sort key rather than falling back to a default.
     const query = [
       `limit=${limit}`,
       `page=${page}`,
@@ -207,7 +206,6 @@ export class LinkedInPostsService {
     );
   }
 
-  /** Fetch a single post by ID. */
   getById(id: string): Observable<LinkedInPost | null> {
     const url = `${this.endpoint}/${id}`;
     return this.http.get<any>(url).pipe(
