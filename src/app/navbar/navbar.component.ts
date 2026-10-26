@@ -37,6 +37,7 @@ export class Navbar {
   isScrolled = false;
   mobileOpen = false;
   mobileSection: string | null = null;
+  private closeTimer: any = null;
 
   @HostListener('window:scroll')
   onScroll(): void {
@@ -44,10 +45,28 @@ export class Navbar {
   }
 
   openMenu(menu: string): void {
+    if (this.closeTimer) {
+      clearTimeout(this.closeTimer);
+      this.closeTimer = null;
+    }
     this.activeMenu = menu;
   }
+
   closeMenu(): void {
-    this.activeMenu = null;
+    if (this.closeTimer) {
+      clearTimeout(this.closeTimer);
+    }
+    this.closeTimer = setTimeout(() => {
+      this.activeMenu = null;
+      this.closeTimer = null;
+    }, 150);
+  }
+
+  cancelClose(): void {
+    if (this.closeTimer) {
+      clearTimeout(this.closeTimer);
+      this.closeTimer = null;
+    }
   }
   toggleMobile(): void {
     this.mobileOpen = !this.mobileOpen;
