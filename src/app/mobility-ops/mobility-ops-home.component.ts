@@ -7,7 +7,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 export interface BusSeatItem {
   id: string;
   deck: 'Lower' | 'Upper';
-  tier: 'Executive' | 'Classic' | 'Budget';
+  tier: 'Executive' | 'Classic' | 'Budget' | 'Economy';
   type: 'Single Sleeper' | 'Double Sleeper';
   price: number;
   status: 'available' | 'booked' | 'ladies_reserved' | 'selected';
@@ -59,6 +59,17 @@ export class MobilityOpsHomeComponent implements OnInit, AfterViewInit, OnDestro
   activeSimulatorTab: 'b2c' | 'gps' | 'fleet' | 'agent' | 'b2b' = 'b2c';
   viewMode: '2d' | '3d' = '2d';
   searchQuery = '';
+
+  readonly appUrls = {
+    passenger: 'http://150.241.247.73',
+  };
+
+  readonly bookingSteps = [
+    { label: 'Search & Select', desc: 'Choose route & seat' },
+    { label: 'Passenger Info', desc: 'Enter contact details' },
+    { label: 'Payment Gateway', desc: 'Secure checkout' },
+    { label: 'Instant PNR', desc: 'SMS & WhatsApp ticket' },
+  ];
 
   // Bus Seat Booking State
   selectedDeck: 'Lower' | 'Upper' = 'Lower';
