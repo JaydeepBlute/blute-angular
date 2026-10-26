@@ -1,0 +1,355 @@
+<div class="arlikat-page-root">
+
+  <!-- Amber ambient glow — LearnOS brand -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-amber-600/15 via-orange-600/8 to-transparent blur-3xl pointer-events-none"></div>
+
+  <div class="arlikat-container" style="padding-top: 0 !important;">
+
+    <!-- ═══════════════════════════════════════════════════════════════ HERO -->
+    <div class="text-center max-w-4xl mx-auto pt-6 pb-12" style="padding-top: 1.5rem !important;">
+
+      <div class="arlikat-badge bg-amber-500/10 border border-amber-500/20 text-amber-300">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        Learning Management System · lms.blute.co.in
+      </div>
+
+      <!-- Audience tabs -->
+      <div class="flex items-center justify-center gap-1 mt-6 mb-8 p-1 rounded-xl bg-white/5 border border-white/10 max-w-xl mx-auto text-xs font-semibold">
+        <button *ngFor="let tab of tabs"
+          (click)="selectTab(tab.id)"
+          [class.bg-amber-500]="activeTab === tab.id"
+          [class.text-white]="activeTab === tab.id"
+          [class.text-slate-400]="activeTab !== tab.id"
+          class="flex-1 px-3 py-2 rounded-lg transition-all duration-200 hover:text-white whitespace-nowrap">
+          {{ tab.label }}
+        </button>
+      </div>
+
+      <!-- Dynamic headline -->
+      <div class="text-center">
+        <p class="text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">{{ current.eyebrow }}</p>
+        <h1 class="arlikat-title font-display text-white leading-tight">{{ current.headline }}</h1>
+        <p class="arlikat-subtitle text-slate-400">{{ current.sub }}</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+        <a [href]="lmsUrl" target="_blank" rel="noopener noreferrer"
+          class="arlikat-btn-primary bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 shadow-[0_10px_30px_rgba(245,158,11,0.35)] flex items-center gap-2">
+          {{ current.cta }}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+      </div>
+
+      <!-- Floating stat badges -->
+      <div class="flex items-center justify-center gap-4 mt-8 flex-wrap">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-xs">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+          <span class="font-bold text-white">{{ current.stat }}</span>
+          <span class="text-slate-400">{{ current.statLabel }}</span>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-xs">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138z"/>
+          </svg>
+          <span class="font-bold text-white">Earn certificates</span>
+          <span class="text-slate-400">Show what you know</span>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-xs">
+          <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13"/>
+          </svg>
+          <span class="font-bold text-white">Learning in action</span>
+          <span class="text-slate-400">Skills that create possibilities</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ METRIC STRIP -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-12 p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl">
+      <div *ngFor="let m of metrics" class="text-center p-4">
+        <div class="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-300 font-display">
+          {{ m.value }}
+        </div>
+        <div class="text-sm font-semibold text-slate-200 mt-1">{{ m.label }}</div>
+        <div class="text-xs text-slate-400 mt-0.5">{{ m.detail }}</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ POPULAR CATEGORIES -->
+    <div class="my-20">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <p class="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1">FIND YOUR DIRECTION</p>
+          <h2 class="text-3xl font-bold text-white font-display">Explore popular categories</h2>
+        </div>
+        <a [href]="lmsUrl" target="_blank" rel="noopener noreferrer"
+          class="text-amber-400 hover:text-amber-300 text-sm font-semibold flex items-center gap-1 transition-colors">
+          View all categories
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <a *ngFor="let cat of categories" [href]="lmsUrl" target="_blank" rel="noopener noreferrer"
+          class="group p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/40 hover:bg-amber-500/5 transition-all duration-300">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+            [ngClass]="[cat.accentBg, cat.accentText]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="cat.svgPath"/>
+            </svg>
+          </div>
+          <div class="font-bold text-white text-sm mb-1 group-hover:text-amber-300 transition-colors">{{ cat.name }}</div>
+          <div class="text-xs text-slate-400">{{ cat.count }}</div>
+          <div class="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ ADMIN DASHBOARD PREVIEW -->
+    <div class="my-20">
+      <div class="text-center mb-10">
+        <p class="text-amber-400 text-xs font-bold uppercase tracking-widest mb-2">POWERFUL ADMIN BACK-OFFICE</p>
+        <h2 class="text-3xl font-bold text-white font-display mb-3">Everything you need to run a learning organisation</h2>
+        <p class="text-slate-400 max-w-xl mx-auto text-sm">Manage courses, learners, assessments, and revenue — all from one clean admin dashboard.</p>
+      </div>
+
+      <!-- Dashboard mock -->
+      <div class="rounded-3xl overflow-hidden border border-amber-500/20 shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
+
+        <!-- Top bar -->
+        <div class="flex items-center justify-between px-6 py-3 bg-slate-900 border-b border-white/5">
+          <div class="flex items-center gap-3">
+            <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center">
+              <span class="text-white text-[10px] font-black">LO</span>
+            </div>
+            <div>
+              <div class="text-white text-xs font-bold leading-none">LearnOS</div>
+              <div class="text-slate-500 text-[10px]">Blute Technologies Pvt. Ltd.</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] text-slate-500 bg-slate-800 px-2 py-0.5 rounded">ADMIN · Super Admin</span>
+            <a [href]="adminUrl" target="_blank" rel="noopener noreferrer"
+              class="text-[10px] font-bold px-3 py-1 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30 hover:bg-amber-500/30 transition-colors">
+              Open Live Dashboard ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="flex">
+          <!-- Sidebar -->
+          <div class="w-44 bg-slate-900 border-r border-white/5 py-4 flex-shrink-0">
+            <div class="px-3 mb-3">
+              <div class="text-[9px] font-bold text-slate-600 uppercase tracking-widest px-2 mb-1">OVERVIEW</div>
+              <div class="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-amber-500/20 text-amber-400 text-xs font-semibold">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6z M14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z M4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2z M14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                </svg>
+                Dashboard
+              </div>
+            </div>
+            <div class="px-3 mb-3">
+              <div class="text-[9px] font-bold text-slate-600 uppercase tracking-widest px-2 mb-1">COURSES</div>
+              <ng-container *ngFor="let item of ['All courses','Course builder','Live classes','Content library','Categories']">
+                <div class="flex items-center gap-1.5 px-2 py-1 text-slate-400 text-[11px] hover:text-amber-400 transition-colors cursor-pointer">
+                  <span class="w-1 h-1 rounded-full bg-slate-600"></span>{{ item }}
+                </div>
+              </ng-container>
+            </div>
+            <div class="px-3 mb-3">
+              <div class="text-[9px] font-bold text-slate-600 uppercase tracking-widest px-2 mb-1">LEARNERS</div>
+              <ng-container *ngFor="let item of ['Learners','Batches & groups']">
+                <div class="flex items-center gap-1.5 px-2 py-1 text-slate-400 text-[11px] hover:text-amber-400 transition-colors cursor-pointer">
+                  <span class="w-1 h-1 rounded-full bg-slate-600"></span>{{ item }}
+                </div>
+              </ng-container>
+            </div>
+            <div class="px-3 mb-3">
+              <div class="text-[9px] font-bold text-slate-600 uppercase tracking-widest px-2 mb-1">ASSESS</div>
+              <ng-container *ngFor="let item of ['Tests & quizzes','Certifications']">
+                <div class="flex items-center gap-1.5 px-2 py-1 text-slate-400 text-[11px] hover:text-amber-400 transition-colors cursor-pointer">
+                  <span class="w-1 h-1 rounded-full bg-slate-600"></span>{{ item }}
+                </div>
+              </ng-container>
+            </div>
+            <div class="px-3">
+              <div class="text-[9px] font-bold text-slate-600 uppercase tracking-widest px-2 mb-1">ANALYTICS</div>
+              <div class="flex items-center gap-1.5 px-2 py-1 text-slate-400 text-[11px] hover:text-amber-400 transition-colors cursor-pointer">
+                <span class="w-1 h-1 rounded-full bg-slate-600"></span>Analytics
+              </div>
+            </div>
+          </div>
+
+          <!-- Main content -->
+          <div class="flex-1 bg-slate-50 p-5 overflow-hidden">
+            <h2 class="text-slate-800 font-bold text-base mb-4">Dashboard</h2>
+
+            <!-- KPI cards -->
+            <div class="grid grid-cols-4 gap-3 mb-5">
+              <div class="rounded-xl p-4 bg-gradient-to-br from-green-500 to-emerald-600 text-white">
+                <div class="text-xs font-semibold opacity-80 mb-1">Active learners</div>
+                <div class="text-2xl font-black">30</div>
+                <div class="text-[10px] opacity-70 mt-1">Across current course enrollments</div>
+              </div>
+              <div class="rounded-xl p-4 bg-gradient-to-br from-orange-500 to-amber-500 text-white">
+                <div class="text-xs font-semibold opacity-80 mb-1">Published courses</div>
+                <div class="text-2xl font-black">29</div>
+                <div class="text-[10px] opacity-70 mt-1">34 total courses</div>
+              </div>
+              <div class="rounded-xl p-4 bg-gradient-to-br from-blue-500 to-sky-600 text-white">
+                <div class="text-xs font-semibold opacity-80 mb-1">Certs issued</div>
+                <div class="text-2xl font-black">3</div>
+                <div class="text-[10px] opacity-70 mt-1">3 active certificates</div>
+              </div>
+              <div class="rounded-xl p-4 bg-gradient-to-br from-violet-500 to-purple-600 text-white">
+                <div class="text-xs font-semibold opacity-80 mb-1">Revenue</div>
+                <div class="text-lg font-black">₹1,950,000</div>
+                <div class="text-[10px] opacity-70 mt-1">From company subscriptions</div>
+              </div>
+            </div>
+
+            <!-- Active courses -->
+            <div class="mb-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-slate-700 font-bold text-sm">Active courses</span>
+                <span class="text-slate-400 text-xs">4 shown</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div *ngFor="let course of activeCourses"
+                  class="bg-white rounded-xl p-3.5 border border-slate-100 shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full" [ngClass]="course.categoryBg">
+                      {{ course.category }}
+                    </span>
+                    <span class="text-[10px] text-slate-400">{{ course.enrolled }} enrolled</span>
+                  </div>
+                  <div class="text-slate-800 font-bold text-xs mb-0.5 line-clamp-1">{{ course.title }}</div>
+                  <div class="text-slate-400 text-[10px] mb-2">{{ course.lessons }} lessons</div>
+                  <div class="w-full bg-slate-100 rounded-full h-1.5 mb-1">
+                    <div class="h-1.5 rounded-full" [ngClass]="course.barColor" [style.width.%]="course.completion"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="text-slate-400">{{ course.completion }}% completion</span>
+                    <span class="text-amber-500 font-semibold">★ {{ course.rating }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent test results -->
+            <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-3">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-slate-700 font-bold text-xs">Recent test results</span>
+                <span class="text-slate-400 text-[10px]">4 results</span>
+              </div>
+              <div class="space-y-1.5">
+                <div *ngFor="let test of recentTests"
+                  class="flex items-center justify-between py-1 border-b border-slate-50 last:border-0">
+                  <div>
+                    <div class="text-slate-700 text-[11px] font-semibold line-clamp-1">{{ test.title }}</div>
+                    <div class="text-slate-400 text-[10px]">{{ test.student }} · Attempt {{ test.attempt }} · {{ test.daysAgo }}</div>
+                  </div>
+                  <span class="text-[11px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2"
+                    [ngClass]="getScoreColor(test.score)">
+                    {{ test.score }}%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ PLATFORM FEATURES -->
+    <div class="my-20">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">A BETTER WAY TO LEARN</p>
+          <h2 class="text-4xl font-extrabold text-white font-display leading-tight mb-5">
+            Learning that fits the way you live and work.
+          </h2>
+          <p class="text-slate-400 mb-8 leading-relaxed">
+            LearnOS brings courses, progress tracking, assessments, and certificates together in one clear learning experience — for students, teams, and institutions.
+          </p>
+          <a [href]="lmsUrl" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-sm transition-all shadow-[0_8px_24px_rgba(245,158,11,0.35)]">
+            Start learning today
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div *ngFor="let f of features"
+            class="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/30 transition-all duration-300">
+            <div class="text-amber-500 font-black text-xl font-display mb-3">{{ f.number }}</div>
+            <div class="text-white font-bold text-sm mb-2">{{ f.title }}</div>
+            <p class="text-slate-400 text-xs leading-relaxed">{{ f.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ ADMIN MODULES -->
+    <div class="my-20">
+      <div class="text-center mb-10">
+        <p class="text-amber-400 text-xs font-bold uppercase tracking-widest mb-2">FULL PLATFORM COVERAGE</p>
+        <h2 class="text-3xl font-bold text-white font-display">8 integrated admin modules</h2>
+        <p class="text-slate-400 mt-2 text-sm max-w-lg mx-auto">From course creation to revenue reporting — every tool you need, built in.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div *ngFor="let mod of adminModules"
+          class="group p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-500/30 transition-all duration-300">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
+            [ngClass]="[mod.accentBg, mod.accentColor]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="mod.svgPath"/>
+            </svg>
+          </div>
+          <div class="text-white font-semibold text-sm group-hover:text-amber-300 transition-colors">{{ mod.label }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════ CTA -->
+    <div class="arlikat-cta-box bg-gradient-to-r from-amber-900/60 via-orange-900/60 to-yellow-900/60 border-amber-500/30">
+      <p class="text-amber-400 text-xs font-bold uppercase tracking-widest mb-3">LET'S BUILD WHAT'S NEXT</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white font-display mb-4">
+        Bring better learning to your organisation.
+      </h2>
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-8">
+        Whether you're a university, a company, or a government body — LearnOS gives you the tools to build, deliver, and certify learning at any scale.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a [href]="lmsUrl" target="_blank" rel="noopener noreferrer"
+          class="arlikat-btn-primary bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 shadow-[0_8px_24px_rgba(245,158,11,0.35)] flex items-center justify-center gap-2">
+          Get in Touch
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </a>
+      
+      </div>
+    </div>
+
+  </div>
+</div>

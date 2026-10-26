@@ -117,4 +117,25 @@ export const routes: Routes = [
         (m) => m.MobilityOpsHomeComponent
       ),
   },
+  {
+    path: 'products/learnos',
+    loadComponent: () =>
+      import('./products/learnos-home/learnos-home.component').then(
+        (m) => m.LearnosHomeComponent
+      ),
+  },
+  {
+    path: 'products/arlikat-crm',
+    loadComponent: () =>
+      import('./products/arlikat-crm-home/arlikat-crm-home.component').then(
+        (m) => m.ArlikatCrmHomeComponent
+      ),
+  },
+  {
+    path: 'products/delivery-ms',
+    loadComponent: () =>
+      import('./products/delivery-ms-home/delivery-ms-home.component').then(
+        (m) => m.DeliveryMsHomeComponent
+      ),
+  },
 ];
