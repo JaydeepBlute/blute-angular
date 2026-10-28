@@ -1,0 +1,120 @@
+.flow-viewer {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: radial-gradient(120% 100% at 50% 0%, rgb(76 29 149 / 0.35), rgb(2 6 23 / 0.95));
+  overflow: hidden;
+}
+
+.flow-canvas {
+  display: block;
+  width: 100%;
+  height: min(70vh, 560px);
+  min-height: 380px;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.flow-canvas:active {
+  cursor: grabbing;
+}
+
+.flow-hint {
+  position: absolute;
+  inset-block-start: 16px;
+  inset-inline-start: 20px;
+  font-size: 12px;
+  color: rgb(203 213 225 / 0.8);
+  pointer-events: none;
+}
+
+.flow-panel {
+  position: absolute;
+  inset-block-end: 16px;
+  inset-inline-start: 16px;
+  max-width: min(380px, calc(100% - 32px));
+  padding: 20px;
+  border-radius: 16px;
+  background: rgb(15 23 42 / 0.82);
+  border: 1px solid rgb(139 92 246 / 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.flow-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  transition-property: background-color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.flow-btn-primary {
+  background: #7c3aed;
+  border-color: transparent;
+  color: #fff;
+}
+
+.flow-btn:disabled {
+  opacity: 0.4;
+}
+
+@media (hover: hover) {
+  .flow-btn:enabled:hover {
+    background: rgb(255 255 255 / 0.16);
+  }
+
+  .flow-btn-primary:enabled:hover {
+    background: #8b5cf6;
+  }
+}
+
+@media (max-width: 640px) {
+  .flow-panel {
+    position: static;
+    max-width: none;
+    border-radius: 0;
+    border-inline: 0;
+    border-block-end: 0;
+  }
+}
+
+.guide-canvas {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 8px;
+  width: min(46%, 460px);
+  height: 94%;
+  pointer-events: none;
+}
+
+.guide-tag {
+  position: absolute;
+  inset-block-end: 16px;
+  inset-inline-end: 16px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e9d5ff;
+  background: rgb(15 23 42 / 0.8);
+  border: 1px solid rgb(139 92 246 / 0.35);
+  pointer-events: none;
+}
+
+.typing-dots {
+  width: 72px;
+  height: 36px;
+  margin-block-start: 8px;
+}
+
+@media (max-width: 640px) {
+  .guide-canvas,
+  .guide-tag {
+    display: none;
+  }
+}

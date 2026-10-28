@@ -1,0 +1,74 @@
+<div class="arlikat-page-root">
+  <div class="arlikat-container">
+    <a [routerLink]="overviewLink" class="text-violet-400 text-sm hover:text-violet-300">← Arlikat CRM</a>
+
+    <ng-container *ngIf="flow() as f; else notFound">
+      <header class="max-w-3xl pt-6 pb-8">
+        <div class="arlikat-badge bg-violet-500/10 border border-violet-500/20 text-violet-300">{{ f.module }}</div>
+        <h1 class="arlikat-title font-display text-white leading-tight">{{ f.title }}</h1>
+        <p class="arlikat-subtitle text-slate-400">{{ f.summary }}</p>
+      </header>
+
+      <section class="flow-viewer" aria-label="Interactive 3D flow">
+        <canvas #flowCanvas class="flow-canvas" role="img" [attr.aria-label]="f.title + ' 3D diagram'"></canvas>
+        <canvas #guideCanvas class="guide-canvas" aria-hidden="true"></canvas>
+        <p *ngIf="guide() as g" class="guide-tag">{{ g.name }} · {{ g.role }}</p>
+        <p class="flow-hint">Drag to rotate · scroll to zoom · click a step</p>
+
+        <div class="flow-panel" aria-live="polite">
+          <ng-container *ngIf="f.steps[activeIndex()] as s">
+            <p class="text-violet-300 text-xs font-bold uppercase tracking-widest">
+              Step {{ activeIndex() + 1 }} of {{ f.steps.length }}
+            </p>
+            <h2 class="text-white font-bold font-display text-xl mt-1">{{ s.title }}</h2>
+            <div *ngIf="speaking(); else said" #typingDots class="typing-dots" aria-hidden="true"></div>
+            <ng-template #said>
+              <p class="text-slate-300 text-sm mt-2">{{ s.detail }}</p>
+            </ng-template>
+          </ng-container>
+          <div class="flex gap-3 mt-4">
+            <button type="button" class="flow-btn" [attr.aria-pressed]="voiceOn()" (click)="toggleVoice()">
+              {{ voiceOn() ? 'Voice on' : 'Voice off' }}
+            </button>
+            <button type="button" class="flow-btn" [disabled]="activeIndex() === 0" (click)="step(-1, f.steps.length)">
+              ← Prev
+            </button>
+            <button type="button" class="flow-btn flow-btn-primary" [disabled]="activeIndex() === f.steps.length - 1"
+              (click)="step(1, f.steps.length)">
+              Next →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-14">
+        <p class="text-violet-400 text-xs font-bold uppercase tracking-widest mb-6">SCREENS</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div *ngFor="let screen of f.screens" class="p-6 rounded-2xl bg-white/[0.04] border border-white/10">
+            <h3 class="text-lg font-bold text-white mb-3 font-display">{{ screen.name }}</h3>
+            <ul class="space-y-2">
+              <li *ngFor="let p of screen.points" class="arlikat-bullet-item">
+                <span class="w-1.5 h-1.5 mt-2 rounded-full bg-violet-400 flex-shrink-0"></span>
+                <span>{{ p }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </ng-container>
+
+    <ng-template #notFound>
+      <h1 class="arlikat-title font-display text-white pt-6">Flow not found</h1>
+    </ng-template>
+
+    <nav class="my-14" aria-label="All flows">
+      <p class="text-violet-400 text-xs font-bold uppercase tracking-widest mb-4">ALL FLOWS</p>
+      <div class="flex flex-wrap gap-3">
+        <a *ngFor="let item of flows" [routerLink]="[overviewLink, 'flows', item.slug]" routerLinkActive="border-violet-500"
+          class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-200 hover:border-violet-500/50">
+          {{ item.title }}
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>

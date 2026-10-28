@@ -132,6 +132,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'products/arlikat-crm/flows/:slug',
+    loadComponent: () =>
+      import('./products/arlikat-crm-flows/arlikat-crm-flow.component').then(
+        (m) => m.ArlikatCrmFlowComponent
+      ),
+  },
+  {
     path: 'products/delivery-ms',
     loadComponent: () =>
       import('./products/delivery-ms-home/delivery-ms-home.component').then(

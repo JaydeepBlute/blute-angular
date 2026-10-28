@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CRM_FLOWS } from '../arlikat-crm-flows/arlikat-crm-flows.data';
 
 @Component({
   selector: 'app-arlikat-crm-home',
@@ -10,8 +11,33 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./arlikat-crm-home.component.scss'],
 })
 export class ArlikatCrmHomeComponent {
-  // No live URL yet — contact page used
   readonly contactLink = '/contact';
+
+  loginVisible = false;
+
+  openLogin(): void {
+    this.loginVisible = true;
+  }
+
+  closeLogin(): void {
+    this.loginVisible = false;
+  }
+
+  readonly demoAccess = {
+    url: 'http://150.241.247.73:9090',
+    fields: [
+      { label: 'Tenant', value: 'blute' },
+      { label: 'Username', value: 'admin' },
+      { label: 'Password', value: 'vk1818' },
+    ],
+  };
+
+  readonly flowLinks = CRM_FLOWS.map((f) => ({
+    commands: ['/products/arlikat-crm', 'flows', f.slug],
+    title: f.title,
+    module: f.module,
+    summary: f.summary,
+  }));
 
   readonly metrics = [
     { value: '4', label: 'Business Modules', detail: 'Sales · Inventory · Purchase · Service' },
