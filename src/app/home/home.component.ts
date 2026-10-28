@@ -7,6 +7,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { LatestPostsComponent } from '../latest-posts/latest-posts.component';
+import { CursorSpotlightDirective } from '../shared/cursor-spotlight/cursor-spotlight.directive';
 
 interface Content {
   title: string;
@@ -26,7 +27,7 @@ interface Client {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, LatestPostsComponent],
+  imports: [CommonModule, RouterModule, LatestPostsComponent, CursorSpotlightDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

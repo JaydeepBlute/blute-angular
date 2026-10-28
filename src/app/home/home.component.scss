@@ -4,3 +4,29 @@
 :host {
   display: block;
 }
+
+.hero-spotlight,
+.hero-spotlight-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--spot-opacity, 0);
+  transition: opacity 400ms ease;
+}
+
+.hero-spotlight {
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(83, 58, 253, 0.28),
+    rgba(247, 45, 243, 0.08) 45%,
+    transparent 70%
+  );
+}
+
+.hero-spotlight-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(260px circle at var(--spot-x, 50%) var(--spot-y, 50%), #000, transparent 100%);
+  mask-image: radial-gradient(260px circle at var(--spot-x, 50%) var(--spot-y, 50%), #000, transparent 100%);
+}
