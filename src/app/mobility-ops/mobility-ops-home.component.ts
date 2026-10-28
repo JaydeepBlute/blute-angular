@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { BusJourneySceneComponent } from './bus-journey-scene.component';
 
 export interface BusSeatItem {
   id: string;
@@ -33,7 +34,7 @@ export interface MetricHighlight {
 @Component({
   selector: 'app-mobility-ops-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, BusJourneySceneComponent],
   templateUrl: './mobility-ops-home.component.html',
   styleUrls: ['./mobility-ops-home.component.scss'],
 })
