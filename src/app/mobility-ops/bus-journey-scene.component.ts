@@ -7,25 +7,27 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 
 const MODEL_URL = '/models/LittlestTokyo.glb';
 const DRACO_PATH = '/draco/';
-const SKY_COLOR = 0xbfe3dd;
 const MODEL_SCALE = 0.01;
+const AUTO_ROTATE_SPEED = 0.8;
 
 @Component({
   selector: 'app-bus-journey-scene',
   standalone: true,
   template: `
-    <section class="my-16 p-6 md:p-8 rounded-3xl bg-white/[0.02] border border-white/10" aria-label="Route journey animation">
-      <div class="text-center mb-6">
-        <p class="text-rose-400 text-xs font-bold uppercase tracking-widest mb-2">JOURNEY VIEW</p>
-        <h2 class="text-2xl font-bold text-white font-display">From booking to boarding</h2>
-        <p class="text-slate-400 text-sm mt-2 max-w-xl mx-auto">
-          An animated route scene. Drag to rotate and scroll to zoom.
-        </p>
+    <section class="mt-4 mb-16 p-0 md:p-4" aria-label="Route journey animation">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <canvas #sceneCanvas class="journey-canvas" role="img" aria-label="Animated city and train journey scene"></canvas>
+        <div>
+          <p class="text-rose-400 text-xs font-bold uppercase tracking-widest mb-2">JOURNEY VIEW</p>
+          <h2 class="text-3xl font-bold text-white font-display">From booking to boarding</h2>
+          <p class="text-slate-400 text-sm mt-3 max-w-md">
+            An animated route scene. Drag to rotate and scroll to zoom.
+          </p>
+          <p class="text-[11px] text-slate-500 mt-6">
+            Model: "Littlest Tokyo" by Glen Fox, licensed CC BY 4.0.
+          </p>
+        </div>
       </div>
-      <canvas #sceneCanvas class="journey-canvas" role="img" aria-label="Animated city and train journey scene"></canvas>
-      <p class="text-center text-[11px] text-slate-500 mt-3">
-        Model: "Littlest Tokyo" by Glen Fox, licensed CC BY 4.0.
-      </p>
     </section>
   `,
   styles: [
@@ -33,8 +35,8 @@ const MODEL_SCALE = 0.01;
       .journey-canvas {
         display: block;
         width: 100%;
-        height: min(60vh, 460px);
-        min-height: 300px;
+        height: min(50vh, 420px);
+        min-height: 280px;
         border-radius: 20px;
         cursor: grab;
         touch-action: pan-y;
@@ -61,7 +63,7 @@ export class BusJourneySceneComponent implements OnDestroy {
 
   private start(canvas: HTMLCanvasElement): () => void {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     const pmrem = new THREE.PMREMGenerator(renderer);
@@ -69,16 +71,17 @@ export class BusJourneySceneComponent implements OnDestroy {
     const envTexture = pmrem.fromScene(environment, 0.04).texture;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(SKY_COLOR);
     scene.environment = envTexture;
 
     const camera = new THREE.PerspectiveCamera(40, 1, 1, 100);
-    camera.position.set(5, 2, 8);
+    camera.position.set(6, 2.4, 9.5);
 
     const controls = new OrbitControls(camera, canvas);
     controls.target.set(0, 0.5, 0);
     controls.enablePan = false;
     controls.enableDamping = true;
+    controls.autoRotate = !reducedMotion;
+    controls.autoRotateSpeed = AUTO_ROTATE_SPEED;
     controls.update();
 
     const draco = new DRACOLoader().setDecoderPath(DRACO_PATH);
