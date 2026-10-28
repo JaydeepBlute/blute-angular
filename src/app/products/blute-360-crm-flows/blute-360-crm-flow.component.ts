@@ -4,21 +4,21 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import lottie, { AnimationItem } from 'lottie-web';
-import { CRM_FLOWS, CRM_GUIDES, CrmFlow, CrmGuide } from './arlikat-crm-flows.data';
-import { FlowScene } from './arlikat-crm-flow-scene';
-import { GuideScene } from './arlikat-crm-guide-scene';
+import { CRM_FLOWS, CRM_GUIDES, CrmFlow, CrmGuide } from './blute-360-crm-flows.data';
+import { FlowScene } from './blute-360-crm-flow-scene';
+import { GuideScene } from './blute-360-crm-guide-scene';
 
 const SPEAK_DELAY_MS = 900;
 
 @Component({
-  selector: 'app-arlikat-crm-flow',
+  selector: 'app-blute-360-crm-flow',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './arlikat-crm-flow.component.html',
-  styleUrls: ['./arlikat-crm-flow.component.scss'],
+  templateUrl: './blute-360-crm-flow.component.html',
+  styleUrls: ['./blute-360-crm-flow.component.scss'],
 })
-export class ArlikatCrmFlowComponent implements OnDestroy {
-  readonly overviewLink = '/products/arlikat-crm';
+export class Blute360CrmFlowComponent implements OnDestroy {
+  readonly overviewLink = '/products/blute-360-crm';
   readonly contactLink = '/contact';
   readonly flows = CRM_FLOWS;
 

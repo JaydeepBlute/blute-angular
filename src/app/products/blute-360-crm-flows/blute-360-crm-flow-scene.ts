@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { CrmFlowStep } from './arlikat-crm-flows.data';
+import { CrmFlowStep } from './blute-360-crm-flows.data';
 
 const NODE_W = 2.6;
 const NODE_H = 1.6;

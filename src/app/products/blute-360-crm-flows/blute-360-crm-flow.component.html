@@ -1,12 +1,12 @@
-<div class="arlikat-page-root">
-  <div class="arlikat-container">
-    <a [routerLink]="overviewLink" class="text-violet-400 text-sm hover:text-violet-300">← Arlikat CRM</a>
+<div class="blute-360-page-root">
+  <div class="blute-360-container">
+    <a [routerLink]="overviewLink" class="text-violet-400 text-sm hover:text-violet-300">← Blute 360° CRM</a>
 
     <ng-container *ngIf="flow() as f; else notFound">
       <header class="max-w-3xl pt-6 pb-8">
-        <div class="arlikat-badge bg-violet-500/10 border border-violet-500/20 text-violet-300">{{ f.module }}</div>
-        <h1 class="arlikat-title font-display text-white leading-tight">{{ f.title }}</h1>
-        <p class="arlikat-subtitle text-slate-400">{{ f.summary }}</p>
+        <div class="blute-360-badge bg-violet-500/10 border border-violet-500/20 text-violet-300">{{ f.module }}</div>
+        <h1 class="blute-360-title font-display text-white leading-tight">{{ f.title }}</h1>
+        <p class="blute-360-subtitle text-slate-400">{{ f.summary }}</p>
       </header>
 
       <section class="flow-viewer" aria-label="Interactive 3D flow">
@@ -47,7 +47,7 @@
           <div *ngFor="let screen of f.screens" class="p-6 rounded-2xl bg-white/[0.04] border border-white/10">
             <h3 class="text-lg font-bold text-white mb-3 font-display">{{ screen.name }}</h3>
             <ul class="space-y-2">
-              <li *ngFor="let p of screen.points" class="arlikat-bullet-item">
+              <li *ngFor="let p of screen.points" class="blute-360-bullet-item">
                 <span class="w-1.5 h-1.5 mt-2 rounded-full bg-violet-400 flex-shrink-0"></span>
                 <span>{{ p }}</span>
               </li>
@@ -58,7 +58,7 @@
     </ng-container>
 
     <ng-template #notFound>
-      <h1 class="arlikat-title font-display text-white pt-6">Flow not found</h1>
+      <h1 class="blute-360-title font-display text-white pt-6">Flow not found</h1>
     </ng-template>
 
     <nav class="my-14" aria-label="All flows">

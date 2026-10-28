@@ -1,26 +1,26 @@
-<div class="arlikat-page-root">
+<div class="blute-360-page-root">
 
   <!-- Ambient top glow — brand red -->
   <div
     class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-rose-600/20 via-red-600/10 to-transparent blur-3xl pointer-events-none">
   </div>
 
-  <div class="arlikat-container">
+  <div class="blute-360-container">
 
     <!-- ══════════════════════════════════════════════════════════════ HERO -->
     <div class="text-center max-w-4xl mx-auto pt-6 pb-12">
-      <div class="arlikat-badge bg-rose-500/10 border border-rose-500/20 text-rose-300">
+      <div class="blute-360-badge bg-rose-500/10 border border-rose-500/20 text-rose-300">
         <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
         Prayana — Bus Reservation Platform · Built for Every STC
       </div>
 
-      <h1 class="arlikat-title font-display">{{ heroTitle }}</h1>
-      <p class="arlikat-subtitle">{{ heroSubtitle }}</p>
+      <h1 class="blute-360-title font-display">{{ heroTitle }}</h1>
+      <p class="blute-360-subtitle">{{ heroSubtitle }}</p>
 
       <!-- ── Hero CTAs ── -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
         <a href="http://150.241.247.73" target="_blank" rel="noopener noreferrer"
-          class="arlikat-btn-primary bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 shadow-[0_10px_30px_rgba(225,29,72,0.35)]">
+          class="blute-360-btn-primary bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 shadow-[0_10px_30px_rgba(225,29,72,0.35)]">
           Start Free Trial
         </a>
       </div>
@@ -467,7 +467,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div *ngFor="let f of filteredFeatures" [class.border-violet-500/30]="f.category.includes('Roadmap')"
           [class.bg-violet-950/10]="f.category.includes('Roadmap')"
-          class="arlikat-card hover:border-rose-500/40 relative overflow-hidden">
+          class="blute-360-card hover:border-rose-500/40 relative overflow-hidden">
 
           <div *ngIf="f.category.includes('Roadmap')"
             class="absolute top-0 right-0 w-24 h-24 bg-violet-500/10 rounded-full -translate-y-8 translate-x-8 pointer-events-none">
@@ -489,10 +489,10 @@
             </div>
 
             <h3 class="text-lg font-bold text-white mb-2 font-display">{{ f.title }}</h3>
-            <p class="arlikat-card-desc">{{ f.description }}</p>
+            <p class="blute-360-card-desc">{{ f.description }}</p>
 
             <ul class="space-y-2 mb-6">
-              <li *ngFor="let b of f.bullets" class="arlikat-bullet-item">
+              <li *ngFor="let b of f.bullets" class="blute-360-bullet-item">
                 <svg class="w-4 h-4 flex-shrink-0 mt-0.5" [class.text-rose-400]="!f.category.includes('Roadmap')"
                   [class.text-violet-400]="f.category.includes('Roadmap')" fill="none" stroke="currentColor"
                   viewBox="0 0 24 24">
@@ -531,7 +531,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════ CTA -->
-    <div class="arlikat-cta-box bg-gradient-to-r from-rose-900/60 via-red-900/60 to-orange-900/60 border-rose-500/30">
+    <div class="blute-360-cta-box bg-gradient-to-r from-rose-900/60 via-red-900/60 to-orange-900/60 border-rose-500/30">
       <h2 class="text-3xl md:text-4xl font-extrabold text-white font-display mb-4">
         Ready to digitise your bus booking operations?
       </h2>
@@ -540,11 +540,11 @@
         in phased delivery starting at Week 14.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a routerLink="/contact" class="arlikat-btn-primary bg-rose-600 hover:bg-rose-500">
+        <a routerLink="/contact" class="blute-360-btn-primary bg-rose-600 hover:bg-rose-500">
           Book a Live Demo
         </a>
         <a [href]="appUrls.passenger" target="_blank" rel="noopener noreferrer"
-          class="arlikat-btn-secondary flex items-center justify-center gap-2">
+          class="blute-360-btn-secondary flex items-center justify-center gap-2">
           Open Platform Now
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -554,7 +554,7 @@
       </div>
     </div>
 
-  </div><!-- /arlikat-container -->
+  </div><!-- /blute-360-container -->
 
   <!-- ══════════════════════════════════════════ PASSENGER CHECKOUT MODAL -->
   <div *ngIf="showCheckoutModal"

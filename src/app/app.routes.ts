@@ -124,18 +124,20 @@ export const routes: Routes = [
         (m) => m.LearnosHomeComponent
       ),
   },
+  { path: 'products/blute-360-crm', redirectTo: 'products/blute-360-crm', pathMatch: 'full' },
+  { path: 'products/blute-360-crm/flows/:slug', redirectTo: 'products/blute-360-crm/flows/:slug' },
   {
-    path: 'products/arlikat-crm',
+    path: 'products/blute-360-crm',
     loadComponent: () =>
-      import('./products/arlikat-crm-home/arlikat-crm-home.component').then(
-        (m) => m.ArlikatCrmHomeComponent
+      import('./products/blute-360-crm-home/blute-360-crm-home.component').then(
+        (m) => m.Blute360CrmHomeComponent
       ),
   },
   {
-    path: 'products/arlikat-crm/flows/:slug',
+    path: 'products/blute-360-crm/flows/:slug',
     loadComponent: () =>
-      import('./products/arlikat-crm-flows/arlikat-crm-flow.component').then(
-        (m) => m.ArlikatCrmFlowComponent
+      import('./products/blute-360-crm-flows/blute-360-crm-flow.component').then(
+        (m) => m.Blute360CrmFlowComponent
       ),
   },
   {

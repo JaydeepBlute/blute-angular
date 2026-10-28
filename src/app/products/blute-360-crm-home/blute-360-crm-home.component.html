@@ -1,37 +1,37 @@
-<div class="arlikat-page-root">
+<div class="blute-360-page-root">
 
   <!-- Violet ambient glow -->
   <div
     class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-violet-700/20 via-purple-700/10 to-transparent blur-3xl pointer-events-none">
   </div>
 
-  <div class="arlikat-container">
+  <div class="blute-360-container">
 
     <!-- ═══════════════════════════════════════════════════════════════ HERO -->
     <div class="text-center max-w-4xl mx-auto pt-6 pb-12">
 
-      <div class="arlikat-badge bg-violet-500/10 border border-violet-500/20 text-violet-300">
+      <div class="blute-360-badge bg-violet-500/10 border border-violet-500/20 text-violet-300">
         <span class="w-2 h-2 rounded-full bg-violet-400 animate-pulse"></span>
         Enterprise CRM · Built by Blute Technologies
       </div>
 
-      <h1 class="arlikat-title font-display text-white leading-tight">
+      <h1 class="blute-360-title font-display text-white leading-tight">
         Manage Sales, Inventory, Purchase &amp; Service — in one unified CRM.
       </h1>
-      <p class="arlikat-subtitle text-slate-400">
-        Arlikat CRM is a full-stack business management platform covering the complete order-to-cash lifecycle —
+      <p class="blute-360-subtitle text-slate-400">
+        Blute 360° CRM is a full-stack business management platform covering the complete order-to-cash lifecycle —
         with real-time dashboards, GSTIN compliance, field service management, and multi-warehouse inventory tracking.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
         <a [routerLink]="contactLink"
-          class="arlikat-btn-primary bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_10px_30px_rgba(124,58,237,0.35)] flex items-center gap-2">
+          class="blute-360-btn-primary bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_10px_30px_rgba(124,58,237,0.35)] flex items-center gap-2">
           Request a Demo
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
-        <button type="button" (click)="openLogin()" class="arlikat-btn-secondary flex items-center gap-2">
+        <button type="button" (click)="openLogin()" class="blute-360-btn-secondary flex items-center gap-2">
           Get Early Access
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -116,7 +116,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div *ngFor="let f of features" class="arlikat-card hover:border-violet-500/40 relative overflow-hidden">
+        <div *ngFor="let f of features" class="blute-360-card hover:border-violet-500/40 relative overflow-hidden">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-bold px-3 py-1 rounded-full bg-gradient-to-r text-white {{ f.color }}">
@@ -128,9 +128,9 @@
               </span>
             </div>
             <h3 class="text-lg font-bold text-white mb-2 font-display">{{ f.title }}</h3>
-            <p class="arlikat-card-desc">{{ f.description }}</p>
+            <p class="blute-360-card-desc">{{ f.description }}</p>
             <ul class="space-y-2 mb-4">
-              <li *ngFor="let b of f.bullets" class="arlikat-bullet-item">
+              <li *ngFor="let b of f.bullets" class="blute-360-bullet-item">
                 <svg class="w-4 h-4 text-violet-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
                   viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -178,20 +178,20 @@
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a *ngFor="let f of flowLinks" [routerLink]="f.commands" class="arlikat-card hover:border-violet-500/40 block">
+        <a *ngFor="let f of flowLinks" [routerLink]="f.commands" class="blute-360-card hover:border-violet-500/40 block">
           <span class="text-xs font-bold text-violet-300">{{ f.module }}</span>
           <h3 class="text-lg font-bold text-white mt-2 mb-2 font-display">{{ f.title }}</h3>
-          <p class="arlikat-card-desc">{{ f.summary }}</p>
+          <p class="blute-360-card-desc">{{ f.summary }}</p>
         </a>
       </div>
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════ CTA -->
     <div
-      class="arlikat-cta-box bg-gradient-to-r from-violet-900/60 via-purple-900/60 to-indigo-900/60 border-violet-500/30">
+      class="blute-360-cta-box bg-gradient-to-r from-violet-900/60 via-purple-900/60 to-indigo-900/60 border-violet-500/30">
       <p class="text-violet-400 text-xs font-bold uppercase tracking-widest mb-3">GET STARTED</p>
       <h2 class="text-3xl md:text-4xl font-extrabold text-white font-display mb-4">
-        Ready to bring Arlikat CRM to your business?
+        Ready to bring Blute 360° CRM to your business?
       </h2>
       <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-8">
         Sales, inventory, purchase, and service — all connected, real-time, and built for product companies operating at
@@ -199,14 +199,14 @@
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a [routerLink]="contactLink"
-          class="arlikat-btn-primary bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_8px_24px_rgba(124,58,237,0.35)] flex items-center justify-center gap-2">
+          class="blute-360-btn-primary bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 shadow-[0_8px_24px_rgba(124,58,237,0.35)] flex items-center justify-center gap-2">
           Request a Demo
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
         </a>
-        <button type="button" (click)="openLogin()" class="arlikat-btn-secondary flex items-center justify-center gap-2">
+        <button type="button" (click)="openLogin()" class="blute-360-btn-secondary flex items-center justify-center gap-2">
           Get Early Access
         </button>
       </div>
@@ -220,7 +220,7 @@
   <div class="w-full max-w-md rounded-2xl border border-violet-500/30 bg-slate-900 p-8 text-center"
     (click)="$event.stopPropagation()">
     <p class="text-violet-400 text-xs font-bold uppercase tracking-widest mb-3">LIVE DEMO ACCESS</p>
-    <h2 class="text-2xl font-extrabold text-white font-display mb-6">Arlikat CRM Login Details</h2>
+    <h2 class="text-2xl font-extrabold text-white font-display mb-6">Blute 360° CRM Login Details</h2>
     <div class="flex flex-col gap-3 mb-8">
       <div *ngFor="let field of demoAccess.fields"
         class="flex items-center justify-between rounded-xl bg-white/10 border border-white/10 px-4 py-3">
@@ -230,10 +230,10 @@
     </div>
     <div class="flex flex-col sm:flex-row gap-3 justify-center">
       <a [href]="demoAccess.url" target="_blank" rel="noopener noreferrer"
-        class="arlikat-btn-primary bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 inline-flex items-center justify-center">
-        Continue to Arlikat CRM
+        class="blute-360-btn-primary bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 inline-flex items-center justify-center">
+        Continue to Blute 360° CRM
       </a>
-      <button type="button" (click)="closeLogin()" class="arlikat-btn-secondary">Close</button>
+      <button type="button" (click)="closeLogin()" class="blute-360-btn-secondary">Close</button>
     </div>
   </div>
 </div>

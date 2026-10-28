@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { CRM_FLOWS } from '../arlikat-crm-flows/arlikat-crm-flows.data';
+import { CRM_FLOWS } from '../blute-360-crm-flows/blute-360-crm-flows.data';
 
 @Component({
-  selector: 'app-arlikat-crm-home',
+  selector: 'app-blute-360-crm-home',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './arlikat-crm-home.component.html',
-  styleUrls: ['./arlikat-crm-home.component.scss'],
+  templateUrl: './blute-360-crm-home.component.html',
+  styleUrls: ['./blute-360-crm-home.component.scss'],
 })
-export class ArlikatCrmHomeComponent {
+export class Blute360CrmHomeComponent {
   readonly contactLink = '/contact';
 
   loginVisible = false;
@@ -33,7 +33,7 @@ export class ArlikatCrmHomeComponent {
   };
 
   readonly flowLinks = CRM_FLOWS.map((f) => ({
-    commands: ['/products/arlikat-crm', 'flows', f.slug],
+    commands: ['/products/blute-360-crm', 'flows', f.slug],
     title: f.title,
     module: f.module,
     summary: f.summary,
