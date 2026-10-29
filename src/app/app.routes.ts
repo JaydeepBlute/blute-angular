@@ -1,11 +1,11 @@
 // app.routes.ts
 import { Routes } from '@angular/router';
+import { PRODUCT_PAGES } from './products/product-detail/product-pages.data';
 import { Home } from './home/home.component';
 import { ProductEngineeringComponent } from './product-engineering/product-engineering.component';
 import { MobileAppDevelopmentComponent } from './mobile-app-development/mobile-app-development.component';
 import { EcosystemComponent } from './ecosystem/ecosystem.component';
 import { BuildTeamComponent } from './build-team/build-team.component';
-import { IotSolutionsComponent } from './iot-solutions/iot-solutions.component';
 import { AboutComponent } from './about.component/about.component';
 import { TeamComponent } from './team/team.component';
 import { CareersComponent } from './careers/careers.component';
@@ -55,7 +55,6 @@ export const routes: Routes = [
     path: 'build-team',
     component: BuildTeamComponent,
   },
-  { path: 'iot-solutions', component: IotSolutionsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'team', component: TeamComponent },
   { path: 'careers', component: CareersComponent },
@@ -97,20 +96,6 @@ export const routes: Routes = [
   { path: 'insights', component: InsightsComponent },
   { path: 'insights/:id', component: PostDetailComponent },
   {
-    path: 'products/equipment-ops',
-    loadComponent: () =>
-      import('./equipment-ops/equipment-ops-home/equipment-ops-home.component').then(
-        (m) => m.EquipmentOpsHomeComponent
-      ),
-  },
-  {
-    path: 'products/equipment-ops/service',
-    loadComponent: () =>
-      import('./equipment-ops/equipment-ops-service/equipment-ops-service.component').then(
-        (m) => m.EquipmentOpsServiceComponent
-      ),
-  },
-  {
     path: 'products/mobility-ops',
     loadComponent: () =>
       import('./mobility-ops/mobility-ops-home.component').then(
@@ -147,4 +132,12 @@ export const routes: Routes = [
         (m) => m.DeliveryMsHomeComponent
       ),
   },
+  ...PRODUCT_PAGES.map((p) => ({
+    path: `products/${p.slug}`,
+    data: { slug: p.slug },
+    loadComponent: () =>
+      import('./products/product-detail/product-detail.component').then(
+        (m) => m.ProductDetailComponent
+      ),
+  })),
 ];

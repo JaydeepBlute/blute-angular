@@ -83,7 +83,7 @@
 
   <!-- ══════════════════════════════ MEGA MENU PANELS ══════════════════════════════ -->
 
-  <!-- PRODUCTS — 4 cols × 2 rows = 8 products -->
+  <!-- PRODUCTS — 4 cols grid -->
   <div *ngIf="activeMenu === 'products'" class="mega-panel tech-panel-width" (mouseenter)="openMenu('products')">
     <div class="mega-inner">
       <div class="p-5 grid grid-cols-4 gap-3.5">
@@ -112,10 +112,10 @@
       </div>
       <div
         class="panel-footer bg-gray-50/80 px-8 py-3.5 border-t border-gray-100 rounded-b-[24px] flex items-center justify-between text-xs text-gray-500">
-        <span>Blute Enterprise Product Platforms — 8 Platforms</span>
-        <a routerLink="/products/equipment-ops/amc-calculator" (click)="closeMenu()"
+        <span>Blute Enterprise Product Platforms — {{ products.length }} Platforms</span>
+        <a routerLink="/contact" (click)="closeMenu()"
           class="font-semibold text-[#533afd] hover:text-[#4430d4] flex items-center gap-1 transition-colors">
-          Calculate AMC Leakage
+          Talk to our team
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>

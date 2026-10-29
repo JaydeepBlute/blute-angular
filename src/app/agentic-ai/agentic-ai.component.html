@@ -172,10 +172,10 @@
       <span @fadeInUp class="aai-section-tag aai-section-tag--center">CAPABILITIES</span>
       <h2 @fadeInUp class="aai-caps__h2">Core Agentic AI Capabilities</h2>
       <div @staggerCards class="aai-caps__grid">
-        <div class="aai-cap-card card-item relative overflow-hidden" *ngFor="let c of capabilities">
+        <div class="aai-cap-card card-item relative overflow-hidden" [class.aai-cap-card--photo]="isUrl(c.icon)" *ngFor="let c of capabilities">
         <ng-container *ngIf="isUrl(c.icon)">
           <img [src]="c.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/85 to-gray-950/60 z-10"></div>
         </ng-container>
         <div *ngIf="!isUrl(c.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
         
@@ -316,10 +316,10 @@
       <span @fadeInUp class="aai-section-tag aai-section-tag--center">USE CASES</span>
       <h2 @fadeInUp class="aai-usecases__h2">Agentic AI Across Industries</h2>
       <div @staggerCards class="aai-usecases__grid">
-        <div class="aai-uc-card card-item relative overflow-hidden" *ngFor="let u of useCases">
+        <div class="aai-uc-card card-item relative overflow-hidden" [class.aai-uc-card--photo]="isUrl(u.icon)" *ngFor="let u of useCases">
         <ng-container *ngIf="isUrl(u.icon)">
           <img [src]="u.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/85 to-gray-950/60 z-10"></div>
         </ng-container>
         <div *ngIf="!isUrl(u.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
         
@@ -347,16 +347,60 @@
     </div>
   </section>
 
+  <!-- ═══════════ MIGRATION CASE STUDY ═══════════ -->
+  <section class="aai-case">
+    <div class="aai-case__wrap">
+      <span @fadeInUp class="aai-section-tag aai-section-tag--center">{{ migrationCase.tag }}</span>
+      <h2 @fadeInUp class="aai-case__h2">{{ migrationCase.title }}</h2>
+      <p class="aai-case__sub">{{ migrationCase.subtitle }}</p>
+      <p class="aai-case__summary">{{ migrationCase.summary }}</p>
+
+      <div class="aai-case__grid">
+        <div class="aai-case__card">
+          <h3 class="aai-case__card-title">Why migrate</h3>
+          <ul class="aai-case__list">
+            <li *ngFor="let w of migrationCase.why">{{ w }}</li>
+          </ul>
+        </div>
+
+        <div class="aai-case__card">
+          <h3 class="aai-case__card-title">AngularJS vs Angular 18</h3>
+          <div class="aai-case__row aai-case__row--head">
+            <span>Feature</span><span>AngularJS</span><span>Angular 18</span>
+          </div>
+          <div class="aai-case__row" *ngFor="let r of migrationCase.compare">
+            <span class="aai-case__feat">{{ r.feature }}</span><span>{{ r.from }}</span><span class="aai-case__to">{{ r.to }}</span>
+          </div>
+        </div>
+
+        <div class="aai-case__card">
+          <h3 class="aai-case__card-title">Challenges and mitigation</h3>
+          <div class="aai-case__pair" *ngFor="let c of migrationCase.challenges">
+            <strong>{{ c.challenge }}</strong>
+            <span>{{ c.fix }}</span>
+          </div>
+        </div>
+
+        <div class="aai-case__card">
+          <h3 class="aai-case__card-title">Outcome</h3>
+          <ul class="aai-case__list">
+            <li *ngFor="let o of migrationCase.outcomes">{{ o }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════ PROCESS ═══════════ -->
   <section class="aai-process">
     <div class="aai-process__wrap">
       <span @fadeInUp class="aai-section-tag aai-section-tag--center">HOW WE WORK</span>
       <h2 @fadeInUp class="aai-process__h2">Our Agentic AI Delivery Process</h2>
       <div @staggerCards class="aai-process__steps">
-        <div class="aai-step card-item relative overflow-hidden" *ngFor="let s of processSteps; let i = index">
+        <div class="aai-step card-item relative overflow-hidden" [class.aai-step--photo]="isUrl(s.icon)" *ngFor="let s of processSteps; let i = index">
         <ng-container *ngIf="isUrl(s.icon)">
           <img [src]="s.icon" class="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-500 group-hover:scale-110" alt="" />
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent z-10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/85 to-gray-950/60 z-10"></div>
         </ng-container>
         <div *ngIf="!isUrl(s.icon)" class="absolute inset-0 bg-white border border-gray-200 rounded-2xl z-0"></div>
         

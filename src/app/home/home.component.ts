@@ -70,15 +70,6 @@ export class Home implements OnInit, AfterViewInit, OnDestroy {
       route: 'build-team',
     },
     {
-      title: 'Internet of',
-      subtitle: 'Things',
-      description: 'Connect everything. IoT platforms from sensor to dashboard — smart factories, connected health, and industrial automation. Trusted by Mitsubishi and global manufacturers.',
-      links: [],
-      bgImage: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1920&q=80',
-      serviceImage: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&q=80',
-      route: 'iot-solutions',
-    },
-    {
       title: 'Mobile App',
       subtitle: 'Development',
       description: 'From concept to App Store in 8 weeks. Enterprise-grade iOS & Android — React Native, Flutter, Swift, Kotlin. 50+ apps shipped across 3 continents.',

@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { PRODUCT_PAGES } from '../products/product-detail/product-pages.data';
 
 export interface NavItem {
   label: string;
@@ -87,32 +88,6 @@ export class Navbar {
   // ── 9 Products ────────────────────────────────────────────────────────────────
   products: NavItem[] = [
     {
-      label: 'Equipment Ops Platform',
-      description: 'Unified Sales, Installed Base & Field Service',
-      routerLink: '/products/equipment-ops',
-      badge: 'Platform',
-      iconBg: 'bg-indigo-100',
-      iconColor: 'text-indigo-600',
-      hoverBg: 'hover:bg-indigo-50',
-      hoverText: 'group-hover:text-indigo-600',
-      imageUrl:
-        'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=350&q=80',
-      svgPath: 'M13 10V3L4 14h7v7l9-11h-7z',
-    },
-    {
-      label: 'Service & FSM Module',
-      description: 'Asset 360, AMC & EFSR Work Orders',
-      routerLink: '/products/equipment-ops/service',
-      badge: 'Feature',
-      iconBg: 'bg-blue-100',
-      iconColor: 'text-blue-600',
-      hoverBg: 'hover:bg-blue-50',
-      hoverText: 'group-hover:text-blue-600',
-      imageUrl:
-        'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=350&q=80',
-      svgPath: 'M11 4a2 2 0 114 0v1a2 2 0 01-4 0V4z',
-    },
-    {
       label: 'Agentic AI Platform',
       description: 'Autonomous AI Agents & Workflows',
       routerLink: '/agentic-ai',
@@ -125,20 +100,6 @@ export class Navbar {
         'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=350&q=80',
       svgPath:
         'M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18',
-    },
-    {
-      label: 'IoT Asset Telemetry',
-      description: 'Connected Sensor Streams & Predictive Alerts',
-      routerLink: '/iot-solutions',
-      badge: 'Platform',
-      iconBg: 'bg-cyan-100',
-      iconColor: 'text-cyan-600',
-      hoverBg: 'hover:bg-cyan-50',
-      hoverText: 'group-hover:text-cyan-600',
-      imageUrl:
-        'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=350&q=80',
-      svgPath:
-        'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
     },
     {
       label: 'Online Bus Ticket Reservation Platform',
@@ -197,6 +158,20 @@ export class Navbar {
       svgPath:
         'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
     },
+    ...PRODUCT_PAGES.map(
+      (p): NavItem => ({
+        label: p.name,
+        description: p.navDescription,
+        routerLink: `/products/${p.slug}`,
+        badge: 'Platform',
+        iconBg: 'bg-indigo-100',
+        iconColor: 'text-indigo-600',
+        hoverBg: 'hover:bg-indigo-50',
+        hoverText: 'group-hover:text-indigo-600',
+        imageUrl: p.imageUrl,
+        svgPath: p.svgPath,
+      })
+    ),
   ];
 
   technologies: NavItem[] = [
@@ -259,26 +234,6 @@ export class Navbar {
       tagText2: 'text-indigo-700',
       svgPath:
         'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
-    },
-    {
-      label: 'Internet of Things',
-      description: 'Connected device ecosystems',
-      routerLink: 'iot-solutions',
-      iconBg: 'bg-gradient-to-br from-cyan-500 to-teal-600',
-      iconColor: 'text-white',
-      hoverBg: 'hover:bg-cyan-50',
-      hoverBorder: 'hover:border-cyan-100',
-      hoverText: 'group-hover:text-cyan-600',
-      imageUrl:
-        'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=350&q=80',
-      tags: ['Industrial IoT', 'Embedded'],
-      tagBg: 'bg-gray-100',
-      tagText: 'text-gray-600',
-      badge: 'IoT',
-      tagBg2: 'bg-cyan-100',
-      tagText2: 'text-cyan-700',
-      svgPath:
-        'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
     },
     {
       label: 'Agentic AI',

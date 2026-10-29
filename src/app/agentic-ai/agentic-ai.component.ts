@@ -119,6 +119,40 @@ export class AgenticAiDetailComponent implements OnInit, OnDestroy {
     'RAG with semantic vector search',
   ];
 
+  readonly migrationCase = {
+    tag: 'CASE STUDY',
+    title: 'AngularJS to Angular 18 Migration',
+    subtitle: 'Modernizing legacy applications with scripted, tool-assisted migration',
+    summary:
+      'AngularJS reached end of LTS in December 2021, leaving applications without security updates or official support. We ran a proof of concept that extracted and migrated a public AngularJS module to Angular 18, and identified scripts and tools to accelerate the rest of the codebase.',
+    why: [
+      'AngularJS is deprecated, with no security updates or official support',
+      'Limited compatibility with modern libraries',
+      'Performance and scalability issues',
+      'Need for modern UI/UX',
+    ],
+    compare: [
+      { feature: 'Architecture', from: 'MVC-based', to: 'Component-based' },
+      { feature: 'Language', from: 'JavaScript', to: 'TypeScript' },
+      { feature: 'Dependency Injection', from: 'Limited', to: 'Advanced & hierarchical' },
+      { feature: 'Performance', from: 'Slower', to: 'Optimized' },
+      { feature: 'Tooling', from: 'Basic', to: 'CLI, Ivy, RxJS' },
+      { feature: 'Support', from: 'Deprecated', to: 'Latest version' },
+    ],
+    challenges: [
+      { challenge: 'Dual-framework complexity', fix: 'Use ngUpgrade and shared services' },
+      { challenge: 'Skill gap in Angular 18', fix: 'Training and documentation' },
+      { challenge: 'Legacy code dependencies', fix: 'Gradual refactor or replace' },
+      { challenge: 'Hybrid performance', fix: 'Monitor and optimize regularly' },
+    ],
+    outcomes: [
+      'User Services module upgraded to Angular 18 as a successful proof of concept',
+      'Better performance and security',
+      'Easier maintenance and long-term scalability',
+      'Readiness to modernize other modules with up-to-date frameworks',
+    ],
+  };
+
   useCases = [
     {
       icon: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=120&q=80',
